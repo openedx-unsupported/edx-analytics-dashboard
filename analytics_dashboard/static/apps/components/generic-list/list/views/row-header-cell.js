@@ -10,9 +10,7 @@ define((require) => {
 
   const Backgrid = require('backgrid');
 
-  let RowHeaderCell;
-
-  RowHeaderCell = Backgrid.Cell.extend({
+  const RowHeaderCell = Backgrid.Cell.extend({
     tagName: 'th',
     className: 'row-header-cell', // override this in the subclass to give it a more specific class
     template: undefined, // subclass and define your own template with _.template(require('text!...underscore'))

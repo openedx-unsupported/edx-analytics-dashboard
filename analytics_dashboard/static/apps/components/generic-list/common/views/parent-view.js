@@ -23,9 +23,7 @@ define((require) => {
   const _ = require('underscore');
   const Marionette = require('marionette');
 
-  let ParentView;
-
-  ParentView = Marionette.LayoutView.extend({
+  const ParentView = Marionette.LayoutView.extend({
 
     initialize(options) {
       this.options = options || {};
@@ -36,7 +34,7 @@ define((require) => {
     },
 
     showChildren() {
-      _.each(this.childViews, _.bind(function (child) {
+      _.each(this.childViews, _.bind(child => {
         this.showChildView(child.region, new child.class(child.options));
       }, this));
     },

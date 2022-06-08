@@ -9,9 +9,7 @@ define((require) => {
   const Marionette = require('marionette');
   const registerBehavior = require('components/utils/register-behavior');
 
-  let SkipTargetBehavior;
-
-  SkipTargetBehavior = Marionette.Behavior.extend({
+  const SkipTargetBehavior = Marionette.Behavior.extend({
 
     events: {
       skipLinkClicked: 'skipLinkClicked',

@@ -5,11 +5,9 @@ define((require) => {
   const Marionette = require('marionette');
   const Utils = require('utils/utils');
 
-  let NumResultsView;
-
   const numResultsTemplate = require('components/generic-list/list/templates/num-results.underscore');
 
-  NumResultsView = Marionette.ItemView.extend({
+  const NumResultsView = Marionette.ItemView.extend({
     template: _.template(numResultsTemplate),
 
     initialize(options) {

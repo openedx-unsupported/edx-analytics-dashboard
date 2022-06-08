@@ -15,9 +15,7 @@ define((require) => {
   const HeaderView = require('components/header/views/header');
   const rootTemplate = require('components/root/templates/root.underscore');
 
-  let RootView;
-
-  RootView = Marionette.LayoutView.extend({
+  const RootView = Marionette.LayoutView.extend({
     template: _.template(rootTemplate),
 
     templateHelpers() {

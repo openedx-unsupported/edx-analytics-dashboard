@@ -10,9 +10,7 @@ define((require) => {
   const Marionette = require('marionette');
   const registerBehavior = require('components/utils/register-behavior');
 
-  let SkipLinkBehavior;
-
-  SkipLinkBehavior = Marionette.Behavior.extend({
+  const SkipLinkBehavior = Marionette.Behavior.extend({
 
     events: {
       'click @ui.skipLink': 'clicked',

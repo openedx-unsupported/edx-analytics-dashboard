@@ -2,9 +2,6 @@ define((require) => {
   'use strict';
 
   const Marionette = require('marionette');
-
-  let LoadingView;
-
   /**
      * Displays loading spinner.  Upon a successful load, the view will be
      * replaced with the "success" view.
@@ -12,7 +9,7 @@ define((require) => {
      * This view expects a template with a "loading" class and "loadingText"
      * template variable.
      */
-  LoadingView = Marionette.LayoutView.extend({
+  const LoadingView = Marionette.LayoutView.extend({
 
     templateHelpers() {
       return {
@@ -26,9 +23,7 @@ define((require) => {
     },
 
     onBeforeShow() {
-      this.listenTo(this.model, 'sync', function () {
-        this.showChildView('loadingRegion', this.options.successView);
-      });
+      this.listenTo(this.model, 'sync', () => this.showChildView('loadingRegion', this.options.successView));
     },
   });
 

@@ -12,9 +12,7 @@ define((require) => {
   const PagingFooter = require('./paging-footer');
   const listTableTemplate = require('components/generic-list/list/templates/table.underscore');
 
-  let ListTableView;
-
-  ListTableView = Marionette.LayoutView.extend({
+  const ListTableView = Marionette.LayoutView.extend({
     template: _.template(listTableTemplate),
 
     regions: {

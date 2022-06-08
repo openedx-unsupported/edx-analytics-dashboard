@@ -11,8 +11,6 @@ define((require) => {
   const ParentView = require('components/generic-list/common/views/parent-view');
   const ListUtils = require('components/utils/utils');
 
-  let ListView;
-
   // Load modules without exports
   require('backgrid-filter');
   require('components/skip-link/behaviors/skip-target-behavior');
@@ -21,7 +19,7 @@ define((require) => {
      * Wraps up the search view, table view, and pagination footer
      * view.
      */
-  ListView = ParentView.extend({
+  const ListView = ParentView.extend({
     className: 'generic-list',
 
     ui: {
@@ -33,11 +31,9 @@ define((require) => {
     },
 
     initialize(options) {
-      let eventTransformers;
-
       this.options = options || {};
 
-      eventTransformers = {
+      const eventTransformers = {
         serverError: ListUtils.EventTransformers.serverErrorToAppError,
         networkError: ListUtils.EventTransformers.networkErrorToAppError,
         sync: ListUtils.EventTransformers.syncToClearError,

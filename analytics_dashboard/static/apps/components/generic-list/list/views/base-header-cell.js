@@ -9,9 +9,7 @@ define((require) => {
 
   const baseHeaderCellTemplate = require('components/generic-list/list/templates/base-header-cell.underscore');
 
-  let BaseHeaderCell;
-
-  BaseHeaderCell = Backgrid.HeaderCell.extend({
+  const BaseHeaderCell = Backgrid.HeaderCell.extend({
     attributes: {
       scope: 'col',
     },
@@ -57,7 +55,6 @@ define((require) => {
 
     renderSortState(column, direction) {
       const sortIcon = this.$('span.fa');
-      let sortDirectionMap;
       let directionOrNeutral;
       if (column && column.cid !== this.column.cid) {
         directionOrNeutral = 'neutral';
@@ -66,7 +63,7 @@ define((require) => {
       }
       // Maps a sort direction to its appropriate screen reader
       // text and icon.
-      sortDirectionMap = {
+      const sortDirectionMap = {
         // Translators: "sort ascending" describes the current sort state to the user.
         ascending: { screenReaderText: gettext('sort ascending'), iconClass: 'fa fa-sort-asc' },
         // Translators: "sort descending" describes the current sort state to the user.

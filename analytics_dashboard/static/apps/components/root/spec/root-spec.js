@@ -7,7 +7,7 @@ define((require) => {
   const PageModel = require('components/generic-list/common/models/page');
 
   describe('RootView', () => {
-    beforeEach(function () {
+    beforeEach(() => {
       setFixtures('<div class=root-view-container></div>');
       this.rootView = new RootView({
         el: '.root-view-container',
@@ -19,7 +19,7 @@ define((require) => {
       }).render();
     });
 
-    it('renders a main region', function () {
+    it('renders a main region', () => {
       this.rootView.showChildView('main', new (Backbone.View.extend({
         render() {
           this.$el.html('example view');
@@ -28,12 +28,12 @@ define((require) => {
       expect(this.rootView.$('.test-main-region').html()).toContainText('example view');
     });
 
-    it('renders a header title and date', function () {
+    it('renders a header title and date', () => {
       expect(this.rootView.$('.test-header-region').html()).toContainText('Testing Title');
       expect(this.rootView.$('.test-header-region').html()).not.toContainText('February 28, 2016');
     });
 
-    it('renders and clears alerts', function () {
+    it('renders and clears alerts', () => {
       const childView = new Marionette.View();
       this.rootView.showChildView('main', childView);
       childView.triggerMethod('appError', { title: 'This is the error copy' });

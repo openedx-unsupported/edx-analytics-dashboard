@@ -6,11 +6,9 @@ define((require) => {
   const ParentView = require('components/generic-list/common/views/parent-view');
   const NumResultsView = require('components/generic-list/list/views/num-results');
 
-  let ActiveFiltersView;
-
   const activeFiltersTemplate = require('components/generic-list/list/templates/active-filters.underscore');
 
-  ActiveFiltersView = ParentView.extend({
+  const ActiveFiltersView = ParentView.extend({
     events: {
       'click .action-clear-filter': 'clearOneFilter',
       'click .action-clear-all-filters': 'clearAllFilters',
@@ -49,7 +47,7 @@ define((require) => {
       const formattedFilters = [];
       const { collection } = this.options;
 
-      _(activeFilters).each(function (filterVal, filterKey) {
+      _(activeFilters).each((filterVal, filterKey) => {
         // create individual filters for each filter value (split by ','),
         // except for the text search where the user might enter in a comma
         const filterValues = filterKey === 'text_search'

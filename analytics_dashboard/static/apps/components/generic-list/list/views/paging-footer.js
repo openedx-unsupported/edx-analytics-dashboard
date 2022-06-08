@@ -11,12 +11,10 @@ define((require) => {
 
   const pageHandleTemplate = require('components/generic-list/list/templates/page-handle.underscore');
 
-  let PagingFooter;
-
   // backgrid-paginator attaches itself to 'Backgrid.Extension'
   require('backgrid-paginator');
 
-  PagingFooter = Backgrid.Extension.Paginator.extend({
+  const PagingFooter = Backgrid.Extension.Paginator.extend({
     tagName: 'nav',
     attributes: {
       'aria-label': 'Pagination',

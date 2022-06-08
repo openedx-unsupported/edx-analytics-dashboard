@@ -9,9 +9,7 @@ define((require) => {
 
   const headerTemplate = require('components/header/templates/header.underscore');
 
-  let HeaderView;
-
-  HeaderView = Marionette.ItemView.extend({
+  const HeaderView = Marionette.ItemView.extend({
 
     template: _.template(headerTemplate),
 

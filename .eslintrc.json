@@ -20,7 +20,7 @@
     "rules": {
         "import/no-unresolved": ["error", {"amd": true}],
         "import/no-amd": 0,
-        "global-require" : "off"
+        "global-require" : 2
         // global-require turned off due to https://github.com/eslint/eslint/issues/4812. Fixed in v3.1.1
         // consider turning rule on after upgrading to ESLint 3.1.1
     }
