@@ -7,7 +7,7 @@ define([
   'use strict';
 
   // initialize tracking
-  require(['load/init-tracking'], (initTracking) => {
+  require('load/init-tracking', (initTracking) => {
     initTracking(models);
   });
 

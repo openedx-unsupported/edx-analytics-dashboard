@@ -107,7 +107,7 @@ define((require) => {
       const ranges = this.get('rankedEngagementRanges')[engagementMetric];
       let engagementCategory;
 
-      _.each(ranges, function (range, category) {
+      _.each(ranges, (range, category) => {
         if (this.inMetricRange(value, range)) {
           engagementCategory = category;
         }

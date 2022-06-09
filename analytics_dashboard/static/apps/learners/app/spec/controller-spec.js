@@ -14,7 +14,7 @@ define((require) => {
     const courseId = 'test/course/id';
 
     // convenience method for asserting that we are on the learner detail page
-    const expectDetailPage = function (controller) {
+    const expectDetailPage = controller => {
       const date = new Date(2016, 1, 28);
       expect(controller.options.rootView.$('.learners-navigation-region').html())
         .toContainText('Return to Learners');
@@ -27,7 +27,7 @@ define((require) => {
     };
 
     // convenience method for asserting that we are on the roster page
-    const expectRosterPage = function (controller) {
+    const expectRosterPage = controller => {
       expect(controller.options.rootView.$('.learners-navigation-region').html())
         .not.toContainText('Return to Learners');
       expect(controller.options.rootView.$('.learner-roster')).toBeInDOM();

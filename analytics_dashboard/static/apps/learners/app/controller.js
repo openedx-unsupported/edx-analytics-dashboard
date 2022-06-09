@@ -75,7 +75,7 @@ define((require) => {
 
           fetch = this.options.learnerCollection.fetch({ reset: true });
           if (fetch) {
-            fetch.complete(function (response) {
+            fetch.complete(response => {
               // fetch doesn't empty the collection on 404 by default
               if (response && response.status === 404) {
                 this.options.learnerCollection.reset();
@@ -146,7 +146,7 @@ define((require) => {
 
       // fetch data is the model is empty
       if (!learnerModel.hasData()) {
-        learnerModel.on('change:last_updated', function () {
+        learnerModel.on('change:last_updated', () => {
           this.options.pageModel.set('lastUpdated', learnerModel.get('last_updated'));
         }, this);
         learnerModel.urlRoot = this.options.learnerListUrl;

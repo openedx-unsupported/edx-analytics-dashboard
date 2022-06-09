@@ -9,7 +9,7 @@ define((require) => {
   const EngagementTimelineView = require('learners/detail/views/engagement-timeline');
 
   describe('EngagementTimelineView', () => {
-    const expectLegendRendered = function (view) {
+    const expectLegendRendered = view => {
       const labels = ['Discussion Contributions', 'Problems Correct', 'Videos Viewed'];
       const legendItems = view.$('.nv-legend-text');
       expect(labels.length).toEqual(legendItems.length);
@@ -18,7 +18,7 @@ define((require) => {
       });
     };
 
-    const expectXAxisRendered = function (view) {
+    const expectXAxisRendered = view => {
       const dates = _.map(view.model.get('days'), (day) => moment.utc(Date.parse(day.date)).format('D MMM YYYY'));
       // Note that NVD3 unfortunately doesn't semantically order the
       // x-axis labels in the DOM, so we can't verify each label in order.
@@ -29,7 +29,7 @@ define((require) => {
       expect(dates.sort()).toEqual(xLabels.sort());
     };
 
-    const expectTimelineRendered = function (view) {
+    const expectTimelineRendered = view => {
       // We can't verify the rendering of the actual svg paths, since they
       // don't semantically encode which data they represent; instead NVD3
       // encodes pixel/location values of the points along the paths.
@@ -42,29 +42,27 @@ define((require) => {
 
     const fixtureClass = '.engagement-timeline-fixture';
 
-    const getTimelineModel = function () {
-      return new EngagementTimelineModel({
-        days: [{
-          date: '2016-01-01',
-          discussion_contributions: 1,
-          problems_attempted: 1,
-          problems_completed: 1,
-          videos_viewed: 1,
-        }, {
-          date: '2016-01-02',
-          discussion_contributions: 2,
-          problems_attempted: 2,
-          problems_completed: 2,
-          videos_viewed: 2,
-        }, {
-          fdate: '2016-01-03',
-          discussion_contributions: 3,
-          problems_attempted: 3,
-          problems_completed: 3,
-          videos_viewed: 3,
-        }],
-      });
-    };
+    const getTimelineModel = () => new EngagementTimelineModel({
+      days: [{
+        date: '2016-01-01',
+        discussion_contributions: 1,
+        problems_attempted: 1,
+        problems_completed: 1,
+        videos_viewed: 1,
+      }, {
+        date: '2016-01-02',
+        discussion_contributions: 2,
+        problems_attempted: 2,
+        problems_completed: 2,
+        videos_viewed: 2,
+      }, {
+        fdate: '2016-01-03',
+        discussion_contributions: 3,
+        problems_attempted: 3,
+        problems_completed: 3,
+        videos_viewed: 3,
+      }],
+    });
 
     beforeEach(() => {
       setFixtures(`<div class="${fixtureClass.slice(1)}"></div>`);

@@ -242,7 +242,7 @@ define((require) => {
 
       expectSortCalled = (sortField, sortValue) => expect(
         getSortingHeaderLink(sortField).find('span'),
-      ).toHaveClass(`fa-sort-${sortValue}`)
+      ).toHaveClass(`fa-sort-${sortValue}`);
 
       beforeEach(function () {
         this.view = getCourseListView();

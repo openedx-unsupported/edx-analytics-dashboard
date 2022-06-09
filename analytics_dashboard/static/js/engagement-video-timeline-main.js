@@ -2,22 +2,15 @@
  * This is the first script called by the video timeline page and displays a
  * video timeline chart and data table.
  */
-require(['load/init-page'], (page) => {
+require('load/init-page', (page) => {
   'use strict';
 
-  require([
-    'edx-ui-toolkit/src/js/disclosure/disclosure-view',
-    'underscore',
-    'views/data-table-view',
-    'views/iframe-view',
-    'views/stacked-timeline-view',
-  ], (
-    DisclosureView,
-    _,
-    DataTableView,
-    IFrameView,
-    StackedTimelineView,
-  ) => {
+  require('underscore');
+  const DisclosureView = require('edx-ui-toolkit/src/js/disclosure/disclosure-view');
+  const DataTableView = require('views/data-table-view');
+  const IFrameView = require('views/iframe-view');
+
+  require('views/stacked-timeline-view', StackedTimelineView => {
     const { courseModel } = page.models;
     const timelineSettings = [
       {

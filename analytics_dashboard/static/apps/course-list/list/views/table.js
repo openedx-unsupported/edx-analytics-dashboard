@@ -28,7 +28,7 @@ define((require) => {
       paginator: '.course-list-paging-footer',
     },
     buildColumns() {
-      return _.map(this.options.collection.sortableFields, function (val, key) {
+      return _.map(this.options.collection.sortableFields, (val, key) => {
         const column = this.createDefaultColumn(val.displayName, key);
         column.headerCell = CourseListBaseHeaderCell;
         if (INTEGER_COLUMNS.indexOf(key) !== -1) {

@@ -11,13 +11,9 @@ define((require) => {
     let server;
     let url;
 
-    const lastRequest = function () {
-      return server.requests[server.requests.length - 1];
-    };
+    const lastRequest = () => server.requests[server.requests.length - 1];
 
-    const getUriForLastRequest = function () {
-      return new URI(lastRequest().url);
-    };
+    const getUriForLastRequest = () => new URI(lastRequest().url);
 
     beforeEach(() => {
       server = sinon.fakeServer.create();
@@ -67,7 +63,7 @@ define((require) => {
     });
 
     describe('Sorting', () => {
-      const testSorting = function (sortField) {
+      const testSorting = sortField => {
         learners.setSortField(sortField);
         learners.refresh();
         url = getUriForLastRequest(server);

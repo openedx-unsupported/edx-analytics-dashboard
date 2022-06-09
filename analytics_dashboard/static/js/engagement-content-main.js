@@ -3,10 +3,13 @@
  * the libraries and kicks off the application.
  */
 
-require(['load/init-page'], (page) => {
+require('load/init-page', (page) => {
   'use strict';
 
-  require(['underscore', 'views/data-table-view', 'views/trends-view'], (_, DataTableView, TrendsView) => {
+  const _ = require('underscore');
+  const DataTableView = require('views/data-table-view');
+
+  require('views/trends-view', TrendsView => {
     // shared settings between the chart and table
     // colors are chosen to be color-blind accessible
     let settings = [
