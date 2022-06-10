@@ -2,11 +2,11 @@
  * Called for displaying aggregate video charts and tables.  Each bar is a collection of video views.
  */
 require('d3');
-require('_');
 const DataTableView = require('views/data-table-view');
 const StackedBarView = require('views/stacked-bar-view');
+const page = require('load/init-page');
 
-require('load/init-page', (page) => {
+define(() => {
   'use strict';
 
   const model = page.models.courseModel;
