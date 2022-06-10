@@ -1,11 +1,10 @@
 /**
  * Returns results that have the value in the field array.
  */
+const _ = require('underscore');
 
 define(() => {
   'use strict';
-
-  const _ = require('underscore');
 
   const ArrayFieldFilter = (field, value) => {
     this.field = field;

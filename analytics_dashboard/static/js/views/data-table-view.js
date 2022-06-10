@@ -146,6 +146,7 @@ define(
           const value = row[columnKey];
           let display = value;
           // isNaN() return true for strings -- e.g. 'Unknown'
+          // eslint-disable-next-line no-restricted-globals
           if (type === 'display' && !isNaN(value)) {
             display = Utils.localizeNumber(value);
             if (value >= maxNumber) {

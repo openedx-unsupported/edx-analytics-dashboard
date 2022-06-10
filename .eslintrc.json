@@ -20,10 +20,8 @@
     "rules": {
         "import/no-unresolved": ["error", {"amd": true}],
         "import/no-amd": 0,
-        "global-require" : 0,
-        // global-require turned off due to https://github.com/eslint/eslint/issues/4812. Fixed in v3.1.1
-        // consider turning rule on after upgrading to ESLint 3.1.1
         "prefer-rest-params": 0,
+        "func-names": 0,
         "import/no-extraneous-dependencies": [2, {"devDependencies": true}]
     }
 }
