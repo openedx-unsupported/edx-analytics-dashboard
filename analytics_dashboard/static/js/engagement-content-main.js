@@ -2,11 +2,12 @@
  * This is the first script called by the engagement page.  It loads
  * the libraries and kicks off the application.
  */
-const _ = require('underscore');
-const DataTableView = require('views/data-table-view');
-const TrendsView = require('views/trends-view');
+import _, { template } from 'underscore';
+import DataTableView from 'views/data-table-view';
+import TrendsView from 'views/trends-view';
+import page from 'load/init-page';
 
-define('load/init-page', (page) => {
+define(() => {
   'use strict';
 
   // shared settings between the chart and table
@@ -77,7 +78,7 @@ define('load/init-page', (page) => {
       key: 'count',
     },
     // Translators: <%=value%> will be replaced with a date.
-    interactiveTooltipHeaderTemplate: _.template(gettext('Week Ending <%=value%>')),
+    interactiveTooltipHeaderTemplate: template(gettext('Week Ending <%=value%>')),
   });
   engagementChart.renderIfDataAvailable();
 

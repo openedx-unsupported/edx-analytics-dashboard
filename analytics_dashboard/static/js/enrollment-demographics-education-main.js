@@ -2,11 +2,12 @@
  * This is the first script called by the enrollment demographics education page.  It loads
  * the libraries and kicks off the application.
  */
-const _ = require('underscore');
-const DataTableView = require('views/data-table-view');
-const DiscreteBarView = require('views/discrete-bar-view');
+import { template } from 'underscore';
+import DataTableView from 'views/data-table-view';
+import DiscreteBarView from 'views/discrete-bar-view';
+import page from 'load/init-page';
 
-require('load/init-page', (page) => {
+define(() => {
   'use strict';
 
   const educationChart = new DiscreteBarView({
@@ -22,7 +23,7 @@ require('load/init-page', (page) => {
     x: { key: 'educationLevel' },
     y: { key: 'percent' },
     // Translators: <%=value%> will be replaced with a level of education (e.g. Doctorate).
-    interactiveTooltipHeaderTemplate: _.template(gettext('Education: <%=value%>')),
+    interactiveTooltipHeaderTemplate: template(gettext('Education: <%=value%>')),
   });
   const educationTable = new DataTableView({
     el: '[data-role=enrollment-table]',

@@ -2,11 +2,12 @@
  * This is the first script called by the enrollment demographics gender page.  It loads
  * the libraries and kicks off the application.
  */
-const _ = require('underscore');
-const DataTableView = require('views/data-table-view');
-const DiscreteBarView = require('views/discrete-bar-view');
+import { template } from 'underscore';
+import DataTableView from 'views/data-table-view';
+import DiscreteBarView from 'views/discrete-bar-view';
+import page from 'load/init-page';
 
-require('load/init-page', (page) => {
+define(() => {
   'use strict';
 
   const genderChart = new DiscreteBarView({
@@ -21,7 +22,7 @@ require('load/init-page', (page) => {
     x: { key: 'gender' },
     y: { key: 'percent' },
     // Translators: <%=value%> will be replaced with a level of gender (e.g. Female).
-    interactiveTooltipHeaderTemplate: _.template(gettext('Gender: <%=value%>')),
+    interactiveTooltipHeaderTemplate: template(gettext('Gender: <%=value%>')),
   });
   // Daily enrollment table
   const genderTable = new DataTableView({

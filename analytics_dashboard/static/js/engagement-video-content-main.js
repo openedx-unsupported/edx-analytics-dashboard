@@ -1,10 +1,9 @@
 /**
  * Called for displaying aggregate video charts and tables.  Each bar is a collection of video views.
  */
-require('d3');
-const DataTableView = require('views/data-table-view');
-const StackedBarView = require('views/stacked-bar-view');
-const page = require('load/init-page');
+import DataTableView from 'views/data-table-view';
+import StackedBarView from 'views/stacked-bar-view';
+import page from 'load/init-page';
 
 define(() => {
   'use strict';
