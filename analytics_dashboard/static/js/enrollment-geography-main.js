@@ -6,7 +6,7 @@ import DataTableView from 'views/data-table-view';
 import WorldMapView from 'views/world-map-view';
 import page from 'load/init-page';
 
-define(() => {
+require([], () => {
   'use strict';
 
   // this is your page specific code

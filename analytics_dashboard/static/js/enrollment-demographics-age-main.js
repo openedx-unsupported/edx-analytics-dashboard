@@ -7,7 +7,7 @@ import DataTableView from 'views/data-table-view';
 import HistogramView from 'views/histogram-view';
 import page from 'load/init-page';
 
-define(() => {
+require([], () => {
   'use strict';
 
   // used in the table to show ages above this are binned--displayed as "100+"

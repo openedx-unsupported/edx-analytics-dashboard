@@ -2,7 +2,7 @@ import DataTableView from 'views/data-table-view';
 import StackedBarView from 'views/stacked-bar-view';
 import page from 'load/init-page';
 
-define(() => {
+require([], () => {
   'use strict';
 
   const model = page.models.courseModel;

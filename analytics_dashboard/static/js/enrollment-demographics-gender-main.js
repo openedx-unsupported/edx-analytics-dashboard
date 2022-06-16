@@ -7,7 +7,7 @@ import DataTableView from 'views/data-table-view';
 import DiscreteBarView from 'views/discrete-bar-view';
 import page from 'load/init-page';
 
-define(() => {
+require([], () => {
   'use strict';
 
   const genderChart = new DiscreteBarView({

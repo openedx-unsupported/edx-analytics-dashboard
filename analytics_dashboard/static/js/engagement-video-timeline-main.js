@@ -8,7 +8,7 @@ import IFrameView from 'views/iframe-view';
 import StackedTimelineView from 'views/stacked-timeline-view';
 import page from 'load/init-page';
 
-define(() => {
+require([], () => {
   'use strict';
 
   const { courseModel } = page.models;

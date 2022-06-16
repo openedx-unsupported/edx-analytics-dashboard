@@ -7,7 +7,7 @@ import DataTableView from 'views/data-table-view';
 import StackedTrendsView from 'views/stacked-trends-view';
 import page from 'load/init-page';
 
-define(() => {
+require([], () => {
   'use strict';
 
   // this is your page specific code

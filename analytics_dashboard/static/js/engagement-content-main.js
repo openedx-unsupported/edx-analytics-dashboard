@@ -7,7 +7,7 @@ import DataTableView from 'views/data-table-view';
 import TrendsView from 'views/trends-view';
 import page from 'load/init-page';
 
-define(() => {
+require([], () => {
   'use strict';
 
   // shared settings between the chart and table
