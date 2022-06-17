@@ -126,11 +126,11 @@ define((require) => {
           'verified_enrollment', // field name
           'Verified Enrollment', // expected display name
         ],
-      }, (sortField, expectedResults) => {
+      }, function (sortField, expectedResults) {
         this.sortField = sortField;
         this.expectedResults = expectedResults;
       }, () => {
-        it('displays name', () => {
+        it('displays name', function () {
           courseList.setSorting(this.sortField);
           expect(courseList.sortDisplayName()).toEqual(this.expectedResults);
         });

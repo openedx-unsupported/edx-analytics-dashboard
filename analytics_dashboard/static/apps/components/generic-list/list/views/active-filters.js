@@ -47,7 +47,7 @@ define((require) => {
       const formattedFilters = [];
       const { collection } = this.options;
 
-      _(activeFilters).each((filterVal, filterKey) => {
+      _(activeFilters).each(function (filterVal, filterKey) {
         // create individual filters for each filter value (split by ','),
         // except for the text search where the user might enter in a comma
         const filterValues = filterKey === 'text_search'

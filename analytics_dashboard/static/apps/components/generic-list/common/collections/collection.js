@@ -81,7 +81,7 @@ define((require) => {
       let page; let
         sortKey;
 
-      _.mapObject(params, (val, key) => {
+      _.mapObject(params, function (val, key) {
         if (key === 'page') {
           page = parseInt(val, 10);
           if (page !== this.state.currentPage) {

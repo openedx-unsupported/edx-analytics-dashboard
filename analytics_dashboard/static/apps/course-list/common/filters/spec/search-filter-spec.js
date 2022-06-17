@@ -23,7 +23,9 @@ define((require) => {
     });
 
     it('searches collection', () => {
-      const matcher = model => /^Partly/i.test(model.get('weather'));
+      const matcher = function (model) {
+        return /^Partly/i.test(model.get('weather'));
+      };
 
       const filter = new SearchFilter(matcher);
       expect(collection.models.length).toEqual(3);

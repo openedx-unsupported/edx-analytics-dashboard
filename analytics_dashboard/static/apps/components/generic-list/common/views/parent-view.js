@@ -34,9 +34,9 @@ define((require) => {
     },
 
     showChildren() {
-      _.each(this.childViews, _.bind(child => {
-        const ChildClass = child.class;
-        this.showChildView(child.region, new ChildClass(child.options));
+      _.each(this.childViews, _.bind(function (child) {
+        // eslint-disable-next-line new-cap
+        this.showChildView(child.region, new child.class(child.options));
       }, this));
     },
   });

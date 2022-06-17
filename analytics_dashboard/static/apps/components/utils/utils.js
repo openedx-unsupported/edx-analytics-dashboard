@@ -41,7 +41,8 @@ define((require) => {
         forwarder.listenTo(originator, eventName, function () {
           const transformFunc = transformFunctions[eventName];
           const newEventArguments = transformFunc.apply(forwarder, arguments);
-          forwarder.triggerMethod(...newEventArguments);
+          // eslint-disable-next-line prefer-spread
+          forwarder.triggerMethod.apply(forwarder, newEventArguments);
         });
       });
     },

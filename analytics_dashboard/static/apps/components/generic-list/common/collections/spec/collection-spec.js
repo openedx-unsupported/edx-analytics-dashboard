@@ -10,9 +10,13 @@ define((require) => {
     let server;
     let url;
 
-    const lastRequest = () => server.requests[server.requests.length - 1];
+    const lastRequest = function () {
+      return server.requests[server.requests.length - 1];
+    };
 
-    const getUriForLastRequest = () => new URI(lastRequest().url);
+    const getUriForLastRequest = function () {
+      return new URI(lastRequest().url);
+    };
 
     beforeEach(() => {
       server = sinon.fakeServer.create();

@@ -4,18 +4,16 @@
 define(() => {
   'use strict';
 
-  class FieldFilter {
-    constructor(field, value) {
-      this.field = field;
-      this.value = value;
-    }
+  const FieldFilter = function (field, value) {
+    this.field = field;
+    this.value = value;
+  };
 
-    filter(collection) {
-      const filterOptions = {};
-      filterOptions[this.field] = this.value;
-      return collection.where(filterOptions);
-    }
-  }
+  FieldFilter.prototype.filter = function (collection) {
+    const filterOptions = {};
+    filterOptions[this.field] = this.value;
+    return collection.where(filterOptions);
+  };
 
   return FieldFilter;
 });

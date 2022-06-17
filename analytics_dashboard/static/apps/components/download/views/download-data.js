@@ -26,14 +26,14 @@ define((require) => {
     },
 
     initialize(options) {
-      let splitUrl; let
-        splitParams;
+      let splitUrl; let splitParams;
       this.options = _.extend({}, this.defaults, options);
 
       // Parse the downloadUrl, if given, into URL and query params
       if (this.options.collection && !_.isEmpty(this.options.collection.downloadUrl)) {
         splitUrl = this.options.collection.downloadUrl.split('?', 2);
-        [this.downloadBaseUrl] = splitUrl;
+        // eslint-disable-next-line prefer-destructuring
+        this.downloadBaseUrl = splitUrl[0];
 
         // Store an ordered list of download query string parameters, ready to feed to Util.toQueryString
         splitParams = Utils.parseQueryString(splitUrl[1]);
