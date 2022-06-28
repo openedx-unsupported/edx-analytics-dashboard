@@ -5,23 +5,21 @@
  * The contents of the cell may combine many values from the model. The entire model, as JSON, is sent to the template
  * during rendering.
  */
-define(function(require) {
-    'use strict';
+define((require) => {
+  'use strict';
 
-    var Backgrid = require('backgrid'),
+  const Backgrid = require('backgrid');
 
-        RowHeaderCell;
+  const RowHeaderCell = Backgrid.Cell.extend({
+    tagName: 'th',
+    className: 'row-header-cell', // override this in the subclass to give it a more specific class
+    template: undefined, // subclass and define your own template with _.template(require('text!...underscore'))
+    render() {
+      this.$el.html(this.template(this.model.toJSON()));
+      this.$el.attr('scope', 'row');
+      return this;
+    },
+  });
 
-    RowHeaderCell = Backgrid.Cell.extend({
-        tagName: 'th',
-        className: 'row-header-cell',  // override this in the subclass to give it a more specific class
-        template: undefined,  // subclass and define your own template with _.template(require('text!...underscore'))
-        render: function() {
-            this.$el.html(this.template(this.model.toJSON()));
-            this.$el.attr('scope', 'row');
-            return this;
-        }
-    });
-
-    return RowHeaderCell;
+  return RowHeaderCell;
 });

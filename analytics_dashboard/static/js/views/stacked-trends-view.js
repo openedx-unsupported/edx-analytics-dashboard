@@ -1,28 +1,29 @@
-define(['underscore', 'nvd3', 'views/trends-view'],
-    function(_, nvd3, TrendsView) {
-        'use strict';
+define(
+  ['underscore', 'nvd3', 'views/trends-view'],
+  (_, nvd3, TrendsView) => {
+    'use strict';
 
-        var StackedTrendsView = TrendsView.extend({
-            defaults: _.extend({}, TrendsView.prototype.defaults, {
-                graphShiftSelector: '.nv-stackedarea'
-            }
-            ),
+    const StackedTrendsView = TrendsView.extend({
+      defaults: _.extend({}, TrendsView.prototype.defaults, {
+        graphShiftSelector: '.nv-stackedarea',
+      }),
 
-            getChart: function() {
-                return nvd3.models.stackedAreaChart().showControls(false);
-            },
+      getChart() {
+        return nvd3.models.stackedAreaChart().showControls(false);
+      },
 
-            render: function() {
-                var self = this;
-                TrendsView.prototype.render.call(self);
+      render() {
+        const self = this;
+        TrendsView.prototype.render.call(self);
 
-                // Disable expansion of stacked chart datasets
-                self.chart.stacked.dispatch.on('areaClick', null);
-                self.chart.stacked.dispatch.on('areaClick.toggle', null);
+        // Disable expansion of stacked chart datasets
+        self.chart.stacked.dispatch.on('areaClick', null);
+        self.chart.stacked.dispatch.on('areaClick.toggle', null);
 
-                return self;
-            }
-        });
-
-        return StackedTrendsView;
+        return self;
+      },
     });
+
+    return StackedTrendsView;
+  },
+);

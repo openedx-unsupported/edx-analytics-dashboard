@@ -1,36 +1,31 @@
-define(function(require) {
-    'use strict';
+define((require) => {
+  'use strict';
 
-    var Marionette = require('marionette'),
-
-        LoadingView;
-
-    /**
+  const Marionette = require('marionette');
+  /**
      * Displays loading spinner.  Upon a successful load, the view will be
      * replaced with the "success" view.
      *
      * This view expects a template with a "loading" class and "loadingText"
      * template variable.
      */
-    LoadingView = Marionette.LayoutView.extend({
+  const LoadingView = Marionette.LayoutView.extend({
 
-        templateHelpers: function() {
-            return {
-                // Translators: This message indicates content is loading in the page.
-                loadingText: gettext('Loading...')
-            };
-        },
+    templateHelpers() {
+      return {
+        // Translators: This message indicates content is loading in the page.
+        loadingText: gettext('Loading...'),
+      };
+    },
 
-        regions: {
-            loadingRegion: '.loading'
-        },
+    regions: {
+      loadingRegion: '.loading',
+    },
 
-        onBeforeShow: function() {
-            this.listenTo(this.model, 'sync', function() {
-                this.showChildView('loadingRegion', this.options.successView);
-            });
-        }
-    });
+    onBeforeShow() {
+      this.listenTo(this.model, 'sync', () => this.showChildView('loadingRegion', this.options.successView));
+    },
+  });
 
-    return LoadingView;
+  return LoadingView;
 });

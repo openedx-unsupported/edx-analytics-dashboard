@@ -1,14 +1,12 @@
-define(function(require) {
-    'use strict';
+define((require) => {
+  'use strict';
 
-    var Backbone = require('backbone'),
-        ProgramModel = require('course-list/common/models/program'),
+  const Backbone = require('backbone');
+  const ProgramModel = require('course-list/common/models/program');
 
-        ProgramsCollection;
+  const ProgramsCollection = Backbone.Collection.extend({
+    model: ProgramModel,
+  });
 
-    ProgramsCollection = Backbone.Collection.extend({
-        model: ProgramModel
-    });
-
-    return ProgramsCollection;
+  return ProgramsCollection;
 });

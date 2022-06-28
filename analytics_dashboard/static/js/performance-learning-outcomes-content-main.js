@@ -1,71 +1,73 @@
-require(['load/init-page'], function(page) {
-    'use strict';
+import DataTableView from 'views/data-table-view';
+import StackedBarView from 'views/stacked-bar-view';
+import page from 'load/init-page';
 
-    require(['d3', 'underscore', 'views/data-table-view', 'views/stacked-bar-view'],
-        function(d3, _, DataTableView, StackedBarView) {
-            var model = page.models.courseModel,
-                graphSubmissionColumns = [
-                    {
-                        key: 'average_correct_submissions',
-                        percent_key: 'correct_percent',
-                        title: gettext('Average Correct'),
-                        className: 'text-right',
-                        type: 'number',
-                        fractionDigits: 1,
-                        color: '#4BB4FB'
-                    },
-                    {
-                        key: 'average_incorrect_submissions',
-                        percent_key: 'incorrect_percent',
-                        title: gettext('Average Incorrect'),
-                        className: 'text-right',
-                        type: 'number',
-                        fractionDigits: 1,
-                        color: '#CA0061'
-                    }
-                ],
-                tableColumns = [
-                    {key: 'index', title: gettext('Order'), type: 'number', className: 'text-right'},
-                    {key: 'name', title: model.get('contentTableHeading'), type: 'hasNull'}
-                ],
-                performanceLoContentChart,
-                performanceLoContentTable;
+require([], () => {
+  'use strict';
 
-            tableColumns = tableColumns.concat(graphSubmissionColumns);
+  const model = page.models.courseModel;
+  const graphSubmissionColumns = [
+    {
+      key: 'average_correct_submissions',
+      percent_key: 'correct_percent',
+      title: gettext('Average Correct'),
+      className: 'text-right',
+      type: 'number',
+      fractionDigits: 1,
+      color: '#4BB4FB',
+    },
+    {
+      key: 'average_incorrect_submissions',
+      percent_key: 'incorrect_percent',
+      title: gettext('Average Incorrect'),
+      className: 'text-right',
+      type: 'number',
+      fractionDigits: 1,
+      color: '#CA0061',
+    },
+  ];
+  let tableColumns = [
+    {
+      key: 'index', title: gettext('Order'), type: 'number', className: 'text-right',
+    },
+    { key: 'name', title: model.get('contentTableHeading'), type: 'hasNull' },
+  ];
+  let performanceLoContentChart;
 
-            tableColumns.push({
-                key: 'average_submissions',
-                title: gettext('Average Submissions per Problem'),
-                className: 'text-right',
-                type: 'number',
-                fractionDigits: 1
-            });
+  tableColumns = tableColumns.concat(graphSubmissionColumns);
 
-            tableColumns.push({
-                key: 'correct_percent',
-                title: gettext('Percentage Correct'),
-                className: 'text-right',
-                type: 'percent'
-            });
+  tableColumns.push({
+    key: 'average_submissions',
+    title: gettext('Average Submissions per Problem'),
+    className: 'text-right',
+    type: 'number',
+    fractionDigits: 1,
+  });
 
-            if (model.get('hasData')) {
-                performanceLoContentChart = new StackedBarView({
-                    el: '#chart-view',
-                    model: model,
-                    modelAttribute: 'tagsDistribution',
-                    trends: graphSubmissionColumns
-                });
-                performanceLoContentChart.renderIfDataAvailable();
-            }
+  tableColumns.push({
+    key: 'correct_percent',
+    title: gettext('Percentage Correct'),
+    className: 'text-right',
+    type: 'percent',
+  });
 
-            performanceLoContentTable = new DataTableView({
-                el: '[data-role=data-table]',
-                model: model,
-                modelAttribute: 'tagsDistribution',
-                columns: tableColumns,
-                sorting: ['index'],
-                replaceZero: '-'
-            });
-            performanceLoContentTable.renderIfDataAvailable();
-        });
+  if (model.get('hasData')) {
+    performanceLoContentChart = new StackedBarView({
+      el: '#chart-view',
+      model,
+      modelAttribute: 'tagsDistribution',
+      trends: graphSubmissionColumns,
+    });
+    performanceLoContentChart.renderIfDataAvailable();
+  }
+
+  const performanceLoContentTable = new DataTableView({
+    el: '[data-role=data-table]',
+    model,
+    modelAttribute: 'tagsDistribution',
+    columns: tableColumns,
+    sorting: ['index'],
+    replaceZero: '-',
+  });
+  performanceLoContentTable.renderIfDataAvailable();
 });

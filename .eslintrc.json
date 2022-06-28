@@ -1,5 +1,5 @@
 {
-    "extends": "eslint-config-edx-es5",
+    "extends": "@edx/eslint-config",
     "plugins": [
         "import"
     ],
@@ -7,15 +7,22 @@
         "gettext": true, // added by django for i18n
         "setFixtures": true,  // added globally by jasmine-jquery
         "sinon": true, // used for mocking
-        "requirejs": true
+        "requirejs": true,
+        "define": true,
+        "spyOn": true,
+        "amd": true,
+        "jasmine": true,
+        "$": true
     },
     "settings": {
         "import/resolver": "webpack"
     },
     "rules": {
         "import/no-unresolved": ["error", {"amd": true}],
-        "global-require" : "off"
-        // global-require turned off due to https://github.com/eslint/eslint/issues/4812. Fixed in v3.1.1
-        // consider turning rule on after upgrading to ESLint 3.1.1
+        "import/no-amd": 0,
+        "prefer-rest-params": 0,
+        "func-names": 0,
+        "import/no-extraneous-dependencies": [2, {"devDependencies": true}],
+        "import/no-dynamic-require": 0
     }
 }

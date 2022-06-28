@@ -1,4 +1,5 @@
-var context = require.context('../../../', true, /.+spec\.jsx?$/);
-require('../../load/init-tooltips.js');
+const context = require.context('../../../', true, /.+spec\.jsx?$/);
+require('../../load/init-tooltips');
+
 context.keys().forEach(context);
 module.exports = context;

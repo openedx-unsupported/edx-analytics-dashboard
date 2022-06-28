@@ -2,20 +2,18 @@
  * Cell class which combines username and name.  The username links
  * to the user detail page.
  */
-define(function(require) {
-    'use strict';
+define((require) => {
+  'use strict';
 
-    var _ = require('underscore'),
+  const _ = require('underscore');
 
-        RowHeaderCell = require('components/generic-list/list/views/row-header-cell'),
-        nameUsernameCellTemplate = require('learners/roster/templates/name-username-cell.underscore'),
+  const RowHeaderCell = require('components/generic-list/list/views/row-header-cell');
+  const nameUsernameCellTemplate = require('learners/roster/templates/name-username-cell.underscore');
 
-        NameAndUsernameCell;
+  const NameAndUsernameCell = RowHeaderCell.extend({
+    className: 'learner-name-username-cell',
+    template: _.template(nameUsernameCellTemplate),
+  });
 
-    NameAndUsernameCell = RowHeaderCell.extend({
-        className: 'learner-name-username-cell',
-        template: _.template(nameUsernameCellTemplate)
-    });
-
-    return NameAndUsernameCell;
+  return NameAndUsernameCell;
 });
