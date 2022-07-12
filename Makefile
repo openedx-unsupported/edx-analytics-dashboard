@@ -78,9 +78,6 @@ runserver_a11y:
 	$(TOX)python manage.py runserver 0.0.0.0:9000 --noreload --traceback > dashboard.log 2>&1 &
 
 accept: runserver_a11y
-ifeq ("${DISPLAY_LEARNER_ANALYTICS}", "True")
-	$(TOX)python manage.py waffle_flag enable_learner_analytics --create --everyone
-endif
 ifeq ("${ENABLE_COURSE_LIST_FILTERS}", "True")
 	$(TOX)python manage.py waffle_switch enable_course_filters on --create
 endif
@@ -102,9 +99,6 @@ accept_devstack:
 	# TODO: implement this
 
 a11y:
-ifeq ("${DISPLAY_LEARNER_ANALYTICS}", "True")
-	$(TOX)python manage.py waffle_flag enable_learner_analytics --create --everyone
-endif
 	cat dashboard.log
 	$(TOX)pytest -v a11y_tests -k 'not NUM_PROCESSES==1'
 
@@ -202,7 +196,7 @@ upgrade: $(COMMON_CONSTRAINTS_TXT)
 
 docs:
 	tox -e docs
-	
+
 install_transifex_client: ## Install the Transifex client
 	curl -o- https://raw.githubusercontent.com/transifex/cli/master/install.sh | bash
 	git checkout -- LICENSE README.md

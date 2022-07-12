@@ -10,7 +10,6 @@ from analytics_dashboard.courses.views import (
     csv,
     engagement,
     enrollment,
-    learners,
     performance,
 )
 
@@ -120,10 +119,6 @@ CSV_URLS = ([
     url(r'problem_responses/', csv.PerformanceProblemResponseCSV.as_view(), name='performance_problem_responses')
 ], 'csv')
 
-LEARNER_URLS = ([
-    url(r'^$', learners.LearnersView.as_view(), name='learners'),
-], 'learners')
-
 COURSE_URLS = [
     # Course homepage. This should be the entry point for other applications linking to the course.
     url(r'^$', views.CourseHome.as_view(), name='home'),
@@ -131,7 +126,6 @@ COURSE_URLS = [
     url(r'^engagement/', include(ENGAGEMENT_URLS)),
     url(r'^performance/', include(PERFORMANCE_URLS)),
     url(r'^csv/', include(CSV_URLS)),
-    url(r'^learners/', include(LEARNER_URLS)),
 ]
 
 app_name = 'courses'

@@ -455,17 +455,6 @@ REST_FRAMEWORK = {
 COURSE_ID_PATTERN = r'(?P<course_id>[^/+]+[/+][^/+]+[/+][^/]+)'
 ########## END COURSE_ID_PATTERN
 
-########## LEARNER_API_LIST_DOWNLOAD_FIELDS
-# Comma-delimited list of field names to include in the Learner List CSV download
-# e.g., # "username,segments,cohort,engagements.videos_viewed,last_updated"
-# Default (None) includes all available fields, in alphabetical order.
-LEARNER_API_LIST_DOWNLOAD_FIELDS = None
-########## END LEARNER_API_LIST_DOWNLOAD_FIELDS
-
-########## BLOCK_LEARNER_ANALYTICS_ORG_LIST
-BLOCK_LEARNER_ANALYTICS_ORG_LIST = []
-########## END BLOCK_LEARNER_ANALYTICS_ORG_LIST
-
 ########## CACHE CONFIGURATION
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#caches
 CACHES = {
