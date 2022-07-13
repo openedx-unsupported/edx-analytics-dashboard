@@ -6,11 +6,11 @@
 #
 certifi==2022.6.15
     # via requests
-charset-normalizer==2.0.12
+charset-normalizer==2.1.0
     # via requests
 codecov==2.1.12
     # via -r requirements/github.in
-coverage==6.4.1
+coverage==6.4.2
     # via codecov
 distlib==0.3.4
     # via
@@ -43,7 +43,7 @@ pyparsing==3.0.9
     # via
     #   -r requirements/tox.txt
     #   packaging
-requests==2.28.0
+requests==2.28.1
     # via codecov
 six==1.16.0
     # via
@@ -54,15 +54,15 @@ toml==0.10.2
     # via
     #   -r requirements/tox.txt
     #   tox
-tox==3.25.0
+tox==3.25.1
     # via
     #   -r requirements/tox.txt
     #   tox-battery
 tox-battery==0.6.1
     # via -r requirements/tox.txt
-urllib3==1.26.9
+urllib3==1.26.10
     # via requests
-virtualenv==20.15.0
+virtualenv==20.15.1
     # via
     #   -r requirements/tox.txt
     #   tox
