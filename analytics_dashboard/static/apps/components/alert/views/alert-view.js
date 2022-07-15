@@ -1,4 +1,3 @@
-/* eslint-plugin-disable react */
 /**
  * Renders an alert, given an alert type (e.g. error, info).
  */
