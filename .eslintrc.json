@@ -25,13 +25,5 @@
         "func-names": 0,
         "import/no-extraneous-dependencies": [2, {"devDependencies": true}],
         "import/no-dynamic-require": 0
-    },
-    "overrides": [
-        {
-            "files": ["analytics_dashboard/**/*.js"],
-            "settings": {
-              "disable/plugins": ["react-hooks"]
-            }
-        }
-      ]
+    }
 }
