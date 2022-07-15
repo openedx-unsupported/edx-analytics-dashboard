@@ -1,9 +1,8 @@
 {
     "extends": "@edx/eslint-config",
     "plugins": [
-        "import", "disable"
+        "import"
     ],
-    "processor": "disable/disable",
     "globals": {
         "gettext": true, // added by django for i18n
         "setFixtures": true,  // added globally by jasmine-jquery
