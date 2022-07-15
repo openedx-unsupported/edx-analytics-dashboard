@@ -1,8 +1,9 @@
 {
     "extends": "@edx/eslint-config",
     "plugins": [
-        "import"
+        "import", "disable"
     ],
+    "processor": "disable/disable",
     "globals": {
         "gettext": true, // added by django for i18n
         "setFixtures": true,  // added globally by jasmine-jquery
@@ -24,5 +25,13 @@
         "func-names": 0,
         "import/no-extraneous-dependencies": [2, {"devDependencies": true}],
         "import/no-dynamic-require": 0
-    }
+    },
+    "overrides": [
+        {
+            "files": ["analytics_dashboard/**/*.js"],
+            "settings": {
+              "disable/plugins": ["react", "react-hooks"]
+            }
+        }
+      ]
 }
