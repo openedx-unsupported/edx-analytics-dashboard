@@ -34,7 +34,7 @@ requirements.py: piptools
 	pip-sync -q requirements/base.txt
 
 requirements.js:
-	npm install --unsafe-perm
+	npm ci --unsafe-perm
 
 test.requirements: piptools
 	pip-sync -q requirements/test.txt
