@@ -40,10 +40,6 @@ urlpatterns = AUTH_URLS + [
     url(r'^announcements/', include('pinax.announcements.urls', namespace='pinax_announcements')),
 ]
 
-urlpatterns += [
-    url(r'^api/learner_analytics/', include('learner_analytics_api.urls'))
-]
-
 
 def debug_page_not_found(request):
     return defaults.page_not_found(request, AttributeError('foobar'))

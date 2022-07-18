@@ -106,13 +106,6 @@ functionality on request (e.g. turning on beta functionality for superusers). Cr
 
         $ ./manage.py waffle_flag name-of-my-flag --everyone --create
 
-The following flags are available:
-
-| Flag                           | Purpose                                               |
-|--------------------------------|-------------------------------------------------------|
-| display_learner_analytics      | Display Learner Analytics links                       |
-
-
 Settings describe features which are not expected to be toggled on and off without significant system changes.
 
 The following setting is available:

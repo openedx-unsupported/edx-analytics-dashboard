@@ -76,9 +76,6 @@ if ENABLE_COURSE_API and not (GRADING_POLICY_API_URL and COURSE_API_URL and COUR
 # Video preview
 ENABLE_VIDEO_PREVIEW = str2bool(os.environ.get('ENABLE_VIDEO_PREVIEW', False))
 
-# Learner analytics
-DISPLAY_LEARNER_ANALYTICS = str2bool(os.environ.get('DISPLAY_LEARNER_ANALYTICS', False))
-
 # Course listing
 ENABLE_COURSE_LIST_FILTERS = str2bool(os.environ.get('ENABLE_COURSE_LIST_FILTERS', False))
 ENABLE_COURSE_LIST_PASSING = str2bool(os.environ.get('ENABLE_COURSE_LIST_PASSING', False))
