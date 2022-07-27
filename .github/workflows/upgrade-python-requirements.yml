@@ -2,7 +2,7 @@ name: Upgrade Python Requirements
 
 on:
   schedule:
-    - cron: "15 16 13,27 * *"
+    - cron: "15 15 10,24 * *"
   workflow_dispatch:
     inputs:
       branch:
@@ -18,7 +18,7 @@ jobs:
       # optional parameters below; fill in if you'd like github or email notifications
       # user_reviewers: ""
       # team_reviewers: ""
-      email_address: "masters-requirements-update@2u-internal.opsgenie.net"
+      email_address: "cosmonauts-requirements-update@2u-internal.opsgenie.net"
       send_success_notification: true
     secrets:
       requirements_bot_github_token: ${{ secrets.REQUIREMENTS_BOT_GITHUB_TOKEN }}
