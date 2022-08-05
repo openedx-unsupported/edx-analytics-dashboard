@@ -1,8 +1,10 @@
 import 'backgrid-paginator/backgrid-paginator.min.css';
 import 'nprogress/nprogress.css';
-import page from 'load/init-page';
 
-define('apps/learners/app/app', LearnersApp => {
+require('jquery');
+const page = require('load/init-page');
+
+require('apps/learners/app/app', LearnersApp => {
   'use strict';
 
   const modelData = page.models.courseModel;

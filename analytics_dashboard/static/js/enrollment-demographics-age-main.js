@@ -2,12 +2,11 @@
  * This is the first script called by the enrollment demographics age page.  It loads
  * the libraries and kicks off the application.
  */
-import { template } from 'underscore';
-import DataTableView from 'views/data-table-view';
-import HistogramView from 'views/histogram-view';
-import page from 'load/init-page';
+const _ = require('underscore');
+const DataTableView = require('views/data-table-view');
+const HistogramView = require('views/histogram-view');
 
-require([], () => {
+require('load/init-page', (page) => {
   'use strict';
 
   // used in the table to show ages above this are binned--displayed as "100+"
@@ -25,7 +24,7 @@ require([], () => {
     x: { key: 'age' },
     y: { key: 'count' },
     // Translators: <%=value%> will be replaced with an age.
-    interactiveTooltipHeaderTemplate: template(gettext('Age: <%=value%>')),
+    interactiveTooltipHeaderTemplate: _.template(gettext('Age: <%=value%>')),
   });
   const ageTable = new DataTableView({
     el: '[data-role=enrollment-table]',

@@ -2,11 +2,10 @@
  * This is the first script called by the enrollment geography page.  It loads
  * the libraries and kicks off the application.
  */
-import DataTableView from 'views/data-table-view';
-import WorldMapView from 'views/world-map-view';
-import page from 'load/init-page';
+const DataTableView = require('views/data-table-view');
+const WorldMapView = require('views/world-map-view');
 
-require([], () => {
+require('load/init-page', (page) => {
   'use strict';
 
   // this is your page specific code
