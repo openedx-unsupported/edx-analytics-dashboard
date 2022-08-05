@@ -6,7 +6,7 @@ const _ = require('underscore');
 const DataTableView = require('views/data-table-view');
 const TrendsView = require('views/trends-view');
 
-require('load/init-page', (page) => {
+require(['load/init-page'], (page) => {
   'use strict';
 
   // shared settings between the chart and table

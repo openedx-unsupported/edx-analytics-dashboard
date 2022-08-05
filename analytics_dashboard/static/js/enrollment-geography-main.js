@@ -5,7 +5,7 @@
 const DataTableView = require('views/data-table-view');
 const WorldMapView = require('views/world-map-view');
 
-require('load/init-page', (page) => {
+require(['load/init-page'], (page) => {
   'use strict';
 
   // this is your page specific code

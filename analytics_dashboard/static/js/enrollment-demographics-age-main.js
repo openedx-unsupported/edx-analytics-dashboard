@@ -6,7 +6,7 @@ const _ = require('underscore');
 const DataTableView = require('views/data-table-view');
 const HistogramView = require('views/histogram-view');
 
-require('load/init-page', (page) => {
+require(['load/init-page'], (page) => {
   'use strict';
 
   // used in the table to show ages above this are binned--displayed as "100+"

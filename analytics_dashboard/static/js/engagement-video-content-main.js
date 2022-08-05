@@ -6,7 +6,7 @@ require('_');
 const DataTableView = require('views/data-table-view');
 const StackedBarView = require('views/stacked-bar-view');
 
-require('load/init-page', (page) => {
+require(['load/init-page'], (page) => {
   'use strict';
 
   const model = page.models.courseModel;

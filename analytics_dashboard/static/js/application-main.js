@@ -10,7 +10,7 @@ require('bootstrap-accessibility-plugin/plugins/js/bootstrap-accessibility');
 // eslint-disable-next-line import/no-dynamic-require
 require(process.env.THEME_SCSS);
 
-require('views/announcement-view', AnnouncementView => {
+require(['views/announcement-view'], AnnouncementView => {
   'use strict';
 
   // Instantiate the announcement view(s)

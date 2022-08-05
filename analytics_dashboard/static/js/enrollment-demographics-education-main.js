@@ -6,7 +6,7 @@ const _ = require('underscore');
 const DataTableView = require('views/data-table-view');
 const DiscreteBarView = require('views/discrete-bar-view');
 
-require('load/init-page', (page) => {
+require(['load/init-page'], (page) => {
   'use strict';
 
   const educationChart = new DiscreteBarView({

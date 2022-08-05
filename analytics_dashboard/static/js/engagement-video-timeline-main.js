@@ -8,7 +8,7 @@ const DataTableView = require('views/data-table-view');
 const IFrameView = require('views/iframe-view');
 const StackedTimelineView = require('views/stacked-timeline-view');
 
-require('load/init-page', (page) => {
+require(['load/init-page'], (page) => {
   'use strict';
 
   const { courseModel } = page.models;

@@ -4,7 +4,7 @@ import 'nprogress/nprogress.css';
 require('jquery');
 const page = require('load/init-page');
 
-require('apps/learners/app/app', LearnersApp => {
+require(['apps/learners/app/app'], LearnersApp => {
   'use strict';
 
   const modelData = page.models.courseModel;

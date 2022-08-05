@@ -6,7 +6,7 @@ const _ = require('underscore');
 const DataTableView = require('views/data-table-view');
 const StackedTrendsView = require('views/stacked-trends-view');
 
-require('load/init-page', (page) => {
+require(['load/init-page'], (page) => {
   'use strict';
 
   // this is your page specific code
