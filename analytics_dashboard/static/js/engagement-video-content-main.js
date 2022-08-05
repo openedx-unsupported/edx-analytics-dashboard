@@ -2,7 +2,7 @@
  * Called for displaying aggregate video charts and tables.  Each bar is a collection of video views.
  */
 require('d3');
-require('_');
+require('underscore');
 const DataTableView = require('views/data-table-view');
 const StackedBarView = require('views/stacked-bar-view');
 
