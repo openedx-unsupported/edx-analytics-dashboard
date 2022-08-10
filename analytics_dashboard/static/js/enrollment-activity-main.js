@@ -2,12 +2,11 @@
  * This is the first script called by the enrollment activity page.  It loads
  * the libraries and kicks off the application.
  */
-import _, { defaults } from 'underscore';
-import DataTableView from 'views/data-table-view';
-import StackedTrendsView from 'views/stacked-trends-view';
-import page from 'load/init-page';
+const _ = require('underscore');
+const DataTableView = require('views/data-table-view');
+const StackedTrendsView = require('views/stacked-trends-view');
 
-require([], () => {
+require(['load/init-page'], (page) => {
   'use strict';
 
   // this is your page specific code
@@ -22,33 +21,33 @@ require([], () => {
       title: gettext('Date'),
       type: 'date',
     },
-    defaults({}, numericColumn, {
+    _.defaults({}, numericColumn, {
       key: 'count',
       title: gettext('Current Enrollment'),
       color: colors[0],
     }),
-    defaults({}, numericColumn, {
+    _.defaults({}, numericColumn, {
       key: 'honor',
       // Translators: this describe the learner's enrollment track (e.g. Honor certificate)
       title: gettext('Honor'),
       color: colors[1],
     }),
-    defaults({}, numericColumn, {
+    _.defaults({}, numericColumn, {
       key: 'audit',
       title: gettext('Audit'),
       color: colors[2],
     }),
-    defaults({}, numericColumn, {
+    _.defaults({}, numericColumn, {
       key: 'verified',
       title: gettext('Verified'),
       color: colors[3],
     }),
-    defaults({}, numericColumn, {
+    _.defaults({}, numericColumn, {
       key: 'professional',
       title: gettext('Professional'),
       color: colors[4],
     }),
-    defaults({}, numericColumn, {
+    _.defaults({}, numericColumn, {
       key: 'credit',
       // Translators: this label indicates the learner has registered for academic credit
       title: gettext('Verified with Credit'),

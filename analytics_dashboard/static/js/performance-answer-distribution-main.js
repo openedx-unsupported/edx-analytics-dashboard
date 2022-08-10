@@ -1,12 +1,12 @@
 /**
  * This is the first script called by the performance answer distribution page.
  */
-import { template } from 'underscore';
-import DataTableView from 'views/data-table-view';
-import DiscreteBarView from 'views/stacked-bar-view';
-import page from 'load/init-page';
+require('d3');
+const _ = require('underscore');
+const DataTableView = require('views/data-table-view');
+const DiscreteBarView = require('views/stacked-bar-view');
 
-require([], () => {
+require(['load/init-page'], (page) => {
   'use strict';
 
   const { courseModel } = page.models;
@@ -57,7 +57,7 @@ require([], () => {
     x: { key: answerField },
     y: { key: 'count' },
     // Translators: <%=value%> will be replaced by a learner response to a question asked in a course.
-    interactiveTooltipHeaderTemplate: template(gettext('Answer: <%=value%>')),
+    interactiveTooltipHeaderTemplate: _.template(gettext('Answer: <%=value%>')),
   });
   performanceAnswerChart.renderIfDataAvailable();
 

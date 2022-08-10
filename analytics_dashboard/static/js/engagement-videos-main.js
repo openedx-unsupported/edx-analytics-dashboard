@@ -1,11 +1,12 @@
 /**
  * Called for displaying a collection of video charts and tables.  Each bar represents a single video.
  */
-import DataTableView from 'views/data-table-view';
-import StackedBarView from 'views/stacked-bar-view';
-import page from 'load/init-page';
+require('d3');
+require('underscore');
+const DataTableView = require('views/data-table-view');
+const StackedBarView = require('views/stacked-bar-view');
 
-require([], () => {
+require(['load/init-page'], (page) => {
   'use strict';
 
   const model = page.models.courseModel;
