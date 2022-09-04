@@ -4,12 +4,8 @@
 # 
 # Translators:
 # Translators:
-# Translators:
-# Translators:
-# Translators:
-# Translators:
-# Translators:
 # Bashir Mahmoudi <bashirmahmoudi@gmail.com>, 2015
+# Emad Rad, 2022
 # Ali Niknafs <ericniki2009@gmail.com>, 2014
 # MohammadSadegh Mahmoudpour <mahmoudpour.sadegh@gmail.com>, 2016
 # mr ash <mrash14@gmail.com>, 2017
@@ -17,14 +13,15 @@
 # sepehr sadatifar <sepehrmm@gmail.com>, 2016
 # Siavash Kavousi <siavash.kavousi.sk@gmail.com>, 2016
 # Sina Shirinpour <sshirinpoor@gmail.com>, 2015
+# Somaye Joolaee, 2022
 # yasin asadi <haleysina@gmail.com>, 2015
 msgid ""
 msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-04-14 18:37+0000\n"
+"POT-Creation-Date: 2022-05-18 15:22+0000\n"
 "PO-Revision-Date: 2014-08-26 21:24+0000\n"
-"Last-Translator: mr ash <mrash14@gmail.com>, 2017\n"
+"Last-Translator: Somaye Joolaee, 2022\n"
 "Language-Team: Persian (Iran) (http://www.transifex.com/open-edx/edx-platform/language/fa_IR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -34,7 +31,7 @@ msgstr ""
 
 #: analytics_dashboard/static/apps/components/download/views/download-data.js:25
 msgid "Download CSV"
-msgstr "دانلود CSV"
+msgstr "بارگیری CSV"
 
 #: analytics_dashboard/static/apps/components/download/views/download-data.js:26
 msgid "Download search results to CSV"
@@ -63,7 +60,7 @@ msgstr "فیلترهای استفاده شده:"
 
 #: analytics_dashboard/static/apps/components/generic-list/list/views/active-filters.js:88
 msgid "Click to remove this filter"
-msgstr "کلیک کنید تا این فیلتر حذف شود"
+msgstr "برای حذف فیلتر، کلیک کنید"
 
 #. Translators: "Clear" in this context means "remove all of the filters"
 #: analytics_dashboard/static/apps/components/generic-list/list/views/active-filters.js:90
@@ -72,24 +69,24 @@ msgstr "حذف"
 
 #: analytics_dashboard/static/apps/components/generic-list/list/views/active-filters.js:91
 msgid "Click to remove all filters"
-msgstr "کلیک کنید تا همه‌ی فیلترها حذف شوند"
+msgstr "برای حذف همه فیلترهای کلیک کنید"
 
 #. Translators: "sort ascending" describes the current sort state to the user.
 #: analytics_dashboard/static/apps/components/generic-list/list/views/base-header-cell.js:71
 msgid "sort ascending"
-msgstr "مرتب سازی صعودی"
+msgstr "مرتب‌سازی صعودی"
 
 #. Translators: "sort descending" describes the current sort state to the
 #. user.
 #: analytics_dashboard/static/apps/components/generic-list/list/views/base-header-cell.js:73
 msgid "sort descending"
-msgstr "مرتب سازی نزولی"
+msgstr "مرتب‌‌سازی نزولی"
 
 #. Translators: "click to sort" tells the user that they can click this link
 #. to sort by the current field.
 #: analytics_dashboard/static/apps/components/generic-list/list/views/base-header-cell.js:76
 msgid "click to sort"
-msgstr "برای مرتب سازی کلیک کنید"
+msgstr "برای مرتب‌سازی کلیک کنید"
 
 #: analytics_dashboard/static/apps/components/generic-list/list/views/list.js:51
 msgid "Results"
@@ -129,11 +126,11 @@ msgstr "غیرفعال"
 #. Translators: describes a pagination button as representing the current page
 #: analytics_dashboard/static/apps/components/generic-list/list/views/paging-footer.js:91
 msgid "active"
-msgstr ""
+msgstr "فعال"
 
 #: analytics_dashboard/static/apps/components/generic-list/list/views/table.js:27
 msgid "Generic List"
-msgstr ""
+msgstr "لیست عمومی"
 
 #. Translators: This message indicates content is loading in the page.
 #: analytics_dashboard/static/apps/components/loading/views/loading-view.js:20
@@ -144,26 +141,26 @@ msgstr "در حال بارگذاری ..."
 #. it as "504".
 #: analytics_dashboard/static/apps/components/utils/utils.js:62
 msgid "504: Server error"
-msgstr "۵۰۴:‌ خطا در سرور"
+msgstr "504:‌ خطا در سرویس‌دهنده"
 
 #: analytics_dashboard/static/apps/components/utils/utils.js:64
 msgid ""
 "Processing your request took too long to complete. Reload the page to try "
 "again."
-msgstr ""
+msgstr "تکمیل پردازش درخواست شما طولانی شده است. برای تلاش دوباره صفحه را مجددا بارگیری کنید."
 
 #: analytics_dashboard/static/apps/components/utils/utils.js:68
 msgid "Server error"
-msgstr ""
+msgstr "خطای سرویس‌دهنده"
 
 #: analytics_dashboard/static/apps/components/utils/utils.js:69
 #: analytics_dashboard/static/apps/components/utils/utils.js:81
 msgid "Your request could not be processed. Reload the page to try again."
-msgstr ""
+msgstr "امکان پردازش درخواست شما نبود. برای تلاش دوباره، صفحه را بارگیری کنید."
 
 #: analytics_dashboard/static/apps/components/utils/utils.js:80
 msgid "Network error"
-msgstr ""
+msgstr "خطای شبکه"
 
 #: analytics_dashboard/static/apps/course-list/app/app.js:38
 msgid "Instructor-Paced"
@@ -179,7 +176,7 @@ msgstr "آینده"
 
 #: analytics_dashboard/static/apps/course-list/app/app.js:43
 msgid "Current"
-msgstr ""
+msgstr "هم‌اکنون"
 
 #: analytics_dashboard/static/apps/course-list/app/app.js:44
 msgid "Archived"
@@ -188,17 +185,17 @@ msgstr "آرشیو شده"
 #: analytics_dashboard/static/apps/course-list/app/app.js:45
 #: analytics_dashboard/static/js/enrollment-demographics-age-main.js:17
 msgid "Unknown"
-msgstr ""
+msgstr "ناشناخته"
 
 #: analytics_dashboard/static/apps/course-list/app/controller.js:44
 #: analytics_dashboard/static/apps/course-list/app/controller.js:106
 msgid "Course List"
-msgstr ""
+msgstr "لیست دوره‌ها"
 
 #: analytics_dashboard/static/apps/course-list/app/controller.js:95
 #: analytics_dashboard/static/apps/learners/app/controller.js:94
 msgid "Invalid Parameters"
-msgstr ""
+msgstr "پارامترهای نامعتبر"
 
 #: analytics_dashboard/static/apps/course-list/app/controller.js:96
 msgid "Sorry, we couldn't find any courses that matched that query."
@@ -206,7 +203,7 @@ msgstr ""
 
 #: analytics_dashboard/static/apps/course-list/app/controller.js:97
 msgid "Return to the Course List page."
-msgstr ""
+msgstr "بازگشت به صفحه لیست دوره‌ها."
 
 #: analytics_dashboard/static/apps/course-list/app/controller.js:123
 #: analytics_dashboard/static/apps/learners/app/controller.js:177
@@ -240,7 +237,7 @@ msgstr ""
 #: analytics_dashboard/static/js/enrollment-demographics-gender-main.js:32
 #: analytics_dashboard/static/js/enrollment-geography-main.js:29
 msgid "Current Enrollment"
-msgstr "ثبت نام جاری"
+msgstr "ثبت‌نام جاری"
 
 #: analytics_dashboard/static/apps/course-list/common/collections/course-list.js:82
 msgid "Change Last Week"
@@ -248,7 +245,7 @@ msgstr ""
 
 #: analytics_dashboard/static/apps/course-list/common/collections/course-list.js:83
 msgid "Verified Enrollment"
-msgstr ""
+msgstr "ثبت‌نام تاییدشده"
 
 #: analytics_dashboard/static/apps/course-list/common/collections/course-list.js:86
 msgid "Passing Learners"
@@ -256,7 +253,7 @@ msgstr ""
 
 #: analytics_dashboard/static/apps/course-list/common/collections/course-list.js:89
 msgid "Availability"
-msgstr ""
+msgstr "در دسترس بودن"
 
 #: analytics_dashboard/static/apps/course-list/common/collections/course-list.js:90
 msgid "Pacing Type"
@@ -288,7 +285,7 @@ msgstr ""
 
 #: analytics_dashboard/static/apps/course-list/list/views/base-header-cell.js:16
 msgid "Net difference in current enrollment in the last week."
-msgstr ""
+msgstr "تفاوت خالص در ثبت‌نام جاری در هفته گذشته"
 
 #: analytics_dashboard/static/apps/course-list/list/views/base-header-cell.js:18
 msgid ""
@@ -309,18 +306,6 @@ msgstr ""
 msgid "Find a course"
 msgstr "یک دوره بیاب"
 
-#: analytics_dashboard/static/apps/course-list/list/views/controls.js:68
-msgid "availability"
-msgstr ""
-
-#: analytics_dashboard/static/apps/course-list/list/views/controls.js:76
-msgid "pacing_type"
-msgstr ""
-
-#: analytics_dashboard/static/apps/course-list/list/views/controls.js:84
-msgid "program_ids"
-msgstr ""
-
 #: analytics_dashboard/static/apps/course-list/list/views/course-list.js:66
 msgid "Download full course list to CSV"
 msgstr ""
@@ -336,12 +321,12 @@ msgstr ""
 #: analytics_dashboard/static/apps/course-list/list/views/results.js:49
 #: analytics_dashboard/static/apps/learners/roster/views/results.js:49
 msgid "Try a different search."
-msgstr ""
+msgstr "جستجوی جدید"
 
 #: analytics_dashboard/static/apps/course-list/list/views/results.js:52
 #: analytics_dashboard/static/apps/learners/roster/views/results.js:52
 msgid "Try clearing the filters."
-msgstr ""
+msgstr "حذف فیلترها"
 
 #: analytics_dashboard/static/apps/course-list/list/views/results.js:55
 msgid "No course data is currently available for your course."
@@ -360,12 +345,12 @@ msgstr ""
 #: analytics_dashboard/static/apps/course-list/list/views/search.js:72
 #: analytics_dashboard/static/apps/learners/roster/views/search.js:56
 msgid "search"
-msgstr "جستجو کن"
+msgstr "جستجو"
 
 #: analytics_dashboard/static/apps/course-list/list/views/search.js:73
 #: analytics_dashboard/static/apps/learners/roster/views/search.js:57
 msgid "clear search"
-msgstr ""
+msgstr "حذف جستجو"
 
 #: analytics_dashboard/static/apps/course-list/list/views/table.js:48
 msgid "Date not available"
@@ -373,41 +358,41 @@ msgstr ""
 
 #: analytics_dashboard/static/apps/learners/app/controller.js:59
 msgid "Learner Roster"
-msgstr ""
+msgstr "فهرست یادگیرندگان"
 
 #: analytics_dashboard/static/apps/learners/app/controller.js:95
 msgid "Sorry, we couldn't find any learners who matched that query."
-msgstr ""
+msgstr "با عرض پوزش، ما نتوانستیم یادگیرنده‌ای را بیابیم که با عبارت مورد جستجو مطابقت داشته باشد."
 
 #: analytics_dashboard/static/apps/learners/app/controller.js:96
 msgid "Return to the Learners page."
-msgstr ""
+msgstr "بازگشت به صفحه یادگیرندگان"
 
 #: analytics_dashboard/static/apps/learners/app/controller.js:104
 msgid "Learners"
-msgstr "دانش آموزان"
+msgstr "یادگیرندگان"
 
 #: analytics_dashboard/static/apps/learners/app/controller.js:137
 msgid "Learner Details"
-msgstr "جزئیات دانش آموزان"
+msgstr "جزئیات یادگیرنده"
 
 #: analytics_dashboard/static/apps/learners/common/collections/learners.js:17
 msgid "Name (Username)"
-msgstr "نام (نام کاربری)"
+msgstr "نام (نام‌کاربری)"
 
 #: analytics_dashboard/static/apps/learners/common/collections/learners.js:18
 msgid "Problems Tried"
-msgstr ""
+msgstr "مسایل کارشده"
 
 #: analytics_dashboard/static/apps/learners/common/collections/learners.js:19
 #: analytics_dashboard/static/apps/learners/detail/views/engagement-table.js:33
 #: analytics_dashboard/static/apps/learners/detail/views/engagement-timeline.js:35
 msgid "Problems Correct"
-msgstr ""
+msgstr "مسایل صحیح"
 
 #: analytics_dashboard/static/apps/learners/common/collections/learners.js:20
 msgid "Attempts per Problem Correct"
-msgstr ""
+msgstr "تعداد تلاش‌ها به ازای هر مساله صحیح"
 
 #: analytics_dashboard/static/apps/learners/common/collections/learners.js:21
 #: analytics_dashboard/static/js/engagement-video-content-main.js:33
@@ -416,24 +401,24 @@ msgstr "ویدیوها"
 
 #: analytics_dashboard/static/apps/learners/common/collections/learners.js:22
 msgid "Discussions"
-msgstr "بحث و گفتگو"
+msgstr "گفتگو"
 
 #: analytics_dashboard/static/apps/learners/common/collections/learners.js:24
 msgid "Segments"
-msgstr ""
+msgstr "بخش‌ها"
 
 #: analytics_dashboard/static/apps/learners/common/collections/learners.js:25
 msgid "Segments to Ignore"
-msgstr ""
+msgstr "بخش‌هایی که باید نادیده انگاشته شود"
 
 #: analytics_dashboard/static/apps/learners/common/collections/learners.js:26
 #: analytics_dashboard/static/apps/learners/detail/views/learner-detail.js:101
 msgid "Cohort"
-msgstr "گروه"
+msgstr "انجمن"
 
 #: analytics_dashboard/static/apps/learners/common/collections/learners.js:27
 msgid "Enrollment Mode"
-msgstr "حالت ثبت نام"
+msgstr "حالت ثبت‌نام"
 
 #: analytics_dashboard/static/apps/learners/detail/views/engagement-table.js:22
 #: analytics_dashboard/static/apps/learners/detail/views/engagement-timeline.js:43
@@ -445,29 +430,29 @@ msgstr "تاریخ "
 #: analytics_dashboard/static/apps/learners/detail/views/engagement-table.js:27
 #: analytics_dashboard/static/apps/learners/detail/views/engagement-timeline.js:31
 msgid "Discussion Contributions"
-msgstr ""
+msgstr "مشارکت‌های گفتگو"
 
 #: analytics_dashboard/static/apps/learners/detail/views/engagement-table.js:39
 #: analytics_dashboard/static/apps/learners/detail/views/engagement-timeline.js:39
 msgid "Videos Viewed"
-msgstr ""
+msgstr "ویدئوهای مشاهده‌شده"
 
 #: analytics_dashboard/static/apps/learners/detail/views/engagement-timeline.js:47
 msgid "Value"
-msgstr "ارزش"
+msgstr "مقدار"
 
 #. Translators: e.g. Learner engagement activity
 #: analytics_dashboard/static/apps/learners/detail/views/learner-detail.js:28
 msgid "Engagement Activity"
-msgstr ""
+msgstr "فعالیت اشتغال"
 
 #: analytics_dashboard/static/apps/learners/detail/views/learner-detail.js:29
 msgid "Daily Activity"
-msgstr ""
+msgstr "فعالیت روزانه"
 
 #: analytics_dashboard/static/apps/learners/detail/views/learner-detail.js:30
 msgid "Activity Over Time"
-msgstr ""
+msgstr "فعالیت در طول زمان"
 
 #: analytics_dashboard/static/apps/learners/detail/views/learner-detail.js:95
 msgid "Enrollment"
@@ -482,35 +467,35 @@ msgstr ""
 #: analytics_dashboard/static/apps/learners/detail/views/learner-summary-field.js:44
 #: analytics_dashboard/static/apps/learners/roster/views/activity-date-range.js:16
 msgid "n/a"
-msgstr ""
+msgstr "ناشناخته"
 
 #: analytics_dashboard/static/apps/learners/detail/views/learner-detail.js:139
 msgid "Check back daily for up-to-date data."
-msgstr ""
+msgstr "برای دریافت داده‌های روزآمد هر روز آن را بررسی کنید."
 
 #: analytics_dashboard/static/apps/learners/detail/views/learner-detail.js:149
 msgid "No course activity data is available for this learner."
-msgstr ""
+msgstr "هیچ فعالیت آموزشی مربوط به دوره آموزشی برای این یادگیرنده وجود ندارد."
 
 #: analytics_dashboard/static/apps/learners/detail/views/learner-detail.js:156
 msgid "No learner data is available."
-msgstr ""
+msgstr "هیچ داده‌ای درباره یادگیرنده فراهم نیست."
 
 #: analytics_dashboard/static/apps/learners/detail/views/learner-return.js:12
 msgid "Return to Learners"
-msgstr ""
+msgstr "بازگشت به یادگیرندگان"
 
 #. Translators: this is a label describing a selection that the user
 #. initiated.
 #: analytics_dashboard/static/apps/learners/roster/views/active-filters.js:23
 msgid "Cohort: <%= filterVal %>"
-msgstr ""
+msgstr "انجمن: <%= filterVal %>"
 
 #. Translators: this is a label describing a selection that the user
 #. initiated.
 #: analytics_dashboard/static/apps/learners/roster/views/active-filters.js:27
 msgid "Enrollment Track: <%= filterVal %>"
-msgstr ""
+msgstr "مسیر ثبت‌نام: <%= filterVal %>"
 
 #: analytics_dashboard/static/apps/learners/roster/views/active-filters.js:32
 #: analytics_dashboard/static/js/engagement-content-main.js:20
@@ -519,55 +504,47 @@ msgstr ""
 
 #: analytics_dashboard/static/apps/learners/roster/views/activity-date-range.js:11
 msgid "Activity between <%- startDate %> - <%- endDate %>"
-msgstr ""
+msgstr "فعالیت میان <%- startDate %> - <%- endDate %>"
 
 #: analytics_dashboard/static/apps/learners/roster/views/base-header-cell.js:10
 msgid "The name and username of this learner. Click to sort by username."
-msgstr ""
+msgstr "نام و نام‌کاربری این یادگیرنده. برای مرتب‌سازی براساس نام‌کاربری کلیک کنید."
 
 #: analytics_dashboard/static/apps/learners/roster/views/base-header-cell.js:11
 msgid "Number of unique problems this learner attempted."
-msgstr ""
+msgstr "تعداد دفعات تلاش یادگیرنده برای حل مسایل منحصربه‌فرد"
 
 #: analytics_dashboard/static/apps/learners/roster/views/base-header-cell.js:12
 msgid "Number of unique problems the learner answered correctly."
-msgstr ""
+msgstr "تعداد مسایل منحصربه‌فردی که این یادگیرنده به درستی پاسخ داده است."
 
 #: analytics_dashboard/static/apps/learners/roster/views/base-header-cell.js:13
 msgid "Number of unique videos this learner played."
-msgstr ""
+msgstr "تعداد ویدئوهای منحصربه‌فردی که این یادگیرنده مشاهده کرده است."
 
 #: analytics_dashboard/static/apps/learners/roster/views/base-header-cell.js:15
 msgid ""
 "Average number of attempts per correct problem. Learners with a relatively "
 "high value compared to their peers may be struggling."
-msgstr ""
+msgstr "میانگین تعداد دفعات تلاش به ازای هر مساله صحیح. یادگیرندگانی که نمره نسبتاً بالایی در مقایسه با همتایان خود دارندکسب کرده اند ممکن است بسیار کوشیده‌اند."
 
 #: analytics_dashboard/static/apps/learners/roster/views/base-header-cell.js:17
 msgid ""
 "Number of contributions by this learner, including posts, responses, and "
 "comments."
-msgstr ""
+msgstr "تعداد دفعات همکاری توسط این یادگیرنده، شامل ارسال مطالب، پاسخ‌ها و نظرات."
 
 #: analytics_dashboard/static/apps/learners/roster/views/controls.js:62
 msgid "Find a learner"
-msgstr ""
+msgstr "یافتن یادگیرنده"
 
 #: analytics_dashboard/static/apps/learners/roster/views/controls.js:75
 msgid "Cohort Groups"
-msgstr ""
-
-#: analytics_dashboard/static/apps/learners/roster/views/controls.js:73
-msgid "cohort"
-msgstr ""
+msgstr "گروه‌های انجمن"
 
 #: analytics_dashboard/static/apps/learners/roster/views/controls.js:87
 msgid "Enrollment Tracks"
 msgstr "مسیرهای ثبت‌نام"
-
-#: analytics_dashboard/static/apps/learners/roster/views/controls.js:85
-msgid "enrollment_mode"
-msgstr ""
 
 #. Translators: inactive meaning that these learners have not interacted with
 #. the
@@ -576,32 +553,28 @@ msgstr ""
 msgid "Hide Inactive Learners"
 msgstr ""
 
-#: analytics_dashboard/static/apps/learners/roster/views/controls.js:97
-msgid "ignore_segments"
-msgstr ""
-
 #: analytics_dashboard/static/apps/learners/roster/views/results.js:47
 msgid "No learners matched your criteria."
-msgstr ""
+msgstr "هیچ یادگیرنده‌ای با معیار شما انطباق نداشت."
 
 #: analytics_dashboard/static/apps/learners/roster/views/results.js:55
 msgid "No learner data is currently available for your course."
-msgstr ""
+msgstr "داده‌های هیچ یادگیرنده‌ای برای این دوره آموزشی فراهم نیست."
 
 #: analytics_dashboard/static/apps/learners/roster/views/results.js:57
 msgid ""
 "No learners are enrolled, or course activity data has not yet been "
 "processed. Data is updated every day, so check back regularly for up-to-date"
 " metrics."
-msgstr ""
+msgstr "هیچ یادگیرنده‌ای ثبت‌نام نکرده است یا داده‌های مربوط به فعالیت دوره آموزشی هنوز پردازش نشده است. به‌صورت روزانه داده‌ها روزآمد می‌شوند، بنابراین برای سنجه‌های روزآمد، به‌طور منظم، آن را بررسی کنید."
 
 #: analytics_dashboard/static/apps/learners/roster/views/roster.js:110
 msgid "Learner roster controls"
-msgstr ""
+msgstr "کنترل فهرست یادگیرندگان"
 
 #: analytics_dashboard/static/apps/learners/roster/views/search.js:55
 msgid "Search learners"
-msgstr ""
+msgstr "جستجوی  یادگیرنده"
 
 #. Translators: 'N/A' is an abbreviation of "Not Applicable". Please translate
 #. accordingly.
@@ -615,11 +588,11 @@ msgstr "پایان هفته"
 
 #: analytics_dashboard/static/js/engagement-content-main.js:27
 msgid "Watched a Video"
-msgstr "یک فیلم دیدم"
+msgstr "یک فیلم دیدید"
 
 #: analytics_dashboard/static/js/engagement-content-main.js:34
 msgid "Tried a Problem"
-msgstr "یک مشکل را حل کردم"
+msgstr "مشکلی را حل کردید"
 
 #: analytics_dashboard/static/js/engagement-content-main.js:41
 msgid "Participated in Discussions"
@@ -649,20 +622,20 @@ msgstr "میانگین بازدیدهای ناقص"
 #: analytics_dashboard/static/js/performance-learning-outcomes-section-main.js:28
 #: analytics_dashboard/static/js/performance-problems-main.js:26
 msgid "Order"
-msgstr "دیگر"
+msgstr "سایر"
 
 #: analytics_dashboard/static/js/engagement-video-content-main.js:41
 #: analytics_dashboard/static/js/engagement-videos-main.js:38
 msgid "Completion Percentage"
-msgstr "درصد تمام شدن"
+msgstr "درصد تکمیلی"
 
 #: analytics_dashboard/static/js/engagement-video-timeline-main.js:25
 msgid "Unique Viewers"
-msgstr "بازدیدکننده های ویژه"
+msgstr "بازدیدکننده‌های ویژه"
 
 #: analytics_dashboard/static/js/engagement-video-timeline-main.js:32
 msgid "Replays"
-msgstr "بازپخش ها"
+msgstr "بازپخش‌ها"
 
 #: analytics_dashboard/static/js/engagement-video-timeline-main.js:39
 msgid "Time"
@@ -688,17 +661,17 @@ msgstr "رسیدگی"
 
 #: analytics_dashboard/static/js/enrollment-activity-main.js:43
 msgid "Verified"
-msgstr "تایید شده"
+msgstr "تاییدشده"
 
 #: analytics_dashboard/static/js/enrollment-activity-main.js:48
 msgid "Professional"
-msgstr "حرفه ایی"
+msgstr "حرفه‌ای"
 
 #. Translators: this label indicates the learner has registered for academic
 #. credit
 #: analytics_dashboard/static/js/enrollment-activity-main.js:54
 msgid "Verified with Credit"
-msgstr ""
+msgstr "با اعتبار تایید شد"
 
 #: analytics_dashboard/static/js/enrollment-demographics-age-main.js:19
 #: analytics_dashboard/static/js/enrollment-demographics-age-main.js:34
@@ -717,7 +690,7 @@ msgstr "سن"
 
 #: analytics_dashboard/static/js/enrollment-demographics-age-main.js:35
 msgid "Percent of Total"
-msgstr "درصد از کل"
+msgstr "درصدکل"
 
 #: analytics_dashboard/static/js/enrollment-demographics-education-main.js:18
 #: analytics_dashboard/static/js/enrollment-demographics-gender-main.js:17
@@ -732,7 +705,7 @@ msgstr "تحصیلات: <%=value%>"
 
 #: analytics_dashboard/static/js/enrollment-demographics-education-main.js:31
 msgid "Educational Background"
-msgstr "پیش زمینه تحصیلات"
+msgstr "پیش‌زمینه آموزشی"
 
 #. Translators: <%=value%> will be replaced with a level of gender (e.g.
 #. Female).
@@ -772,7 +745,7 @@ msgstr "درصد"
 
 #: analytics_dashboard/static/js/performance-answer-distribution-main.js:12
 msgid "Answer"
-msgstr "پاسخ بده"
+msgstr "پاسخ"
 
 #. Translators: "Correct" is displayed in a table..
 #: analytics_dashboard/static/js/performance-answer-distribution-main.js:15
@@ -797,7 +770,7 @@ msgstr "متغییر"
 #: analytics_dashboard/static/js/performance-learning-outcomes-section-main.js:45
 #: analytics_dashboard/static/js/performance-problems-main.js:19
 msgid "Incorrect"
-msgstr "نا درست"
+msgstr "نادرست"
 
 #. Translators: <%=value%> will be replaced by a learner response to a
 #. question asked in a course.
@@ -808,12 +781,12 @@ msgstr "پاسخ:  <%=value%>"
 #: analytics_dashboard/static/js/performance-content-main.js:11
 #: analytics_dashboard/static/js/performance-learning-outcomes-content-main.js:11
 msgid "Average Correct"
-msgstr "میانگین درست ها"
+msgstr "میانگین موارد صحیح"
 
 #: analytics_dashboard/static/js/performance-content-main.js:20
 #: analytics_dashboard/static/js/performance-learning-outcomes-content-main.js:20
 msgid "Average Incorrect"
-msgstr "میانگین نادرست ها"
+msgstr "میانگین موارد نادرست"
 
 #: analytics_dashboard/static/js/performance-content-main.js:30
 msgid "Problems"
@@ -821,14 +794,14 @@ msgstr "مشکلات"
 
 #: analytics_dashboard/static/js/performance-content-main.js:39
 msgid "Average Submissions Per Problem"
-msgstr "میانگین ارائه ها به ازای هر مسئله"
+msgstr "میانگین ارائه‌ها به ازای هر مسئله"
 
 #: analytics_dashboard/static/js/performance-content-main.js:48
 #: analytics_dashboard/static/js/performance-learning-outcomes-content-main.js:46
 #: analytics_dashboard/static/js/performance-learning-outcomes-section-main.js:61
 #: analytics_dashboard/static/js/performance-problems-main.js:43
 msgid "Percentage Correct"
-msgstr "درصد درست ها"
+msgstr "درصد موارد صحیح"
 
 #: analytics_dashboard/static/js/performance-learning-outcomes-content-main.js:38
 msgid "Average Submissions per Problem"
@@ -841,7 +814,7 @@ msgstr ""
 #: analytics_dashboard/static/js/performance-learning-outcomes-section-main.js:53
 #: analytics_dashboard/static/js/performance-problems-main.js:35
 msgid "Total"
-msgstr "تمامی"
+msgstr "کل"
 
 #: analytics_dashboard/static/js/utils/utils.js:93
 msgid "..."
