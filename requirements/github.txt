@@ -4,7 +4,7 @@
 #
 #    make upgrade
 #
-certifi==2022.6.15
+certifi==2022.6.15.1
     # via requests
 charset-normalizer==2.1.1
     # via requests
@@ -12,7 +12,7 @@ codecov==2.1.12
     # via -r requirements/github.in
 coverage==6.4.4
     # via codecov
-distlib==0.3.5
+distlib==0.3.6
     # via
     #   -r requirements/tox.txt
     #   virtualenv
@@ -49,11 +49,11 @@ six==1.16.0
     # via
     #   -r requirements/tox.txt
     #   tox
-toml==0.10.2
+tomli==2.0.1
     # via
     #   -r requirements/tox.txt
     #   tox
-tox==3.25.1
+tox==3.26.0
     # via
     #   -r requirements/tox.txt
     #   tox-battery
@@ -61,7 +61,7 @@ tox-battery==0.6.1
     # via -r requirements/tox.txt
 urllib3==1.26.12
     # via requests
-virtualenv==20.16.3
+virtualenv==20.16.5
     # via
     #   -r requirements/tox.txt
     #   tox
