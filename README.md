@@ -23,9 +23,9 @@ that you will not have to manage Node and NPM versions yourself.
 
 Getting Started With Devstack
 -----------------------------
-The best way to run this service is with edX Devstack: https://github.com/edx/devstack.
+The best way to run this service is with edX Devstack: https://github.com/openedx/devstack.
 
-See the [Devstack README](https://github.com/edx/devstack/blob/master/README.rst) for information on how to install and run Insights. For the purposes of devstack this service will be referred to as `insights` and not `analytics-dashboard`.
+See the [Devstack README](https://github.com/openedx/devstack/blob/master/README.rst) for information on how to install and run Insights. For the purposes of devstack this service will be referred to as `insights` and not `analytics-dashboard`.
 
 Provisioning for insights and the data api can be combined:
 
@@ -120,7 +120,7 @@ Authentication & Authorization
 This section is only necessary if running I stand alone service OAuth2 is automatically configured by provisioning in devstack.
 
 By default, this application relies on an external OAuth2 provider
-(contained within the [LMS](https://github.com/edx/edx-platform)) for authentication and authorization. If you are a
+(contained within the [LMS](https://github.com/openedx/edx-platform)) for authentication and authorization. If you are a
 developer, and do not want to setup edx-platform, you can get around this requirement by doing the following:
 
 1. Set `ENABLE_AUTO_AUTH` to `True` in your settings file. (This is the default value in `settings/local.py`).
@@ -235,14 +235,14 @@ How to Contribute
 -----------------
 
 Contributions are very welcome, but for legal reasons, you must submit a signed
-[individual contributor's agreement](http://code.edx.org/individual-contributor-agreement.pdf)
+[individual contributor's agreement](https://openedx.org/cla)
 before we can accept your contribution. See our
-[CONTRIBUTING](https://github.com/edx/edx-platform/blob/master/CONTRIBUTING.rst)
+[CONTRIBUTING](https://github.com/openedx/edx-platform/blob/master/CONTRIBUTING.rst)
 file for more information -- it also contains guidelines for how to maintain
 high code quality, which will make your contribution more likely to be accepted.
 
 ### JavaScript Code Quality
-JavaScript developers should adhere to the [edX JavaScript standards](https://github.com/edx/edx-platform/wiki/Javascript-standards-for-the-edx-platform).
+JavaScript developers should adhere to the [edX JavaScript standards](https://github.com/openedx/edx-platform/wiki/Javascript-standards-for-the-edx-platform).
 These standards are enforced using [JSHint](http://www.jshint.com/) and [jscs](https://www.npmjs.org/package/jscs).
 
 Testing
