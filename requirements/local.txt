@@ -22,7 +22,7 @@ build==0.8.0
     # via
     #   -r requirements/pip_tools.txt
     #   pip-tools
-certifi==2022.6.15
+certifi==2022.6.15.1
     # via
     #   -r requirements/test.txt
     #   requests
@@ -50,7 +50,7 @@ coverage[toml]==6.4.4
     # via
     #   -r requirements/test.txt
     #   pytest-cov
-cryptography==37.0.4
+cryptography==38.0.1
     # via
     #   -r requirements/test.txt
     #   pyjwt
@@ -62,7 +62,7 @@ defusedxml==0.7.1
     #   -r requirements/test.txt
     #   python3-openid
     #   social-auth-core
-distlib==0.3.5
+distlib==0.3.6
     # via
     #   -r requirements/tox.txt
     #   virtualenv
@@ -110,7 +110,7 @@ django-model-utils==4.2.0
     # via -r requirements/test.txt
 django-soapbox==1.6.1
     # via -r requirements/test.txt
-django-waffle==2.7.0
+django-waffle==3.0.0
     # via
     #   -r requirements/test.txt
     #   edx-django-utils
@@ -140,13 +140,13 @@ edx-ccx-keys==1.2.1
     # via -r requirements/test.txt
 edx-django-release-util==1.2.0
     # via -r requirements/test.txt
-edx-django-utils==5.0.0
+edx-django-utils==5.0.1
     # via
     #   -r requirements/test.txt
     #   edx-drf-extensions
     #   edx-rest-api-client
     #   edx-toggles
-edx-drf-extensions==8.2.0
+edx-drf-extensions==8.3.1
     # via -r requirements/test.txt
 edx-i18n-tools==0.9.1
     # via -r requirements/test.txt
@@ -212,7 +212,7 @@ newrelic==8.0.0.179
     # via
     #   -r requirements/test.txt
     #   edx-django-utils
-oauthlib==3.2.0
+oauthlib==3.2.1
     # via
     #   -r requirements/test.txt
     #   requests-oauthlib
@@ -258,7 +258,7 @@ polib==1.1.1
     # via
     #   -r requirements/test.txt
     #   edx-i18n-tools
-psutil==5.9.1
+psutil==5.9.2
     # via
     #   -r requirements/test.txt
     #   edx-django-utils
@@ -310,7 +310,7 @@ pyparsing==3.0.9
     #   -r requirements/test.txt
     #   -r requirements/tox.txt
     #   packaging
-pytest==7.1.2
+pytest==7.1.3
     # via
     #   -r requirements/test.txt
     #   pytest-cov
@@ -414,19 +414,17 @@ text-unidecode==1.3
     # via
     #   -r requirements/test.txt
     #   python-slugify
-toml==0.10.2
-    # via
-    #   -r requirements/tox.txt
-    #   tox
 tomli==2.0.1
     # via
     #   -r requirements/pip_tools.txt
     #   -r requirements/test.txt
+    #   -r requirements/tox.txt
     #   build
     #   coverage
     #   pep517
     #   pytest
-tox==3.25.1
+    #   tox
+tox==3.26.0
     # via
     #   -r requirements/tox.txt
     #   tox-battery
@@ -445,7 +443,7 @@ urllib3==1.26.12
     #   -r requirements/test.txt
     #   requests
     #   selenium
-virtualenv==20.16.3
+virtualenv==20.16.5
     # via
     #   -r requirements/tox.txt
     #   tox
