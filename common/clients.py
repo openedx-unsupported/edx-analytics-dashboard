@@ -11,7 +11,7 @@ logger = logging.getLogger(__name__)
 class CourseStructureApiClient(OAuthAPIClient):
     """
     This class is a sub-class of the edX Rest API Client
-    (https://github.com/edx/edx-rest-api-client).
+    (https://github.com/openedx/edx-rest-api-client).
 
     Details about the API itself can be found at
     https://openedx.atlassian.net/wiki/display/AN/Course+Structure+API.
