@@ -18,7 +18,7 @@ from analytics_dashboard.courses.tests.test_views import (
 from analytics_dashboard.courses.tests.utils import CourseSamples
 
 
-class CourseEngagementViewTestMixin(PatchMixin, CourseAPIMixin):  # pylint: disable=abstract-method
+class CourseEngagementViewTestMixin(PatchMixin, CourseAPIMixin):
     api_method = 'analyticsclient.course.Course.activity'
     active_secondary_nav_label = None
 
@@ -206,7 +206,7 @@ class CourseEngagementVideoMixin(CourseEngagementViewTestMixin, CourseStructureV
     @httpretty.activate
     @patch(
         'analytics_dashboard.courses.presenters.engagement.CourseEngagementVideoPresenter.sections',
-        Mock(return_value=dict()),
+        Mock(return_value={}),
     )
     def test_missing_sections(self):
         """ Every video page will use sections and will return 200 if sections aren't available. """

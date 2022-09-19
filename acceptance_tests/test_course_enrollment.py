@@ -203,7 +203,7 @@ class CourseEnrollmentGeographyTests(CoursePageTestsMixin, WebAppTest):
         enrollment_data = [datum for datum in self.enrollment_data if datum['country']['name'] != 'UNKNOWN']
         self.assertSummaryPointValueEquals('data-stat-type=num-countries', str(len(enrollment_data)))
 
-        for i in range(0, 3):
+        for i in range(3):
             country = enrollment_data[i]['country']['name']
             # FIXME: because django-countries is different between dashboard and api
             if country == 'United States':

@@ -122,7 +122,6 @@ class PerformanceProblemResponseCSV(AnalyticsV1Mixin, CourseView):
     """
     Query the Data API to get a temporary secure download URL, and redirect to that.
     """
-    # pylint: disable=unused-argument
     def render_to_response(self, context, **response_kwargs):
         presenter = CourseReportDownloadPresenter(self.course_id, self.analytics_client)
         data = presenter.get_report_info(CourseReportDownloadPresenter.PROBLEM_RESPONSES)

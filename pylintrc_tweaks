@@ -1,0 +1,28 @@
+# pylintrc tweaks for use with edx_lint.
+[MASTER]
+ignore = migrations
+[FORMAT]
+max-line-length = 120
+
+
+[MESSAGES CONTROL]
+disable+ = 
+    django-not-configured,
+    missing-class-docstring,
+    missing-function-docstring,
+    missing-module-docstring,
+    not-callable,
+    no-name-in-module,
+    wildcard-import,
+    missing-timeout,
+    consider-using-generator,
+    consider-using-from-import,
+    import-error,
+    literal-used-as-attribute,
+    arguments-renamed,
+    invalid-django-waffle-import,
+    no-member,
+    deprecated-decorator,
+    http-response-with-content-type-json,
+    http-response-with-json-dumps,
+    wrong-assert-type,

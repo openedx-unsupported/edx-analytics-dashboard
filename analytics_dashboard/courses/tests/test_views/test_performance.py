@@ -116,7 +116,6 @@ class CoursePerformanceViewTestMixin(PatchMixin, CourseStructureViewMixin, Cours
 
 
 @ddt
-# pylint: disable=abstract-method
 class CoursePerformanceGradedMixin(CoursePerformanceViewTestMixin):
     active_secondary_nav_label = 'Graded Content'
 
@@ -155,7 +154,6 @@ class CoursePerformanceGradedMixin(CoursePerformanceViewTestMixin):
 
 
 @ddt
-# pylint: disable=abstract-method
 class CoursePerformanceUngradedMixin(CoursePerformanceViewTestMixin):
     active_secondary_nav_label = 'Ungraded Problems'
     sections = None

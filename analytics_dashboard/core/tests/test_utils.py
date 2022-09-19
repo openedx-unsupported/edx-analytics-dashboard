@@ -83,7 +83,7 @@ class UtilsTests(TestCase):
         ]
         expected = deepcopy(list_of_dicts)
         for a_dict in expected:
-            a_dict['translated_foo'] = _(a_dict['foo'])
+            a_dict['translated_foo'] = _(a_dict['foo'])  # pylint: disable=translation-of-non-string
 
         self.assertTrue(translate_dict_values(list_of_dicts, ('foo',)))
 

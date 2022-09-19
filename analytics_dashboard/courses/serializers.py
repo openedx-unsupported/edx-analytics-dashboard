@@ -9,7 +9,6 @@ class LazyEncoder(DjangoJSONEncoder):
     via https://docs.djangoproject.com/en/dev/topics/serialization/
     """
 
-    # pylint: disable=method-hidden
     def default(self, obj):
         if isinstance(obj, Promise):
             return force_str(obj)

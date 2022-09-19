@@ -1,6 +1,3 @@
-# pylint: disable=line-too-long,no-value-for-parameter
-
-
 import os
 
 from auth_backends.urls import oauth2_urlpatterns
@@ -58,7 +55,7 @@ if settings.DEBUG:  # pragma: no cover
     ]
 
     if os.environ.get('ENABLE_DJANGO_TOOLBAR', False):
-        import debug_toolbar  # pylint: disable=import-error, wrong-import-position, wrong-import-order
+        import debug_toolbar
 
         urlpatterns += [
             url(r'^__debug__/', include(debug_toolbar.urls)),

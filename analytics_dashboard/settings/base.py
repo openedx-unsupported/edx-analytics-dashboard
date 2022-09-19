@@ -4,7 +4,7 @@ from sys import path
 
 from configparser import ConfigParser
 
-next_page='/'"""Common settings and globals."""
+next_page='/'"""Common settings and globals."""  # pylint:disable=implicit-str-concat
 
 
 ########## PATH CONFIGURATION
@@ -400,7 +400,7 @@ DOCS_ROOT = join(SITE_ROOT, 'docs')
 # Load the docs config into memory when the server starts
 with open(join(DOCS_ROOT, "config.ini")) as config_file:
     DOCS_CONFIG = ConfigParser()
-    DOCS_CONFIG.readfp(config_file)
+    DOCS_CONFIG.read_file(config_file)
 ########## END DOCS/HELP CONFIGURATION
 
 ########## COURSE API
@@ -423,7 +423,7 @@ ANALYTICS_API_DEFAULT_TIMEOUT = 10
 LMS_DEFAULT_TIMEOUT = (3.05, 5)
 ########## END EXTERNAL SERVICE TIMEOUTS
 
-_ = lambda s: s
+_ = lambda s: s  # pylint: disable=unnecessary-lambda-assignment
 
 ########## LINKS THAT SHOULD BE SHOWN IN FOOTER
 # Example:

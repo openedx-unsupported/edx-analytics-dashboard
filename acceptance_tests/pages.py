@@ -26,7 +26,7 @@ from acceptance_tests import (
 )
 
 
-class DashboardPage(PageObject):  # pylint: disable=abstract-method
+class DashboardPage(PageObject):
     path = None
     basic_auth_username = None
     basic_auth_password = None

@@ -191,7 +191,7 @@ def _refresh_user_course_permissions(user):
             user.username,
             response_data
         )
-        raise PermissionsRetrievalFailedError(e)
+        raise PermissionsRetrievalFailedError(e) from e
 
     set_user_course_permissions(user, allowed_courses)
 

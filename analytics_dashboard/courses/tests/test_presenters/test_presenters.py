@@ -589,8 +589,6 @@ class CourseEngagementVideoPresenterTests(TestCase):
     def test_sibling(self, fixture, start_block, offset, expected_sibling_block):
         """Tests the _sibling method of the `CourseAPIPresenterMixin`."""
 
-        # False positive https://github.com/PyCQA/pylint/issues/289
-        # pylint: disable=bad-continuation
         with mock.patch(
             'analyticsclient.course.Course.videos', mock.Mock(return_value=utils.get_mock_video_data(fixture))
         ):
@@ -622,8 +620,6 @@ class CourseEngagementVideoPresenterTests(TestCase):
                 )
             )
         )
-        # False positive https://github.com/PyCQA/pylint/issues/289
-        # pylint: disable=bad-continuation
         with mock.patch(
             'analyticsclient.course.Course.videos',
             mock.Mock(return_value=utils.get_mock_video_data(fixture, excluded_module_ids=[self.VIDEO_2['id']]))

@@ -698,7 +698,7 @@ def get_mock_video_data(course_fixture, excluded_module_ids=None):
     module IDs in the list.
     """
     if excluded_module_ids is None:
-        excluded_module_ids = list()
+        excluded_module_ids = []
     return [
         {
             "pipeline_video_id": '{org}/{course}/{run}|{encoded_module_id}'.format(
