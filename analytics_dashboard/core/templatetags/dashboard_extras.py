@@ -33,7 +33,6 @@ def metric_percentage(value):
         else:
             percent = '{:.1f}'.format(round(value, 3) * 100)
 
-    # pylint: disable=no-member
     return percent_stat.format(statistic=percent)
 
 
@@ -52,8 +51,8 @@ def do_captureas(parser, token):
 
     try:
         __, args = token.contents.split(None, 1)
-    except ValueError:
-        raise template.TemplateSyntaxError("'captureas' node requires a variable name.")
+    except ValueError as e:
+        raise template.TemplateSyntaxError("'captureas' node requires a variable name.") from e
     nodelist = parser.parse(('endcaptureas',))
     parser.delete_first_token()
     return CaptureasNode(nodelist, args)

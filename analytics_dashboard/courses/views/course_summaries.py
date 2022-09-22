@@ -35,7 +35,6 @@ class CourseIndex(AnalyticsV1Mixin, CourseAPIMixin, LoginRequiredMixin, TrackedV
         'report': '',
         'depth': ''
     }
-    # pylint: disable=line-too-long
     # Translators: Do not translate UTC.
     update_message = _('Course summary data was last updated %(update_date)s at %(update_time)s UTC.')
 

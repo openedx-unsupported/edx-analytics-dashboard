@@ -475,7 +475,7 @@ class CourseView(LoginRequiredMixin, CourseValidMixin, CoursePermissionMixin, Te
             return super().dispatch(request, *args, **kwargs)
         except NotFoundError as e:
             logger.error('The requested data from the Analytics Data API was not found: %s', e)
-            raise Http404
+            raise Http404 from e
         except ClientError as e:
             logger.error('An error occurred while retrieving data from the Analytics Data API: %s', e)
             raise
@@ -684,7 +684,6 @@ class CourseHome(AnalyticsV0Mixin, CourseTemplateWithNavView):
 
         return items
 
-    # pylint: disable=redefined-variable-type
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context.update({
@@ -770,9 +769,9 @@ class CourseStructureExceptionMixin:
             if response is not None:
                 if response.status_code == 404:
                     logger.info('Course API data not found for %s: %s', self.course_id, e)
-                    raise Http404
+                    raise Http404 from e
                 if response.status_code == 503:
-                    raise ServiceUnavailableError
+                    raise ServiceUnavailableError from e
 
             # Not a 404. Continue raising the error.
             logger.error('An error occurred while using Slumber to communicate with an API: %s', e)

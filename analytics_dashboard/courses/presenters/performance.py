@@ -53,8 +53,8 @@ class CoursePerformancePresenter(CourseAPIPresenterMixin, CoursePresenter):
     def course_module_data(self):
         try:
             return self._course_module_data()
-        except BaseCourseError:
-            raise NotFoundError
+        except BaseCourseError as e:
+            raise NotFoundError from e
 
     def get_answer_distribution(self, problem_id, problem_part_id):
         """
@@ -115,7 +115,6 @@ class CoursePerformancePresenter(CourseAPIPresenterMixin, CoursePresenter):
                 return True
         return False
 
-    # pylint: disable=redefined-variable-type
     def _build_questions(self, answer_distributions):
         """
         Builds the questions and part_id from the answer distribution. Displayed
@@ -161,7 +160,6 @@ class CoursePerformancePresenter(CourseAPIPresenterMixin, CoursePresenter):
                     question_template = _('Submissions for Part {part_number}')
                     short_description_template = _('Part {part_number}')
 
-            # pylint: disable=no-member
             question['question'] = question_template.format(part_number=question_num, part_description=text)
             question['short_description'] = short_description_template.format(
                 part_number=question_num, part_description=text)
@@ -230,8 +228,8 @@ class CoursePerformancePresenter(CourseAPIPresenterMixin, CoursePresenter):
         # Implementation of abstract method.  Returns problems from data api.
         try:
             problems = self.client.courses(self.course_id).problems()
-        except NotFoundError:
-            raise NoAnswerSubmissionsError(course_id=self.course_id)
+        except NotFoundError as e:
+            raise NoAnswerSubmissionsError(course_id=self.course_id) from e
         return problems
 
     def attach_computed_data(self, problem):

@@ -69,7 +69,7 @@ class CourseAPIMixin:
         if not httpretty.is_enabled():
             self.fail('httpretty is not enabled. The mock will not be used!')
 
-        url = urljoin(settings.BACKEND_SERVICE_EDX_OAUTH2_PROVIDER_URL + '/', f'access_token')
+        url = urljoin(settings.BACKEND_SERVICE_EDX_OAUTH2_PROVIDER_URL + '/', 'access_token')
         body = body or {
             'access_token': 'test_access_tocken',
             'expires_in': 10,
@@ -111,7 +111,7 @@ class MockApiTestMixin:
         raise NotImplementedError
 
 
-# pylint: disable=not-callable,abstract-method
+# pylint: disable=abstract-method
 @ddt
 class AuthTestMixin(MockApiTestMixin, PermissionsTestMixin, RedirectTestCaseMixin, UserTestCaseMixin):
     follow = True  # Should test_authentication() and test_authorization() follow redirects

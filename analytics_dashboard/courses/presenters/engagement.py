@@ -167,8 +167,8 @@ class CourseEngagementVideoPresenter(CourseAPIPresenterMixin, CoursePresenter):
         # Get the videos from the API.  Use course_module_data() for cached data.
         try:
             videos = self.client.courses(self.course_id).videos()
-        except NotFoundError:
-            raise NoVideosError(course_id=self.course_id)
+        except NotFoundError as e:
+            raise NoVideosError(course_id=self.course_id) from e
         return videos
 
     def attach_computed_data(self, video):

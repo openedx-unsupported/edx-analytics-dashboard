@@ -313,8 +313,8 @@ class AnalyticsDashboardWebAppTestMixin(FooterMixin, PrimaryNavMixin, ContextSen
     def format_number(value):
         """ Format the given value for the current locale (e.g. include decimal separator). """
         if isinstance(value, int):
-            return locale.format("%d", value, grouping=True)
-        return locale.format("%.1f", value, grouping=True)
+            return locale.format("%d", value, grouping=True)  # pylint: disable=deprecated-method
+        return locale.format("%.1f", value, grouping=True)  # pylint: disable=deprecated-method
 
     def assertSummaryPointValueEquals(self, data_selector, value):
         """
@@ -437,7 +437,6 @@ class CourseDemographicsPageTestsMixin(CoursePageTestsMixin):
         self.fulfill_loading_promise(self.chart_selector)
         self.assertElementHasContent(self.chart_selector)
 
-    # pylint: disable=unsubscriptable-object
     def _test_table(self):
         self.assertTable(self.table_section_selector, self.table_columns, self.table_download_selector)
 

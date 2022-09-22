@@ -22,7 +22,6 @@ from acceptance_tests.pages import (
 _multiprocess_can_split_ = True
 
 
-# pylint: disable=abstract-method
 class CourseEngagementPageTestsMixin(CoursePageTestsMixin):
     help_path = 'engagement/Engagement_Content.html'
     chart_selector = None
@@ -128,7 +127,6 @@ class CourseEngagementContentTests(CourseEngagementPageTestsMixin, WebAppTest):
         self.assertValidHref(selector)
 
 
-# pylint: disable=abstract-method
 class CourseEngagementVideoMixin(CourseEngagementPageTestsMixin):
     help_path = 'engagement/Engagement_Video.html'
     chart_selector = '#chart-view'

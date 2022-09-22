@@ -10,9 +10,6 @@
 
 -c common_constraints.txt
 
-# Pin to older pylint, newer versions will require significant code cleanup
-pylint==2.4.4
-
 # Newer version of django-webpack-loader is not compatible with npm webpack-bundle-tracker > 0.4.3
 django-webpack-loader==0.7.0
 

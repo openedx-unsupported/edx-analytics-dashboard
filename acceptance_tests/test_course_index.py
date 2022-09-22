@@ -294,7 +294,7 @@ class CourseIndexTests(AnalyticsApiClientMixin, AnalyticsDashboardWebAppTestMixi
         link = download_button.attrs('href')[0]
 
         # Steal the cookies from the logged-in firefox browser and use them in a python-initiated request
-        kwargs = dict()
+        kwargs = {}
         session_id = [{i['name']: i['value']} for i in self.browser.get_cookies() if i['name'] == 'sessionid']
         if session_id:
             kwargs.update({

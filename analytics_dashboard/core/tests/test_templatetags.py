@@ -37,7 +37,7 @@ class DashboardExtraTests(TestCase):
     def test_captureas(self):
         # Tag requires a variable name.
         self.assertRaises(TemplateSyntaxError, Template,
-                          "{% load dashboard_extras %}" "{% captureas %}42{%endcaptureas%}")
+                          "{% load dashboard_extras %}{% captureas %}42{%endcaptureas%}")
 
         self.assertTextCaptured('42')
 

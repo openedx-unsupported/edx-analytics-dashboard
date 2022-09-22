@@ -28,7 +28,6 @@ class CoursePermissionsExceptionMixin(MiddlewareAssertionMixin):
 class CourseMiddlewareTests(MiddlewareTestCase):
     middleware_class = CourseMiddleware
 
-    # pylint: disable=no-member
     def test_no_course_id(self):
         """
         A non-course URL should have course_id set to None

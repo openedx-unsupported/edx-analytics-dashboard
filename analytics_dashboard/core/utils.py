@@ -52,7 +52,7 @@ def translate_dict_values(items, keys):
     for item in items:
         for key in keys:
             if 'translated_' + key not in item:
-                item['translated_' + key] = _(item[key])
+                item['translated_' + key] = _(item[key])  # pylint: disable=translation-of-non-string
                 did_translate = True
     return did_translate
 

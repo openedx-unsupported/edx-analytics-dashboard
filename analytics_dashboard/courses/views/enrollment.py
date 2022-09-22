@@ -117,7 +117,6 @@ class EnrollmentDemographicsTemplateView(EnrollmentTemplateView):
     # Translators: Do not translate UTC.
     update_message = _('Demographic learner data was last updated %(update_date)s at %(update_time)s UTC.')
 
-    # pylint: disable=line-too-long
     # Translators: This sentence is displayed at the bottom of the page and describe the demographics data displayed.
     data_information_message = _('All above demographic data was self-reported at the time of registration.')
 
@@ -144,7 +143,6 @@ class EnrollmentActivityView(AnalyticsV1Mixin, EnrollmentTemplateView):
     # Translators: Do not translate UTC.
     update_message = _('Enrollment activity data was last updated %(update_date)s at %(update_time)s UTC.')
 
-    # pylint: disable=line-too-long
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
 

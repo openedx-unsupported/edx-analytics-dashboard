@@ -30,7 +30,9 @@ SOCIAL_AUTH_EDX_OAUTH2_PUBLIC_URL_ROOT = os.environ.get(
 )
 
 BACKEND_SERVICE_EDX_OAUTH2_KEY = os.environ.get('BACKEND_SERVICE_EDX_OAUTH2_KEY', 'insights-backend-service-key')
-BACKEND_SERVICE_EDX_OAUTH2_SECRET = os.environ.get('BACKEND_SERVICE_EDX_OAUTH2_SECRET', 'insights-backend-service-secret')
+BACKEND_SERVICE_EDX_OAUTH2_SECRET = os.environ.get(
+    'BACKEND_SERVICE_EDX_OAUTH2_SECRET', 'insights-backend-service-secret'
+)
 BACKEND_SERVICE_EDX_OAUTH2_PROVIDER_URL = os.environ.get(
     'BACKEND_SERVICE_EDX_OAUTH2_PROVIDER_URL', 'http://edx.devstack.lms:18000/oauth2',
 )

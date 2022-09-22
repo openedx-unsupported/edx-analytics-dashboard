@@ -31,10 +31,10 @@ class CourseMiddleware(MiddlewareMixin):
         if course_id:
             try:
                 request.course_key = CourseKey.from_string(course_id)
-            except InvalidKeyError:
+            except InvalidKeyError as e:
                 # Raising an InvalidKeyError here causes a 500-level error which alerts devops. This should really be a
                 # 404 error because though the course requested cannot be found, the server is operating correctly.
-                raise Http404
+                raise Http404 from e
             request.course_id = str(request.course_key)
 
 
