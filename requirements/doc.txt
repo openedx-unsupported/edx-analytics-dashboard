@@ -12,7 +12,7 @@ asgiref==3.5.2
     #   django
 babel==2.10.3
     # via sphinx
-certifi==2022.9.14
+certifi==2022.9.24
     # via
     #   -r requirements/base.txt
     #   requests
@@ -93,7 +93,7 @@ django-webpack-loader==0.7.0
     # via
     #   -c requirements/constraints.txt
     #   -r requirements/base.txt
-djangorestframework==3.13.1
+djangorestframework==3.14.0
     # via
     #   -r requirements/base.txt
     #   djangorestframework-csv
@@ -115,7 +115,7 @@ edx-ccx-keys==1.2.1
     # via -r requirements/base.txt
 edx-django-release-util==1.2.0
     # via -r requirements/base.txt
-edx-django-utils==5.0.1
+edx-django-utils==5.1.0
     # via
     #   -r requirements/base.txt
     #   edx-drf-extensions
@@ -311,7 +311,7 @@ sphinxcontrib-qthelp==1.0.3
     # via sphinx
 sphinxcontrib-serializinghtml==1.1.5
     # via sphinx
-sqlparse==0.4.2
+sqlparse==0.4.3
     # via
     #   -r requirements/base.txt
     #   django
