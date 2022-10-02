@@ -4,11 +4,6 @@
 # 
 # Translators:
 # Translators:
-# Translators:
-# Translators:
-# Translators:
-# Translators:
-# Translators:
 # Masud Ahmed <masud.ahmed92@gmail.com>, 2017
 # Nurul Ferdous <nurul@ferdo.us>, 2017,2020
 # tofael ahmed <topu.tofael@gmail.com>, 2017
@@ -16,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-04-14 18:37+0000\n"
+"POT-Creation-Date: 2022-05-18 15:22+0000\n"
 "PO-Revision-Date: 2014-08-25 20:09+0000\n"
 "Last-Translator: Nurul Ferdous <nurul@ferdo.us>, 2017,2020\n"
 "Language-Team: Bengali (Bangladesh) (http://www.transifex.com/open-edx/edx-platform/language/bn_BD/)\n"
@@ -54,7 +49,7 @@ msgstr "নির্ধারণ করুন আপনার কোর্স �
 #: analytics_dashboard/courses/views/__init__.py:309
 #: analytics_dashboard/courses/views/__init__.py:601
 msgid "Enrollment"
-msgstr "নিয়োগ "
+msgstr "ভর্তি"
 
 #: analytics_dashboard/core/templates/core/landing.html:47
 msgid "What are learners engaging with in my course?"
@@ -1103,13 +1098,13 @@ msgstr "লিঙ্গ "
 #. Translators: Content as in course content (e.g. things, not the feeling)
 #: analytics_dashboard/courses/tests/test_views/test_engagement.py:58
 #: analytics_dashboard/courses/views/__init__.py:616
-#: analytics_dashboard/courses/views/engagement.py:34
+#: analytics_dashboard/courses/views/engagement.py:33
 msgid "Content"
 msgstr "বিষয়বস্তু "
 
 #: analytics_dashboard/courses/tests/test_views/test_engagement.py:69
 #: analytics_dashboard/courses/views/__init__.py:629
-#: analytics_dashboard/courses/views/engagement.py:43
+#: analytics_dashboard/courses/views/engagement.py:42
 msgid "Videos"
 msgstr "ভিডিও "
 
@@ -1221,43 +1216,43 @@ msgid ""
 "Course summary data was last updated %(update_date)s at %(update_time)s UTC."
 msgstr "কোর্সের সারসংক্ষেপ তথ্য সর্বশেষ সংশোধিত হয়েছে  %(update_date)s তারিখে  %(update_time)s টায় ইউ টি সি ।"
 
-#: analytics_dashboard/courses/views/engagement.py:59
+#: analytics_dashboard/courses/views/engagement.py:58
 msgid "Engagement Content"
 msgstr "সংযুক্ত বিষয়বস্তু "
 
 #. Translators: Do not translate UTC.
-#: analytics_dashboard/courses/views/engagement.py:69
+#: analytics_dashboard/courses/views/engagement.py:68
 #, python-format
 msgid ""
 "Course engagement data was last updated %(update_date)s at %(update_time)s "
 "UTC."
 msgstr "কোর্সের সংযুক্তির তথ্য সর্বশেষ সংশোধিত হয়েছে  %(update_date)s তারিখে  %(update_time)s টায় ইউ টি সি "
 
-#: analytics_dashboard/courses/views/engagement.py:96
+#: analytics_dashboard/courses/views/engagement.py:95
 msgid "Engagement Videos"
 msgstr "সংযুক্ত ভিডিও সমূহ "
 
 #. Translators: Do not translate UTC.
-#: analytics_dashboard/courses/views/engagement.py:101
+#: analytics_dashboard/courses/views/engagement.py:100
 #, python-format
 msgid "Video data was last updated %(update_date)s at %(update_time)s UTC."
 msgstr "ভিডিওর তথ্য সর্বশেষ সংশোধিত হয়েছে  %(update_date)s তারিখে  %(update_time)s টায় ইউ টি সি ।"
 
-#: analytics_dashboard/courses/views/engagement.py:102
+#: analytics_dashboard/courses/views/engagement.py:101
 msgid "Looks like no one has watched any videos in these sections."
 msgstr "এই বিভাগের কোন ভিডিও কেও দেখে নাই ।"
 
-#: analytics_dashboard/courses/views/engagement.py:128
+#: analytics_dashboard/courses/views/engagement.py:127
 #: analytics_dashboard/courses/views/performance.py:308
 msgid "Section Name"
 msgstr "অধ্যায়ের নাম "
 
-#: analytics_dashboard/courses/views/engagement.py:148
+#: analytics_dashboard/courses/views/engagement.py:147
 #: analytics_dashboard/courses/views/performance.py:330
 msgid "Subsection Name"
 msgstr "উপধারার নাম "
 
-#: analytics_dashboard/courses/views/engagement.py:169
+#: analytics_dashboard/courses/views/engagement.py:168
 msgid "Video Name"
 msgstr "ভিডিওর নাম "
 
