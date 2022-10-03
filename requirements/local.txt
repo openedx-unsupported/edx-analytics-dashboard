@@ -23,7 +23,7 @@ build==0.8.0
     # via
     #   -r requirements/pip_tools.txt
     #   pip-tools
-certifi==2022.9.14
+certifi==2022.9.24
     # via
     #   -r requirements/test.txt
     #   requests
@@ -132,7 +132,7 @@ django-webpack-loader==0.7.0
     # via
     #   -c requirements/constraints.txt
     #   -r requirements/test.txt
-djangorestframework==3.13.1
+djangorestframework==3.14.0
     # via
     #   -r requirements/test.txt
     #   djangorestframework-csv
@@ -152,7 +152,7 @@ edx-ccx-keys==1.2.1
     # via -r requirements/test.txt
 edx-django-release-util==1.2.0
     # via -r requirements/test.txt
-edx-django-utils==5.0.1
+edx-django-utils==5.1.0
     # via
     #   -r requirements/test.txt
     #   edx-drf-extensions
@@ -308,7 +308,7 @@ pyjwt[crypto]==2.5.0
     #   edx-drf-extensions
     #   edx-rest-api-client
     #   social-auth-core
-pylint==2.15.2
+pylint==2.15.3
     # via
     #   -r requirements/test.txt
     #   edx-lint
@@ -429,7 +429,7 @@ social-auth-core==4.3.0
     #   -r requirements/test.txt
     #   edx-auth-backends
     #   social-auth-app-django
-sqlparse==0.4.2
+sqlparse==0.4.3
     # via
     #   -r requirements/test.txt
     #   django

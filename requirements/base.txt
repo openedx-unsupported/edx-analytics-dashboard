@@ -6,7 +6,7 @@
 #
 asgiref==3.5.2
     # via django
-certifi==2022.9.14
+certifi==2022.9.24
     # via requests
 cffi==1.15.1
     # via
@@ -76,7 +76,7 @@ django-webpack-loader==0.7.0
     # via
     #   -c requirements/constraints.txt
     #   -r requirements/base.in
-djangorestframework==3.13.1
+djangorestframework==3.14.0
     # via
     #   -r requirements/base.in
     #   djangorestframework-csv
@@ -94,7 +94,7 @@ edx-ccx-keys==1.2.1
     # via -r requirements/base.in
 edx-django-release-util==1.2.0
     # via -r requirements/base.in
-edx-django-utils==5.0.1
+edx-django-utils==5.1.0
     # via
     #   -r requirements/base.in
     #   edx-drf-extensions
@@ -213,7 +213,7 @@ social-auth-core==4.3.0
     # via
     #   edx-auth-backends
     #   social-auth-app-django
-sqlparse==0.4.2
+sqlparse==0.4.3
     # via django
 stevedore==4.0.0
     # via
