@@ -40,7 +40,7 @@ defusedxml==0.7.1
     #   -r requirements/base.txt
     #   python3-openid
     #   social-auth-core
-django==3.2.15
+django==3.2.16
     # via
     #   -c requirements/common_constraints.txt
     #   -c requirements/constraints.txt
@@ -64,7 +64,7 @@ django-appconf==1.0.5
     # via -r requirements/base.txt
 django-braces==1.15.0
     # via -r requirements/base.txt
-django-countries==7.3.2
+django-countries==7.4.2
     # via -r requirements/base.txt
 django-crispy-forms==1.14.0
     # via -r requirements/base.txt
@@ -109,7 +109,7 @@ edx-ccx-keys==1.2.1
     # via -r requirements/base.txt
 edx-django-release-util==1.2.0
     # via -r requirements/base.txt
-edx-django-utils==5.1.0
+edx-django-utils==5.2.0
     # via
     #   -r requirements/base.txt
     #   edx-drf-extensions
@@ -152,7 +152,7 @@ markupsafe==2.1.1
     #   jinja2
 mysqlclient==2.1.1
     # via -r requirements/production.in
-newrelic==8.1.0.180
+newrelic==8.2.0.181
     # via
     #   -r requirements/base.txt
     #   edx-django-utils
@@ -163,7 +163,7 @@ oauthlib==3.2.1
     #   -r requirements/base.txt
     #   requests-oauthlib
     #   social-auth-core
-path==16.4.0
+path==16.5.0
     # via
     #   -r requirements/base.txt
     #   edx-i18n-tools
@@ -226,7 +226,7 @@ python3-openid==3.2.0
     # via
     #   -r requirements/base.txt
     #   social-auth-core
-pytz==2022.2.1
+pytz==2022.4
     # via
     #   -r requirements/base.txt
     #   django
@@ -299,7 +299,7 @@ types-cryptography==3.3.23
     # via
     #   -r requirements/base.txt
     #   pyjwt
-typing-extensions==4.3.0
+typing-extensions==4.4.0
     # via
     #   -r requirements/base.txt
     #   django-countries
