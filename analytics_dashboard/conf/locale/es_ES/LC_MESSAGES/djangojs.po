@@ -4,13 +4,9 @@
 # 
 # Translators:
 # Translators:
-# Translators:
-# Translators:
-# Translators:
-# Translators:
-# Translators:
 # Alicia P., 2014
 # Hannah Eli <hnnhreli@gmail.com>, 2015
+# Jesica Greco, 2022
 # Jhonny Alberto Pantaleón <jhonnyppcc@gmail.com>, 2016
 # Juan Manuel Floria <juanfg23@orange.es>, 2016
 # Julia Abajo <carakdraug@gmail.com>, 2016
@@ -27,15 +23,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-04-14 18:37+0000\n"
+"POT-Creation-Date: 2022-05-18 15:22+0000\n"
 "PO-Revision-Date: 2014-08-26 21:24+0000\n"
-"Last-Translator: UAMx <uamx.dev@gmail.com>, 2022\n"
+"Last-Translator: Jesica Greco, 2022\n"
 "Language-Team: Spanish (Spain) (http://www.transifex.com/open-edx/edx-platform/language/es_ES/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: es_ES\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Plural-Forms: nplurals=3; plural=n == 1 ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;\n"
 
 #: analytics_dashboard/static/apps/components/download/views/download-data.js:25
 msgid "Download CSV"
@@ -77,7 +73,7 @@ msgstr "Limpiar"
 
 #: analytics_dashboard/static/apps/components/generic-list/list/views/active-filters.js:91
 msgid "Click to remove all filters"
-msgstr "Pulsa aquí para eliminar todos los filtros"
+msgstr "Pulse aquí para eliminar todos los filtros"
 
 #. Translators: "sort ascending" describes the current sort state to the user.
 #: analytics_dashboard/static/apps/components/generic-list/list/views/base-header-cell.js:71
@@ -94,7 +90,7 @@ msgstr "Clasificación Descendente"
 #. to sort by the current field.
 #: analytics_dashboard/static/apps/components/generic-list/list/views/base-header-cell.js:76
 msgid "click to sort"
-msgstr "Click para ordenar"
+msgstr "Hacer clic para ordenar"
 
 #: analytics_dashboard/static/apps/components/generic-list/list/views/list.js:51
 msgid "Results"
@@ -108,23 +104,23 @@ msgstr "Número de resultados: <%= count %>"
 
 #: analytics_dashboard/static/apps/components/generic-list/list/views/paging-footer.js:70
 msgid "first page"
-msgstr "primera página"
+msgstr "Primera página"
 
 #: analytics_dashboard/static/apps/components/generic-list/list/views/paging-footer.js:72
 msgid "previous page"
-msgstr "página anterior"
+msgstr "Página anterior"
 
 #: analytics_dashboard/static/apps/components/generic-list/list/views/paging-footer.js:74
 msgid "next page"
-msgstr "página siguiente"
+msgstr "Página siguiente"
 
 #: analytics_dashboard/static/apps/components/generic-list/list/views/paging-footer.js:76
 msgid "last page"
-msgstr "última página"
+msgstr "Última página"
 
 #: analytics_dashboard/static/apps/components/generic-list/list/views/paging-footer.js:78
 msgid "page"
-msgstr "página"
+msgstr "Página"
 
 #. Translators: describes the state of a pagination button as not clickable
 #: analytics_dashboard/static/apps/components/generic-list/list/views/paging-footer.js:88
@@ -155,7 +151,7 @@ msgstr "504: Error de servidor"
 msgid ""
 "Processing your request took too long to complete. Reload the page to try "
 "again."
-msgstr "El procesado de tu petición tardó demasiado tiempo en completarse. Intenta cargar la página de nuevo."
+msgstr "El procesado de su petición tardó demasiado tiempo en completarse. Intente cargar la página nuevamente."
 
 #: analytics_dashboard/static/apps/components/utils/utils.js:68
 msgid "Server error"
@@ -164,11 +160,11 @@ msgstr "Error de servidor"
 #: analytics_dashboard/static/apps/components/utils/utils.js:69
 #: analytics_dashboard/static/apps/components/utils/utils.js:81
 msgid "Your request could not be processed. Reload the page to try again."
-msgstr "Tu petición no pudo ser procesada. Intenta cargar la página de nuevo."
+msgstr "Su petición no pudo ser procesada. Intente cargar la página nuevamente."
 
 #: analytics_dashboard/static/apps/components/utils/utils.js:80
 msgid "Network error"
-msgstr "Error de red"
+msgstr "Error en la red"
 
 #: analytics_dashboard/static/apps/course-list/app/app.js:38
 msgid "Instructor-Paced"
@@ -198,16 +194,16 @@ msgstr "Desconocido"
 #: analytics_dashboard/static/apps/course-list/app/controller.js:44
 #: analytics_dashboard/static/apps/course-list/app/controller.js:106
 msgid "Course List"
-msgstr "Lista del curso"
+msgstr "Listado del curso"
 
 #: analytics_dashboard/static/apps/course-list/app/controller.js:95
 #: analytics_dashboard/static/apps/learners/app/controller.js:94
 msgid "Invalid Parameters"
-msgstr "Parametros Inválidos"
+msgstr "Parámetros inválidos"
 
 #: analytics_dashboard/static/apps/course-list/app/controller.js:96
 msgid "Sorry, we couldn't find any courses that matched that query."
-msgstr "Lo sentimos, no pudimos encontrar cursos que coincidan con esa consulta."
+msgstr "Lo sentimos, no pudimos encontrar cursos que coincidan con esta consulta."
 
 #: analytics_dashboard/static/apps/course-list/app/controller.js:97
 msgid "Return to the Course List page."
@@ -216,7 +212,7 @@ msgstr "Volver a la página de lista de cursos"
 #: analytics_dashboard/static/apps/course-list/app/controller.js:123
 #: analytics_dashboard/static/apps/learners/app/controller.js:177
 msgid "Sorry, we couldn't find the page you're looking for."
-msgstr "Lo sentimos, no podemos encontrar la página que estás buscando."
+msgstr "Lo sentimos, no podemos encontrar la página que está buscando."
 
 #: analytics_dashboard/static/apps/course-list/app/controller.js:125
 #: analytics_dashboard/static/apps/learners/app/controller.js:180
@@ -257,7 +253,7 @@ msgstr "Inscripción verificada"
 
 #: analytics_dashboard/static/apps/course-list/common/collections/course-list.js:86
 msgid "Passing Learners"
-msgstr "Pasando estudiantes"
+msgstr "Estudiantes aprobados"
 
 #: analytics_dashboard/static/apps/course-list/common/collections/course-list.js:89
 msgid "Availability"
@@ -314,18 +310,6 @@ msgstr "Omitir resultados"
 msgid "Find a course"
 msgstr "Buscar un curso"
 
-#: analytics_dashboard/static/apps/course-list/list/views/controls.js:68
-msgid "availability"
-msgstr "Disponibilidad "
-
-#: analytics_dashboard/static/apps/course-list/list/views/controls.js:76
-msgid "pacing_type"
-msgstr "pacing_type"
-
-#: analytics_dashboard/static/apps/course-list/list/views/controls.js:84
-msgid "program_ids"
-msgstr "program_ids"
-
 #: analytics_dashboard/static/apps/course-list/list/views/course-list.js:66
 msgid "Download full course list to CSV"
 msgstr "Descargar la lista completa de cursos en CSV"
@@ -370,7 +354,7 @@ msgstr "buscar"
 #: analytics_dashboard/static/apps/course-list/list/views/search.js:73
 #: analytics_dashboard/static/apps/learners/roster/views/search.js:57
 msgid "clear search"
-msgstr "borrado de búsqueda"
+msgstr "borrar de búsqueda"
 
 #: analytics_dashboard/static/apps/course-list/list/views/table.js:48
 msgid "Date not available"
@@ -378,7 +362,7 @@ msgstr "Fecha no disponible"
 
 #: analytics_dashboard/static/apps/learners/app/controller.js:59
 msgid "Learner Roster"
-msgstr "Respuesta del alumno"
+msgstr "Lista del alumno"
 
 #: analytics_dashboard/static/apps/learners/app/controller.js:95
 msgid "Sorry, we couldn't find any learners who matched that query."
@@ -386,7 +370,7 @@ msgstr "Lo sentimos, pero no hemos encontrado ningún estudiante que coincidiese
 
 #: analytics_dashboard/static/apps/learners/app/controller.js:96
 msgid "Return to the Learners page."
-msgstr "Volver a la página de Estudiantes "
+msgstr "Volver a la página de estudiantes "
 
 #: analytics_dashboard/static/apps/learners/app/controller.js:104
 msgid "Learners"
@@ -402,7 +386,7 @@ msgstr "Nombre (Nombre de usuario)"
 
 #: analytics_dashboard/static/apps/learners/common/collections/learners.js:18
 msgid "Problems Tried"
-msgstr "Problemas propuestos"
+msgstr "Problemas abordados"
 
 #: analytics_dashboard/static/apps/learners/common/collections/learners.js:19
 #: analytics_dashboard/static/apps/learners/detail/views/engagement-table.js:33
@@ -412,7 +396,7 @@ msgstr "Problemas correctos"
 
 #: analytics_dashboard/static/apps/learners/common/collections/learners.js:20
 msgid "Attempts per Problem Correct"
-msgstr "Intentos por Problema Correcto"
+msgstr "Intentos por problemas corregidos"
 
 #: analytics_dashboard/static/apps/learners/common/collections/learners.js:21
 #: analytics_dashboard/static/js/engagement-video-content-main.js:33
@@ -429,7 +413,7 @@ msgstr "Segmentos"
 
 #: analytics_dashboard/static/apps/learners/common/collections/learners.js:25
 msgid "Segments to Ignore"
-msgstr "Segmentos a ignorar"
+msgstr "Segmentos para ignorar"
 
 #: analytics_dashboard/static/apps/learners/common/collections/learners.js:26
 #: analytics_dashboard/static/apps/learners/detail/views/learner-detail.js:101
@@ -450,12 +434,12 @@ msgstr "Fecha"
 #: analytics_dashboard/static/apps/learners/detail/views/engagement-table.js:27
 #: analytics_dashboard/static/apps/learners/detail/views/engagement-timeline.js:31
 msgid "Discussion Contributions"
-msgstr "Contribuciones a los diálogos."
+msgstr "Contribuciones a los foros"
 
 #: analytics_dashboard/static/apps/learners/detail/views/engagement-table.js:39
 #: analytics_dashboard/static/apps/learners/detail/views/engagement-timeline.js:39
 msgid "Videos Viewed"
-msgstr "Videos visionados."
+msgstr "Videos vistos"
 
 #: analytics_dashboard/static/apps/learners/detail/views/engagement-timeline.js:47
 msgid "Value"
@@ -464,7 +448,7 @@ msgstr "Valor"
 #. Translators: e.g. Learner engagement activity
 #: analytics_dashboard/static/apps/learners/detail/views/learner-detail.js:28
 msgid "Engagement Activity"
-msgstr "Compromiso de Actividad"
+msgstr "Actividad de compromiso"
 
 #: analytics_dashboard/static/apps/learners/detail/views/learner-detail.js:29
 msgid "Daily Activity"
@@ -472,7 +456,7 @@ msgstr "Actividad Diaria"
 
 #: analytics_dashboard/static/apps/learners/detail/views/learner-detail.js:30
 msgid "Activity Over Time"
-msgstr "Actividad con el tiempo "
+msgstr "Actividad en horas extras"
 
 #: analytics_dashboard/static/apps/learners/detail/views/learner-detail.js:95
 msgid "Enrollment"
@@ -480,18 +464,18 @@ msgstr "Inscripciones"
 
 #: analytics_dashboard/static/apps/learners/detail/views/learner-detail.js:106
 msgid "Last Accessed"
-msgstr "Ultimo acceso"
+msgstr "Último acceso"
 
 #. Translators: 'n/a' means 'not available'
 #: analytics_dashboard/static/apps/learners/detail/views/learner-detail.js:109
 #: analytics_dashboard/static/apps/learners/detail/views/learner-summary-field.js:44
 #: analytics_dashboard/static/apps/learners/roster/views/activity-date-range.js:16
 msgid "n/a"
-msgstr "n/a"
+msgstr "N/A"
 
 #: analytics_dashboard/static/apps/learners/detail/views/learner-detail.js:139
 msgid "Check back daily for up-to-date data."
-msgstr "Chequea diariamente para tener información actualizada"
+msgstr "Chequea diariamente para tener la información actualizada"
 
 #: analytics_dashboard/static/apps/learners/detail/views/learner-detail.js:149
 msgid "No course activity data is available for this learner."
@@ -499,7 +483,7 @@ msgstr "No hay datos disponibles de la actividad de este alumno."
 
 #: analytics_dashboard/static/apps/learners/detail/views/learner-detail.js:156
 msgid "No learner data is available."
-msgstr "No hay datos disponible para el alumno."
+msgstr "No hay datos disponibles para el alumno."
 
 #: analytics_dashboard/static/apps/learners/detail/views/learner-return.js:12
 msgid "Return to Learners"
@@ -515,7 +499,7 @@ msgstr "Cohorte: <%= filterVal %>"
 #. initiated.
 #: analytics_dashboard/static/apps/learners/roster/views/active-filters.js:27
 msgid "Enrollment Track: <%= filterVal %>"
-msgstr "Pista de Inscripción: <%= filterVal %>"
+msgstr "Monitoreo de la Inscripción: <%= filterVal %>"
 
 #: analytics_dashboard/static/apps/learners/roster/views/active-filters.js:32
 #: analytics_dashboard/static/js/engagement-content-main.js:20
@@ -532,21 +516,21 @@ msgstr "El nombre y el nombre de usuario de este estudiante. Haz clic para orden
 
 #: analytics_dashboard/static/apps/learners/roster/views/base-header-cell.js:11
 msgid "Number of unique problems this learner attempted."
-msgstr "Número de problemas singulares intentados por este estudiante."
+msgstr "Número de problemas únicos intentados por este estudiante."
 
 #: analytics_dashboard/static/apps/learners/roster/views/base-header-cell.js:12
 msgid "Number of unique problems the learner answered correctly."
-msgstr "Número de problemas singulares que el estudiante respondió correctamente."
+msgstr "Número de problemas únicos que el estudiante respondió correctamente."
 
 #: analytics_dashboard/static/apps/learners/roster/views/base-header-cell.js:13
 msgid "Number of unique videos this learner played."
-msgstr "Número de videos singulares ejecutados por este estudiante."
+msgstr "Número de vídeos únicos ejecutados por este estudiante."
 
 #: analytics_dashboard/static/apps/learners/roster/views/base-header-cell.js:15
 msgid ""
 "Average number of attempts per correct problem. Learners with a relatively "
 "high value compared to their peers may be struggling."
-msgstr "Número promedio de intentos por problema correcto. Estudiantes con alto valor relativo en comparación con sus compañeros con debido esfuerzo."
+msgstr "Número promedio de intentos por problemas correctos. Estudiantes con alto valor relativo en comparación con sus compañeros con debido esfuerzo."
 
 #: analytics_dashboard/static/apps/learners/roster/views/base-header-cell.js:17
 msgid ""
@@ -556,23 +540,15 @@ msgstr "Número de contribuciones por este alumno, incluyendo publicaciones, res
 
 #: analytics_dashboard/static/apps/learners/roster/views/controls.js:62
 msgid "Find a learner"
-msgstr "Busca un estudiante"
+msgstr "Buscar un estudiante"
 
 #: analytics_dashboard/static/apps/learners/roster/views/controls.js:75
 msgid "Cohort Groups"
 msgstr "Grupos de cohorte"
 
-#: analytics_dashboard/static/apps/learners/roster/views/controls.js:73
-msgid "cohort"
-msgstr "cohorte"
-
 #: analytics_dashboard/static/apps/learners/roster/views/controls.js:87
 msgid "Enrollment Tracks"
-msgstr "Pistas de Inscripciones"
-
-#: analytics_dashboard/static/apps/learners/roster/views/controls.js:85
-msgid "enrollment_mode"
-msgstr "enrollment_mode"
+msgstr "Monitoreo de las Inscripciones"
 
 #. Translators: inactive meaning that these learners have not interacted with
 #. the
@@ -581,28 +557,24 @@ msgstr "enrollment_mode"
 msgid "Hide Inactive Learners"
 msgstr "Ocultar estudiantes inactivos"
 
-#: analytics_dashboard/static/apps/learners/roster/views/controls.js:97
-msgid "ignore_segments"
-msgstr "ignore_segments"
-
 #: analytics_dashboard/static/apps/learners/roster/views/results.js:47
 msgid "No learners matched your criteria."
-msgstr "Ningún estudiante coincidió con su criterio."
+msgstr "Ningún estudiante coincidió con el criterio de búsqueda."
 
 #: analytics_dashboard/static/apps/learners/roster/views/results.js:55
 msgid "No learner data is currently available for your course."
-msgstr "Ninguna información de estudiante es compatibel con su curso actualmente."
+msgstr "Ninguna dato relacionado con estudiantes es compatible con su curso actualmente."
 
 #: analytics_dashboard/static/apps/learners/roster/views/results.js:57
 msgid ""
 "No learners are enrolled, or course activity data has not yet been "
 "processed. Data is updated every day, so check back regularly for up-to-date"
 " metrics."
-msgstr "Ningún estudiante está inscrito, ó información de la actividad del curso aún no ha sido procesada. Los datos se actualizan cada día, por lo tanto compruébelo regularmente para su oportuna actualización."
+msgstr "Ningún estudiante está inscrito o la información de la actividad del curso aún no ha sido procesada. Los datos se actualizan cada día; por lo tanto, compruébelo regularmente para su oportuna actualización."
 
 #: analytics_dashboard/static/apps/learners/roster/views/roster.js:110
 msgid "Learner roster controls"
-msgstr "Lista de controles para el alumno"
+msgstr "Controles de la lista de estudiantes"
 
 #: analytics_dashboard/static/apps/learners/roster/views/search.js:55
 msgid "Search learners"
@@ -612,7 +584,7 @@ msgstr "Búsqueda de estudiantes"
 #. accordingly.
 #: analytics_dashboard/static/apps/learners/roster/views/table.js:40
 msgid "N/A"
-msgstr "No se aplica"
+msgstr "No aplica"
 
 #: analytics_dashboard/static/js/engagement-content-main.js:15
 msgid "Week Ending"
@@ -628,7 +600,7 @@ msgstr "Intentó resolver un ejercicio"
 
 #: analytics_dashboard/static/js/engagement-content-main.js:41
 msgid "Participated in Discussions"
-msgstr "Participó en las discusiones"
+msgstr "Participó en los debtates"
 
 #: analytics_dashboard/static/js/engagement-content-main.js:48
 msgid "Percent of Current Learners"
@@ -663,7 +635,7 @@ msgstr "Porcentaje completado"
 
 #: analytics_dashboard/static/js/engagement-video-timeline-main.js:25
 msgid "Unique Viewers"
-msgstr "Unicos espectadores."
+msgstr "Únicos espectadores."
 
 #: analytics_dashboard/static/js/engagement-video-timeline-main.js:32
 msgid "Replays"
@@ -685,11 +657,11 @@ msgstr "Vistas incompletas"
 #. certificate)
 #: analytics_dashboard/static/js/enrollment-activity-main.js:33
 msgid "Honor"
-msgstr "Alumno sobresaliente"
+msgstr "Honor"
 
 #: analytics_dashboard/static/js/enrollment-activity-main.js:38
 msgid "Audit"
-msgstr "Oyente"
+msgstr "Control"
 
 #: analytics_dashboard/static/js/enrollment-activity-main.js:43
 msgid "Verified"
@@ -837,7 +809,7 @@ msgstr "Porcentaje correcto"
 
 #: analytics_dashboard/static/js/performance-learning-outcomes-content-main.js:38
 msgid "Average Submissions per Problem"
-msgstr "Presentaciones Promerio por Problema"
+msgstr "Presentaciones promedio por problema"
 
 #: analytics_dashboard/static/js/performance-learning-outcomes-section-main.js:30
 msgid "Difficulty"
