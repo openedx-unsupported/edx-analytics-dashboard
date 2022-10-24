@@ -8,7 +8,7 @@ asgiref==3.5.2
     # via
     #   -r requirements/base.txt
     #   django
-astroid==2.12.11
+astroid==2.12.12
     # via
     #   -r requirements/test.in
     #   pylint
@@ -62,7 +62,7 @@ defusedxml==0.7.1
     #   -r requirements/base.txt
     #   python3-openid
     #   social-auth-core
-dill==0.3.5.1
+dill==0.3.6
     # via pylint
     # via
     #   -c requirements/common_constraints.txt
@@ -142,7 +142,7 @@ edx-django-utils==5.2.0
     #   edx-toggles
 edx-drf-extensions==8.3.1
     # via -r requirements/base.txt
-edx-i18n-tools==0.9.1
+edx-i18n-tools==0.9.2
     # via -r requirements/base.txt
 edx-lint==5.3.0
     # via -r requirements/test.in
@@ -187,11 +187,11 @@ markupsafe==2.1.1
     #   jinja2
 mccabe==0.7.0
     # via pylint
-newrelic==8.2.0.181
+newrelic==8.2.1
     # via
     #   -r requirements/base.txt
     #   edx-django-utils
-oauthlib==3.2.1
+oauthlib==3.2.2
     # via
     #   -r requirements/base.txt
     #   requests-oauthlib
@@ -205,7 +205,7 @@ path==16.5.0
     #   path-py
 path-py==12.5.0
     # via -r requirements/base.txt
-pbr==5.10.0
+pbr==5.11.0
     # via
     #   -r requirements/base.txt
     #   stevedore
@@ -219,7 +219,7 @@ polib==1.1.1
     # via
     #   -r requirements/base.txt
     #   edx-i18n-tools
-psutil==5.9.2
+psutil==5.9.3
     # via
     #   -r requirements/base.txt
     #   edx-django-utils
@@ -241,7 +241,7 @@ pyjwkest==1.4.2
     # via
     #   -r requirements/base.txt
     #   edx-drf-extensions
-pyjwt[crypto]==2.5.0
+pyjwt[crypto]==2.6.0
     # via
     #   -r requirements/base.txt
     #   drf-jwt
@@ -249,7 +249,7 @@ pyjwt[crypto]==2.5.0
     #   edx-drf-extensions
     #   edx-rest-api-client
     #   social-auth-core
-pylint==2.15.4
+pylint==2.15.5
     # via
     #   -r requirements/test.in
     #   edx-lint
@@ -295,7 +295,7 @@ python3-openid==3.2.0
     # via
     #   -r requirements/base.txt
     #   social-auth-core
-pytz==2022.4
+pytz==2022.5
     # via
     #   -r requirements/base.txt
     #   django
@@ -361,7 +361,7 @@ sqlparse==0.4.3
     # via
     #   -r requirements/base.txt
     #   django
-stevedore==4.0.0
+stevedore==4.1.0
     # via
     #   -r requirements/base.txt
     #   code-annotations
@@ -380,10 +380,6 @@ tomli==2.0.1
     #   pytest
 tomlkit==0.11.5
     # via pylint
-types-cryptography==3.3.23
-    # via
-    #   -r requirements/base.txt
-    #   pyjwt
 typing-extensions==4.4.0
     # via
     #   -r requirements/base.txt
