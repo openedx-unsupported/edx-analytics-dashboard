@@ -4,11 +4,6 @@
 # 
 # Translators:
 # Translators:
-# Translators:
-# Translators:
-# Translators:
-# Translators:
-# Translators:
 # Jiří Šedý <jsedy7@gmail.com>, 2015
 # trendspotter <jirka.p@volny.cz>, 2022
 # Kristýna Kučerová <kristyna.kucerova@gmail.com>, 2020
@@ -19,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-04-14 18:37+0000\n"
+"POT-Creation-Date: 2022-05-18 15:22+0000\n"
 "PO-Revision-Date: 2014-08-25 20:09+0000\n"
 "Last-Translator: trendspotter <jirka.p@volny.cz>, 2022\n"
 "Language-Team: Czech (http://www.transifex.com/open-edx/edx-platform/language/cs/)\n"
@@ -1106,13 +1101,13 @@ msgstr "Pohlaví"
 #. Translators: Content as in course content (e.g. things, not the feeling)
 #: analytics_dashboard/courses/tests/test_views/test_engagement.py:58
 #: analytics_dashboard/courses/views/__init__.py:616
-#: analytics_dashboard/courses/views/engagement.py:34
+#: analytics_dashboard/courses/views/engagement.py:33
 msgid "Content"
 msgstr "Obsah"
 
 #: analytics_dashboard/courses/tests/test_views/test_engagement.py:69
 #: analytics_dashboard/courses/views/__init__.py:629
-#: analytics_dashboard/courses/views/engagement.py:43
+#: analytics_dashboard/courses/views/engagement.py:42
 msgid "Videos"
 msgstr "Videa"
 
@@ -1162,7 +1157,7 @@ msgstr "Jak se studentům daří plnit zadání?"
 
 #: analytics_dashboard/courses/views/__init__.py:699
 msgid "What are individual learners doing?"
-msgstr ""
+msgstr "Co dělají jednotliví studenti?"
 
 #: analytics_dashboard/courses/views/__init__.py:702
 msgid "Who is engaged? Who isn't?"
@@ -1224,43 +1219,43 @@ msgid ""
 "Course summary data was last updated %(update_date)s at %(update_time)s UTC."
 msgstr "Souhrnná data kurzu byla naposledy aktualizována %(update_date)s v %(update_time)s UTC."
 
-#: analytics_dashboard/courses/views/engagement.py:59
+#: analytics_dashboard/courses/views/engagement.py:58
 msgid "Engagement Content"
 msgstr "Obsah zapojení"
 
 #. Translators: Do not translate UTC.
-#: analytics_dashboard/courses/views/engagement.py:69
+#: analytics_dashboard/courses/views/engagement.py:68
 #, python-format
 msgid ""
 "Course engagement data was last updated %(update_date)s at %(update_time)s "
 "UTC."
 msgstr ""
 
-#: analytics_dashboard/courses/views/engagement.py:96
+#: analytics_dashboard/courses/views/engagement.py:95
 msgid "Engagement Videos"
 msgstr "Interaktivní videa"
 
 #. Translators: Do not translate UTC.
-#: analytics_dashboard/courses/views/engagement.py:101
+#: analytics_dashboard/courses/views/engagement.py:100
 #, python-format
 msgid "Video data was last updated %(update_date)s at %(update_time)s UTC."
 msgstr ""
 
-#: analytics_dashboard/courses/views/engagement.py:102
+#: analytics_dashboard/courses/views/engagement.py:101
 msgid "Looks like no one has watched any videos in these sections."
 msgstr ""
 
-#: analytics_dashboard/courses/views/engagement.py:128
+#: analytics_dashboard/courses/views/engagement.py:127
 #: analytics_dashboard/courses/views/performance.py:308
 msgid "Section Name"
 msgstr ""
 
-#: analytics_dashboard/courses/views/engagement.py:148
+#: analytics_dashboard/courses/views/engagement.py:147
 #: analytics_dashboard/courses/views/performance.py:330
 msgid "Subsection Name"
 msgstr "Název podsekce"
 
-#: analytics_dashboard/courses/views/engagement.py:169
+#: analytics_dashboard/courses/views/engagement.py:168
 msgid "Video Name"
 msgstr "Název videa"
 
