@@ -31,7 +31,7 @@ Provisioning for insights and the data api can be combined:
 
 .. code:: sh
 
-make dev.provision insights+analyticsapi
+make dev.provision.insights+analyticsapi
 
 Getting Started Standalone
 --------------------------
