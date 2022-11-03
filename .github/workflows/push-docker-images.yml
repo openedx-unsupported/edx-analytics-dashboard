@@ -1,0 +1,49 @@
+name: Build and Push Docker Images
+
+on:
+  push:
+    branches:
+      - master
+    tags:
+      - open-release/*
+jobs:
+  push:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      # Use the release name as the image tag if we're building an open release tag.
+      # Examples: if we're building 'open-release/maple.1', tag the image as 'maple.1'.
+      # Otherwise, we must be building from a push to master, so use 'latest'.
+      - name: Get tag name
+        id: get-tag-name
+        uses: actions/github-script@v5
+        with:
+          script: |
+            const releasePrefix = 'refs/tags/open-release/';
+            const tagName = context.ref.split(releasePrefix)[1] || 'latest';
+            console.log('Will use tag: ' + tagName);
+            return tagName;
+          result-encoding: string
+
+      - name: Build and push Dev Docker image
+        uses: docker/build-push-action@v1
+        with:
+          push: true
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_PASSWORD }}
+          target: dev
+          repository: edxops/insights-dev
+          tags: ${{ steps.get-tag-name.outputs.result }},${{ github.sha }}
+
+      # - name: Build and push prod Docker image
+      #   uses: docker/build-push-action@v1
+      #   with:
+      #     push: true
+      #     username: ${{ secrets.DOCKERHUB_USERNAME }}
+      #     password: ${{ secrets.DOCKERHUB_PASSWORD }}
+      #     target: prod
+      #     repository: edxops/insights
+      #     tags: ${{ steps.get-tag-name.outputs.result }},${{ github.sha }}
