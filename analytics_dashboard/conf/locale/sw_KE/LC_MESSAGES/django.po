@@ -4,11 +4,6 @@
 # 
 # Translators:
 # Translators:
-# Translators:
-# Translators:
-# Translators:
-# Translators:
-# Translators:
 # Benedict Mfoi <benedictmfoi@camara.org>, 2019
 # Innocent Masue <translations_7@camara.ie>, 2017
 # Isihaka Issa <translations_8@camara.ie>, 2017
@@ -22,7 +17,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-04-14 18:37+0000\n"
+"POT-Creation-Date: 2022-05-18 15:22+0000\n"
 "PO-Revision-Date: 2014-08-25 20:09+0000\n"
 "Last-Translator: Benedict Mfoi <benedictmfoi@camara.org>, 2019\n"
 "Language-Team: Swahili (Kenya) (http://www.transifex.com/open-edx/edx-platform/language/sw_KE/)\n"
@@ -1109,13 +1104,13 @@ msgstr "Jinsia"
 #. Translators: Content as in course content (e.g. things, not the feeling)
 #: analytics_dashboard/courses/tests/test_views/test_engagement.py:58
 #: analytics_dashboard/courses/views/__init__.py:616
-#: analytics_dashboard/courses/views/engagement.py:34
+#: analytics_dashboard/courses/views/engagement.py:33
 msgid "Content"
 msgstr "Yaliyomo"
 
 #: analytics_dashboard/courses/tests/test_views/test_engagement.py:69
 #: analytics_dashboard/courses/views/__init__.py:629
-#: analytics_dashboard/courses/views/engagement.py:43
+#: analytics_dashboard/courses/views/engagement.py:42
 msgid "Videos"
 msgstr "Video"
 
@@ -1173,7 +1168,7 @@ msgstr "Ni nani ameshiriki? Nani hakushiriki?"
 
 #: analytics_dashboard/courses/views/__init__.py:704
 msgid "All Learners"
-msgstr "Wanagenzi / Wanafunzi wote"
+msgstr "Wanafunzi wote"
 
 #. Translators: 'Course ID' is 'Course Identifier', the unique code that
 #. identifies the course
@@ -1227,43 +1222,43 @@ msgid ""
 "Course summary data was last updated %(update_date)s at %(update_time)s UTC."
 msgstr "Muhtasari wa kozi mara ya mwisho kusahihishwa\n%(update_date)s kwenye %(update_time)s UTC."
 
-#: analytics_dashboard/courses/views/engagement.py:59
+#: analytics_dashboard/courses/views/engagement.py:58
 msgid "Engagement Content"
 msgstr "Yanayo mshughulisha/mvutia zaidi muhusika"
 
 #. Translators: Do not translate UTC.
-#: analytics_dashboard/courses/views/engagement.py:69
+#: analytics_dashboard/courses/views/engagement.py:68
 #, python-format
 msgid ""
 "Course engagement data was last updated %(update_date)s at %(update_time)s "
 "UTC."
 msgstr "Yalio muhimu zaidi yalikamilishwa mwisho %(update_date)s kwa %(update_time)s UTC."
 
-#: analytics_dashboard/courses/views/engagement.py:96
+#: analytics_dashboard/courses/views/engagement.py:95
 msgid "Engagement Videos"
 msgstr "Yaliomuhimu zaidi kwa Video"
 
 #. Translators: Do not translate UTC.
-#: analytics_dashboard/courses/views/engagement.py:101
+#: analytics_dashboard/courses/views/engagement.py:100
 #, python-format
 msgid "Video data was last updated %(update_date)s at %(update_time)s UTC."
 msgstr "Video ilikamilishwa mwisho %(update_date)s kwa %(update_time)s UTC."
 
-#: analytics_dashboard/courses/views/engagement.py:102
+#: analytics_dashboard/courses/views/engagement.py:101
 msgid "Looks like no one has watched any videos in these sections."
 msgstr "Nikama hakuna alie tazama video katika vitengo hivi."
 
-#: analytics_dashboard/courses/views/engagement.py:128
+#: analytics_dashboard/courses/views/engagement.py:127
 #: analytics_dashboard/courses/views/performance.py:308
 msgid "Section Name"
 msgstr "Jina la Kitengo"
 
-#: analytics_dashboard/courses/views/engagement.py:148
+#: analytics_dashboard/courses/views/engagement.py:147
 #: analytics_dashboard/courses/views/performance.py:330
 msgid "Subsection Name"
 msgstr "Jina la Kitengo toto"
 
-#: analytics_dashboard/courses/views/engagement.py:169
+#: analytics_dashboard/courses/views/engagement.py:168
 msgid "Video Name"
 msgstr "Jina la Video"
 
