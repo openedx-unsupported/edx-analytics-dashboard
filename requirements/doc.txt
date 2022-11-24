@@ -79,7 +79,7 @@ django-crum==0.7.9
     #   edx-toggles
 django-lang-pref-middleware==1.2.0
     # via -r requirements/base.txt
-django-model-utils==4.2.0
+django-model-utils==4.3.1
     # via -r requirements/base.txt
 django-soapbox==1.6.1
     # via -r requirements/base.txt
@@ -146,14 +146,14 @@ idna==3.4
     #   requests
 imagesize==1.4.1
     # via sphinx
-importlib-metadata==5.0.0
+importlib-metadata==5.1.0
     # via sphinx
 jinja2==3.1.2
     # via
     #   -r requirements/base.txt
     #   code-annotations
     #   sphinx
-libsass==0.21.0
+libsass==0.22.0
     # via -r requirements/base.txt
 logutils==0.3.5
     # via -r requirements/base.txt
@@ -229,7 +229,7 @@ python-dateutil==2.8.2
     # via
     #   -r requirements/base.txt
     #   edx-drf-extensions
-python-slugify==6.1.2
+python-slugify==7.0.0
     # via
     #   -r requirements/base.txt
     #   code-annotations
@@ -277,7 +277,6 @@ six==1.16.0
     #   edx-django-release-util
     #   edx-drf-extensions
     #   edx-sphinx-theme
-    #   libsass
     #   pyjwkest
     #   python-dateutil
 slumber==0.7.1
@@ -333,7 +332,7 @@ unicodecsv==0.14.1
     # via
     #   -r requirements/base.txt
     #   djangorestframework-csv
-urllib3==1.26.12
+urllib3==1.26.13
     # via
     #   -r requirements/base.txt
     #   requests
