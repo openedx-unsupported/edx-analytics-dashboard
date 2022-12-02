@@ -34,7 +34,7 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_PASSWORD }}
           target: dev
-          repository: edxops/insights-dev
+          repository: edxops/insights
           tags: ${{ steps.get-tag-name.outputs.result }},${{ github.sha }}
 
       # - name: Build and push prod Docker image
@@ -44,5 +44,5 @@ jobs:
       #     username: ${{ secrets.DOCKERHUB_USERNAME }}
       #     password: ${{ secrets.DOCKERHUB_PASSWORD }}
       #     target: prod
-      #     repository: edxops/insights
+      #     repository: edxops/insights-prod
       #     tags: ${{ steps.get-tag-name.outputs.result }},${{ github.sha }}
