@@ -9,7 +9,9 @@ RUN apt-get update && apt-get install --no-install-recommends -qy \
   python3-virtualenv \
   python3.8-distutils \
   libmysqlclient-dev \
-  libssl-dev && \
+  libssl-dev \
+  # needed by phantomjs
+  libfontconfig && \
   rm -rf /var/lib/apt/lists/*
 
 RUN locale-gen en_US.UTF-8
