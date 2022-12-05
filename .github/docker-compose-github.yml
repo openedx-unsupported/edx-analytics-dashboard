@@ -12,7 +12,7 @@ services:
       ELASTICSEARCH_LEARNERS_UPDATE_INDEX: 'index_update'
     command: /edx/app/analytics_api/venvs/analytics_api/bin/python /edx/app/analytics_api/analytics_api/manage.py runserver 0.0.0.0:80 --settings analyticsdataserver.settings.local
   insights:
-    image: edxops/insights:latest
+    image: edxops/insights-dev:latest
     container_name: insights_testing
     volumes:
       - ..:/edx/app/insights/edx_analytics_dashboard
