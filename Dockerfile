@@ -11,7 +11,11 @@ RUN apt-get update && apt-get install --no-install-recommends -qy \
   libmysqlclient-dev \
   libssl-dev \
   # needed by phantomjs
-  libfontconfig && \
+  libfontconfig \
+  # needed by i18n tests in CI
+  gettext \
+  # needed by a11y tests script
+  curl && \
   rm -rf /var/lib/apt/lists/*
 
 RUN locale-gen en_US.UTF-8
