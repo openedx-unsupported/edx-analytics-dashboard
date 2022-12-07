@@ -9,4 +9,4 @@ url="https://github.com/mozilla/geckodriver/releases/download/v0.26.0/geckodrive
 curl -s -L "$url" | tar -xz
 chmod +x geckodriver
 
-sudo mv geckodriver "$INSTALL_DIR"
+mv geckodriver "$INSTALL_DIR"
