@@ -4,64 +4,62 @@
 #
 #    make upgrade
 #
-certifi==2022.9.24
+certifi==2022.12.7
     # via requests
 charset-normalizer==2.1.1
     # via requests
 codecov==2.1.12
-    # via -r requirements/github.in
+    # via -r github.in
 coverage==6.5.0
     # via codecov
 distlib==0.3.6
     # via
-    #   -r requirements/tox.txt
+    #   -r tox.txt
     #   virtualenv
 filelock==3.8.0
     # via
-    #   -r requirements/tox.txt
+    #   -r tox.txt
     #   tox
     #   virtualenv
 idna==3.4
     # via requests
 packaging==21.3
     # via
-    #   -r requirements/tox.txt
+    #   -r tox.txt
     #   tox
 platformdirs==2.5.4
     # via
-    #   -r requirements/tox.txt
+    #   -r tox.txt
     #   virtualenv
 pluggy==1.0.0
     # via
-    #   -r requirements/tox.txt
+    #   -r tox.txt
     #   tox
 py==1.11.0
     # via
-    #   -r requirements/tox.txt
+    #   -r tox.txt
     #   tox
 pyparsing==3.0.9
     # via
-    #   -r requirements/tox.txt
+    #   -r tox.txt
     #   packaging
 requests==2.28.1
     # via codecov
 six==1.16.0
     # via
-    #   -r requirements/tox.txt
+    #   -r tox.txt
     #   tox
 tomli==2.0.1
-    # via
-    #   -r requirements/tox.txt
-    #   tox
+    # via -r tox.txt
 tox==3.27.1
     # via
-    #   -r requirements/tox.txt
+    #   -r tox.txt
     #   tox-battery
 tox-battery==0.6.1
-    # via -r requirements/tox.txt
+    # via -r tox.txt
 urllib3==1.26.13
     # via requests
 virtualenv==20.16.7
     # via
-    #   -r requirements/tox.txt
+    #   -r tox.txt
     #   tox
