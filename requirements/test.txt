@@ -8,7 +8,7 @@ asgiref==3.5.2
     # via
     #   -r requirements/base.txt
     #   django
-astroid==2.12.12
+astroid==2.12.13
     # via
     #   -r requirements/test.in
     #   pylint
@@ -100,7 +100,7 @@ django-dynamic-fixture==3.1.2
     # via -r requirements/test.in
 django-lang-pref-middleware==1.2.0
     # via -r requirements/base.txt
-django-model-utils==4.2.0
+django-model-utils==4.3.1
     # via -r requirements/base.txt
 django-soapbox==1.6.1
     # via -r requirements/base.txt
@@ -155,7 +155,7 @@ edx-rest-api-client==5.5.0
     # via -r requirements/base.txt
 edx-toggles==5.0.0
     # via -r requirements/base.txt
-exceptiongroup==1.0.1
+exceptiongroup==1.0.4
     # via pytest
 future==0.18.2
     # via
@@ -179,7 +179,7 @@ lazy==1.5
     # via bok-choy
 lazy-object-proxy==1.8.0
     # via astroid
-libsass==0.21.0
+libsass==0.22.0
     # via -r requirements/base.txt
 logutils==0.3.5
     # via -r requirements/base.txt
@@ -213,7 +213,7 @@ pbr==5.11.0
     #   stevedore
 pinax-announcements==4.0.0
     # via -r requirements/base.txt
-platformdirs==2.5.3
+platformdirs==2.5.4
     # via pylint
 pluggy==1.0.0
     # via pytest
@@ -225,7 +225,7 @@ psutil==5.9.4
     # via
     #   -r requirements/base.txt
     #   edx-django-utils
-pycodestyle==2.9.1
+pycodestyle==2.10.0
     # via -r requirements/test.in
 pycparser==2.21
     # via
@@ -249,7 +249,7 @@ pyjwt[crypto]==2.6.0
     #   edx-drf-extensions
     #   edx-rest-api-client
     #   social-auth-core
-pylint==2.15.5
+pylint==2.15.6
     # via
     #   -r requirements/test.in
     #   edx-lint
@@ -287,7 +287,7 @@ python-dateutil==2.8.2
     # via
     #   -r requirements/base.txt
     #   edx-drf-extensions
-python-slugify==6.1.2
+python-slugify==7.0.0
     # via
     #   -r requirements/base.txt
     #   code-annotations
@@ -339,7 +339,6 @@ six==1.16.0
     #   edx-django-release-util
     #   edx-drf-extensions
     #   edx-lint
-    #   libsass
     #   pyjwkest
     #   python-dateutil
 slumber==0.7.1
@@ -390,7 +389,7 @@ unicodecsv==0.14.1
     # via
     #   -r requirements/base.txt
     #   djangorestframework-csv
-urllib3==1.26.12
+urllib3==1.26.13
     # via
     #   -r requirements/base.txt
     #   requests
