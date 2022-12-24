@@ -4,7 +4,7 @@
 #
 #    make upgrade
 #
-asgiref==3.5.2
+asgiref==3.6.0
     # via django
 certifi==2022.12.7
     # via requests
@@ -52,7 +52,7 @@ django-appconf==1.0.5
     # via -r requirements/base.in
 django-braces==1.15.0
     # via -r requirements/base.in
-django-countries==7.4.2
+django-countries==7.5
     # via -r requirements/base.in
 django-crispy-forms==1.14.0
     # via -r requirements/base.in
@@ -100,7 +100,7 @@ edx-django-utils==5.2.0
     #   edx-drf-extensions
     #   edx-rest-api-client
     #   edx-toggles
-edx-drf-extensions==8.3.1
+edx-drf-extensions==8.4.0
     # via -r requirements/base.in
 edx-i18n-tools==0.9.2
     # via -r requirements/base.in
@@ -170,7 +170,7 @@ python-slugify==7.0.0
     #   code-annotations
 python3-openid==3.2.0
     # via social-auth-core
-pytz==2022.6
+pytz==2022.7
     # via
     #   django
     #   djangorestframework
