@@ -4,11 +4,7 @@
 # 
 # Translators:
 # Translators:
-# Translators:
-# Translators:
-# Translators:
-# Translators:
-# Translators:
+# Aleš Fiala <f.ales1@seznam.cz>, 2022
 # Jiří Šedý <jsedy7@gmail.com>, 2015
 # trendspotter <jirka.p@volny.cz>, 2022
 # Kristýna Kučerová <kristyna.kucerova@gmail.com>, 2020
@@ -19,9 +15,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-04-14 18:37+0000\n"
+"POT-Creation-Date: 2022-05-18 15:22+0000\n"
 "PO-Revision-Date: 2014-08-25 20:09+0000\n"
-"Last-Translator: trendspotter <jirka.p@volny.cz>, 2022\n"
+"Last-Translator: Aleš Fiala <f.ales1@seznam.cz>, 2022\n"
 "Language-Team: Czech (http://www.transifex.com/open-edx/edx-platform/language/cs/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -363,7 +359,7 @@ msgstr "Počet odevzdaných prací studenta"
 #. Translators: This describes the data displayed in the chart below.
 #: analytics_dashboard/courses/templates/courses/demographics_chart_info.html:4
 msgid "Learners (Self-Reported)"
-msgstr ""
+msgstr "Studenti (nahlášeni sami)"
 
 #: analytics_dashboard/courses/templates/courses/engagement_content.html:23
 msgid "Weekly Learner Engagement"
@@ -476,7 +472,7 @@ msgid ""
 "Each bar shows the average number of complete and incomplete views for "
 "videos in that section. Click on bars with low totals or a high incomplete "
 "rate to drill down and understand why."
-msgstr ""
+msgstr "Každý pruh zobrazuje průměrný počet úplných a neúplných zhlédnutí videí v dané sekci. Kliknutím na sloupce s nízkými součty nebo vysokou mírou neúplnosti zobrazíte podrobnější informace a pochopíte proč."
 
 #: analytics_dashboard/courses/templates/courses/engagement_video_timeline.html:17
 #: analytics_dashboard/courses/templates/courses/engagement_video_timeline.html:21
@@ -491,7 +487,7 @@ msgstr "Jaké byly vzorce sledování tohoto videa?"
 msgid ""
 "The number of learners who watched each segment of the video, and the number"
 " of replays for each segment."
-msgstr ""
+msgstr "Počet studentů, kteří sledovali každý segment videa, a počet přehrání každého segmentu."
 
 #: analytics_dashboard/courses/templates/courses/engagement_video_timeline.html:37
 msgid "Collapse Preview"
@@ -535,7 +531,7 @@ msgstr "Zhlédnutí video "
 
 #: analytics_dashboard/courses/templates/courses/enrollment_activity.html:24
 msgid "Daily Learner Enrollment"
-msgstr ""
+msgstr "Denní zápis studentů"
 
 #: analytics_dashboard/courses/templates/courses/enrollment_activity.html:25
 #: analytics_dashboard/courses/views/__init__.py:546
@@ -550,7 +546,7 @@ msgstr "Zápisy"
 msgid ""
 "This graph displays the current enrollment for the course as of the end of "
 "each day. This includes new enrollments as well as unenrollments."
-msgstr ""
+msgstr "Tento graf zobrazuje aktuální zápis do kurzu ke konci každého dne. To také zahrnuje nové registrace i zrušení registrace."
 
 #: analytics_dashboard/courses/templates/courses/enrollment_activity.html:49
 msgid "Enrollment Metrics"
@@ -595,7 +591,7 @@ msgstr "Změna za poslední týden"
 
 #: analytics_dashboard/courses/templates/courses/enrollment_activity.html:77
 msgid "Net difference in current enrollment in the last week."
-msgstr ""
+msgstr "Rozdíl sítě v aktuálním zápisu za poslední týden."
 
 #. Translators: This is a label to identify enrollment of learners on the
 #. verified track.
@@ -650,7 +646,7 @@ msgstr "Jak staří jsou moji studenti?"
 msgid ""
 "This age histogram presents data computed for the %(value)s%% of enrolled "
 "learners who provided a year of birth."
-msgstr ""
+msgstr "Tento věkový histogram představuje data vypočtená pro %(value)s%% zapsaných studentů, kteří uvedli rok narození."
 
 #: analytics_dashboard/courses/templates/courses/enrollment_demographics_age.html:56
 msgid "Age Metrics"
@@ -660,12 +656,12 @@ msgstr "Metriky věku"
 #. learners.
 #: analytics_dashboard/courses/templates/courses/enrollment_demographics_age.html:65
 msgid "Median Learner Age"
-msgstr ""
+msgstr "Medián věku studentů"
 
 #: analytics_dashboard/courses/templates/courses/enrollment_demographics_age.html:66
 msgid ""
 "The midpoint of the learner ages, computed from the provided year of birth."
-msgstr ""
+msgstr "Středový bod věku studentů, vypočteno podle poskytnutého data narození."
 
 #. Translators: This is a label to identify the number of learners in the age
 #. range.
@@ -677,7 +673,7 @@ msgstr "Studenti pod 25 let včetně"
 msgid ""
 "The percentage of learners aged 25 years or younger (of those who provided a"
 " year of birth)."
-msgstr ""
+msgstr "Procento studentů ve věku 25 let nebo mladší (těch, kteří uvedli rok narození)"
 
 #. Translators: This is a label to identify the number of learners in the age
 #. range.
@@ -689,7 +685,7 @@ msgstr "Studenti mezi 26 a 40 lety"
 msgid ""
 "The percentage of learners aged from 26 to 40 years (of those who provided a"
 " year of birth)."
-msgstr ""
+msgstr "Procento studentů ve věku mezi 26 a 40 let (těch, kteří uvedli rok narození)"
 
 #. Translators: This is a label to identify the number of learners in the age
 #. range.
@@ -701,7 +697,7 @@ msgstr "Studenti nad 41 let včetně"
 msgid ""
 "The percentage of learners aged 41 years or older (of those who provided a "
 "year of birth)."
-msgstr ""
+msgstr "Procento studentů ve věku 41 let nebo starší (těch, kteří uvedli rok narození)"
 
 #: analytics_dashboard/courses/templates/courses/enrollment_demographics_age.html:101
 msgid "Age Breakdown"
@@ -720,7 +716,7 @@ msgstr "Jakou úroveň vzdělání mají moji studenti?"
 msgid ""
 "This graph presents data for the %(value)s%% of enrolled learners who "
 "provided a highest level of education completed."
-msgstr ""
+msgstr "tento graf představuje data pro %(value)s%% zapsaných studentů, kteří poskytli nejvyšší úroveň dokončeného vzdělání."
 
 #: analytics_dashboard/courses/templates/courses/enrollment_demographics_education.html:56
 msgid "Education Metrics"
@@ -736,7 +732,7 @@ msgid ""
 "The percentage of learners who selected Secondary/high school, Junior "
 "secondary/junior high/middle school, or Elementary/primary school as their "
 "highest level of education completed."
-msgstr ""
+msgstr "Procento studentů, kteří si vybrali jako nejvyšší dosažené vzdělání střední školu, střední odborné učiliště bez maturity nebo základní školu."
 
 #. Translators: This is a label to identify learner educational background.
 #: analytics_dashboard/courses/templates/courses/enrollment_demographics_education.html:71
@@ -747,7 +743,7 @@ msgstr "Vysokoškolské vzdělání"
 msgid ""
 "The percentage of learners who selected Bachelor's degree or Associate "
 "degree as their highest level of education completed."
-msgstr ""
+msgstr "Procento studentů, kteří si vybrali bakalářský nebo přidružený titul jako nejvyšší ukončené vzdělání."
 
 #. Translators: This is a label to identify learner educational background.
 #: analytics_dashboard/courses/templates/courses/enrollment_demographics_education.html:78
@@ -758,7 +754,7 @@ msgstr "Pokročilý stupeň"
 msgid ""
 "The percentage of learners who selected Doctorate or Master's or "
 "professional degree as their highest level of education completed."
-msgstr ""
+msgstr "Procento studentů, kteří si jako nejvyšší ukončené vzdělání zvolili doktorát, magisterský nebo odborný titul."
 
 #: analytics_dashboard/courses/templates/courses/enrollment_demographics_education.html:91
 msgid "Educational Breakdown"
@@ -767,7 +763,7 @@ msgstr "Vzdělávací členění"
 #: analytics_dashboard/courses/templates/courses/enrollment_demographics_gender.html:25
 #: analytics_dashboard/courses/views/__init__.py:579
 msgid "What is the learner gender breakdown?"
-msgstr ""
+msgstr "Jaké je rozdělení žáků podle pohlaví?"
 
 #. Translators: Maintain the double percentage symbols (%%) but move them to
 #. the appropriate location (before/after the value placeholder) for your
@@ -777,7 +773,7 @@ msgstr ""
 msgid ""
 "This graph presents data for the %(value)s%% of enrolled learners who "
 "specified their gender."
-msgstr ""
+msgstr "Tento graf představuje data pro %(value)s%% zapsaných studentů, kteří uvedli své pohlaví."
 
 #: analytics_dashboard/courses/templates/courses/enrollment_demographics_gender.html:56
 msgid "Gender Breakdown Over Time"
@@ -804,7 +800,7 @@ msgstr "Geografické metriky"
 #. are enrolled.
 #: analytics_dashboard/courses/templates/courses/enrollment_geography.html:53
 msgid "Total Countries or Regions Represented"
-msgstr ""
+msgstr "Celkový počet zastoupených zemí nebo regionů"
 
 #: analytics_dashboard/courses/templates/courses/enrollment_geography.html:54
 msgid "Countries or regions with at least one learner."
@@ -814,31 +810,31 @@ msgstr "Země a regiony s alespoň jedním studentem"
 #. number of enrolled learners.
 #: analytics_dashboard/courses/templates/courses/enrollment_geography.html:62
 msgid "Top Country or Region by Enrollment"
-msgstr ""
+msgstr "Nejlepší země nebo region podle zápisu"
 
 #: analytics_dashboard/courses/templates/courses/enrollment_geography.html:63
 msgid "Country or region with the largest number of learners."
-msgstr ""
+msgstr "Země nebo region s největším počtem studentů."
 
 #. Translators: This string represents the country or region with the second-
 #. greatest number of enrolled learners.
 #: analytics_dashboard/courses/templates/courses/enrollment_geography.html:66
 msgid "Second Country or Region by Enrollment"
-msgstr ""
+msgstr "Druhá země nebo region podle zápisu"
 
 #: analytics_dashboard/courses/templates/courses/enrollment_geography.html:67
 msgid "Country or region with the second largest number of learners."
-msgstr ""
+msgstr "Země nebo region s druhým největším počtem studentů."
 
 #. Translators: This string represents the country or region with the third-
 #. greatest number of enrolled learners.
 #: analytics_dashboard/courses/templates/courses/enrollment_geography.html:70
 msgid "Third Country or Region by Enrollment"
-msgstr ""
+msgstr "Třetí země nebo region podle zápisu"
 
 #: analytics_dashboard/courses/templates/courses/enrollment_geography.html:71
 msgid "Country or region with the third largest number of learners."
-msgstr ""
+msgstr "Země nebo region s třetím největším počtem studentů."
 
 #. Translators: This string represents the percentage of learners in a course.
 #. Move the % symbol, if necessary, but keep the percent variable/placeholder.
@@ -883,7 +879,7 @@ msgid ""
 "\n"
 "                    (%(download_icon)s CSV Download)\n"
 "                  "
-msgstr ""
+msgstr "\n                    (%(download_icon)s stáhnout CSV)\n                  "
 
 #: analytics_dashboard/courses/templates/courses/home.html:93
 msgid "Basic Course Information"
@@ -910,11 +906,11 @@ msgstr "Celkový počet zápisů napříč všemi kurzy."
 
 #: analytics_dashboard/courses/templates/courses/index.html:34
 msgid "Current enrollments across all of your courses."
-msgstr ""
+msgstr "Aktuální zápisy do všech vašich kurzů."
 
 #: analytics_dashboard/courses/templates/courses/index.html:41
 msgid "Total change in enrollment last week across all of your courses."
-msgstr ""
+msgstr "Celková změna v zápisu za minulý týden ve všech vašich kurzech."
 
 #: analytics_dashboard/courses/templates/courses/index.html:48
 msgid "Verified enrollments across all of your courses."
@@ -939,13 +935,13 @@ msgstr "Jak se studentům daří u tohoto zadání?"
 msgid ""
 "These bars show the correct and incorrect submission counts for each "
 "problem. Only the last submission from each learner is counted."
-msgstr ""
+msgstr "Tyto pruhy ukazují správný a nesprávný počet příspěvků pro každý problém. Počítá se pouze poslední příspěvek od každého studenta."
 
 #: analytics_dashboard/courses/templates/courses/performance_assignment.html:19
 #: analytics_dashboard/courses/templates/courses/performance_learning_outcomes_section.html:20
 #: analytics_dashboard/courses/templates/courses/performance_ungraded_by_subsection.html:19
 msgid "Problem Submissions"
-msgstr "Odevzdané úlohy"
+msgstr "Problémové příspěvky"
 
 #: analytics_dashboard/courses/templates/courses/performance_graded_content.html:9
 msgid "Which assignment type do you want to investigate?"
@@ -979,7 +975,7 @@ msgid ""
 "\n"
 "      How are learners doing on the %(type)s?\n"
 "    "
-msgstr ""
+msgstr "\n      Jak se studentům daří v %(type)s?\n    "
 
 #: analytics_dashboard/courses/templates/courses/performance_graded_content_by_type.html:15
 msgid ""
@@ -995,23 +991,23 @@ msgstr "Odevzdání úkolu"
 #: analytics_dashboard/courses/templates/courses/performance_learning_outcomes_content.html:6
 #: analytics_dashboard/courses/templates/courses/performance_learning_outcomes_section.html:6
 msgid "Measured by learning outcome, how are learners performing?"
-msgstr ""
+msgstr "Jak si studenti vedou, měřeno podle výsledků učení?"
 
 #: analytics_dashboard/courses/templates/courses/performance_learning_outcomes_content.html:16
 msgid ""
 "Each bar shows the average number of correct and incorrect submissions for "
 "each outcome."
-msgstr ""
+msgstr "Každý sloupec zobrazuje průměrný počet správných a nesprávných příspěvků pro každý výsledek."
 
 #: analytics_dashboard/courses/templates/courses/performance_learning_outcomes_content.html:20
 msgid "Outcome Submissions"
-msgstr ""
+msgstr "Výsledky odevzdaných úloh"
 
 #: analytics_dashboard/courses/templates/courses/performance_learning_outcomes_section.html:16
 msgid ""
 "Each bar shows the correct and incorrect number of submissions for each "
 "problem for the current outcome."
-msgstr ""
+msgstr "Každý pruh zobrazuje správný a nesprávný počet příspěvků u každého problému pro aktuální výsledek."
 
 #: analytics_dashboard/courses/templates/courses/performance_ungraded_by_section.html:5
 msgid "How are learners doing on this section?"
@@ -1106,13 +1102,13 @@ msgstr "Pohlaví"
 #. Translators: Content as in course content (e.g. things, not the feeling)
 #: analytics_dashboard/courses/tests/test_views/test_engagement.py:58
 #: analytics_dashboard/courses/views/__init__.py:616
-#: analytics_dashboard/courses/views/engagement.py:34
+#: analytics_dashboard/courses/views/engagement.py:33
 msgid "Content"
 msgstr "Obsah"
 
 #: analytics_dashboard/courses/tests/test_views/test_engagement.py:69
 #: analytics_dashboard/courses/views/__init__.py:629
-#: analytics_dashboard/courses/views/engagement.py:43
+#: analytics_dashboard/courses/views/engagement.py:42
 msgid "Videos"
 msgstr "Videa"
 
@@ -1138,7 +1134,7 @@ msgstr "Výsledky učení"
 
 #: analytics_dashboard/courses/views/__init__.py:611
 msgid "What are learners doing in my course?"
-msgstr ""
+msgstr "Co studenti v mém kurzu dělají?"
 
 #: analytics_dashboard/courses/views/__init__.py:641
 msgid "How are learners doing on graded course assignments?"
@@ -1146,15 +1142,15 @@ msgstr "Jak se studentům daří plnit klasifikovaná zadání?"
 
 #: analytics_dashboard/courses/views/__init__.py:662
 msgid "What is the breakdown for course learning outcomes?"
-msgstr ""
+msgstr "Jaké je rozdělení výsledků učení kurzu?"
 
 #: analytics_dashboard/courses/views/__init__.py:682
 msgid "How are learners responding to questions?"
-msgstr ""
+msgstr "Jak studenti odpovídají na otázky?"
 
 #: analytics_dashboard/courses/views/__init__.py:684
 msgid "Problem Response Report"
-msgstr ""
+msgstr "Zpráva o odpovědi na problém"
 
 #: analytics_dashboard/courses/views/__init__.py:691
 msgid "How are learners doing on course assignments?"
@@ -1162,11 +1158,11 @@ msgstr "Jak se studentům daří plnit zadání?"
 
 #: analytics_dashboard/courses/views/__init__.py:699
 msgid "What are individual learners doing?"
-msgstr ""
+msgstr "Co dělají jednotliví studenti?"
 
 #: analytics_dashboard/courses/views/__init__.py:702
 msgid "Who is engaged? Who isn't?"
-msgstr "kdo je zapojený? kdo ne?"
+msgstr "Kdo je zapojený? Kdo ne?"
 
 #: analytics_dashboard/courses/views/__init__.py:704
 msgid "All Learners"
@@ -1224,43 +1220,43 @@ msgid ""
 "Course summary data was last updated %(update_date)s at %(update_time)s UTC."
 msgstr "Souhrnná data kurzu byla naposledy aktualizována %(update_date)s v %(update_time)s UTC."
 
-#: analytics_dashboard/courses/views/engagement.py:59
+#: analytics_dashboard/courses/views/engagement.py:58
 msgid "Engagement Content"
 msgstr "Obsah zapojení"
 
 #. Translators: Do not translate UTC.
-#: analytics_dashboard/courses/views/engagement.py:69
+#: analytics_dashboard/courses/views/engagement.py:68
 #, python-format
 msgid ""
 "Course engagement data was last updated %(update_date)s at %(update_time)s "
 "UTC."
-msgstr ""
+msgstr "Data o zapojení kurzu byla naposledy aktualizována %(update_date)s v %(update_time)s UTC."
 
-#: analytics_dashboard/courses/views/engagement.py:96
+#: analytics_dashboard/courses/views/engagement.py:95
 msgid "Engagement Videos"
 msgstr "Interaktivní videa"
 
 #. Translators: Do not translate UTC.
-#: analytics_dashboard/courses/views/engagement.py:101
+#: analytics_dashboard/courses/views/engagement.py:100
 #, python-format
 msgid "Video data was last updated %(update_date)s at %(update_time)s UTC."
-msgstr ""
+msgstr "Data videa byla naposledy aktualizována %(update_date)s v %(update_time)s UTC."
 
-#: analytics_dashboard/courses/views/engagement.py:102
+#: analytics_dashboard/courses/views/engagement.py:101
 msgid "Looks like no one has watched any videos in these sections."
-msgstr ""
+msgstr "Zdá se, že v těchto sekcích nikdo neviděl žádná videa."
 
-#: analytics_dashboard/courses/views/engagement.py:128
+#: analytics_dashboard/courses/views/engagement.py:127
 #: analytics_dashboard/courses/views/performance.py:308
 msgid "Section Name"
-msgstr ""
+msgstr "Název sekce"
 
-#: analytics_dashboard/courses/views/engagement.py:148
+#: analytics_dashboard/courses/views/engagement.py:147
 #: analytics_dashboard/courses/views/performance.py:330
 msgid "Subsection Name"
 msgstr "Název podsekce"
 
-#: analytics_dashboard/courses/views/engagement.py:169
+#: analytics_dashboard/courses/views/engagement.py:168
 msgid "Video Name"
 msgstr "Název videa"
 
@@ -1270,18 +1266,18 @@ msgstr "Název videa"
 msgid ""
 "Demographic learner data was last updated %(update_date)s at %(update_time)s"
 " UTC."
-msgstr ""
+msgstr "Demografická data o studentech byla naposledy aktualizována %(update_date)s v %(update_time)s UTC."
 
 #. Translators: This sentence is displayed at the bottom of the page and
 #. describe the demographics data displayed.
 #: analytics_dashboard/courses/views/enrollment.py:122
 msgid ""
 "All above demographic data was self-reported at the time of registration."
-msgstr ""
+msgstr "Všechna výše uvedená demografická data byla vykázána v době registrace."
 
 #: analytics_dashboard/courses/views/enrollment.py:135
 msgid "Enrollment Activity"
-msgstr ""
+msgstr "Zápis aktivity"
 
 #. Translators: Do not translate UTC.
 #: analytics_dashboard/courses/views/enrollment.py:145
@@ -1289,23 +1285,23 @@ msgstr ""
 msgid ""
 "Enrollment activity data was last updated %(update_date)s at %(update_time)s"
 " UTC."
-msgstr ""
+msgstr "Data o zápis aktivity byla naposledy aktualizována %(update_date)s v %(update_time)s UTC."
 
 #: analytics_dashboard/courses/views/enrollment.py:176
 msgid "Enrollment Demographics by Age"
-msgstr ""
+msgstr "Demografické zápisy podle věku"
 
 #: analytics_dashboard/courses/views/enrollment.py:214
 msgid "Enrollment Demographics by Education"
-msgstr ""
+msgstr "Demografické zápisy podle vzdělání"
 
 #: analytics_dashboard/courses/views/enrollment.py:252
 msgid "Enrollment Demographics by Gender"
-msgstr ""
+msgstr "Demografické zápisy podle pohlaví"
 
 #: analytics_dashboard/courses/views/enrollment.py:290
 msgid "Enrollment Geography"
-msgstr ""
+msgstr "Zápis geografie"
 
 #. Translators: Do not translate UTC.
 #: analytics_dashboard/courses/views/enrollment.py:300
@@ -1313,7 +1309,7 @@ msgstr ""
 msgid ""
 "Geographic learner data was last updated %(update_date)s at %(update_time)s "
 "UTC."
-msgstr ""
+msgstr "Geografická data o studentech byla naposledy aktualizována %(update_date)s v %(update_time)s UTC."
 
 #. Translators: Do not translate UTC.
 #: analytics_dashboard/courses/views/performance.py:38
@@ -1321,7 +1317,7 @@ msgstr ""
 msgid ""
 "Problem submission data was last updated %(update_date)s at %(update_time)s "
 "UTC."
-msgstr ""
+msgstr "Data o odeslání problému byla naposledy aktualizována %(update_date)s v %(update_time)s UTC."
 
 #: analytics_dashboard/courses/views/performance.py:84
 msgid "Assignment Name"
@@ -1330,7 +1326,7 @@ msgstr "Název úkolu"
 #: analytics_dashboard/courses/views/performance.py:95
 #: analytics_dashboard/courses/views/performance.py:378
 msgid "No submissions received for these exercises."
-msgstr ""
+msgstr "Nebyly odevzdány žádné práce s tímto cvičením."
 
 #: analytics_dashboard/courses/views/performance.py:111
 msgid "No submissions received for these assignments."
@@ -1340,7 +1336,7 @@ msgstr "Nebyly odevzdány žádné práce s tímto zadáním."
 #: analytics_dashboard/courses/views/performance.py:370
 #: analytics_dashboard/courses/views/performance.py:468
 msgid "Performance: Problem Submissions"
-msgstr ""
+msgstr "Výkon: Problémové příspěvky"
 
 #: analytics_dashboard/courses/views/performance.py:265
 #, python-format
@@ -1357,12 +1353,12 @@ msgstr "Název problému"
 msgid ""
 "Tags distribution data was last updated %(update_date)s at %(update_time)s "
 "UTC."
-msgstr ""
+msgstr "Data o štítcích distribuce byla naposledy aktualizována %(update_date)s v %(update_time)s UTC."
 
 #: analytics_dashboard/courses/views/performance.py:406
 #: analytics_dashboard/courses/views/performance.py:436
 msgid "Performance: Learning Outcomes"
-msgstr ""
+msgstr "Výkon: Výsledky učení"
 
 #: analytics_dashboard/settings/base.py:436
 msgid "Terms of Service"
@@ -1440,7 +1436,7 @@ msgstr "Kontaktujte podporu %(platform_name)s"
 msgid ""
 "We want this dashboard to work for you! Need help? "
 "%(support_link_start)sContact course team support%(support_link_end)s."
-msgstr ""
+msgstr "Chceme, aby tento řídicí panel fungoval pro vás! Potřebujete pomoc? %(support_link_start)sKontaktujte podporu týmu kurzu%(support_link_end)s."
 
 #. Translators: The © symbol appears directly before this line.
 #: analytics_dashboard/templates/footer.html:39
@@ -1460,7 +1456,7 @@ msgstr "Nápověda"
 
 #: analytics_dashboard/templates/header.html:46
 msgid "Menu for"
-msgstr ""
+msgstr "Nabídka pro"
 
 #: analytics_dashboard/templates/header.html:60
 msgid "Logout"
@@ -1468,7 +1464,7 @@ msgstr "Odhlásit"
 
 #: analytics_dashboard/templates/lens-navigation.html:27
 msgid "Navigation Menu."
-msgstr ""
+msgstr "Navigační nabídka."
 
 #: analytics_dashboard/templates/loading.html:7
 msgid "Loading"

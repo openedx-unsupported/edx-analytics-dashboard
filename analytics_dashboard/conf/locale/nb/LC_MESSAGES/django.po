@@ -4,14 +4,10 @@
 # 
 # Translators:
 # Translators:
-# Translators:
-# Translators:
-# Translators:
-# Translators:
-# Translators:
 # Erland Flaten <eflaten@vangenplotz.no>, 2015
 # Frode Arntsen <frode.arntsen@unit.no>, 2016-2018
 # Frode Arntsen <frode.arntsen@unit.no>, 2018
+# Gabi Hurlen <gabihurlen@gmail.com>, 2022
 # Harald Indgul <harald.indgul@gmail.com>, 2015
 # Helge Høivik <Helge.Hoivik@hioa.no>, 2019
 # mymark <mark.stenersen@uit.no>, 2014
@@ -23,9 +19,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-04-14 18:37+0000\n"
+"POT-Creation-Date: 2022-05-18 15:22+0000\n"
 "PO-Revision-Date: 2014-08-25 20:09+0000\n"
-"Last-Translator: Victor Zimmer <victor.zimmer@me.com>, 2020\n"
+"Last-Translator: Gabi Hurlen <gabihurlen@gmail.com>, 2022\n"
 "Language-Team: Norwegian Bokmål (http://www.transifex.com/open-edx/edx-platform/language/nb/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -61,7 +57,7 @@ msgstr "Målrett kurset ditt for å passe med bakgrunnen til studentene."
 #: analytics_dashboard/courses/views/__init__.py:309
 #: analytics_dashboard/courses/views/__init__.py:601
 msgid "Enrollment"
-msgstr "Påmeldt"
+msgstr "Påmeldinger"
 
 #: analytics_dashboard/core/templates/core/landing.html:47
 msgid "What are learners engaging with in my course?"
@@ -832,17 +828,17 @@ msgstr "Land eller region med det nest-største antallet kursdeltakere"
 
 #: analytics_dashboard/courses/templates/courses/enrollment_geography.html:67
 msgid "Country or region with the second largest number of learners."
-msgstr ""
+msgstr "Land eller region med nest høyest antall påmeldte deltagere"
 
 #. Translators: This string represents the country or region with the third-
 #. greatest number of enrolled learners.
 #: analytics_dashboard/courses/templates/courses/enrollment_geography.html:70
 msgid "Third Country or Region by Enrollment"
-msgstr ""
+msgstr "Tredje land eller region etter påmelding"
 
 #: analytics_dashboard/courses/templates/courses/enrollment_geography.html:71
 msgid "Country or region with the third largest number of learners."
-msgstr ""
+msgstr "Land eller region med tredje høyeste antall påmeldte deltagere"
 
 #. Translators: This string represents the percentage of learners in a course.
 #. Move the % symbol, if necessary, but keep the percent variable/placeholder.
@@ -906,7 +902,7 @@ msgstr "Kurs"
 
 #: analytics_dashboard/courses/templates/courses/index.html:17
 msgid "Across all your courses:"
-msgstr ""
+msgstr "Over alle dine kurs:"
 
 #: analytics_dashboard/courses/templates/courses/index.html:27
 msgid "Total enrollments across all of your courses."
@@ -914,15 +910,15 @@ msgstr "Totalt antall påmeldte for alle dine kurs."
 
 #: analytics_dashboard/courses/templates/courses/index.html:34
 msgid "Current enrollments across all of your courses."
-msgstr ""
+msgstr "Nåværende påmelding for alle dine kurs."
 
 #: analytics_dashboard/courses/templates/courses/index.html:41
 msgid "Total change in enrollment last week across all of your courses."
-msgstr ""
+msgstr "Forandring i påmelding forrige uke for alle dine kurs."
 
 #: analytics_dashboard/courses/templates/courses/index.html:48
 msgid "Verified enrollments across all of your courses."
-msgstr ""
+msgstr "Verifiserte påmeldinger for alle dine kurs."
 
 #: analytics_dashboard/courses/templates/courses/index.html:54
 msgid "Master's enrollments across all of your courses."
@@ -936,14 +932,14 @@ msgstr "Hvordan svarte deltagerne på denne oppgaven?"
 
 #: analytics_dashboard/courses/templates/courses/performance_assignment.html:10
 msgid "How are learners doing on this assignment?"
-msgstr ""
+msgstr "Hvordan klarer studentene seg på denne oppgaven?"
 
 #: analytics_dashboard/courses/templates/courses/performance_assignment.html:15
 #: analytics_dashboard/courses/templates/courses/performance_ungraded_by_subsection.html:15
 msgid ""
 "These bars show the correct and incorrect submission counts for each "
 "problem. Only the last submission from each learner is counted."
-msgstr ""
+msgstr "Disse skillene viser antall korrekte og ukorrekte besvarelser på hvert problem. Bare den siste besvarelsen fra hver student er telt med."
 
 #: analytics_dashboard/courses/templates/courses/performance_assignment.html:19
 #: analytics_dashboard/courses/templates/courses/performance_learning_outcomes_section.html:20
@@ -983,14 +979,14 @@ msgid ""
 "\n"
 "      How are learners doing on the %(type)s?\n"
 "    "
-msgstr ""
+msgstr "\nHvordan gjør studentene det i %(type)s?"
 
 #: analytics_dashboard/courses/templates/courses/performance_graded_content_by_type.html:15
 msgid ""
 "Each bar shows the average number of correct and incorrect submissions for "
 "problems in the assignment. Only the last submission from each learner is "
 "counted."
-msgstr ""
+msgstr "Hvert skille viser gjennomsnittet av antall riktige og gale besvarelser på oppgaven. Bare den siste besvarelsen fra hver student telles med."
 
 #: analytics_dashboard/courses/templates/courses/performance_graded_content_by_type.html:19
 msgid "Assignment Submissions"
@@ -1110,13 +1106,13 @@ msgstr "kjønn"
 #. Translators: Content as in course content (e.g. things, not the feeling)
 #: analytics_dashboard/courses/tests/test_views/test_engagement.py:58
 #: analytics_dashboard/courses/views/__init__.py:616
-#: analytics_dashboard/courses/views/engagement.py:34
+#: analytics_dashboard/courses/views/engagement.py:33
 msgid "Content"
 msgstr "Innhold"
 
 #: analytics_dashboard/courses/tests/test_views/test_engagement.py:69
 #: analytics_dashboard/courses/views/__init__.py:629
-#: analytics_dashboard/courses/views/engagement.py:43
+#: analytics_dashboard/courses/views/engagement.py:42
 msgid "Videos"
 msgstr "Videoer"
 
@@ -1228,43 +1224,43 @@ msgid ""
 "Course summary data was last updated %(update_date)s at %(update_time)s UTC."
 msgstr ""
 
-#: analytics_dashboard/courses/views/engagement.py:59
+#: analytics_dashboard/courses/views/engagement.py:58
 msgid "Engagement Content"
 msgstr "Engasjerende innhold"
 
 #. Translators: Do not translate UTC.
-#: analytics_dashboard/courses/views/engagement.py:69
+#: analytics_dashboard/courses/views/engagement.py:68
 #, python-format
 msgid ""
 "Course engagement data was last updated %(update_date)s at %(update_time)s "
 "UTC."
 msgstr "Kursengasjementdata var sist oppdatert %(update_date)s ved kl. %(update_time)s UTC."
 
-#: analytics_dashboard/courses/views/engagement.py:96
+#: analytics_dashboard/courses/views/engagement.py:95
 msgid "Engagement Videos"
 msgstr "Engasjementvideoer"
 
 #. Translators: Do not translate UTC.
-#: analytics_dashboard/courses/views/engagement.py:101
+#: analytics_dashboard/courses/views/engagement.py:100
 #, python-format
 msgid "Video data was last updated %(update_date)s at %(update_time)s UTC."
 msgstr "Videodata var sist oppdatert %(update_date)s ved kl. %(update_time)s UTC."
 
-#: analytics_dashboard/courses/views/engagement.py:102
+#: analytics_dashboard/courses/views/engagement.py:101
 msgid "Looks like no one has watched any videos in these sections."
 msgstr "Ser ut som om ingen har sett noen videoer i disse seksjonene."
 
-#: analytics_dashboard/courses/views/engagement.py:128
+#: analytics_dashboard/courses/views/engagement.py:127
 #: analytics_dashboard/courses/views/performance.py:308
 msgid "Section Name"
 msgstr "Seksjonsnavn"
 
-#: analytics_dashboard/courses/views/engagement.py:148
+#: analytics_dashboard/courses/views/engagement.py:147
 #: analytics_dashboard/courses/views/performance.py:330
 msgid "Subsection Name"
 msgstr "Subseksjonsnavn"
 
-#: analytics_dashboard/courses/views/engagement.py:169
+#: analytics_dashboard/courses/views/engagement.py:168
 msgid "Video Name"
 msgstr "Videonavn"
 

@@ -4,16 +4,11 @@
 # 
 # Translators:
 # Translators:
-# Translators:
-# Translators:
-# Translators:
-# Translators:
-# Translators:
 msgid ""
 msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-04-14 18:37+0000\n"
+"POT-Creation-Date: 2022-05-18 15:22+0000\n"
 "PO-Revision-Date: 2014-08-26 21:24+0000\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: Spanish (Argentina) (http://www.transifex.com/open-edx/edx-platform/language/es_AR/)\n"
@@ -21,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: es_AR\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Plural-Forms: nplurals=3; plural=n == 1 ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;\n"
 
 #: analytics_dashboard/static/apps/components/download/views/download-data.js:25
 msgid "Download CSV"
@@ -166,15 +161,15 @@ msgstr ""
 
 #: analytics_dashboard/static/apps/course-list/app/app.js:42
 msgid "Upcoming"
-msgstr ""
+msgstr "Próximamente"
 
 #: analytics_dashboard/static/apps/course-list/app/app.js:43
 msgid "Current"
-msgstr ""
+msgstr "Actual"
 
 #: analytics_dashboard/static/apps/course-list/app/app.js:44
 msgid "Archived"
-msgstr ""
+msgstr "Archivado"
 
 #: analytics_dashboard/static/apps/course-list/app/app.js:45
 #: analytics_dashboard/static/js/enrollment-demographics-age-main.js:17
@@ -211,15 +206,15 @@ msgstr "Página no encontrada"
 
 #: analytics_dashboard/static/apps/course-list/common/collections/course-list.js:77
 msgid "Course Name"
-msgstr ""
+msgstr "Nombre del curso"
 
 #: analytics_dashboard/static/apps/course-list/common/collections/course-list.js:78
 msgid "Start Date"
-msgstr ""
+msgstr "Fecha de inicio"
 
 #: analytics_dashboard/static/apps/course-list/common/collections/course-list.js:79
 msgid "End Date"
-msgstr ""
+msgstr "Fecha final"
 
 #: analytics_dashboard/static/apps/course-list/common/collections/course-list.js:80
 msgid "Total Enrollment"
@@ -271,7 +266,7 @@ msgstr ""
 
 #: analytics_dashboard/static/apps/course-list/list/views/base-header-cell.js:14
 msgid "Learners who ever enrolled in the course."
-msgstr ""
+msgstr "Estudiantes que alguna vez se inscribieron en el curso."
 
 #: analytics_dashboard/static/apps/course-list/list/views/base-header-cell.js:15
 msgid "Learners currently enrolled in the course."
@@ -279,13 +274,13 @@ msgstr ""
 
 #: analytics_dashboard/static/apps/course-list/list/views/base-header-cell.js:16
 msgid "Net difference in current enrollment in the last week."
-msgstr ""
+msgstr "Diferencia neta en matrícula vigente en la última semana."
 
 #: analytics_dashboard/static/apps/course-list/list/views/base-header-cell.js:18
 msgid ""
 "Number of currently enrolled learners pursuing a verified certificate of "
 "achievement."
-msgstr ""
+msgstr "Número de estudiantes inscritos actualmente que buscan un certificado de logro verificado."
 
 #: analytics_dashboard/static/apps/course-list/list/views/base-header-cell.js:19
 msgid "Learners who have earned a passing grade."
@@ -298,18 +293,6 @@ msgstr ""
 
 #: analytics_dashboard/static/apps/course-list/list/views/controls.js:58
 msgid "Find a course"
-msgstr ""
-
-#: analytics_dashboard/static/apps/course-list/list/views/controls.js:68
-msgid "availability"
-msgstr ""
-
-#: analytics_dashboard/static/apps/course-list/list/views/controls.js:76
-msgid "pacing_type"
-msgstr ""
-
-#: analytics_dashboard/static/apps/course-list/list/views/controls.js:84
-msgid "program_ids"
 msgstr ""
 
 #: analytics_dashboard/static/apps/course-list/list/views/course-list.js:66
@@ -403,7 +386,7 @@ msgstr ""
 #: analytics_dashboard/static/apps/learners/common/collections/learners.js:21
 #: analytics_dashboard/static/js/engagement-video-content-main.js:33
 msgid "Videos"
-msgstr ""
+msgstr "Vídeos"
 
 #: analytics_dashboard/static/apps/learners/common/collections/learners.js:22
 msgid "Discussions"
@@ -548,16 +531,8 @@ msgstr ""
 msgid "Cohort Groups"
 msgstr ""
 
-#: analytics_dashboard/static/apps/learners/roster/views/controls.js:73
-msgid "cohort"
-msgstr ""
-
 #: analytics_dashboard/static/apps/learners/roster/views/controls.js:87
 msgid "Enrollment Tracks"
-msgstr ""
-
-#: analytics_dashboard/static/apps/learners/roster/views/controls.js:85
-msgid "enrollment_mode"
 msgstr ""
 
 #. Translators: inactive meaning that these learners have not interacted with
@@ -565,10 +540,6 @@ msgstr ""
 #. course recently.
 #: analytics_dashboard/static/apps/learners/roster/views/controls.js:103
 msgid "Hide Inactive Learners"
-msgstr ""
-
-#: analytics_dashboard/static/apps/learners/roster/views/controls.js:97
-msgid "ignore_segments"
 msgstr ""
 
 #: analytics_dashboard/static/apps/learners/roster/views/results.js:47
