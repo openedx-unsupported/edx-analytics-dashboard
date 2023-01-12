@@ -6,13 +6,13 @@
 #
 distlib==0.3.6
     # via virtualenv
-filelock==3.8.2
+filelock==3.9.0
     # via
     #   tox
     #   virtualenv
-packaging==22.0
+packaging==23.0
     # via tox
-platformdirs==2.6.0
+platformdirs==2.6.2
     # via virtualenv
 pluggy==1.0.0
     # via tox
@@ -22,7 +22,7 @@ six==1.16.0
     # via tox
 tomli==2.0.1
     # via tox
-tox==3.27.1
+tox==3.28.0
     # via
     #   -c requirements/common_constraints.txt
     #   -r requirements/tox.in

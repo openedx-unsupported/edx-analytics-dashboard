@@ -10,24 +10,24 @@ charset-normalizer==2.1.1
     # via requests
 codecov==2.1.12
     # via -r requirements/github.in
-coverage==6.5.0
+coverage==7.0.4
     # via codecov
 distlib==0.3.6
     # via
     #   -r requirements/tox.txt
     #   virtualenv
-filelock==3.8.2
+filelock==3.9.0
     # via
     #   -r requirements/tox.txt
     #   tox
     #   virtualenv
 idna==3.4
     # via requests
-packaging==22.0
+packaging==23.0
     # via
     #   -r requirements/tox.txt
     #   tox
-platformdirs==2.6.0
+platformdirs==2.6.2
     # via
     #   -r requirements/tox.txt
     #   virtualenv
@@ -49,7 +49,7 @@ tomli==2.0.1
     # via
     #   -r requirements/tox.txt
     #   tox
-tox==3.27.1
+tox==3.28.0
     # via
     #   -c requirements/common_constraints.txt
     #   -r requirements/tox.txt
