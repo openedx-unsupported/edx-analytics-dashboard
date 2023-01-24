@@ -17,7 +17,7 @@ cffi==1.15.1
     #   -r requirements/base.txt
     #   cryptography
     #   pynacl
-charset-normalizer==2.1.1
+charset-normalizer==3.0.1
     # via
     #   -r requirements/base.txt
     #   requests
@@ -115,7 +115,7 @@ edx-django-utils==5.2.0
     #   edx-drf-extensions
     #   edx-rest-api-client
     #   edx-toggles
-edx-drf-extensions==8.4.0
+edx-drf-extensions==8.4.1
     # via -r requirements/base.txt
 edx-i18n-tools==0.9.2
     # via -r requirements/base.txt
@@ -128,7 +128,7 @@ edx-rest-api-client==5.5.0
     # via -r requirements/base.txt
 edx-toggles==5.0.0
     # via -r requirements/base.txt
-future==0.18.2
+future==0.18.3
     # via
     #   -r requirements/base.txt
     #   pyjwkest
@@ -146,7 +146,7 @@ libsass==0.22.0
     # via -r requirements/base.txt
 logutils==0.3.5
     # via -r requirements/base.txt
-markupsafe==2.1.1
+markupsafe==2.1.2
     # via
     #   -r requirements/base.txt
     #   jinja2
@@ -170,7 +170,7 @@ path==16.6.0
     #   path-py
 path-py==12.5.0
     # via -r requirements/base.txt
-pbr==5.11.0
+pbr==5.11.1
     # via
     #   -r requirements/base.txt
     #   stevedore
@@ -226,7 +226,7 @@ python3-openid==3.2.0
     # via
     #   -r requirements/base.txt
     #   social-auth-core
-pytz==2022.7
+pytz==2022.7.1
     # via
     #   -r requirements/base.txt
     #   django
@@ -238,7 +238,7 @@ pyyaml==6.0
     #   code-annotations
     #   edx-django-release-util
     #   edx-i18n-tools
-requests==2.28.1
+requests==2.28.2
     # via
     #   -r requirements/base.txt
     #   edx-analytics-data-api-client
@@ -302,7 +302,7 @@ unicodecsv==0.14.1
     # via
     #   -r requirements/base.txt
     #   djangorestframework-csv
-urllib3==1.26.13
+urllib3==1.26.14
     # via
     #   -r requirements/base.txt
     #   requests
