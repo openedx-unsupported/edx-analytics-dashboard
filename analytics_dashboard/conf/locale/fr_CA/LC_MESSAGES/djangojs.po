@@ -4,27 +4,22 @@
 # 
 # Translators:
 # Translators:
-# Translators:
-# Translators:
-# Translators:
-# Translators:
-# Translators:
 # David Truong <david.truong@edulib.org>, 2021
 # Keivan Farzaneh <keivan.farzaneh@edulib.org>, 2017
-# Pierre Mailhot <pierre.mailhot@gmail.com>, 2016-2017,2021
+# Pierre Mailhot <pierre.mailhot@gmail.com>, 2016-2017,2021,2023
 msgid ""
 msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-04-14 18:37+0000\n"
+"POT-Creation-Date: 2022-05-18 15:22+0000\n"
 "PO-Revision-Date: 2014-08-26 21:24+0000\n"
-"Last-Translator: David Truong <david.truong@edulib.org>, 2021\n"
+"Last-Translator: Pierre Mailhot <pierre.mailhot@gmail.com>, 2016-2017,2021,2023\n"
 "Language-Team: French (Canada) (http://www.transifex.com/open-edx/edx-platform/language/fr_CA/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: fr_CA\n"
-"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"Plural-Forms: nplurals=3; plural=(n == 0 || n == 1) ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;\n"
 
 #: analytics_dashboard/static/apps/components/download/views/download-data.js:25
 msgid "Download CSV"
@@ -53,7 +48,7 @@ msgstr "<%= filterDisplayName %>: <%= filterVal %>"
 
 #: analytics_dashboard/static/apps/components/generic-list/list/views/active-filters.js:87
 msgid "Filters In Use:"
-msgstr "Filtres utilisés : "
+msgstr "Filtres utilisés :"
 
 #: analytics_dashboard/static/apps/components/generic-list/list/views/active-filters.js:88
 msgid "Click to remove this filter"
@@ -303,18 +298,6 @@ msgstr "Passer au contenu"
 msgid "Find a course"
 msgstr "Trouver un cours"
 
-#: analytics_dashboard/static/apps/course-list/list/views/controls.js:68
-msgid "availability"
-msgstr "disponibilité"
-
-#: analytics_dashboard/static/apps/course-list/list/views/controls.js:76
-msgid "pacing_type"
-msgstr "type de rythme"
-
-#: analytics_dashboard/static/apps/course-list/list/views/controls.js:84
-msgid "program_ids"
-msgstr "programme_ids"
-
 #: analytics_dashboard/static/apps/course-list/list/views/course-list.js:66
 msgid "Download full course list to CSV"
 msgstr "Télécharger la liste complète des cours en CSV"
@@ -375,7 +358,7 @@ msgstr "Désolé, nous ne pouvons pas trouver des apprenants qui correspondent �
 
 #: analytics_dashboard/static/apps/learners/app/controller.js:96
 msgid "Return to the Learners page."
-msgstr "Retour à la page des apprenants"
+msgstr "Retour à la page des apprenants."
 
 #: analytics_dashboard/static/apps/learners/app/controller.js:104
 msgid "Learners"
@@ -488,7 +471,7 @@ msgstr "Aucune donnée de l'activité de cours est disponible pour cet apprenant
 
 #: analytics_dashboard/static/apps/learners/detail/views/learner-detail.js:156
 msgid "No learner data is available."
-msgstr "Aucune donnée disponible pour l'apprenant"
+msgstr "Aucune donnée disponible pour l'apprenant."
 
 #: analytics_dashboard/static/apps/learners/detail/views/learner-return.js:12
 msgid "Return to Learners"
@@ -551,17 +534,9 @@ msgstr "Trouver un apprenant"
 msgid "Cohort Groups"
 msgstr "Groupes de cohortes"
 
-#: analytics_dashboard/static/apps/learners/roster/views/controls.js:73
-msgid "cohort"
-msgstr "cohorte"
-
 #: analytics_dashboard/static/apps/learners/roster/views/controls.js:87
 msgid "Enrollment Tracks"
 msgstr "Parcours d'inscription"
-
-#: analytics_dashboard/static/apps/learners/roster/views/controls.js:85
-msgid "enrollment_mode"
-msgstr "mode d'inscription"
 
 #. Translators: inactive meaning that these learners have not interacted with
 #. the
@@ -569,10 +544,6 @@ msgstr "mode d'inscription"
 #: analytics_dashboard/static/apps/learners/roster/views/controls.js:103
 msgid "Hide Inactive Learners"
 msgstr "Cacher les étudiants inactifs"
-
-#: analytics_dashboard/static/apps/learners/roster/views/controls.js:97
-msgid "ignore_segments"
-msgstr "ignorer les segments"
 
 #: analytics_dashboard/static/apps/learners/roster/views/results.js:47
 msgid "No learners matched your criteria."
@@ -621,7 +592,7 @@ msgstr "Ont participé aux discussions"
 
 #: analytics_dashboard/static/js/engagement-content-main.js:48
 msgid "Percent of Current Learners"
-msgstr "Pourcentage des étudiants actuels"
+msgstr "Pour cent des étudiants actuels"
 
 #. Translators: <%=value%> will be replaced with a date.
 #: analytics_dashboard/static/js/engagement-content-main.js:85
@@ -711,7 +682,7 @@ msgstr "Âge"
 
 #: analytics_dashboard/static/js/enrollment-demographics-age-main.js:35
 msgid "Percent of Total"
-msgstr "Pourcentage du total"
+msgstr "Pour cent du total"
 
 #: analytics_dashboard/static/js/enrollment-demographics-education-main.js:18
 #: analytics_dashboard/static/js/enrollment-demographics-gender-main.js:17
@@ -762,7 +733,7 @@ msgstr "Pays ou région"
 
 #: analytics_dashboard/static/js/enrollment-geography-main.js:27
 msgid "Percent"
-msgstr "Pourcentage"
+msgstr "Pour cent"
 
 #: analytics_dashboard/static/js/performance-answer-distribution-main.js:12
 msgid "Answer"
