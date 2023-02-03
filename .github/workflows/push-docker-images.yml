@@ -4,8 +4,7 @@ on:
   push:
     branches:
       - master
-    tags:
-      - open-release/*
+      - open-release/**
 jobs:
   push:
     runs-on: ubuntu-latest
@@ -14,16 +13,16 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
-      # Use the release name as the image tag if we're building an open release tag.
-      # Examples: if we're building 'open-release/maple.1', tag the image as 'maple.1'.
+      # Use the release name as the image tag if we're building an open release branch.
+      # Examples: if we're building 'open-release/maple.master', tag the image as 'maple.master'.
       # Otherwise, we must be building from a push to master, so use 'latest'.
       - name: Get tag name
         id: get-tag-name
         uses: actions/github-script@v5
         with:
           script: |
-            const releasePrefix = 'refs/tags/open-release/';
-            const tagName = context.ref.split(releasePrefix)[1] || 'latest';
+            const branchName = context.ref.split('/').slice(-1)[0];
+            const tagName = branchName === 'master' ? 'latest' : branchName;
             console.log('Will use tag: ' + tagName);
             return tagName;
           result-encoding: string
