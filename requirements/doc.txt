@@ -10,6 +10,7 @@ asgiref==3.6.0
     # via
     #   -r requirements/base.txt
     #   django
+    #   django-countries
 babel==2.11.0
     # via sphinx
 certifi==2022.12.7
@@ -34,7 +35,7 @@ code-annotations==1.3.0
     # via
     #   -r requirements/base.txt
     #   edx-toggles
-cryptography==39.0.0
+cryptography==39.0.1
     # via
     #   -r requirements/base.txt
     #   pyjwt
@@ -44,7 +45,7 @@ defusedxml==0.7.1
     #   -r requirements/base.txt
     #   python3-openid
     #   social-auth-core
-django==3.2.16
+django==3.2.17
     # via
     #   -c requirements/common_constraints.txt
     #   -c requirements/constraints.txt
@@ -68,7 +69,7 @@ django-appconf==1.0.5
     # via -r requirements/base.txt
 django-braces==1.15.0
     # via -r requirements/base.txt
-django-countries==7.5
+django-countries==7.5.1
     # via -r requirements/base.txt
 django-crispy-forms==1.14.0
     # via -r requirements/base.txt
@@ -161,7 +162,7 @@ markupsafe==2.1.2
     # via
     #   -r requirements/base.txt
     #   jinja2
-newrelic==8.5.0
+newrelic==8.6.0
     # via
     #   -r requirements/base.txt
     #   edx-django-utils
@@ -197,7 +198,7 @@ pycparser==2.21
     # via
     #   -r requirements/base.txt
     #   cffi
-pycryptodomex==3.16.0
+pycryptodomex==3.17
     # via
     #   -r requirements/base.txt
     #   pyjwkest
@@ -227,7 +228,7 @@ python-dateutil==2.8.2
     # via
     #   -r requirements/base.txt
     #   edx-drf-extensions
-python-slugify==7.0.0
+python-slugify==8.0.0
     # via
     #   -r requirements/base.txt
     #   code-annotations
@@ -301,7 +302,7 @@ sphinxcontrib-applehelp==1.0.4
     # via sphinx
 sphinxcontrib-devhelp==1.0.2
     # via sphinx
-sphinxcontrib-htmlhelp==2.0.0
+sphinxcontrib-htmlhelp==2.0.1
     # via sphinx
 sphinxcontrib-jsmath==1.0.1
     # via sphinx
@@ -335,5 +336,5 @@ urllib3==1.26.14
     # via
     #   -r requirements/base.txt
     #   requests
-zipp==3.11.0
+zipp==3.13.0
     # via importlib-metadata

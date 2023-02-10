@@ -8,7 +8,8 @@ asgiref==3.6.0
     # via
     #   -r requirements/base.txt
     #   django
-astroid==2.13.3
+    #   django-countries
+astroid==2.14.1
     # via
     #   -r requirements/test.in
     #   pylint
@@ -46,11 +47,11 @@ code-annotations==1.3.0
     #   -r requirements/base.txt
     #   edx-lint
     #   edx-toggles
-coverage[toml]==7.0.5
+coverage[toml]==7.1.0
     # via
     #   -r requirements/test.in
     #   pytest-cov
-cryptography==39.0.0
+cryptography==39.0.1
     # via
     #   -r requirements/base.txt
     #   pyjwt
@@ -87,7 +88,7 @@ django-appconf==1.0.5
     # via -r requirements/base.txt
 django-braces==1.15.0
     # via -r requirements/base.txt
-django-countries==7.5
+django-countries==7.5.1
     # via -r requirements/base.txt
 django-crispy-forms==1.14.0
     # via -r requirements/base.txt
@@ -169,7 +170,7 @@ idna==3.4
     #   requests
 iniconfig==2.0.0
     # via pytest
-isort==5.11.4
+isort==5.12.0
     # via pylint
 jinja2==3.1.2
     # via
@@ -189,7 +190,7 @@ markupsafe==2.1.2
     #   jinja2
 mccabe==0.7.0
     # via pylint
-newrelic==8.5.0
+newrelic==8.6.0
     # via
     #   -r requirements/base.txt
     #   edx-django-utils
@@ -213,7 +214,7 @@ pbr==5.11.1
     #   stevedore
 pinax-announcements==4.0.0
     # via -r requirements/base.txt
-platformdirs==2.6.2
+platformdirs==3.0.0
     # via pylint
 pluggy==1.0.0
     # via pytest
@@ -231,7 +232,7 @@ pycparser==2.21
     # via
     #   -r requirements/base.txt
     #   cffi
-pycryptodomex==3.16.0
+pycryptodomex==3.17
     # via
     #   -r requirements/base.txt
     #   pyjwkest
@@ -249,7 +250,7 @@ pyjwt[crypto]==2.6.0
     #   edx-drf-extensions
     #   edx-rest-api-client
     #   social-auth-core
-pylint==2.15.10
+pylint==2.16.1
     # via
     #   -r requirements/test.in
     #   edx-lint
@@ -285,7 +286,7 @@ python-dateutil==2.8.2
     # via
     #   -r requirements/base.txt
     #   edx-drf-extensions
-python-slugify==7.0.0
+python-slugify==8.0.0
     # via
     #   -r requirements/base.txt
     #   code-annotations
@@ -364,7 +365,7 @@ stevedore==4.1.1
     #   code-annotations
     #   edx-django-utils
     #   edx-opaque-keys
-testfixtures==7.0.4
+testfixtures==7.1.0
     # via -r requirements/test.in
 text-unidecode==1.3
     # via
