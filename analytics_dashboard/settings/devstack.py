@@ -2,13 +2,13 @@
 
 from analytics_dashboard.settings.dev import *
 
-DB_OVERRIDES = dict(
-    PASSWORD=os.environ.get('DB_PASSWORD', DATABASES['default']['PASSWORD']),
-    USER=os.environ.get('DB_USER', DATABASES['default']['USER']),
-    NAME=os.environ.get('DB_NAME', DATABASES['default']['NAME']),
-    HOST=os.environ.get('DB_HOST', DATABASES['default']['HOST']),
-    PORT=os.environ.get('DB_PORT', DATABASES['default']['PORT']),
-)
+DB_OVERRIDES = {
+    "PASSWORD": os.environ.get('DB_PASSWORD', DATABASES['default']['PASSWORD']),
+    "USER": os.environ.get('DB_USER', DATABASES['default']['USER']),
+    "NAME": os.environ.get('DB_NAME', DATABASES['default']['NAME']),
+    "HOST": os.environ.get('DB_HOST', DATABASES['default']['HOST']),
+    "PORT": os.environ.get('DB_PORT', DATABASES['default']['PORT']),
+}
 
 for override, value in DB_OVERRIDES.items():
     DATABASES['default'][override] = value

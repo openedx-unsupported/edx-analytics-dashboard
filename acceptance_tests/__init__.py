@@ -36,7 +36,7 @@ LMS_PASSWORD = os.environ.get('LMS_PASSWORD')
 LMS_SSL_ENABLED = str2bool(os.environ.get('LMS_SSL_ENABLED', True))
 
 if ENABLE_OAUTH_TESTS and not (LMS_HOSTNAME and LMS_USERNAME and LMS_PASSWORD):
-    raise Exception('LMS settings must be set in order to test OAuth.')
+    raise Exception('LMS settings must be set in order to test OAuth.')  # pylint: disable=broad-exception-raised
 
 TEST_COURSE_ID = os.environ.get('TEST_COURSE_ID', 'edX/DemoX/Demo_Course')
 TEST_ASSIGNMENT_TYPE = os.environ.get('TEST_ASSIGNMENT_TYPE', 'Homework')
@@ -71,7 +71,7 @@ GRADING_POLICY_API_URL = os.environ.get('GRADING_POLICY_API_URL')
 COURSE_API_KEY = os.environ.get('COURSE_API_KEY')
 
 if ENABLE_COURSE_API and not (GRADING_POLICY_API_URL and COURSE_API_URL and COURSE_API_KEY):
-    raise Exception('Course API details not supplied!')
+    raise Exception('Course API details not supplied!')  # pylint: disable=broad-exception-raised
 
 # Video preview
 ENABLE_VIDEO_PREVIEW = str2bool(os.environ.get('ENABLE_VIDEO_PREVIEW', False))

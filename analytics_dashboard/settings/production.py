@@ -12,14 +12,14 @@ LOGGING = get_logger_config()
 ALLOWED_HOSTS = ['*']
 ########## END HOST CONFIGURATION
 
-DB_OVERRIDES = dict(
-    PASSWORD=environ.get('DB_MIGRATION_PASS', DATABASES['default']['PASSWORD']),
-    ENGINE=environ.get('DB_MIGRATION_ENGINE', DATABASES['default']['ENGINE']),
-    USER=environ.get('DB_MIGRATION_USER', DATABASES['default']['USER']),
-    NAME=environ.get('DB_MIGRATION_NAME', DATABASES['default']['NAME']),
-    HOST=environ.get('DB_MIGRATION_HOST', DATABASES['default']['HOST']),
-    PORT=environ.get('DB_MIGRATION_PORT', DATABASES['default']['PORT']),
-)
+DB_OVERRIDES = {
+    "PASSWORD": environ.get('DB_MIGRATION_PASS', DATABASES['default']['PASSWORD']),
+    "ENGINE": environ.get('DB_MIGRATION_ENGINE', DATABASES['default']['ENGINE']),
+    "USER": environ.get('DB_MIGRATION_USER', DATABASES['default']['USER']),
+    "NAME": environ.get('DB_MIGRATION_NAME', DATABASES['default']['NAME']),
+    "HOST": environ.get('DB_MIGRATION_HOST', DATABASES['default']['HOST']),
+    "PORT": environ.get('DB_MIGRATION_PORT', DATABASES['default']['PORT']),
+}
 
 for override, value in DB_OVERRIDES.items():
     DATABASES['default'][override] = value
