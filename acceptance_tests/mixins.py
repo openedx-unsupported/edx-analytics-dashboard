@@ -73,7 +73,7 @@ class AssertMixin:
         self.assertEqual(element.attrs('href')[0], href)
 
     def assertTableColumnHeadingsEqual(self, table_selector, headings):
-        rows = self.page.q(css=('%s thead th' % table_selector))
+        rows = self.page.q(css='%s thead th' % table_selector)
         self.assertTrue(rows.present)
         self.assertListEqual(rows.text, headings)
 
