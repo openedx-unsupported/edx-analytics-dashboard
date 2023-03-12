@@ -4,11 +4,6 @@
 # 
 # Translators:
 # Translators:
-# Translators:
-# Translators:
-# Translators:
-# Translators:
-# Translators:
 # Jirayu Chamamahattana <mman2x@gmail.com>, 2015
 # Kamthorn Krairaksa <kamthorn@gmail.com>, 2014
 # Kanchanabhadra Sai-sook <kanchanabhadra@gmail.com>, 2020
@@ -23,14 +18,14 @@
 # Sitdhibong Laokok <sitdhibong@gmail.com>, 2015
 # Supphachoke Suntiwichaya <mrchoke@gmail.com>, 2017
 # Theeranuch Sirikojakorn <totallyp3@gmail.com>, 2015
-# Trisorn Triboon <trisornlive@gmail.com>, 2022
+# Trisorn Triboon (Tri) <trisornlive@gmail.com>, 2022
 msgid ""
 msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-04-14 18:37+0000\n"
+"POT-Creation-Date: 2022-05-18 15:22+0000\n"
 "PO-Revision-Date: 2014-08-25 20:09+0000\n"
-"Last-Translator: Trisorn Triboon <trisornlive@gmail.com>, 2022\n"
+"Last-Translator: Trisorn Triboon (Tri) <trisornlive@gmail.com>, 2022\n"
 "Language-Team: Thai (http://www.transifex.com/open-edx/edx-platform/language/th/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -41,7 +36,7 @@ msgstr ""
 #: analytics_dashboard/core/templates/core/landing.html:15
 #: analytics_dashboard/templates/_skip_link.html:3
 msgid "Skip to content"
-msgstr "ข้ามไปยังเนื้อหา"
+msgstr "ข้ามไปยัง เนื้อหา"
 
 #: analytics_dashboard/core/templates/core/landing.html:23
 msgid "Login"
@@ -66,7 +61,7 @@ msgstr "ตั้งเป้าหมายหลักสูตรของค
 #: analytics_dashboard/courses/views/__init__.py:309
 #: analytics_dashboard/courses/views/__init__.py:601
 msgid "Enrollment"
-msgstr "การลงทะเบียน"
+msgstr "ลงทะเบียน"
 
 #: analytics_dashboard/core/templates/core/landing.html:47
 msgid "What are learners engaging with in my course?"
@@ -76,7 +71,7 @@ msgstr "ผู้เรียนกำลังมีส่วนร่วมอ
 msgid ""
 "Improve frequently accessed content, or point learners at underused "
 "resources."
-msgstr "ปรับปรุงเนื้อหาที่มีการเข้าถึงบ่อย หรือชี้นำให้ผู้เรียนไปยังแหล่งข้อมูลที่ไม่ค่อยถูกใช้งาน"
+msgstr "ปรับปรุง เนื้อหา ที่มีการ เข้าใช้ บ่อย หรือชี้นำให้ผู้เรียนไปยังแหล่งข้อมูลที่ไม่ค่อยถูกใช้งาน"
 
 #: analytics_dashboard/core/templates/core/landing.html:49
 #: analytics_dashboard/courses/tests/test_views/test_engagement.py:40
@@ -87,11 +82,11 @@ msgstr "การเข้าร่วม"
 
 #: analytics_dashboard/core/templates/core/landing.html:52
 msgid "How well is my content supporting learners?"
-msgstr "เนื้อหาของฉันสนับสนุนผู้เรียนได้ดีเพียงใด?"
+msgstr "เนื้อหา ของฉันสนับสนุนผู้เรียนได้ดีเพียงใด"
 
 #: analytics_dashboard/core/templates/core/landing.html:53
 msgid "Adjust your course based on where learners are struggling."
-msgstr ""
+msgstr "ปรับหลักสูตรของคุณตามจุดที่ผู้เรียนมีปัญหา"
 
 #: analytics_dashboard/core/templates/core/landing.html:54
 #: analytics_dashboard/courses/tests/test_views/test_performance.py:51
@@ -143,7 +138,7 @@ msgstr "{statistic}%"
 #: analytics_dashboard/courses/presenters/engagement.py:124
 #, python-brace-format
 msgid "{percentage} of current learners"
-msgstr ""
+msgstr "{percentage} ของผู้เรียนปัจจุบัน"
 
 #: analytics_dashboard/courses/presenters/enrollment.py:23
 msgid "Female"
@@ -158,7 +153,7 @@ msgstr "ผู้ชาย"
 #: analytics_dashboard/courses/presenters/enrollment.py:26
 #: analytics_dashboard/courses/presenters/enrollment.py:45
 msgid "Other"
-msgstr "อื่นๆ"
+msgstr "อื่น ๆ"
 
 #. Translators: Unknown gender
 #. Translators: This describes the learner's education level.
@@ -230,7 +225,7 @@ msgstr "ส่งคำตอบ"
 #: analytics_dashboard/courses/presenters/performance.py:154
 #, python-brace-format
 msgid "Submissions for Part {part_number}: {part_description}"
-msgstr "ส่งคำตอบสำหรับ {part_number}: {part_description}"
+msgstr "การส่งคำตอบสำหรับส่วนที่ {part_number}: {part_description}"
 
 #: analytics_dashboard/courses/presenters/performance.py:155
 #, python-brace-format
@@ -260,7 +255,7 @@ msgstr "ส่วน {part_number}"
 #: analytics_dashboard/courses/templates/courses/_base_content_nav.html:25
 #, python-format
 msgid "%(all_sections_text)s"
-msgstr ""
+msgstr "%(all_sections_text)s"
 
 #: analytics_dashboard/courses/templates/courses/_graded_content_nav.html:16
 msgid "Select Assignment Type"
@@ -367,12 +362,12 @@ msgstr "ดาวน์โหลด CSV"
 
 #: analytics_dashboard/courses/templates/courses/base_performance_answer_distribution.html:117
 msgid "Learner Submission Counts"
-msgstr ""
+msgstr "จำนวนการส่งคำตอบของผู้เรียน"
 
 #. Translators: This describes the data displayed in the chart below.
 #: analytics_dashboard/courses/templates/courses/demographics_chart_info.html:4
 msgid "Learners (Self-Reported)"
-msgstr ""
+msgstr "ผู้เรียน (Self-Reported)"
 
 #: analytics_dashboard/courses/templates/courses/engagement_content.html:23
 msgid "Weekly Learner Engagement"
@@ -395,19 +390,19 @@ msgstr "ผู้เรียน"
 msgid ""
 "The number of active learners, and the number of learners who engaged in "
 "specific activities, over time."
-msgstr ""
+msgstr "จำนวนผู้เรียนที่กระตือรือร้น และจำนวนผู้เรียนที่มีส่วนร่วมในกิจกรรมเฉพาะ ในช่วงเวลาหนึ่ง"
 
 #: analytics_dashboard/courses/templates/courses/engagement_content.html:48
 msgid "Learner Activity Metrics"
-msgstr ""
+msgstr "ตัวชี้วัดกิจกรรมของผู้เรียน"
 
 #: analytics_dashboard/courses/templates/courses/engagement_content.html:54
 msgid "Active Learners Last Week"
-msgstr ""
+msgstr "ผู้เรียนที่ใช้งานเมื่อสัปดาห์ที่แล้ว"
 
 #: analytics_dashboard/courses/templates/courses/engagement_content.html:55
 msgid "Learners who visited at least one page in the course content."
-msgstr "ผู้เรียนที่มีการเยี่ยมชมอย่างน้อย 1 หน้าของเนื้อหาในหลักสูตร"
+msgstr "ผู้เรียนที่เข้าชมอย่างน้อยหนึ่งหน้าใน เนื้อหา หลักสูตร"
 
 #. Translators: This is a label indicating the number of learners who watched
 #. a video.
@@ -417,7 +412,7 @@ msgstr "ดูวิดีโอในสัปดาห์ที่ผ่าน
 
 #: analytics_dashboard/courses/templates/courses/engagement_content.html:62
 msgid "Learners who played one or more videos."
-msgstr "ผู้เรียนที่มีการดูวีดิทัศน์ 1 อันขึ้นไป"
+msgstr "ผู้เรียนที่มีการเล่นวิดีโอหนึ่งหรือมากกว่าหนึ่งรายการขึ้นไป"
 
 #. Translators: This is a label indicating the number of learners who tried a
 #. problem.
@@ -429,18 +424,18 @@ msgstr "ผู้ที่ได้ลองทำโจทย์ในสัป
 msgid ""
 "Learners who submitted an answer for a standard problem. Not all problem "
 "types are included."
-msgstr ""
+msgstr "ผู้เรียนที่ส่ง คำตอบ สำหรับปัญหามาตรฐาน ไม่รวมปัญหาทุกประเภท"
 
 #. Translators: This is a label indicating the number of learners who posted
 #. in a forum discussion.
 #: analytics_dashboard/courses/templates/courses/engagement_content.html:76
 msgid "Participated in Discussions Last Week"
-msgstr ""
+msgstr "เข้าร่วมการสนทนาเมื่อสัปดาห์ที่แล้ว"
 
 #: analytics_dashboard/courses/templates/courses/engagement_content.html:77
 msgid ""
 "Learners who added a post, response, or comment to any course discussion."
-msgstr "ผู้เรียนซึ่งมีการเพิ่มโพสต์ การตอบ หรือเสนอแนะให้กับการอภิปรายในหลักสูตร"
+msgstr "ผู้เรียนซึ่งมีการเพิ่มโพสต์ การตอบ หรือแสดง ความคิดเห็น ให้กับการอภิปรายในหลักสูตร"
 
 #: analytics_dashboard/courses/templates/courses/engagement_content.html:89
 #: analytics_dashboard/courses/templates/courses/engagement_content.html:97
@@ -456,7 +451,7 @@ msgstr "การเข้าชมวิดีโอ"
 
 #: analytics_dashboard/courses/templates/courses/engagement_video_by_section.html:5
 msgid "How did learners interact with videos in this section?"
-msgstr ""
+msgstr "ผู้เรียนโต้ตอบกับวิดีโอในส่วนนี้อย่างไร"
 
 #: analytics_dashboard/courses/templates/courses/engagement_video_by_section.html:10
 msgid ""
@@ -467,18 +462,18 @@ msgstr "แผนภูมิแท่งเหล่านี้แสดงจ
 
 #: analytics_dashboard/courses/templates/courses/engagement_video_by_subsection.html:10
 msgid "How did learners interact with videos in this subsection?"
-msgstr ""
+msgstr "ผู้เรียนโต้ตอบกับวิดีโอในส่วนย่อยนี้อย่างไร"
 
 #: analytics_dashboard/courses/templates/courses/engagement_video_by_subsection.html:15
 msgid ""
 "Each bar shows the counts of complete and incomplete views for that video. "
 "Click to understand where learners drop off and which parts they replay."
-msgstr ""
+msgstr "แต่ละแถบแสดงจำนวนการดูที่สมบูรณ์และไม่สมบูรณ์สำหรับวิดีโอนั้น คลิกเพื่อทำความเข้าใจว่าผู้เรียนออกจากที่ใดและเล่นซ้ำส่วนใด"
 
 #: analytics_dashboard/courses/templates/courses/engagement_video_course.html:5
 #: analytics_dashboard/courses/views/__init__.py:627
 msgid "How did learners interact with course videos?"
-msgstr "มีผู้เรียนจำนวนกี่คนที่มีปฏิสัมพันธ์กับวิดีทัศน์ของรายวิชา?"
+msgstr "ผู้เรียนมีปฏิสัมพันธ์กับวิดีโอของหลักสูตรอย่างไร"
 
 #: analytics_dashboard/courses/templates/courses/engagement_video_course.html:10
 msgid ""
@@ -500,7 +495,7 @@ msgstr "รูปแบบการชมสำหรับวิดิโอน
 msgid ""
 "The number of learners who watched each segment of the video, and the number"
 " of replays for each segment."
-msgstr ""
+msgstr "จำนวนผู้เรียนที่ดูแต่ละส่วนของวิดีโอ และจำนวนการเล่นซ้ำสำหรับแต่ละส่วน"
 
 #: analytics_dashboard/courses/templates/courses/engagement_video_timeline.html:37
 msgid "Collapse Preview"
@@ -528,7 +523,7 @@ msgstr "วิดีโอเริ่มต้น"
 
 #: analytics_dashboard/courses/templates/courses/engagement_video_timeline.html:67
 msgid "Learners who started watching the video."
-msgstr ""
+msgstr "ผู้เรียนที่เริ่มดูวิดีโอ"
 
 #: analytics_dashboard/courses/templates/courses/engagement_video_timeline.html:71
 msgid "Finished Video"
@@ -536,7 +531,7 @@ msgstr "สิ้นสุดวิดีโอ"
 
 #: analytics_dashboard/courses/templates/courses/engagement_video_timeline.html:72
 msgid "Learners who watched the video to the end."
-msgstr ""
+msgstr "ผู้เรียนที่ดูวิดีโอจนจบ"
 
 #: analytics_dashboard/courses/templates/courses/engagement_video_timeline.html:88
 msgid "Video Viewing Over Time"
@@ -544,7 +539,7 @@ msgstr "การเข้าชมวิดิโอล่วงเวลา"
 
 #: analytics_dashboard/courses/templates/courses/enrollment_activity.html:24
 msgid "Daily Learner Enrollment"
-msgstr ""
+msgstr "การลงทะเบียนของผู้เรียนรายวัน"
 
 #: analytics_dashboard/courses/templates/courses/enrollment_activity.html:25
 #: analytics_dashboard/courses/views/__init__.py:546
@@ -621,7 +616,7 @@ msgstr "ยืนยันการลงทะเบียนแล้ว"
 msgid ""
 "Number of currently enrolled learners pursuing a verified certificate of "
 "achievement."
-msgstr ""
+msgstr "จำนวนผู้เรียนที่ลงทะเบียนในปัจจุบันที่กำลังติดตาม ใบรับรอง ผลสัมฤทธิ์ทางการเรียนที่ผ่านการตรวจสอบแล้ว"
 
 #. Translators: This is a label to identify enrollment of learners on the
 #. masters track.
@@ -630,13 +625,13 @@ msgstr ""
 #: analytics_dashboard/courses/templates/courses/enrollment_activity.html:93
 #: analytics_dashboard/courses/templates/courses/index.html:53
 msgid "Master's Enrollment"
-msgstr ""
+msgstr "การลงทะเบียนของปริญญาโท"
 
 #. Translators: This is a label indicating the number of learners enrolled in
 #. a course on the masters track.
 #: analytics_dashboard/courses/templates/courses/enrollment_activity.html:95
 msgid "Number of currently enrolled learners pursuing a Master's degree."
-msgstr ""
+msgstr "จำนวนผู้เรียนที่ลงทะเบียนเรียนในปัจจุบันที่กำลังศึกษาระดับปริญญาโท"
 
 #: analytics_dashboard/courses/templates/courses/enrollment_activity.html:109
 #: analytics_dashboard/courses/templates/courses/enrollment_activity.html:117
@@ -659,7 +654,7 @@ msgstr "ผู้เรียนของฉันมีอายุเท่า
 msgid ""
 "This age histogram presents data computed for the %(value)s%% of enrolled "
 "learners who provided a year of birth."
-msgstr ""
+msgstr "ฮิสโตแกรมอายุนี้แสดงข้อมูลที่คำนวณสำหรับ %(value)s%% ของผู้เรียนที่ลงทะเบียนซึ่งระบุปีเกิด"
 
 #: analytics_dashboard/courses/templates/courses/enrollment_demographics_age.html:56
 msgid "Age Metrics"
@@ -669,12 +664,12 @@ msgstr "ระดับอายุ"
 #. learners.
 #: analytics_dashboard/courses/templates/courses/enrollment_demographics_age.html:65
 msgid "Median Learner Age"
-msgstr ""
+msgstr "อายุผู้เรียนมัธยฐาน"
 
 #: analytics_dashboard/courses/templates/courses/enrollment_demographics_age.html:66
 msgid ""
 "The midpoint of the learner ages, computed from the provided year of birth."
-msgstr ""
+msgstr "จุดกึ่งกลางของวัยเรียน คำนวณจากปีเกิดที่ระบุ"
 
 #. Translators: This is a label to identify the number of learners in the age
 #. range.
@@ -686,7 +681,7 @@ msgstr "ผู้เรียนที่มีอายุตั้งแต่
 msgid ""
 "The percentage of learners aged 25 years or younger (of those who provided a"
 " year of birth)."
-msgstr ""
+msgstr "เปอร์เซ็นต์ของผู้เรียนอายุ 25 ปีหรือน้อยกว่า (ของผู้ที่เกิดปีเกิด)"
 
 #. Translators: This is a label to identify the number of learners in the age
 #. range.
@@ -698,7 +693,7 @@ msgstr "ผู้เรียนที่มีอายุระหว่าง
 msgid ""
 "The percentage of learners aged from 26 to 40 years (of those who provided a"
 " year of birth)."
-msgstr ""
+msgstr "เปอร์เซ็นต์ของผู้เรียนที่มีอายุระหว่าง 26 ถึง 40 ปี (ของผู้ที่เกิดปีเกิด)"
 
 #. Translators: This is a label to identify the number of learners in the age
 #. range.
@@ -710,7 +705,7 @@ msgstr "ผู้เรียนที่มีอายุตั้งแต่
 msgid ""
 "The percentage of learners aged 41 years or older (of those who provided a "
 "year of birth)."
-msgstr ""
+msgstr "เปอร์เซ็นต์ของผู้เรียนที่มีอายุ 41 ปีขึ้นไป (ของผู้ที่เกิดปีเกิด)"
 
 #: analytics_dashboard/courses/templates/courses/enrollment_demographics_age.html:101
 msgid "Age Breakdown"
@@ -729,7 +724,7 @@ msgstr "ผู้เรียนของฉันมีการศึกษา
 msgid ""
 "This graph presents data for the %(value)s%% of enrolled learners who "
 "provided a highest level of education completed."
-msgstr ""
+msgstr "กราฟนี้แสดงข้อมูลสำหรับ %(value)s%% ของผู้เรียนที่ลงทะเบียนซึ่งให้การศึกษาระดับสูงสุดที่สำเร็จ"
 
 #: analytics_dashboard/courses/templates/courses/enrollment_demographics_education.html:56
 msgid "Education Metrics"
@@ -745,7 +740,7 @@ msgid ""
 "The percentage of learners who selected Secondary/high school, Junior "
 "secondary/junior high/middle school, or Elementary/primary school as their "
 "highest level of education completed."
-msgstr ""
+msgstr "เปอร์เซ็นต์ของผู้เรียนที่เลือกระดับมัธยมศึกษา/มัธยมศึกษาตอนต้น/มัธยมศึกษาตอนต้น/มัธยมต้น/มัธยมต้น หรือระดับประถมศึกษา/ประถมศึกษาเป็นระดับการศึกษาสูงสุดที่สำเร็จ"
 
 #. Translators: This is a label to identify learner educational background.
 #: analytics_dashboard/courses/templates/courses/enrollment_demographics_education.html:71
@@ -756,7 +751,7 @@ msgstr "ระดับอุมศึกษา"
 msgid ""
 "The percentage of learners who selected Bachelor's degree or Associate "
 "degree as their highest level of education completed."
-msgstr ""
+msgstr "เปอร์เซ็นต์ของผู้เรียนที่เลือกระดับปริญญาตรีหรืออนุปริญญาเป็นระดับการศึกษาสูงสุดที่สำเร็จ"
 
 #. Translators: This is a label to identify learner educational background.
 #: analytics_dashboard/courses/templates/courses/enrollment_demographics_education.html:78
@@ -767,7 +762,7 @@ msgstr "ระดับบัณฑิตศึกษาขึ้นไป"
 msgid ""
 "The percentage of learners who selected Doctorate or Master's or "
 "professional degree as their highest level of education completed."
-msgstr ""
+msgstr "เปอร์เซ็นต์ของผู้เรียนที่เลือกปริญญาเอกหรือปริญญาโทหรือระดับวิชาชีพเป็นระดับการศึกษาสูงสุดที่สำเร็จ"
 
 #: analytics_dashboard/courses/templates/courses/enrollment_demographics_education.html:91
 msgid "Educational Breakdown"
@@ -776,7 +771,7 @@ msgstr "การแบ่งออกเป็นส่วนของการ
 #: analytics_dashboard/courses/templates/courses/enrollment_demographics_gender.html:25
 #: analytics_dashboard/courses/views/__init__.py:579
 msgid "What is the learner gender breakdown?"
-msgstr ""
+msgstr "การแบ่งเพศของผู้เรียนเป็นอย่างไร"
 
 #. Translators: Maintain the double percentage symbols (%%) but move them to
 #. the appropriate location (before/after the value placeholder) for your
@@ -786,7 +781,7 @@ msgstr ""
 msgid ""
 "This graph presents data for the %(value)s%% of enrolled learners who "
 "specified their gender."
-msgstr ""
+msgstr "กราฟนี้แสดงข้อมูลสำหรับ %(value)s%% ของผู้เรียนที่ลงทะเบียนที่ระบุเพศ"
 
 #: analytics_dashboard/courses/templates/courses/enrollment_demographics_gender.html:56
 msgid "Gender Breakdown Over Time"
@@ -813,11 +808,11 @@ msgstr "ระดับเชิงภูมิศาสตร์"
 #. are enrolled.
 #: analytics_dashboard/courses/templates/courses/enrollment_geography.html:53
 msgid "Total Countries or Regions Represented"
-msgstr ""
+msgstr "รวมประเทศหรือภูมิภาคที่เป็นตัวแทน"
 
 #: analytics_dashboard/courses/templates/courses/enrollment_geography.html:54
 msgid "Countries or regions with at least one learner."
-msgstr ""
+msgstr "ประเทศหรือภูมิภาคที่มีผู้เรียนอย่างน้อยหนึ่งคน"
 
 #. Translators: This string represents the country or region with the greatest
 #. number of enrolled learners.
@@ -827,7 +822,7 @@ msgstr "ประเทศหรือภูมิภาคอันดับส
 
 #: analytics_dashboard/courses/templates/courses/enrollment_geography.html:63
 msgid "Country or region with the largest number of learners."
-msgstr ""
+msgstr "ประเทศหรือภูมิภาคที่มีผู้เรียนจำนวนมากที่สุด"
 
 #. Translators: This string represents the country or region with the second-
 #. greatest number of enrolled learners.
@@ -837,7 +832,7 @@ msgstr "ประเทศหรือภูมิภาคลำดับที
 
 #: analytics_dashboard/courses/templates/courses/enrollment_geography.html:67
 msgid "Country or region with the second largest number of learners."
-msgstr ""
+msgstr "ประเทศหรือภูมิภาคที่มีจำนวนผู้เรียนมากเป็นอันดับสอง"
 
 #. Translators: This string represents the country or region with the third-
 #. greatest number of enrolled learners.
@@ -854,7 +849,7 @@ msgstr "ประเทศหรือภูมิภาคที่มีจำ
 #: analytics_dashboard/courses/templates/courses/enrollment_geography.html:77
 #, python-format
 msgid "%(percent)s%% of learners"
-msgstr ""
+msgstr "%(percent)s%% ของผู้เรียน"
 
 #: analytics_dashboard/courses/templates/courses/enrollment_geography.html:91
 #: analytics_dashboard/courses/templates/courses/enrollment_geography.html:98
@@ -892,7 +887,7 @@ msgid ""
 "\n"
 "                    (%(download_icon)s CSV Download)\n"
 "                  "
-msgstr ""
+msgstr "\n                    (%(download_icon)s ดาวน์โหลด CSV ไฟล์ )\n                  "
 
 #: analytics_dashboard/courses/templates/courses/home.html:93
 msgid "Basic Course Information"
@@ -907,7 +902,7 @@ msgstr "เครื่องมือภายนอก"
 #: analytics_dashboard/courses/templates/courses/index.html:10
 #: analytics_dashboard/courses/views/course_summaries.py:31
 msgid "Courses"
-msgstr "Courses"
+msgstr "หลักสูตร"
 
 #: analytics_dashboard/courses/templates/courses/index.html:17
 msgid "Across all your courses:"
@@ -923,7 +918,7 @@ msgstr "จำนวนการลงทะเบียนปัจจุบั
 
 #: analytics_dashboard/courses/templates/courses/index.html:41
 msgid "Total change in enrollment last week across all of your courses."
-msgstr ""
+msgstr "การเปลี่ยนแปลงโดยรวมในการลงทะเบียนเมื่อสัปดาห์ที่แล้วทั้งหมดในทุกหลักสูตรของคุณ"
 
 #: analytics_dashboard/courses/templates/courses/index.html:48
 msgid "Verified enrollments across all of your courses."
@@ -948,7 +943,7 @@ msgstr "ผู้เรียนเป็นอย่างไรบ้างก
 msgid ""
 "These bars show the correct and incorrect submission counts for each "
 "problem. Only the last submission from each learner is counted."
-msgstr ""
+msgstr "แถบเหล่านี้แสดงจำนวนการส่งคำตอบที่ถูกต้องและไม่ถูกต้องสำหรับแต่ละปัญหา โดยจะนับเฉพาะการส่งคำตอบครั้งสุดท้ายจากผู้เรียนแต่ละคน"
 
 #: analytics_dashboard/courses/templates/courses/performance_assignment.html:19
 #: analytics_dashboard/courses/templates/courses/performance_learning_outcomes_section.html:20
@@ -988,14 +983,14 @@ msgid ""
 "\n"
 "      How are learners doing on the %(type)s?\n"
 "    "
-msgstr ""
+msgstr "\n      ผู้เรียนเป็นอย่างไรบ้าง %(type)s\n    "
 
 #: analytics_dashboard/courses/templates/courses/performance_graded_content_by_type.html:15
 msgid ""
 "Each bar shows the average number of correct and incorrect submissions for "
 "problems in the assignment. Only the last submission from each learner is "
 "counted."
-msgstr ""
+msgstr "แต่ละแถบแสดงจำนวนเฉลี่ยของการส่งคำตอบสำหรับปัญหาในงานที่มอบหมายให้ที่ถูกต้องและไม่ถูกต้อง โดยจะนับเฉพาะการส่งครั้งสุดท้ายจากผู้เรียนแต่ละคน"
 
 #: analytics_dashboard/courses/templates/courses/performance_graded_content_by_type.html:19
 msgid "Assignment Submissions"
@@ -1030,7 +1025,7 @@ msgstr "ผู้เรียนเป็นอย่างไรบ้างใ
 msgid ""
 "Each bar shows the average number of correct and incorrect submissions for "
 "each subsection. Only the last submission from each learner is counted."
-msgstr ""
+msgstr "แต่ละแถบแสดงจำนวนการส่งคำตอบที่ถูกต้องและไม่ถูกต้องโดยเฉลี่ยสำหรับแต่ละส่วนย่อย โดยจะนับเฉพาะการส่งคำตอบครั้งสุดท้ายจากผู้เรียนแต่ละคน"
 
 #: analytics_dashboard/courses/templates/courses/performance_ungraded_by_section.html:14
 msgid "Subsection Submissions"
@@ -1049,7 +1044,7 @@ msgstr "ผู้เรียนทำแบบฝึกหัดที่ไม
 msgid ""
 "Each bar shows the average number of correct and incorrect submissions for "
 "each section. Only the last submission from each learner is counted."
-msgstr ""
+msgstr "แต่ละแถบแสดงจำนวนการส่งคำตอบที่ถูกต้องและไม่ถูกต้องโดยเฉลี่ยสำหรับแต่ละส่วน โดยจะนับเฉพาะการส่งคำตอบครั้งสุดท้ายจากผู้เรียนแต่ละคน"
 
 #: analytics_dashboard/courses/templates/courses/performance_ungraded_content.html:16
 msgid "Section Submissions"
@@ -1115,13 +1110,13 @@ msgstr "เพศ"
 #. Translators: Content as in course content (e.g. things, not the feeling)
 #: analytics_dashboard/courses/tests/test_views/test_engagement.py:58
 #: analytics_dashboard/courses/views/__init__.py:616
-#: analytics_dashboard/courses/views/engagement.py:34
+#: analytics_dashboard/courses/views/engagement.py:33
 msgid "Content"
 msgstr "เนื้อหา"
 
 #: analytics_dashboard/courses/tests/test_views/test_engagement.py:69
 #: analytics_dashboard/courses/views/__init__.py:629
-#: analytics_dashboard/courses/views/engagement.py:43
+#: analytics_dashboard/courses/views/engagement.py:42
 msgid "Videos"
 msgstr "วิดีทัศน์"
 
@@ -1143,7 +1138,7 @@ msgstr "ปัญหาการไม่ออกเกรด"
 #: analytics_dashboard/courses/views/__init__.py:664
 #: analytics_dashboard/courses/views/performance.py:70
 msgid "Learning Outcomes"
-msgstr "Learning Outcomes"
+msgstr "ผลสัมฤทธิ์จากการเรียนรู้"
 
 #: analytics_dashboard/courses/views/__init__.py:611
 msgid "What are learners doing in my course?"
@@ -1151,15 +1146,15 @@ msgstr "ผู้เรียนทำอะไรบ้างในหลัก
 
 #: analytics_dashboard/courses/views/__init__.py:641
 msgid "How are learners doing on graded course assignments?"
-msgstr ""
+msgstr "ผู้เรียนทำอย่างไรกับงานที่มอบหมายในหลักสูตรที่มีการให้คะแนน"
 
 #: analytics_dashboard/courses/views/__init__.py:662
 msgid "What is the breakdown for course learning outcomes?"
-msgstr ""
+msgstr "รายละเอียดสำหรับผลการเรียนรู้ของหลักสูตรคืออะไร"
 
 #: analytics_dashboard/courses/views/__init__.py:682
 msgid "How are learners responding to questions?"
-msgstr ""
+msgstr "ผู้เรียนตอบคำถามอย่างไร"
 
 #: analytics_dashboard/courses/views/__init__.py:684
 msgid "Problem Response Report"
@@ -1179,7 +1174,7 @@ msgstr "ใครมีส่วนร่วม? และใครที่ไ�
 
 #: analytics_dashboard/courses/views/__init__.py:704
 msgid "All Learners"
-msgstr "ผู้เรียนทุกคน"
+msgstr "ผู้เรียนทั้งหมด"
 
 #. Translators: 'Course ID' is 'Course Identifier', the unique code that
 #. identifies the course
@@ -1233,43 +1228,43 @@ msgid ""
 "Course summary data was last updated %(update_date)s at %(update_time)s UTC."
 msgstr "ข้อมูลสรุปหลักสูตรมีการปรับปรุงล่าสุดเมื่อ %(update_date)s เวลา %(update_time)sUTC."
 
-#: analytics_dashboard/courses/views/engagement.py:59
+#: analytics_dashboard/courses/views/engagement.py:58
 msgid "Engagement Content"
 msgstr "การมีส่วนร่วมในเนื้อหา"
 
 #. Translators: Do not translate UTC.
-#: analytics_dashboard/courses/views/engagement.py:69
+#: analytics_dashboard/courses/views/engagement.py:68
 #, python-format
 msgid ""
 "Course engagement data was last updated %(update_date)s at %(update_time)s "
 "UTC."
 msgstr "ข้อมูลการมีส่วนร่วมในหลักสูตรมีการปรับปรุงล่าสุดเมื่อ %(update_date)s เวลา %(update_time)s UTC."
 
-#: analytics_dashboard/courses/views/engagement.py:96
+#: analytics_dashboard/courses/views/engagement.py:95
 msgid "Engagement Videos"
 msgstr "การเข้าดูวิดิโอ"
 
 #. Translators: Do not translate UTC.
-#: analytics_dashboard/courses/views/engagement.py:101
+#: analytics_dashboard/courses/views/engagement.py:100
 #, python-format
 msgid "Video data was last updated %(update_date)s at %(update_time)s UTC."
 msgstr "ปรับปรุงวิดิโอข้อตกลงล่าสุดวันที่ %(update_date)s เวลา %(update_time)s UTC."
 
-#: analytics_dashboard/courses/views/engagement.py:102
+#: analytics_dashboard/courses/views/engagement.py:101
 msgid "Looks like no one has watched any videos in these sections."
-msgstr "ไม่มีบุคคลดูวิดิโอใดๆในเซคชั่นนี้"
+msgstr "ดูเหมือนว่าไม่มีใครดูวิดีโอในส่วนเหล่านี้"
 
-#: analytics_dashboard/courses/views/engagement.py:128
+#: analytics_dashboard/courses/views/engagement.py:127
 #: analytics_dashboard/courses/views/performance.py:308
 msgid "Section Name"
 msgstr "ชื่อหัวข้อ"
 
-#: analytics_dashboard/courses/views/engagement.py:148
+#: analytics_dashboard/courses/views/engagement.py:147
 #: analytics_dashboard/courses/views/performance.py:330
 msgid "Subsection Name"
 msgstr "ชื่อหัวข้อย่อย"
 
-#: analytics_dashboard/courses/views/engagement.py:169
+#: analytics_dashboard/courses/views/engagement.py:168
 msgid "Video Name"
 msgstr "ชื่อวิดีโอ"
 
@@ -1279,7 +1274,7 @@ msgstr "ชื่อวิดีโอ"
 msgid ""
 "Demographic learner data was last updated %(update_date)s at %(update_time)s"
 " UTC."
-msgstr ""
+msgstr "ข้อมูลผู้เรียนตามข้อมูลประชากรอัปเดตล่าสุด %(update_date)s เมื่อ %(update_time)s UTC"
 
 #. Translators: This sentence is displayed at the bottom of the page and
 #. describe the demographics data displayed.
@@ -1322,7 +1317,7 @@ msgstr "การลงทะเบียนเชิงภูมิศาสต
 msgid ""
 "Geographic learner data was last updated %(update_date)s at %(update_time)s "
 "UTC."
-msgstr ""
+msgstr "ข้อมูลผู้เรียนตามพื้นที่อัปเดตล่าสุด %(update_date)s เมื่อ %(update_time)s UTC"
 
 #. Translators: Do not translate UTC.
 #: analytics_dashboard/courses/views/performance.py:38
@@ -1366,7 +1361,7 @@ msgstr "ชื่อปัญหา"
 msgid ""
 "Tags distribution data was last updated %(update_date)s at %(update_time)s "
 "UTC."
-msgstr ""
+msgstr "ข้อมูลการแจกจ่ายแท็กได้รับการอัปเดตล่าสุด %(update_date)s เมื่อ %(update_time)s UTC"
 
 #: analytics_dashboard/courses/views/performance.py:406
 #: analytics_dashboard/courses/views/performance.py:436
@@ -1449,7 +1444,7 @@ msgstr "ติดต่อความช่วยเหลือ %(platform_nam
 msgid ""
 "We want this dashboard to work for you! Need help? "
 "%(support_link_start)sContact course team support%(support_link_end)s."
-msgstr ""
+msgstr "เราต้องการให้แดชบอร์ดนี้ทำงานให้คุณ! ต้องการความช่วยเหลือ? %(support_link_start)sติดต่อทีมสนับสนุนของหลักสูตร%(support_link_end)s"
 
 #. Translators: The © symbol appears directly before this line.
 #: analytics_dashboard/templates/footer.html:39
