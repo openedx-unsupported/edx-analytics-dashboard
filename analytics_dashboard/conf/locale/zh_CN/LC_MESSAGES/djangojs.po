@@ -4,12 +4,8 @@
 # 
 # Translators:
 # Translators:
-# Translators:
-# Translators:
-# Translators:
-# Translators:
-# Translators:
 # abby li <yc.li@eliteu.cn>, 2019
+# Cecilia Liu, 2023
 # Changyue Wang <peterwang.dut@gmail.com>, 2015
 # focusheart <focusheart@gmail.com>, 2017
 # ifLab <webmaster@iflab.org>, 2018
@@ -31,9 +27,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-04-14 18:37+0000\n"
+"POT-Creation-Date: 2022-05-18 15:22+0000\n"
 "PO-Revision-Date: 2014-08-26 21:24+0000\n"
-"Last-Translator: abby li <yc.li@eliteu.cn>, 2019\n"
+"Last-Translator: Cecilia Liu, 2023\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/open-edx/edx-platform/language/zh_CN/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -273,7 +269,7 @@ msgstr "进度类型"
 
 #: analytics_dashboard/static/apps/course-list/common/collections/course-list.js:91
 msgid "Programs"
-msgstr "项目"
+msgstr "课程项目"
 
 #: analytics_dashboard/static/apps/course-list/list/views/base-header-cell.js:11
 msgid "Course name advertised on edX site."
@@ -317,18 +313,6 @@ msgstr "跳到结果"
 #: analytics_dashboard/static/apps/course-list/list/views/controls.js:58
 msgid "Find a course"
 msgstr "查找一门课程"
-
-#: analytics_dashboard/static/apps/course-list/list/views/controls.js:68
-msgid "availability"
-msgstr "可用性"
-
-#: analytics_dashboard/static/apps/course-list/list/views/controls.js:76
-msgid "pacing_type"
-msgstr "pacing_type"
-
-#: analytics_dashboard/static/apps/course-list/list/views/controls.js:84
-msgid "program_ids"
-msgstr "program_ids"
 
 #: analytics_dashboard/static/apps/course-list/list/views/course-list.js:66
 msgid "Download full course list to CSV"
@@ -566,17 +550,9 @@ msgstr "寻找一个学员"
 msgid "Cohort Groups"
 msgstr "学习小组"
 
-#: analytics_dashboard/static/apps/learners/roster/views/controls.js:73
-msgid "cohort"
-msgstr "队列"
-
 #: analytics_dashboard/static/apps/learners/roster/views/controls.js:87
 msgid "Enrollment Tracks"
 msgstr "选课记录"
-
-#: analytics_dashboard/static/apps/learners/roster/views/controls.js:85
-msgid "enrollment_mode"
-msgstr "选课模式"
 
 #. Translators: inactive meaning that these learners have not interacted with
 #. the
@@ -584,10 +560,6 @@ msgstr "选课模式"
 #: analytics_dashboard/static/apps/learners/roster/views/controls.js:103
 msgid "Hide Inactive Learners"
 msgstr "隐藏不活跃的学生"
-
-#: analytics_dashboard/static/apps/learners/roster/views/controls.js:97
-msgid "ignore_segments"
-msgstr "ignore_segments"
 
 #: analytics_dashboard/static/apps/learners/roster/views/results.js:47
 msgid "No learners matched your criteria."
