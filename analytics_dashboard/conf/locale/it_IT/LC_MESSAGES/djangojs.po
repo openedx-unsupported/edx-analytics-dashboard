@@ -4,18 +4,13 @@
 # 
 # Translators:
 # Translators:
-# Translators:
-# Translators:
-# Translators:
-# Translators:
-# Translators:
 # Butta Tutto <butta.tutto@gmail.com>, 2015
 # 04d576a65812d0fea671136aba4b73ba_d8a218d <ab142ce9a1bdb1fb9d86bf942d5aca84_263701>, 2015
 # Elisabetta <parodi@lattanziogroup.eu>, 2016
 # francesca <ilexyou@gmail.com>, 2015
 # Giorgio Attorresi <attorresi.giorgio@gmail.com>, 2015
 # Ilaria Botti <ilabotti@gmail.com>, 2021
-# Mauri Macera, 2021
+# 20bdf6b5822f7ccbe16f09a657dbe357_e29decb, 2021
 # Michael Roytman <mroytman@edx.org>, 2022
 # Nicola Cois <nicolacois@hotmail.com>, 2014
 # Pietro Lombardo <pietrolombardo1979@gmail.com>, 2014-2015
@@ -24,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-04-14 18:37+0000\n"
+"POT-Creation-Date: 2022-05-18 15:22+0000\n"
 "PO-Revision-Date: 2014-08-26 21:24+0000\n"
 "Last-Translator: Michael Roytman <mroytman@edx.org>, 2022\n"
 "Language-Team: Italian (Italy) (http://www.transifex.com/open-edx/edx-platform/language/it_IT/)\n"
@@ -32,7 +27,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: it_IT\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Plural-Forms: nplurals=3; plural=n == 1 ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;\n"
 
 #: analytics_dashboard/static/apps/components/download/views/download-data.js:25
 msgid "Download CSV"
@@ -311,18 +306,6 @@ msgstr "Vai ai risultati"
 msgid "Find a course"
 msgstr "Trova un corso"
 
-#: analytics_dashboard/static/apps/course-list/list/views/controls.js:68
-msgid "availability"
-msgstr "disponibilità"
-
-#: analytics_dashboard/static/apps/course-list/list/views/controls.js:76
-msgid "pacing_type"
-msgstr "pacing_type"
-
-#: analytics_dashboard/static/apps/course-list/list/views/controls.js:84
-msgid "program_ids"
-msgstr "program_ids"
-
 #: analytics_dashboard/static/apps/course-list/list/views/course-list.js:66
 msgid "Download full course list to CSV"
 msgstr "Scarica elenco completo dei corsi in un file CSV"
@@ -559,17 +542,9 @@ msgstr "Trova uno studente"
 msgid "Cohort Groups"
 msgstr "Gruppi di coorti"
 
-#: analytics_dashboard/static/apps/learners/roster/views/controls.js:73
-msgid "cohort"
-msgstr "coorte"
-
 #: analytics_dashboard/static/apps/learners/roster/views/controls.js:87
 msgid "Enrollment Tracks"
 msgstr "Tracce iscrizione"
-
-#: analytics_dashboard/static/apps/learners/roster/views/controls.js:85
-msgid "enrollment_mode"
-msgstr "enrollment_mode"
 
 #. Translators: inactive meaning that these learners have not interacted with
 #. the
@@ -577,10 +552,6 @@ msgstr "enrollment_mode"
 #: analytics_dashboard/static/apps/learners/roster/views/controls.js:103
 msgid "Hide Inactive Learners"
 msgstr "Nascondi studenti non attivi"
-
-#: analytics_dashboard/static/apps/learners/roster/views/controls.js:97
-msgid "ignore_segments"
-msgstr "ignore_segments"
 
 #: analytics_dashboard/static/apps/learners/roster/views/results.js:47
 msgid "No learners matched your criteria."
