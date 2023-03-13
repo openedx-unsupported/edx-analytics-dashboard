@@ -4,37 +4,32 @@
 # 
 # Translators:
 # Translators:
-# Translators:
-# Translators:
-# Translators:
-# Translators:
-# Translators:
 # Etienne Laurin <etienne.laurin@gmail.com>, 2016
 # Fatima Zahra Mbacke <zahra.mbacke@gmail.com>, 2015
 # Keivan Farzaneh <keivan.farzaneh@edulib.org>, 2017
-# Pierre Mailhot <pierre.mailhot@gmail.com>, 2016-2017,2019,2021-2022
+# Pierre Mailhot <pierre.mailhot@gmail.com>, 2016-2017,2019,2021-2023
 msgid ""
 msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-04-14 18:37+0000\n"
+"POT-Creation-Date: 2022-05-18 15:22+0000\n"
 "PO-Revision-Date: 2014-08-25 20:09+0000\n"
-"Last-Translator: Pierre Mailhot <pierre.mailhot@gmail.com>, 2016-2017,2019,2021-2022\n"
+"Last-Translator: Pierre Mailhot <pierre.mailhot@gmail.com>, 2016-2017,2019,2021-2023\n"
 "Language-Team: French (Canada) (http://www.transifex.com/open-edx/edx-platform/language/fr_CA/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: fr_CA\n"
-"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"Plural-Forms: nplurals=3; plural=(n == 0 || n == 1) ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;\n"
 
 #: analytics_dashboard/core/templates/core/landing.html:15
 #: analytics_dashboard/templates/_skip_link.html:3
 msgid "Skip to content"
-msgstr "Aller au contenu."
+msgstr "Aller au contenu"
 
 #: analytics_dashboard/core/templates/core/landing.html:23
 msgid "Login"
-msgstr "Connexion."
+msgstr "Connexion"
 
 #: analytics_dashboard/core/templates/core/landing.html:33
 msgid "Insights to help course teams improve courses."
@@ -98,7 +93,7 @@ msgstr "Rejoignez la communauté Open Source"
 msgid ""
 "The edX analytics data pipeline and edX Insights are open source. "
 "%(link_start)sLearn more%(link_end)s."
-msgstr "Le pipeline d'analyse de données edX et edX Insights sont open source. %(link_start)sApprenez-en encore plus%(link_end)s."
+msgstr "Le pipeline d'analyse de données edX et edX Insights sont open source. %(link_start)sApprenez-en encore plus %(link_end)s."
 
 #: analytics_dashboard/core/templates/core/landing.html:75
 msgid "Research at edX"
@@ -119,7 +114,7 @@ msgstr "Besoin d'aide?"
 #, python-format
 msgid ""
 "%(link_start)sOur support center%(link_end)s can help you find solutions."
-msgstr "%(link_start)sNotre centre d'assistance%(link_end)s peut vous aider à trouver des solutions."
+msgstr "%(link_start)sNotre centre d'assistance %(link_end)s peut vous aider à trouver des solutions."
 
 #. Translators: Simply move the percent symbol (%) to the correct location. Do
 #. NOT translate the word statistic.
@@ -267,7 +262,7 @@ msgid ""
 "\n"
 "        Select %(level)s\n"
 "    "
-msgstr "\nSélectionnez %(level)s"
+msgstr "\n        Sélectionnez %(level)s\n    "
 
 #: analytics_dashboard/courses/templates/courses/_graded_content_nav.html:31
 #: analytics_dashboard/courses/templates/courses/_tags_content_nav.html:23
@@ -330,7 +325,7 @@ msgstr "Ce graphique affiche les réponses les plus courantes soumises par les �
 msgid ""
 "Due to the number of possible variants for randomized problems, charts are "
 "not available. %(read_more_link_start)sRead more%(read_more_link_end)s."
-msgstr "En raison du nombre de variantes possibles pour les problèmes aléatoires, les graphes ne sont pas disponibles. %(read_more_link_start)sEn savoir plus%(read_more_link_end)s."
+msgstr "En raison du nombre de variantes possibles pour les problèmes aléatoires, les graphiques ne sont pas disponibles. %(read_more_link_start)sEn savoir plus%(read_more_link_end)s."
 
 #. Translators: Variants refers to versions of a problem/assignment.
 #: analytics_dashboard/courses/templates/courses/base_performance_answer_distribution.html:87
@@ -361,7 +356,7 @@ msgstr "Nombre de soumissions étudiantes"
 #. Translators: This describes the data displayed in the chart below.
 #: analytics_dashboard/courses/templates/courses/demographics_chart_info.html:4
 msgid "Learners (Self-Reported)"
-msgstr "Étudiants (autodéclaré)"
+msgstr "Étudiants (auto-déclaré)"
 
 #: analytics_dashboard/courses/templates/courses/engagement_content.html:23
 msgid "Weekly Learner Engagement"
@@ -505,7 +500,7 @@ msgstr "Métriques des vidéos"
 
 #: analytics_dashboard/courses/templates/courses/engagement_video_timeline.html:61
 msgid "Completion Rate"
-msgstr "Taux d'achèvement"
+msgstr "Taux de complétion"
 
 #: analytics_dashboard/courses/templates/courses/engagement_video_timeline.html:62
 msgid "Estimated percentage of learners who watched the entire video."
@@ -663,7 +658,7 @@ msgstr "Âge médian des étudiants"
 #: analytics_dashboard/courses/templates/courses/enrollment_demographics_age.html:66
 msgid ""
 "The midpoint of the learner ages, computed from the provided year of birth."
-msgstr "Le point milieu de l'âge des élèves, calculé à partir de l'année  de naissance fournie."
+msgstr "Le point milieu de l'âge des élèves, calculé à partir de l'année de naissance fournie."
 
 #. Translators: This is a label to identify the number of learners in the age
 #. range.
@@ -900,7 +895,7 @@ msgstr "Cours"
 
 #: analytics_dashboard/courses/templates/courses/index.html:17
 msgid "Across all your courses:"
-msgstr "Dans tous vos cours : "
+msgstr "Dans tous vos cours :"
 
 #: analytics_dashboard/courses/templates/courses/index.html:27
 msgid "Total enrollments across all of your courses."
@@ -993,7 +988,7 @@ msgstr "Soumissions des devoirs"
 #: analytics_dashboard/courses/templates/courses/performance_learning_outcomes_content.html:6
 #: analytics_dashboard/courses/templates/courses/performance_learning_outcomes_section.html:6
 msgid "Measured by learning outcome, how are learners performing?"
-msgstr "Mesurée par les résultats de l'apprentissage, comment les élèves performent-ils?"
+msgstr "Mesurée par les résultats de l'apprentissage, comment les élèves comportent-ils?"
 
 #: analytics_dashboard/courses/templates/courses/performance_learning_outcomes_content.html:16
 msgid ""
@@ -1104,13 +1099,13 @@ msgstr "Genre"
 #. Translators: Content as in course content (e.g. things, not the feeling)
 #: analytics_dashboard/courses/tests/test_views/test_engagement.py:58
 #: analytics_dashboard/courses/views/__init__.py:616
-#: analytics_dashboard/courses/views/engagement.py:34
+#: analytics_dashboard/courses/views/engagement.py:33
 msgid "Content"
 msgstr "Contenu"
 
 #: analytics_dashboard/courses/tests/test_views/test_engagement.py:69
 #: analytics_dashboard/courses/views/__init__.py:629
-#: analytics_dashboard/courses/views/engagement.py:43
+#: analytics_dashboard/courses/views/engagement.py:42
 msgid "Videos"
 msgstr "Vidéos"
 
@@ -1213,7 +1208,7 @@ msgstr "Tableau de bord enseignant"
 
 #: analytics_dashboard/courses/views/__init__.py:808
 msgid "Courseware"
-msgstr "Cours"
+msgstr "Didacticiel"
 
 #. Translators: Do not translate UTC.
 #: analytics_dashboard/courses/views/course_summaries.py:40
@@ -1222,43 +1217,43 @@ msgid ""
 "Course summary data was last updated %(update_date)s at %(update_time)s UTC."
 msgstr "Les données sommaires du cours ont été mises à jour pour la dernière fois %(update_date)s à %(update_time)s UTC."
 
-#: analytics_dashboard/courses/views/engagement.py:59
+#: analytics_dashboard/courses/views/engagement.py:58
 msgid "Engagement Content"
 msgstr "Contenu de l'engagement"
 
 #. Translators: Do not translate UTC.
-#: analytics_dashboard/courses/views/engagement.py:69
+#: analytics_dashboard/courses/views/engagement.py:68
 #, python-format
 msgid ""
 "Course engagement data was last updated %(update_date)s at %(update_time)s "
 "UTC."
 msgstr "Les données d'engagement du cours ont été mises à jour pour la dernière fois %(update_date)s à %(update_time)s UTC."
 
-#: analytics_dashboard/courses/views/engagement.py:96
+#: analytics_dashboard/courses/views/engagement.py:95
 msgid "Engagement Videos"
 msgstr "Vidéos d'engagement"
 
 #. Translators: Do not translate UTC.
-#: analytics_dashboard/courses/views/engagement.py:101
+#: analytics_dashboard/courses/views/engagement.py:100
 #, python-format
 msgid "Video data was last updated %(update_date)s at %(update_time)s UTC."
-msgstr "Les données vidéo ont été mises à jour pour la dernière fois  %(update_date)s à %(update_time)s UTC."
+msgstr "Les données vidéo ont été mises à jour pour la dernière fois%(update_date)s à %(update_time)s UTC."
 
-#: analytics_dashboard/courses/views/engagement.py:102
+#: analytics_dashboard/courses/views/engagement.py:101
 msgid "Looks like no one has watched any videos in these sections."
 msgstr "On dirait que personne n'a regardé de vidéos dans ces sections."
 
-#: analytics_dashboard/courses/views/engagement.py:128
+#: analytics_dashboard/courses/views/engagement.py:127
 #: analytics_dashboard/courses/views/performance.py:308
 msgid "Section Name"
 msgstr "Nom de la section"
 
-#: analytics_dashboard/courses/views/engagement.py:148
+#: analytics_dashboard/courses/views/engagement.py:147
 #: analytics_dashboard/courses/views/performance.py:330
 msgid "Subsection Name"
 msgstr "Nom de la sous-section"
 
-#: analytics_dashboard/courses/views/engagement.py:169
+#: analytics_dashboard/courses/views/engagement.py:168
 msgid "Video Name"
 msgstr "Nom de la vidéo"
 
@@ -1275,7 +1270,7 @@ msgstr "Les données démographiques des apprenants ont été mises à jour pour
 #: analytics_dashboard/courses/views/enrollment.py:122
 msgid ""
 "All above demographic data was self-reported at the time of registration."
-msgstr "Toutes les données démographiques ci-dessus étaient autodéclarées au moment de l'inscription."
+msgstr "Toutes les données démographiques ci-dessus étaient auto-déclarées au moment de l'inscription."
 
 #: analytics_dashboard/courses/views/enrollment.py:135
 msgid "Enrollment Activity"
@@ -1323,7 +1318,7 @@ msgstr "Les données de soumission des problèmes ont été mises à jour pour l
 
 #: analytics_dashboard/courses/views/performance.py:84
 msgid "Assignment Name"
-msgstr "Nom du du devoir"
+msgstr "Nom du devoir"
 
 #: analytics_dashboard/courses/views/performance.py:95
 #: analytics_dashboard/courses/views/performance.py:378
@@ -1338,7 +1333,7 @@ msgstr "Aucune soumission reçue pour ces devoirs."
 #: analytics_dashboard/courses/views/performance.py:370
 #: analytics_dashboard/courses/views/performance.py:468
 msgid "Performance: Problem Submissions"
-msgstr "Rendement: Soumissions de problèmes"
+msgstr "Rendement : Soumissions de problèmes"
 
 #: analytics_dashboard/courses/views/performance.py:265
 #, python-format
@@ -1360,7 +1355,7 @@ msgstr "Les données de distribution des balises ont été mises à jour pour la
 #: analytics_dashboard/courses/views/performance.py:406
 #: analytics_dashboard/courses/views/performance.py:436
 msgid "Performance: Learning Outcomes"
-msgstr "Rendement: Résultats d'apprentissage"
+msgstr "Rendement : Résultats d'apprentissage"
 
 #: analytics_dashboard/settings/base.py:436
 msgid "Terms of Service"
@@ -1406,7 +1401,7 @@ msgstr "Une erreur est survenue"
 msgid ""
 "Our servers weren't able to complete your request. Please try again by "
 "refreshing this page or retracing your steps."
-msgstr "Nos serveurs n'ont pas été en mesure de compléter votre demande. S'il vous plaît essayer de nouveau en raffraîssant cette page ou revenez en arrière."
+msgstr "Nos serveurs n'ont pas été en mesure de compléter votre demande. S'il vous plaît essayer de nouveau en rafraîchissant cette page ou revenez en arrière."
 
 #: analytics_dashboard/templates/503.html:5
 #: analytics_dashboard/templates/503.html:7
@@ -1438,7 +1433,7 @@ msgstr "Contacter le support %(platform_name)s"
 msgid ""
 "We want this dashboard to work for you! Need help? "
 "%(support_link_start)sContact course team support%(support_link_end)s."
-msgstr "Nous voulons que ce tableau de bord vous soit utile! Vous avez besoin d'aide?  %(support_link_start)sContactez le soutien de l'équipe de cours%(support_link_end)s."
+msgstr "Nous voulons que ce tableau de bord vous soit utile! Vous avez besoin d'aide?  %(support_link_start)sContactez le soutien de l'équipe de cours %(support_link_end)s."
 
 #. Translators: The © symbol appears directly before this line.
 #: analytics_dashboard/templates/footer.html:39
@@ -1474,7 +1469,7 @@ msgstr "Chargement"
 
 #: analytics_dashboard/templates/section_error.html:10
 msgid "We are unable to load this chart."
-msgstr "Nous ne pouvons pas charger ce tableau."
+msgstr "Nous ne pouvons pas charger ce graphique."
 
 #: analytics_dashboard/templates/section_error.html:12
 msgid "We are unable to load this table."
