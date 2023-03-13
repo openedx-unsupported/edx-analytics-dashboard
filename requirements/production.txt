@@ -18,7 +18,7 @@ cffi==1.15.1
     #   -r requirements/base.txt
     #   cryptography
     #   pynacl
-charset-normalizer==3.0.1
+charset-normalizer==3.1.0
     # via
     #   -r requirements/base.txt
     #   requests
@@ -31,7 +31,7 @@ code-annotations==1.3.0
     # via
     #   -r requirements/base.txt
     #   edx-toggles
-cryptography==39.0.1
+cryptography==39.0.2
     # via
     #   -r requirements/base.txt
     #   pyjwt
@@ -41,13 +41,14 @@ defusedxml==0.7.1
     #   -r requirements/base.txt
     #   python3-openid
     #   social-auth-core
-django==3.2.17
+django==3.2.18
     # via
     #   -c requirements/common_constraints.txt
     #   -c requirements/constraints.txt
     #   -r requirements/base.txt
     #   django-appconf
     #   django-braces
+    #   django-crispy-forms
     #   django-crum
     #   django-lang-pref-middleware
     #   django-model-utils
@@ -67,7 +68,7 @@ django-braces==1.15.0
     # via -r requirements/base.txt
 django-countries==7.5.1
     # via -r requirements/base.txt
-django-crispy-forms==1.14.0
+django-crispy-forms==2.0
     # via -r requirements/base.txt
 django-crum==0.7.9
     # via
@@ -153,7 +154,7 @@ markupsafe==2.1.2
     #   jinja2
 mysqlclient==2.1.1
     # via -r requirements/production.in
-newrelic==8.6.0
+newrelic==8.7.0
     # via
     #   -r requirements/base.txt
     #   edx-django-utils
@@ -177,7 +178,7 @@ pbr==5.11.1
     #   stevedore
 pinax-announcements==4.0.0
     # via -r requirements/base.txt
-polib==1.1.1
+polib==1.2.0
     # via
     #   -r requirements/base.txt
     #   edx-i18n-tools
@@ -219,7 +220,7 @@ python-dateutil==2.8.2
     #   edx-drf-extensions
 python-memcached==1.59
     # via -r requirements/production.in
-python-slugify==8.0.0
+python-slugify==8.0.1
     # via
     #   -r requirements/base.txt
     #   code-annotations
@@ -285,7 +286,7 @@ sqlparse==0.4.3
     # via
     #   -r requirements/base.txt
     #   django
-stevedore==4.1.1
+stevedore==5.0.0
     # via
     #   -r requirements/base.txt
     #   code-annotations
@@ -295,7 +296,7 @@ text-unidecode==1.3
     # via
     #   -r requirements/base.txt
     #   python-slugify
-typing-extensions==4.4.0
+typing-extensions==4.5.0
     # via
     #   -r requirements/base.txt
     #   django-countries
