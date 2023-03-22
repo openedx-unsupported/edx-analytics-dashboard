@@ -13,7 +13,7 @@ jobs:
         python-version: ["3.8"]
         os: [ubuntu-20.04]
         toxenv: [django32]
-        node: [16]
+
     env:
       DATA_API_VERSION: "latest"
     steps:
@@ -22,9 +22,11 @@ jobs:
         with:
           python-version: ${{ matrix.python-version }}
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
         with:
           fetch-depth: 0
+      - name: Setup Nodejs Env
+        run: echo "NODE_VER=`cat .nvmrc`" >> $GITHUB_ENV
       - name: start container
         run: docker-compose -f .github/docker-compose-github.yml up -d
       - name: setup analytics-api
@@ -46,7 +48,7 @@ jobs:
         shell: bash
         env:
           TESTNAME: js
-          NODE: ${{ matrix.node }}
+          NODE: ${{ env.NODE_VER }}
           TARGETS: "requirements.js validate_js"
       - name: test i18n
         run: ./.github/scripts/testing.sh
@@ -59,14 +61,14 @@ jobs:
         shell: bash
         env:
           TESTNAME: acceptance
-          NODE: ${{ matrix.node }}
+          NODE: ${{ env.NODE_VER }}
           TARGETS: "requirements.a11y migrate requirements.js static accept"
       - name: test python
         run: ./.github/scripts/testing-js.sh
         shell: bash
         env:
           TESTNAME: test-python
-          NODE: ${{ matrix.node }}
+          NODE: ${{ env.NODE_VER }}
           TARGETS: "requirements.js static test_python"
       - name: code cov
         run: codecov --disable pycov
