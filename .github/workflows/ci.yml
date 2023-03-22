@@ -27,6 +27,10 @@ jobs:
           fetch-depth: 0
       - name: Setup Nodejs Env
         run: echo "NODE_VER=`cat .nvmrc`" >> $GITHUB_ENV
+      - name: Setup Nodejs
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ env.NODE_VER }}
       - name: start container
         run: docker-compose -f .github/docker-compose-github.yml up -d
       - name: setup analytics-api
