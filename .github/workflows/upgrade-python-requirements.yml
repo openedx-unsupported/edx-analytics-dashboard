@@ -2,7 +2,7 @@ name: Upgrade Python Requirements
 
 on:
   schedule:
-    - cron: "15 15 10,24 * *"
+    - cron: "0 0 8-14,22-28 * 2"
   workflow_dispatch:
     inputs:
       branch:
