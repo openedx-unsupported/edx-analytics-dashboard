@@ -1,6 +1,6 @@
-if [[ $NODE == 16 ]]
+if [[ $NODE == 18 ]]
 then
-  export NODE_VERSION=16.14.0
+  export NODE_VERSION=18.14.0
 else
   export NODE_VERSION=12.11.1
 fi
