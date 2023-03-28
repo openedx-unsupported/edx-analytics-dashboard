@@ -13,7 +13,6 @@ jobs:
         python-version: ["3.8"]
         os: [ubuntu-20.04]
         toxenv: [django32]
-        node: [18]
 
     env:
       DATA_API_VERSION: "latest"
@@ -31,7 +30,7 @@ jobs:
       - name: Setup Nodejs
         uses: actions/setup-node@v3
         with:
-          node-version: ${{ matrix.node }}
+          node-version: ${{ env.NODE_VER }}
       - name: start container
         run: docker-compose -f .github/docker-compose-github.yml up -d
       - name: setup analytics-api
