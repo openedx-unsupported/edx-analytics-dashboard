@@ -3,6 +3,7 @@ version: "2.1"
 services:
   es:
     image: elasticsearch:1.5.2
+    image: node:18
   analyticsapi:
     image: edxops/analytics_api:${DATA_API_VERSION:-latest}
     container_name: analytics_api
