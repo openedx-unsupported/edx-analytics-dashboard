@@ -13,7 +13,7 @@ jobs:
         python-version: ["3.8"]
         os: [ubuntu-20.04]
         toxenv: [django32]
-        node: [16]
+        node: [18]
 
     env:
       DATA_API_VERSION: "latest"
