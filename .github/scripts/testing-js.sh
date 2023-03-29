@@ -1,9 +1,4 @@
-if [[ $NODE == 18 ]]
-then
-  export NODE_VERSION=18.14.0
-else
-  export NODE_VERSION=18.11.1
-fi
+ NODE_VERSION = $NODE
 
 docker exec -t insights_testing bash -c "
     cd /edx/app/insights/edx_analytics_dashboard/ &&
