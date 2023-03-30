@@ -4,11 +4,46 @@ import datetime
 import os
 import sys
 
-import edx_theme
 # on_rtd is whether we are on readthedocs.org, this line of code grabbed from docs.readthedocs.org
-html_theme = 'edx_theme'
+html_theme = 'sphinx_book_theme'
 
-html_theme_path = [edx_theme.get_html_theme_path()]
+# html_theme_path = []
+
+html_logo = "https://logos.openedx.org/open-edx-logo-color.png"
+
+html_favicon = "https://logos.openedx.org/open-edx-favicon.ico"
+
+html_theme_options = {
+ "repository_url": "https://github.com/openedx/edx-analytics-dashboard",
+ "repository_branch": "master",
+ "path_to_docs": "docs/en_us/dashboard/source",
+ "home_page_in_toc": True,
+ "use_repository_button": True,
+ "use_issues_button": True,
+ "use_edit_page_button": True,
+ # Please don't change unless you know what you're doing.
+ "extra_footer": """
+        <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">
+            <img
+                alt="Creative Commons License"
+                style="border-width:0"
+                src="https://i.creativecommons.org/l/by-sa/4.0/80x15.png"/>
+        </a>
+        <br>
+        These works by
+            <a
+                xmlns:cc="https://creativecommons.org/ns#"
+                href="https://openedx.org"
+                property="cc:attributionName"
+                rel="cc:attributionURL"
+            >Axim Collaborative, Inc</a>
+        are licensed under a
+            <a
+                rel="license"
+                href="https://creativecommons.org/licenses/by-sa/4.0/"
+            >Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+    """
+}
 
 sys.path.append(os.path.abspath('../../../'))
 sys.path.append(os.path.abspath('../../'))
@@ -29,12 +64,14 @@ master_doc = 'index'
 
 # Add any Sphinx extension module names here, as strings. They can be extensions
 # coming with Sphinx (named 'sphinx.ext.*') or your custom ones.
-extensions = ['edx_theme']
+extensions = []
 
 # General information about the project.
 project = 'Using edX Insights'
 
-copyright = '{year}, edX Inc. and licensed under a Creative Commons Attribution-ShareAlike 4.0 International License unless otherwise specified'.format(
+author = 'Axim Collaborative, Inc'
+
+copyright = '{year}, Axim Collaborative, Inc and licensed under a Creative Commons Attribution-ShareAlike 4.0 International License unless otherwise specified'.format(
     year=datetime.datetime.now().year)
 
 # The short X.Y version.
