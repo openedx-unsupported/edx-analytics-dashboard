@@ -9,7 +9,7 @@ asgiref==3.6.0
     #   -r requirements/test.txt
     #   django
     #   django-countries
-astroid==2.15.0
+astroid==2.15.2
     # via
     #   -r requirements/test.txt
     #   pylint
@@ -59,7 +59,7 @@ coverage[toml]==7.2.2
     # via
     #   -r requirements/test.txt
     #   pytest-cov
-cryptography==40.0.0
+cryptography==40.0.1
     # via
     #   -r requirements/test.txt
     #   pyjwt
@@ -101,6 +101,7 @@ django==3.2.18
     #   edx-i18n-tools
     #   edx-toggles
     #   pinax-announcements
+    #   social-auth-app-django
 django-appconf==1.0.5
     # via -r requirements/test.txt
 django-braces==1.15.0
@@ -114,7 +115,7 @@ django-crum==0.7.9
     #   -r requirements/test.txt
     #   edx-django-utils
     #   edx-toggles
-django-debug-toolbar==3.8.1
+django-debug-toolbar==4.0.0
     # via -r requirements/local.in
 django-dynamic-fixture==3.1.2
     # via -r requirements/test.txt
@@ -179,7 +180,7 @@ exceptiongroup==1.1.1
     # via
     #   -r requirements/test.txt
     #   pytest
-filelock==3.10.4
+filelock==3.10.7
     # via
     #   -r requirements/tox.txt
     #   tox
@@ -228,7 +229,7 @@ mccabe==0.7.0
     #   pylint
 mysqlclient==2.1.1
     # via -r requirements/local.in
-newrelic==8.7.1
+newrelic==8.8.0
     # via
     #   -r requirements/test.txt
     #   edx-django-utils
@@ -260,7 +261,7 @@ pinax-announcements==4.0.0
     # via -r requirements/test.txt
 pip-tools==6.12.3
     # via -r requirements/pip_tools.txt
-platformdirs==3.1.1
+platformdirs==3.2.0
     # via
     #   -r requirements/test.txt
     #   -r requirements/tox.txt
@@ -308,7 +309,7 @@ pyjwt[crypto]==2.6.0
     #   edx-drf-extensions
     #   edx-rest-api-client
     #   social-auth-core
-pylint==2.17.1
+pylint==2.17.2
     # via
     #   -r requirements/test.txt
     #   edx-lint
@@ -361,7 +362,7 @@ python3-openid==3.2.0
     # via
     #   -r requirements/test.txt
     #   social-auth-core
-pytz==2022.7.1
+pytz==2023.3
     # via
     #   -r requirements/test.txt
     #   django
@@ -417,11 +418,11 @@ snowballstemmer==2.2.0
     # via
     #   -r requirements/test.txt
     #   pydocstyle
-social-auth-app-django==5.1.0
+social-auth-app-django==5.2.0
     # via
     #   -r requirements/test.txt
     #   edx-auth-backends
-social-auth-core==4.4.0
+social-auth-core==4.4.1
     # via
     #   -r requirements/test.txt
     #   edx-auth-backends
@@ -454,7 +455,7 @@ tomli==2.0.1
     #   pyproject-hooks
     #   pytest
     #   tox
-tomlkit==0.11.6
+tomlkit==0.11.7
     # via
     #   -r requirements/test.txt
     #   pylint
