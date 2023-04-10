@@ -8,8 +8,8 @@ Prerequisites
 -------------
 * Python 3.8.x
 * [gettext](http://www.gnu.org/software/gettext/)
-* [node](https://nodejs.org) 12.11.1
-* [npm](https://www.npmjs.org/) 6.11.3
+* [node](https://nodejs.org) 18.x.x
+* [npm](https://www.npmjs.org/) 9.x.x
 
 Warning: You must have NPM version 5.5.1. Using another version might result in
 a different `package-lock.json` file. Committing those changes might break our
