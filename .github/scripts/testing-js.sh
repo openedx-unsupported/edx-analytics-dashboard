@@ -1,4 +1,4 @@
- export NODE_VERSION=18.15.0
+export NODE_VERSION=18.15.0
 
 docker exec -t insights_testing bash -c "
     cd /edx/app/insights/edx_analytics_dashboard/ &&
