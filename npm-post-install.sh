@@ -14,7 +14,7 @@ PATTERN_LIBRARY_LIB_PATH="${PATTERN_LIBRARY_SASS_PATH}/global"
 PATTERN_LIBRARY_LIBS=('bi-app-sass' 'bourbon' 'breakpoint-sass' 'susy')
 for lib in "${PATTERN_LIBRARY_LIBS[@]}"
 do
-   cp -rf ${NPM_PATH}/$lib $PATTERN_LIBRARY_LIB_PATH/
+  cp -rf ${NPM_PATH}/$lib $PATTERN_LIBRARY_LIB_PATH/
 done
 
 # pre-compile the pattern library to improve sass compilation performance
