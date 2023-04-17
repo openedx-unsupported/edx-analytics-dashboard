@@ -9,7 +9,7 @@ asgiref==3.6.0
     #   -r requirements/base.txt
     #   django
     #   django-countries
-astroid==2.15.2
+astroid==2.15.3
     # via
     #   -r requirements/test.in
     #   pylint
@@ -47,7 +47,7 @@ coverage[toml]==7.2.3
     # via
     #   -r requirements/test.in
     #   pytest-cov
-cryptography==40.0.1
+cryptography==40.0.2
     # via
     #   -r requirements/base.txt
     #   pyjwt
@@ -133,13 +133,13 @@ edx-ccx-keys==1.2.1
     # via -r requirements/base.txt
 edx-django-release-util==1.2.0
     # via -r requirements/base.txt
-edx-django-utils==5.3.0
+edx-django-utils==5.4.0
     # via
     #   -r requirements/base.txt
     #   edx-drf-extensions
     #   edx-rest-api-client
     #   edx-toggles
-edx-drf-extensions==8.4.1
+edx-drf-extensions==8.6.0
     # via -r requirements/base.txt
 edx-i18n-tools==0.9.2
     # via -r requirements/base.txt
@@ -197,7 +197,7 @@ oauthlib==3.2.2
     #   -r requirements/base.txt
     #   requests-oauthlib
     #   social-auth-core
-packaging==23.0
+packaging==23.1
     # via pytest
 path==16.6.0
     # via
@@ -271,7 +271,7 @@ pynacl==1.5.0
     # via
     #   -r requirements/base.txt
     #   edx-django-utils
-pytest==7.3.0
+pytest==7.3.1
     # via
     #   -r requirements/test.in
     #   pytest-cov
