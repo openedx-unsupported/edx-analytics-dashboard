@@ -69,4 +69,4 @@ jobs:
           NODE: ${{ matrix.node }}
           TARGETS: "requirements.js static test_python"
       - name: code cov
-        run: codecov --disable pycov
+	uses: codecov/codecov-action@v2 --disable pycov
