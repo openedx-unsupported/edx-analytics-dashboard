@@ -4,49 +4,42 @@
 # 
 # Translators:
 # Translators:
-# Aleš Fiala <f.ales1@seznam.cz>, 2022
-# Jiří Šedý <jsedy7@gmail.com>, 2015
-# Jiří Podhorecký, 2022
-# Kristýna Kučerová <kristyna.kucerova@gmail.com>, 2020
-# Kristyna Matejkova <Kristy.Matejkova@gmail.com>, 2018
-# MICHAL D. <black23@gmail.com>, 2023
-# Tomáš Batelka <tomas.batelka@email.cz>, 2021
-# Zimeng Chen, 2021
+# Michael Roytman, 2023
 msgid ""
 msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-05-18 15:22+0000\n"
 "PO-Revision-Date: 2014-08-25 20:09+0000\n"
-"Last-Translator: MICHAL D. <black23@gmail.com>, 2023\n"
-"Language-Team: Czech (http://app.transifex.com/open-edx/edx-platform/language/cs/)\n"
+"Last-Translator: Michael Roytman, 2023\n"
+"Language-Team: Filipino (Philippines) (http://app.transifex.com/open-edx/edx-platform/language/fil_PH/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: cs\n"
-"Plural-Forms: nplurals=4; plural=(n == 1 && n % 1 == 0) ? 0 : (n >= 2 && n <= 4 && n % 1 == 0) ? 1: (n % 1 != 0 ) ? 2 : 3;\n"
+"Language: fil_PH\n"
+"Plural-Forms: nplurals=2; plural=(n == 1 || n==2 || n==3) || (n % 10 != 4 || n % 10 != 6 || n % 10 != 9);\n"
 
 #: analytics_dashboard/core/templates/core/landing.html:15
 #: analytics_dashboard/templates/_skip_link.html:3
 msgid "Skip to content"
-msgstr "Přejít na obsah"
+msgstr "Lumaktaw sa nilalaman"
 
 #: analytics_dashboard/core/templates/core/landing.html:23
 msgid "Login"
-msgstr "Přihlásit"
+msgstr "Mag log in"
 
 #: analytics_dashboard/core/templates/core/landing.html:33
 msgid "Insights to help course teams improve courses."
-msgstr "Podněty pomáhající zlepšovat vaše kurzy."
+msgstr "Mga insight upang matulungan ang mga team ng kurso na mapabuti ang mga kurso."
 
 #: analytics_dashboard/core/templates/core/landing.html:42
 #: analytics_dashboard/courses/views/__init__.py:603
 msgid "Who are my learners?"
-msgstr "Kdo jsou moji studenti?"
+msgstr "Sino ang aking mga mag-aaral?"
 
 #: analytics_dashboard/core/templates/core/landing.html:43
 msgid "Target your course to fit the backgrounds of your learners."
-msgstr "Jak zacílit kurz podle toho z jakého prostředí vaši studenti jsou."
+msgstr "I-target ang iyong kurso upang umangkop sa mga background ng iyong mga mag-aaral."
 
 #: analytics_dashboard/core/templates/core/landing.html:44
 #: analytics_dashboard/courses/templates/courses/enrollment_geography.html:28
@@ -54,71 +47,71 @@ msgstr "Jak zacílit kurz podle toho z jakého prostředí vaši studenti jsou."
 #: analytics_dashboard/courses/views/__init__.py:309
 #: analytics_dashboard/courses/views/__init__.py:601
 msgid "Enrollment"
-msgstr "Zápis"
+msgstr "Enrolment"
 
 #: analytics_dashboard/core/templates/core/landing.html:47
 msgid "What are learners engaging with in my course?"
-msgstr "Do čeho se studenti v mém kurzu zapojují nejvíce?"
+msgstr "Ano ang kinasasangkutan ng mga mag-aaral sa aking kurso?"
 
 #: analytics_dashboard/core/templates/core/landing.html:48
 msgid ""
 "Improve frequently accessed content, or point learners at underused "
 "resources."
-msgstr "Zlepšete často navštěvovaný obsah nebo nasměrujte studenty k málo využívaným zdrojům."
+msgstr "Pagbutihin ang madalas na ina-access na nilalaman, o ituro ang mga nag-aaral sa hindi gaanong ginagamit na mga mapagkukunan."
 
 #: analytics_dashboard/core/templates/core/landing.html:49
 #: analytics_dashboard/courses/tests/test_views/test_engagement.py:40
 #: analytics_dashboard/courses/views/__init__.py:320
 #: analytics_dashboard/courses/views/__init__.py:609
 msgid "Engagement"
-msgstr "Míra zapojení"
+msgstr "Pakikipag-ugnayan"
 
 #: analytics_dashboard/core/templates/core/landing.html:52
 msgid "How well is my content supporting learners?"
-msgstr "Jak dobře podporuje můj obsah studenty?"
+msgstr "Gaano kahusay ang aking nilalaman na sumusuporta sa mga mag-aaral?"
 
 #: analytics_dashboard/core/templates/core/landing.html:53
 msgid "Adjust your course based on where learners are struggling."
-msgstr "Přizpůsobte svůj kurz na základě toho, s čím studenti bojují."
+msgstr "Ayusin ang iyong kurso batay sa kung saan nahihirapan ang mga mag-aaral."
 
 #: analytics_dashboard/core/templates/core/landing.html:54
 #: analytics_dashboard/courses/tests/test_views/test_performance.py:51
 #: analytics_dashboard/courses/views/__init__.py:331
 #: analytics_dashboard/courses/views/__init__.py:689
 msgid "Performance"
-msgstr "Výkon"
+msgstr "Pagganap"
 
 #: analytics_dashboard/core/templates/core/landing.html:63
 msgid "Join the Open Source Community"
-msgstr "Přidejte se k Open Source komunitě"
+msgstr "Sumali sa Open Source Community"
 
 #: analytics_dashboard/core/templates/core/landing.html:68
 #, python-format
 msgid ""
 "The edX analytics data pipeline and edX Insights are open source. "
 "%(link_start)sLearn more%(link_end)s."
-msgstr "Analytický datový kanál edX a edX Insights jsou open source. %(link_start)sDalší informace%(link_end)s."
+msgstr "Ang edX analytics data pipeline at edX Insights ay open source. %(link_start)sMatuto p%(link_end)s."
 
 #: analytics_dashboard/core/templates/core/landing.html:75
 msgid "Research at edX"
-msgstr "Výzkum v rámci edX"
+msgstr "Pananaliksik sa edX"
 
 #: analytics_dashboard/core/templates/core/landing.html:80
 #, python-format
 msgid ""
 "We are committed to advancing teaching and learning through research. "
 "%(link_start)sLearn more%(link_end)s."
-msgstr "Zavázali jsme se zlepšovat metody výuky a učení pomocí výzkumu. %(link_start)sZjistěte víc%(link_end)s."
+msgstr "Kami ay nakatuon sa pagsusulong ng pagtuturo at pagkatuto sa pamamagitan ng pananaliksik. %(link_start)sMatuto p%(link_end)s."
 
 #: analytics_dashboard/core/templates/core/landing.html:87
 msgid "Need Help?"
-msgstr "Potřebujete pomoc?"
+msgstr "Kailangan ng tulong?"
 
 #: analytics_dashboard/core/templates/core/landing.html:92
 #, python-format
 msgid ""
 "%(link_start)sOur support center%(link_end)s can help you find solutions."
-msgstr "%(link_start)sNaše centrum podpory%(link_end)s Vám může pomoci nalézt řešení."
+msgstr "%(link_start)sMaaaring makatulong sa iyo ang aming support center%(link_end)s na makahanap ng mga solusyon."
 
 #. Translators: Simply move the percent symbol (%) to the correct location. Do
 #. NOT translate the word statistic.
@@ -131,22 +124,22 @@ msgstr "{statistic}%"
 #: analytics_dashboard/courses/presenters/engagement.py:124
 #, python-brace-format
 msgid "{percentage} of current learners"
-msgstr "{percentage} aktuálních studentů"
+msgstr "{percentage} ng mga kasalukuyang nag-aaral"
 
 #: analytics_dashboard/courses/presenters/enrollment.py:23
 msgid "Female"
-msgstr "Žena"
+msgstr "Babae"
 
 #: analytics_dashboard/courses/presenters/enrollment.py:24
 msgid "Male"
-msgstr "Muž"
+msgstr "Lalaki"
 
 #. Translators: Other gender
 #. Translators: This describes the learner's education level.
 #: analytics_dashboard/courses/presenters/enrollment.py:26
 #: analytics_dashboard/courses/presenters/enrollment.py:45
 msgid "Other"
-msgstr "Jiné"
+msgstr "Iba pa"
 
 #. Translators: Unknown gender
 #. Translators: This describes the learner's education level.
@@ -154,81 +147,81 @@ msgstr "Jiné"
 #: analytics_dashboard/courses/presenters/enrollment.py:63
 #: analytics_dashboard/courses/presenters/enrollment.py:458
 msgid "Unknown"
-msgstr "Neznámé"
+msgstr "Hindi kilala"
 
 #. Translators: This describes the learner's education level.
 #: analytics_dashboard/courses/presenters/enrollment.py:43
 msgid "None"
-msgstr "Žádné"
+msgstr "wala"
 
 #. Translators: This describes the learner's education level (e.g. Elementary
 #. School Degree).
 #: analytics_dashboard/courses/presenters/enrollment.py:47
 #: analytics_dashboard/courses/tests/test_serializers.py:12
 msgid "Primary"
-msgstr "Primární"
+msgstr "Pangunahin"
 
 #. Translators: This describes the learner's education level  (e.g. Middle
 #. School Degree).
 #: analytics_dashboard/courses/presenters/enrollment.py:49
 msgid "Middle"
-msgstr "Střed"
+msgstr "Gitna"
 
 #. Translators: This describes the learner's education level.
 #: analytics_dashboard/courses/presenters/enrollment.py:51
 msgid "Secondary"
-msgstr "Sekundární"
+msgstr "Pangalawa"
 
 #. Translators: This describes the learner's education level (e.g. Associate's
 #. Degree).
 #: analytics_dashboard/courses/presenters/enrollment.py:53
 msgid "Associate"
-msgstr "Spolupracovník"
+msgstr "Associate"
 
 #. Translators: This describes the learner's education level (e.g. Bachelor's
 #. Degree).
 #: analytics_dashboard/courses/presenters/enrollment.py:55
 msgid "Bachelor's"
-msgstr "Bakalářský"
+msgstr "Bachelor&#39;s"
 
 #. Translators: This describes the learner's education level (e.g. Master's
 #. Degree).
 #: analytics_dashboard/courses/presenters/enrollment.py:57
 msgid "Master's"
-msgstr "Magisterský"
+msgstr "Master&#39;s"
 
 #. Translators: This describes the learner's education level (e.g. Doctorate
 #. Degree).
 #: analytics_dashboard/courses/presenters/enrollment.py:59
 msgid "Doctorate"
-msgstr "Doktorát"
+msgstr "Doctorate"
 
 #. Translators: This is a placeholder for enrollment data collected without a
 #. known geolocation.
 #: analytics_dashboard/courses/presenters/enrollment.py:188
 msgid "Unknown Country"
-msgstr "Neznámá země"
+msgstr "Hindi Kilalang Bansa"
 
 #. Translators: This describes the data displayed in the chart below.
 #: analytics_dashboard/courses/presenters/performance.py:150
 #: analytics_dashboard/courses/templates/courses/submissions_chart_info.html:4
 msgid "Submissions"
-msgstr "Řešení"
+msgstr "Mga pagsusumite"
 
 #: analytics_dashboard/courses/presenters/performance.py:154
 #, python-brace-format
 msgid "Submissions for Part {part_number}: {part_description}"
-msgstr "Řešení pro část {part_number}: {part_description}"
+msgstr "Mga pagsusumite para sa Bahagi {part_number}: {part_description}"
 
 #: analytics_dashboard/courses/presenters/performance.py:155
 #, python-brace-format
 msgid "Part {part_number}: {part_description}"
-msgstr "Část {part_number}: {part_description}"
+msgstr "Bahagi {part_number}: {part_description}"
 
 #: analytics_dashboard/courses/presenters/performance.py:157
 #, python-brace-format
 msgid "Submissions: {part_description}"
-msgstr "Řešení: {part_description}"
+msgstr "Mga isinumite: {part_description}"
 
 #: analytics_dashboard/courses/presenters/performance.py:158
 #, python-brace-format
@@ -238,12 +231,12 @@ msgstr "{part_description}"
 #: analytics_dashboard/courses/presenters/performance.py:161
 #, python-brace-format
 msgid "Submissions for Part {part_number}"
-msgstr "Odevzdané práce pro část {part_number}"
+msgstr "Mga pagsusumite para sa Bahagi {part_number}"
 
 #: analytics_dashboard/courses/presenters/performance.py:162
 #, python-brace-format
 msgid "Part {part_number}"
-msgstr "Část {part_number}"
+msgstr "Bahagi {part_number}"
 
 #: analytics_dashboard/courses/templates/courses/_base_content_nav.html:25
 #, python-format
@@ -252,13 +245,13 @@ msgstr "%(all_sections_text)s"
 
 #: analytics_dashboard/courses/templates/courses/_graded_content_nav.html:16
 msgid "Select Assignment Type"
-msgstr "Vyberte typ zadání"
+msgstr "Piliin ang Uri ng Takdang-aralin"
 
 #. Translators: This refers to all course assignment types (e.g. homework,
 #. exam, lab).
 #: analytics_dashboard/courses/templates/courses/_graded_content_nav.html:21
 msgid "All Assignments"
-msgstr "Všechna zadání"
+msgstr "Lahat ng Assignment"
 
 #: analytics_dashboard/courses/templates/courses/_graded_content_nav.html:25
 #, python-format
@@ -266,62 +259,62 @@ msgid ""
 "\n"
 "        Select %(level)s\n"
 "    "
-msgstr "\nVybrat %(level)s"
+msgstr "\nPiliin ang %(level)s"
 
 #: analytics_dashboard/courses/templates/courses/_graded_content_nav.html:31
 #: analytics_dashboard/courses/templates/courses/_tags_content_nav.html:23
 #: analytics_dashboard/courses/templates/courses/_ungraded_content_nav.html:28
 msgid "Select Problem"
-msgstr "Vybrat problém"
+msgstr "Piliin ang Problema"
 
 #. Translators: This text will be a direct link to the a specific
 #. module/problem.
 #: analytics_dashboard/courses/templates/courses/_module_description.html:14
 #: analytics_dashboard/courses/templates/courses/_video_preview.html:9
 msgid "View Live"
-msgstr "Zobrazit Živě"
+msgstr "Tingnan ang Live"
 
 #: analytics_dashboard/courses/templates/courses/_tags_content_nav.html:15
 msgid "Select Outcome"
-msgstr "Vybrat výsledek"
+msgstr "Piliin ang Resulta"
 
 #: analytics_dashboard/courses/templates/courses/_tags_content_nav.html:19
 msgid "All Outcomes"
-msgstr "Všechny výsledky"
+msgstr "Lahat ng Resulta"
 
 #: analytics_dashboard/courses/templates/courses/_ungraded_content_nav.html:16
 #: analytics_dashboard/courses/templates/courses/_video_content_nav.html:16
 msgid "Select Section"
-msgstr "Vybrat sekci"
+msgstr "Piliin ang Seksyon"
 
 #: analytics_dashboard/courses/templates/courses/_ungraded_content_nav.html:20
 #: analytics_dashboard/courses/templates/courses/_video_content_nav.html:20
 msgid "All Sections"
-msgstr "Všechny sekce"
+msgstr "Lahat ng Seksyon"
 
 #: analytics_dashboard/courses/templates/courses/_ungraded_content_nav.html:24
 #: analytics_dashboard/courses/templates/courses/_video_content_nav.html:24
 msgid "Select Subsection"
-msgstr "Vybrat podsekci"
+msgstr "Piliin ang Subsection"
 
 #: analytics_dashboard/courses/templates/courses/_video_content_nav.html:28
 msgid "Select Video"
-msgstr "Vybrat video"
+msgstr "Piliin ang Video"
 
 #: analytics_dashboard/courses/templates/courses/_video_module_controls.html:8
 msgid "Previous Video"
-msgstr "Předchozí video"
+msgstr "Nakaraang Video"
 
 #: analytics_dashboard/courses/templates/courses/_video_module_controls.html:15
 msgid "Next Video"
-msgstr "Následující video"
+msgstr "Susunod na Video"
 
 #. Translators: This text describes a bar chart displayed.
 #: analytics_dashboard/courses/templates/courses/base_performance_answer_distribution.html:60
 msgid ""
 "This chart shows the most common answers submitted by learners, ordered by "
 "frequency."
-msgstr "Tento graf zobrazuje nejčastější odpovědi od studentů, seřazené dle frekvence."
+msgstr "Ipinapakita ng chart na ito ang pinakakaraniwang mga sagot na isinumite ng mga mag-aaral, na inayos ayon sa dalas."
 
 #. Translators: Variants refers to versions of a problem/assignment.
 #: analytics_dashboard/courses/templates/courses/base_performance_answer_distribution.html:82
@@ -329,18 +322,18 @@ msgstr "Tento graf zobrazuje nejčastější odpovědi od studentů, seřazené 
 msgid ""
 "Due to the number of possible variants for randomized problems, charts are "
 "not available. %(read_more_link_start)sRead more%(read_more_link_end)s."
-msgstr "Kvůli množství možných variant v náhodně generovaných problémech jsou grafy nedostupné. %(read_more_link_start)s Přečíst více%(read_more_link_end)s."
+msgstr "Dahil sa dami ng posibleng variant para sa mga randomized na problema, hindi available ang mga chart. %(read_more_link_start)sMagbasa p%(read_more_link_end)s."
 
 #. Translators: Variants refers to versions of a problem/assignment.
 #: analytics_dashboard/courses/templates/courses/base_performance_answer_distribution.html:87
 msgid ""
 "Review all submission variants below, or click Download CSV to review them "
 "offline."
-msgstr "Zkontrolujte níže odevzdané práce nebo klikněte na Stáhnout CSV pro kontrolu offline."
+msgstr "Suriin ang lahat ng mga variant ng pagsusumite sa ibaba, o i-click ang I-download ang CSV upang suriin ang mga ito offline."
 
 #: analytics_dashboard/courses/templates/courses/base_performance_answer_distribution.html:108
 msgid "Submission Counts"
-msgstr "Počet odevzdaných prací"
+msgstr "Mga Bilang ng Pagsusumite"
 
 #: analytics_dashboard/courses/templates/courses/base_performance_answer_distribution.html:116
 #: analytics_dashboard/courses/templates/courses/engagement_content.html:96
@@ -351,25 +344,25 @@ msgstr "Počet odevzdaných prací"
 #: analytics_dashboard/courses/templates/courses/enrollment_demographics_gender.html:65
 #: analytics_dashboard/courses/templates/courses/enrollment_geography.html:97
 msgid "Download CSV"
-msgstr "Stáhnout CSV"
+msgstr "I-download ang CSV"
 
 #: analytics_dashboard/courses/templates/courses/base_performance_answer_distribution.html:117
 msgid "Learner Submission Counts"
-msgstr "Počet odevzdaných prací studenta"
+msgstr "Bilang ng Pagsusumite ng Mag-aaral"
 
 #. Translators: This describes the data displayed in the chart below.
 #: analytics_dashboard/courses/templates/courses/demographics_chart_info.html:4
 msgid "Learners (Self-Reported)"
-msgstr "Studenti (nahlášeni sami)"
+msgstr "Learners (Self-Reported)"
 
 #: analytics_dashboard/courses/templates/courses/engagement_content.html:23
 msgid "Weekly Learner Engagement"
-msgstr "Týdenní zapojení studenta do výuky"
+msgstr "Lingguhang Pakikipag-ugnayan ng Mag-aaral"
 
 #: analytics_dashboard/courses/templates/courses/engagement_content.html:24
 #: analytics_dashboard/courses/views/__init__.py:614
 msgid "How many learners are interacting with my course?"
-msgstr "Kolik studentů interaguje s mým kurzem?"
+msgstr "Ilang mag-aaral ang nakikipag-ugnayan sa aking kurso?"
 
 #: analytics_dashboard/courses/templates/courses/engagement_content.html:31
 #: analytics_dashboard/courses/views/__init__.py:343
@@ -377,181 +370,181 @@ msgstr "Kolik studentů interaguje s mým kurzem?"
 #: analytics_dashboard/courses/views/__init__.py:761
 #: analytics_dashboard/courses/views/learners.py:22
 msgid "Learners"
-msgstr "Studenti"
+msgstr "Mga mag-aaral"
 
 #: analytics_dashboard/courses/templates/courses/engagement_content.html:32
 msgid ""
 "The number of active learners, and the number of learners who engaged in "
 "specific activities, over time."
-msgstr "Počet aktivních studentů a počet studentů, kteří se v průběhu zapojili do specifických aktivit."
+msgstr "Ang bilang ng mga aktibong mag-aaral, at ang bilang ng mga mag-aaral na nakikibahagi sa mga partikular na aktibidad, sa paglipas ng panahon."
 
 #: analytics_dashboard/courses/templates/courses/engagement_content.html:48
 msgid "Learner Activity Metrics"
-msgstr "Metriky aktivit studenta"
+msgstr "Mga Sukatan ng Aktibidad ng Mag-aaral"
 
 #: analytics_dashboard/courses/templates/courses/engagement_content.html:54
 msgid "Active Learners Last Week"
-msgstr "Aktivní studenti minulého týdne"
+msgstr "Mga Aktibong Nag-aaral Noong nakaraang Linggo"
 
 #: analytics_dashboard/courses/templates/courses/engagement_content.html:55
 msgid "Learners who visited at least one page in the course content."
-msgstr "Studenti, kteří navštívily alespoň jednu stránku kurzu."
+msgstr "Mga mag-aaral na bumisita ng hindi bababa sa isang pahina sa nilalaman ng kurso."
 
 #. Translators: This is a label indicating the number of learners who watched
 #. a video.
 #: analytics_dashboard/courses/templates/courses/engagement_content.html:61
 msgid "Watched a Video Last Week"
-msgstr "Zhlédli video minulý týden"
+msgstr "Nanood ng Video Noong nakaraang Linggo"
 
 #: analytics_dashboard/courses/templates/courses/engagement_content.html:62
 msgid "Learners who played one or more videos."
-msgstr "Studenti, kteří si přehráli jedno nebo více videí."
+msgstr "Mga mag-aaral na nag-play ng isa o higit pang mga video."
 
 #. Translators: This is a label indicating the number of learners who tried a
 #. problem.
 #: analytics_dashboard/courses/templates/courses/engagement_content.html:68
 msgid "Tried a Problem Last Week"
-msgstr "Minulý týden se pokusili o vypracování úlohy"
+msgstr "Sinubukan ang isang Problema Noong nakaraang Linggo"
 
 #: analytics_dashboard/courses/templates/courses/engagement_content.html:69
 msgid ""
 "Learners who submitted an answer for a standard problem. Not all problem "
 "types are included."
-msgstr "Studenti, kteří odevzdali odpověď pro standartní úlohu. Ne všechny typy úloh jsou zahrnuty."
+msgstr "Mga mag-aaral na nagsumite ng sagot para sa karaniwang problema. Hindi lahat ng uri ng problema ay kasama."
 
 #. Translators: This is a label indicating the number of learners who posted
 #. in a forum discussion.
 #: analytics_dashboard/courses/templates/courses/engagement_content.html:76
 msgid "Participated in Discussions Last Week"
-msgstr "Minulý týden se zůčastnili diskuze"
+msgstr "Lumahok sa mga Talakayan Noong nakaraang Linggo"
 
 #: analytics_dashboard/courses/templates/courses/engagement_content.html:77
 msgid ""
 "Learners who added a post, response, or comment to any course discussion."
-msgstr "Studenti, kteří přidali příspěvek, odpověď nebo komentář v jakékoliv diskuzi kurzu."
+msgstr "Mga mag-aaral na nagdagdag ng post, tugon, o komento sa anumang talakayan sa kurso."
 
 #: analytics_dashboard/courses/templates/courses/engagement_content.html:89
 #: analytics_dashboard/courses/templates/courses/engagement_content.html:97
 msgid "Content Engagement Breakdown"
-msgstr "Rozdělení zapojení obsahu"
+msgstr "Pagkakasira ng Pakikipag-ugnayan sa Nilalaman"
 
 #. Translators: This describes the data displayed in the chart below. E.g. how
 #. many learners viewed a video.
 #: analytics_dashboard/courses/templates/courses/engagement_grouped_content.html:17
 #: analytics_dashboard/courses/templates/courses/views_chart_info.html:4
 msgid "Video Views"
-msgstr "Počet zhlédnutí videa"
+msgstr "Mga Panonood ng Video"
 
 #: analytics_dashboard/courses/templates/courses/engagement_video_by_section.html:5
 msgid "How did learners interact with videos in this section?"
-msgstr "Jak studenti interagovali s videi v této sekci?"
+msgstr "Paano nakipag-ugnayan ang mga mag-aaral sa mga video sa seksyong ito?"
 
 #: analytics_dashboard/courses/templates/courses/engagement_video_by_section.html:10
 msgid ""
 "Each bar shows the average number of complete and incomplete views for "
 "videos in that subsection. Click on bars with low totals or a high "
 "incomplete rate to drill down and understand why."
-msgstr "Každý pruh zobrazuje průměrný počet úplných a neúplných zhlédnutí videí v dané podsekci. Kliknutím na sloupce s nízkými součty nebo vysokou mírou neúplnosti zobrazíte podrobnější informace a pochopíte proč."
+msgstr "Ipinapakita ng bawat bar ang average na bilang ng mga kumpleto at hindi kumpletong panonood para sa mga video sa subsection na iyon. Mag-click sa mga bar na may mababang kabuuan o mataas na hindi kumpletong rate upang mag-drill down at maunawaan kung bakit."
 
 #: analytics_dashboard/courses/templates/courses/engagement_video_by_subsection.html:10
 msgid "How did learners interact with videos in this subsection?"
-msgstr "Jak studenti interagovali s videi v této podsekci?"
+msgstr "Paano nakipag-ugnayan ang mga mag-aaral sa mga video sa subsection na ito?"
 
 #: analytics_dashboard/courses/templates/courses/engagement_video_by_subsection.html:15
 msgid ""
 "Each bar shows the counts of complete and incomplete views for that video. "
 "Click to understand where learners drop off and which parts they replay."
-msgstr "Každý pruh zobrazuje počty úplných a neúplných zhlédnutí daného videa. Kliknutím zjistíte, kde studenti odejdou a které části si přehrají."
+msgstr "Ipinapakita ng bawat bar ang bilang ng mga kumpleto at hindi kumpletong panonood para sa video na iyon. I-click upang maunawaan kung saan bumababa ang mga mag-aaral at kung aling mga bahagi ang kanilang ire-replay."
 
 #: analytics_dashboard/courses/templates/courses/engagement_video_course.html:5
 #: analytics_dashboard/courses/views/__init__.py:627
 msgid "How did learners interact with course videos?"
-msgstr "Jak studenti interagovali s videi v kurzu?"
+msgstr "Paano nakipag-ugnayan ang mga mag-aaral sa mga video ng kurso?"
 
 #: analytics_dashboard/courses/templates/courses/engagement_video_course.html:10
 msgid ""
 "Each bar shows the average number of complete and incomplete views for "
 "videos in that section. Click on bars with low totals or a high incomplete "
 "rate to drill down and understand why."
-msgstr "Každý pruh zobrazuje průměrný počet úplných a neúplných zhlédnutí videí v dané sekci. Kliknutím na sloupce s nízkými součty nebo vysokou mírou neúplnosti zobrazíte podrobnější informace a pochopíte proč."
+msgstr "Ipinapakita ng bawat bar ang average na bilang ng mga kumpleto at hindi kumpletong panonood para sa mga video sa seksyong iyon. Mag-click sa mga bar na may mababang kabuuan o mataas na hindi kumpletong rate upang mag-drill down at maunawaan kung bakit."
 
 #: analytics_dashboard/courses/templates/courses/engagement_video_timeline.html:17
 #: analytics_dashboard/courses/templates/courses/engagement_video_timeline.html:21
 msgid "Total Video Views"
-msgstr "Celkový počet zhlédnutí videa"
+msgstr "Kabuuang Panonood ng Video"
 
 #: analytics_dashboard/courses/templates/courses/engagement_video_timeline.html:26
 msgid "What were the viewing patterns for this video?"
-msgstr "Jaké byly vzorce sledování tohoto videa?"
+msgstr "Ano ang mga pattern ng panonood para sa video na ito?"
 
 #: analytics_dashboard/courses/templates/courses/engagement_video_timeline.html:31
 msgid ""
 "The number of learners who watched each segment of the video, and the number"
 " of replays for each segment."
-msgstr "Počet studentů, kteří sledovali každý segment videa, a počet přehrání každého segmentu."
+msgstr "Ang bilang ng mga mag-aaral na nanood ng bawat segment ng video, at ang bilang ng mga replay para sa bawat segment."
 
 #: analytics_dashboard/courses/templates/courses/engagement_video_timeline.html:37
 msgid "Collapse Preview"
-msgstr "Sbalit náhled"
+msgstr "I-collapse ang Preview"
 
 #: analytics_dashboard/courses/templates/courses/engagement_video_timeline.html:38
 msgid "Expand Preview"
-msgstr "Rozbalit náhled"
+msgstr "Palawakin ang Preview"
 
 #: analytics_dashboard/courses/templates/courses/engagement_video_timeline.html:55
 msgid "Video Metrics"
-msgstr "Metriky videa"
+msgstr "Mga Sukatan ng Video"
 
 #: analytics_dashboard/courses/templates/courses/engagement_video_timeline.html:61
 msgid "Completion Rate"
-msgstr "Míra dokončení"
+msgstr "Rate ng Pagkumpleto"
 
 #: analytics_dashboard/courses/templates/courses/engagement_video_timeline.html:62
 msgid "Estimated percentage of learners who watched the entire video."
-msgstr "Odhad počtu procent studentů, kteří zhlédli celé video."
+msgstr "Tinantyang porsyento ng mga mag-aaral na nanood ng buong video."
 
 #: analytics_dashboard/courses/templates/courses/engagement_video_timeline.html:66
 msgid "Started Video"
-msgstr "Zahájené video"
+msgstr "Nagsimulang Video"
 
 #: analytics_dashboard/courses/templates/courses/engagement_video_timeline.html:67
 msgid "Learners who started watching the video."
-msgstr "Studenti, kteří začali sledovat video."
+msgstr "Mga mag-aaral na nagsimulang manood ng video."
 
 #: analytics_dashboard/courses/templates/courses/engagement_video_timeline.html:71
 msgid "Finished Video"
-msgstr "Dokončené video"
+msgstr "Tapos na Video"
 
 #: analytics_dashboard/courses/templates/courses/engagement_video_timeline.html:72
 msgid "Learners who watched the video to the end."
-msgstr "Studenti, kteří zhlédli video do konce."
+msgstr "Mga mag-aaral na nanood ng video hanggang sa dulo."
 
 #: analytics_dashboard/courses/templates/courses/engagement_video_timeline.html:88
 msgid "Video Viewing Over Time"
-msgstr "Zhlédnutí video "
+msgstr "Panonood ng Video sa Paglipas ng Panahon"
 
 #: analytics_dashboard/courses/templates/courses/enrollment_activity.html:24
 msgid "Daily Learner Enrollment"
-msgstr "Denní zápis studentů"
+msgstr "Daily Learner Enrollment"
 
 #: analytics_dashboard/courses/templates/courses/enrollment_activity.html:25
 #: analytics_dashboard/courses/views/__init__.py:546
 msgid "How many learners are in my course?"
-msgstr "Kolik je v mém kurzu studentů?"
+msgstr "Ilang mag-aaral ang nasa kurso ko?"
 
 #: analytics_dashboard/courses/templates/courses/enrollment_activity.html:32
 msgid "Enrollments"
-msgstr "Zápisy"
+msgstr "Mga enrollment"
 
 #: analytics_dashboard/courses/templates/courses/enrollment_activity.html:33
 msgid ""
 "This graph displays the current enrollment for the course as of the end of "
 "each day. This includes new enrollments as well as unenrollments."
-msgstr "Tento graf zobrazuje aktuální zápis do kurzu ke konci každého dne. To také zahrnuje nové registrace i zrušení registrace."
+msgstr "Ipinapakita ng graph na ito ang kasalukuyang pagpapatala para sa kurso sa pagtatapos ng bawat araw. Kabilang dito ang mga bagong enrollment pati na rin ang mga unenrollment."
 
 #: analytics_dashboard/courses/templates/courses/enrollment_activity.html:49
 msgid "Enrollment Metrics"
-msgstr "Metriky zápisu"
+msgstr "Mga Sukatan sa Pagpapatala"
 
 #. Translators: This is a label to identify the number of learners who ever
 #. enrolled in the course.
@@ -560,12 +553,12 @@ msgstr "Metriky zápisu"
 #: analytics_dashboard/courses/templates/courses/enrollment_activity.html:59
 #: analytics_dashboard/courses/templates/courses/index.html:26
 msgid "Total Enrollment"
-msgstr "Celkový počet zápisů"
+msgstr "Kabuuang Enrolment"
 
 #. Translators: This is a label indicating the number of learners in a course.
 #: analytics_dashboard/courses/templates/courses/enrollment_activity.html:61
 msgid "Learners who ever enrolled in the course."
-msgstr "Studenti, kteří někdy byli do tohoto kurzu zapsáni."
+msgstr "Mga mag-aaral na nag-enroll sa kurso."
 
 #. Translators: This is a label to identify current learner enrollment.
 #. Translators: This is a label to identify the current number of learners in
@@ -573,13 +566,13 @@ msgstr "Studenti, kteří někdy byli do tohoto kurzu zapsáni."
 #: analytics_dashboard/courses/templates/courses/enrollment_activity.html:68
 #: analytics_dashboard/courses/templates/courses/index.html:33
 msgid "Current Enrollment"
-msgstr "Současný zápis"
+msgstr "Kasalukuyang Enrollment"
 
 #. Translators: This is a label indicating the number of learners enrolled in
 #. a course.
 #: analytics_dashboard/courses/templates/courses/enrollment_activity.html:70
 msgid "Learners currently enrolled in the course."
-msgstr "Studenti, kteří jsou současně zapsáni v tomto kurzu."
+msgstr "Mga mag-aaral na kasalukuyang naka-enroll sa kurso."
 
 #. Translators: This is a label indicating the change in the number of
 #. learners enrolled in a course since the previous week.
@@ -588,11 +581,11 @@ msgstr "Studenti, kteří jsou současně zapsáni v tomto kurzu."
 #: analytics_dashboard/courses/templates/courses/enrollment_activity.html:76
 #: analytics_dashboard/courses/templates/courses/index.html:40
 msgid "Change in Last Week"
-msgstr "Změna za poslední týden"
+msgstr "Pagbabago sa Nakaraang Linggo"
 
 #: analytics_dashboard/courses/templates/courses/enrollment_activity.html:77
 msgid "Net difference in current enrollment in the last week."
-msgstr "Rozdíl sítě v aktuálním zápisu za poslední týden."
+msgstr "Ang netong pagkakaiba sa kasalukuyang pagpapatala noong nakaraang linggo."
 
 #. Translators: This is a label to identify enrollment of learners on the
 #. verified track.
@@ -601,7 +594,7 @@ msgstr "Rozdíl sítě v aktuálním zápisu za poslední týden."
 #: analytics_dashboard/courses/templates/courses/enrollment_activity.html:84
 #: analytics_dashboard/courses/templates/courses/index.html:47
 msgid "Verified Enrollment"
-msgstr "Ověřená registrace"
+msgstr "Na-verify na Enrollment"
 
 #. Translators: This is a label indicating the number of learners enrolled in
 #. a course on the verified track.
@@ -609,7 +602,7 @@ msgstr "Ověřená registrace"
 msgid ""
 "Number of currently enrolled learners pursuing a verified certificate of "
 "achievement."
-msgstr "Počet současně zapsaných studentů usilující o verifikovaný certifikát o dokončení kurzu."
+msgstr "Bilang ng kasalukuyang naka-enroll na mga mag-aaral na humahabol sa isang na-verify na sertipiko ng tagumpay."
 
 #. Translators: This is a label to identify enrollment of learners on the
 #. masters track.
@@ -618,13 +611,13 @@ msgstr "Počet současně zapsaných studentů usilující o verifikovaný certi
 #: analytics_dashboard/courses/templates/courses/enrollment_activity.html:93
 #: analytics_dashboard/courses/templates/courses/index.html:53
 msgid "Master's Enrollment"
-msgstr "Zápis magistra"
+msgstr "Pagpapatala ng Guro"
 
 #. Translators: This is a label indicating the number of learners enrolled in
 #. a course on the masters track.
 #: analytics_dashboard/courses/templates/courses/enrollment_activity.html:95
 msgid "Number of currently enrolled learners pursuing a Master's degree."
-msgstr "Počet současně zapsaných studentů usilujících o magisterský titul."
+msgstr "Bilang ng kasalukuyang naka-enroll na mga mag-aaral na naghahabol ng Master&#39;s degree."
 
 #: analytics_dashboard/courses/templates/courses/enrollment_activity.html:109
 #: analytics_dashboard/courses/templates/courses/enrollment_activity.html:117
@@ -632,12 +625,12 @@ msgstr "Počet současně zapsaných studentů usilujících o magisterský titu
 #: analytics_dashboard/courses/templates/courses/enrollment_demographics_education.html:101
 #: analytics_dashboard/courses/templates/courses/enrollment_demographics_gender.html:66
 msgid "Enrollment Over Time"
-msgstr "Zápis v průběhu času"
+msgstr "Pagpapatala sa Paglipas ng Panahon"
 
 #: analytics_dashboard/courses/templates/courses/enrollment_demographics_age.html:26
 #: analytics_dashboard/courses/views/__init__.py:558
 msgid "How old are my learners?"
-msgstr "Jak staří jsou moji studenti?"
+msgstr "Ilang taon na ang aking mga mag-aaral?"
 
 #. Translators: Maintain the double percentage symbols (%%) but move them to
 #. the appropriate location (before/after the value placeholder) for your
@@ -647,67 +640,67 @@ msgstr "Jak staří jsou moji studenti?"
 msgid ""
 "This age histogram presents data computed for the %(value)s%% of enrolled "
 "learners who provided a year of birth."
-msgstr "Tento věkový histogram představuje data vypočtená pro %(value)s%% zapsaných studentů, kteří uvedli rok narození."
+msgstr "Ang histogram ng edad na ito ay nagpapakita ng data na nakalkula para sa %(value)s%% ng mga naka-enroll na mag-aaral na nagbigay ng isang taon ng kapanganakan."
 
 #: analytics_dashboard/courses/templates/courses/enrollment_demographics_age.html:56
 msgid "Age Metrics"
-msgstr "Metriky věku"
+msgstr "Mga Sukatan ng Edad"
 
 #. Translators: This is a label to identify the median age of enrolled
 #. learners.
 #: analytics_dashboard/courses/templates/courses/enrollment_demographics_age.html:65
 msgid "Median Learner Age"
-msgstr "Medián věku studentů"
+msgstr "Median Learner Age"
 
 #: analytics_dashboard/courses/templates/courses/enrollment_demographics_age.html:66
 msgid ""
 "The midpoint of the learner ages, computed from the provided year of birth."
-msgstr "Středový bod věku studentů, vypočteno podle poskytnutého data narození."
+msgstr "Ang midpoint ng mga edad ng mag-aaral, na kinalkula mula sa ibinigay na taon ng kapanganakan."
 
 #. Translators: This is a label to identify the number of learners in the age
 #. range.
 #: analytics_dashboard/courses/templates/courses/enrollment_demographics_age.html:72
 msgid "Learners 25 and Under"
-msgstr "Studenti pod 25 let včetně"
+msgstr "Learners 25 and Under"
 
 #: analytics_dashboard/courses/templates/courses/enrollment_demographics_age.html:73
 msgid ""
 "The percentage of learners aged 25 years or younger (of those who provided a"
 " year of birth)."
-msgstr "Procento studentů ve věku 25 let nebo mladší (těch, kteří uvedli rok narození)"
+msgstr "Ang porsyento ng mga mag-aaral na may edad na 25 taon o mas bata (sa mga nagbigay ng isang taon ng kapanganakan)."
 
 #. Translators: This is a label to identify the number of learners in the age
 #. range.
 #: analytics_dashboard/courses/templates/courses/enrollment_demographics_age.html:79
 msgid "Learners 26 to 40"
-msgstr "Studenti mezi 26 a 40 lety"
+msgstr "Mag-aaral 26 hanggang 40"
 
 #: analytics_dashboard/courses/templates/courses/enrollment_demographics_age.html:80
 msgid ""
 "The percentage of learners aged from 26 to 40 years (of those who provided a"
 " year of birth)."
-msgstr "Procento studentů ve věku mezi 26 a 40 let (těch, kteří uvedli rok narození)"
+msgstr "Ang porsyento ng mga mag-aaral na may edad mula 26 hanggang 40 taon (ng mga nagbigay ng isang taon ng kapanganakan)."
 
 #. Translators: This is a label to identify the number of learners in the age
 #. range.
 #: analytics_dashboard/courses/templates/courses/enrollment_demographics_age.html:86
 msgid "Learners 41 and Over"
-msgstr "Studenti nad 41 let včetně"
+msgstr "Learners 41 at Higit Pa"
 
 #: analytics_dashboard/courses/templates/courses/enrollment_demographics_age.html:87
 msgid ""
 "The percentage of learners aged 41 years or older (of those who provided a "
 "year of birth)."
-msgstr "Procento studentů ve věku 41 let nebo starší (těch, kteří uvedli rok narození)"
+msgstr "Ang porsyento ng mga mag-aaral na may edad na 41 taong gulang o mas matanda (sa mga nagbigay ng isang taon ng kapanganakan)."
 
 #: analytics_dashboard/courses/templates/courses/enrollment_demographics_age.html:101
 msgid "Age Breakdown"
-msgstr "Věkové členění"
+msgstr "Edad Breakdown"
 
 #: analytics_dashboard/courses/templates/courses/enrollment_demographics_education.html:25
 #: analytics_dashboard/courses/views/__init__.py:569
 msgid "What level of education do my learners have?"
-msgstr "Jakou úroveň vzdělání mají moji studenti?"
+msgstr "Anong antas ng edukasyon mayroon ang aking mga mag-aaral?"
 
 #. Translators: Maintain the double percentage symbols (%%) but move them to
 #. the appropriate location (before/after the value placeholder) for your
@@ -717,54 +710,54 @@ msgstr "Jakou úroveň vzdělání mají moji studenti?"
 msgid ""
 "This graph presents data for the %(value)s%% of enrolled learners who "
 "provided a highest level of education completed."
-msgstr "tento graf představuje data pro %(value)s%% zapsaných studentů, kteří poskytli nejvyšší úroveň dokončeného vzdělání."
+msgstr "Ang graph na ito ay nagpapakita ng data para sa %(value)s%% ng mga naka-enroll na mag-aaral na nagbigay ng pinakamataas na antas ng edukasyong natapos."
 
 #: analytics_dashboard/courses/templates/courses/enrollment_demographics_education.html:56
 msgid "Education Metrics"
-msgstr "Metriky vzdělání"
+msgstr "Mga Sukatan sa Edukasyon"
 
 #. Translators: This is a label to identify learner educational background.
 #: analytics_dashboard/courses/templates/courses/enrollment_demographics_education.html:64
 msgid "High School Diploma or Less"
-msgstr "Vysokoškolský diplom nebo nižší"
+msgstr "High School Diploma o Mas Mababa"
 
 #: analytics_dashboard/courses/templates/courses/enrollment_demographics_education.html:65
 msgid ""
 "The percentage of learners who selected Secondary/high school, Junior "
 "secondary/junior high/middle school, or Elementary/primary school as their "
 "highest level of education completed."
-msgstr "Procento studentů, kteří si vybrali jako nejvyšší dosažené vzdělání střední školu, střední odborné učiliště bez maturity nebo základní školu."
+msgstr "Ang porsyento ng mga mag-aaral na pumili ng Secondary/high school, Junior secondary/junior high/middle school, o Elementary/primary school bilang kanilang pinakamataas na antas ng edukasyon na natapos."
 
 #. Translators: This is a label to identify learner educational background.
 #: analytics_dashboard/courses/templates/courses/enrollment_demographics_education.html:71
 msgid "College Degree"
-msgstr "Vysokoškolské vzdělání"
+msgstr "Degree sa Kolehiyo"
 
 #: analytics_dashboard/courses/templates/courses/enrollment_demographics_education.html:72
 msgid ""
 "The percentage of learners who selected Bachelor's degree or Associate "
 "degree as their highest level of education completed."
-msgstr "Procento studentů, kteří si vybrali bakalářský nebo přidružený titul jako nejvyšší ukončené vzdělání."
+msgstr "Ang porsyento ng mga mag-aaral na pumili ng Bachelor&#39;s degree o Associate degree bilang kanilang pinakamataas na antas ng edukasyon na natapos."
 
 #. Translators: This is a label to identify learner educational background.
 #: analytics_dashboard/courses/templates/courses/enrollment_demographics_education.html:78
 msgid "Advanced Degree"
-msgstr "Pokročilý stupeň"
+msgstr "Advanced na Degree"
 
 #: analytics_dashboard/courses/templates/courses/enrollment_demographics_education.html:79
 msgid ""
 "The percentage of learners who selected Doctorate or Master's or "
 "professional degree as their highest level of education completed."
-msgstr "Procento studentů, kteří si jako nejvyšší ukončené vzdělání zvolili doktorát, magisterský nebo odborný titul."
+msgstr "Ang porsyento ng mga mag-aaral na pumili ng Doctorate o Master&#39;s o propesyonal na degree bilang kanilang pinakamataas na antas ng edukasyon na natapos."
 
 #: analytics_dashboard/courses/templates/courses/enrollment_demographics_education.html:91
 msgid "Educational Breakdown"
-msgstr "Vzdělávací členění"
+msgstr "Pagkasira ng Pang-edukasyon"
 
 #: analytics_dashboard/courses/templates/courses/enrollment_demographics_gender.html:25
 #: analytics_dashboard/courses/views/__init__.py:579
 msgid "What is the learner gender breakdown?"
-msgstr "Jaké je rozdělení žáků podle pohlaví?"
+msgstr "Ano ang breakdown ng kasarian ng mag-aaral?"
 
 #. Translators: Maintain the double percentage symbols (%%) but move them to
 #. the appropriate location (before/after the value placeholder) for your
@@ -774,80 +767,80 @@ msgstr "Jaké je rozdělení žáků podle pohlaví?"
 msgid ""
 "This graph presents data for the %(value)s%% of enrolled learners who "
 "specified their gender."
-msgstr "Tento graf představuje data pro %(value)s%% zapsaných studentů, kteří uvedli své pohlaví."
+msgstr "Ang graph na ito ay nagpapakita ng data para sa %(value)s%% ng mga naka-enroll na mag-aaral na tinukoy ang kanilang kasarian."
 
 #: analytics_dashboard/courses/templates/courses/enrollment_demographics_gender.html:56
 msgid "Gender Breakdown Over Time"
-msgstr "Rozdělení podle pohlaví v průběhu času"
+msgstr "Pagkakabahagi ng Kasarian sa Paglipas ng Panahon"
 
 #: analytics_dashboard/courses/templates/courses/enrollment_geography.html:21
 msgid "Geographic Distribution"
-msgstr "Geografické rozšíření"
+msgstr "Heograpikong Pamamahagi"
 
 #: analytics_dashboard/courses/templates/courses/enrollment_geography.html:22
 #: analytics_dashboard/courses/views/__init__.py:589
 msgid "Where are my learners?"
-msgstr "Kde se nachází moji studenti?"
+msgstr "Nasaan ang aking mga mag-aaral?"
 
 #: analytics_dashboard/courses/templates/courses/enrollment_geography.html:27
 msgid "Enrollment by Country"
-msgstr "Zápisy podle země"
+msgstr "Pagpapatala ayon sa Bansa"
 
 #: analytics_dashboard/courses/templates/courses/enrollment_geography.html:45
 msgid "Geography Metrics"
-msgstr "Geografické metriky"
+msgstr "Mga Sukatan sa Heograpiya"
 
 #. Translators: This string represents the number of countries where learners
 #. are enrolled.
 #: analytics_dashboard/courses/templates/courses/enrollment_geography.html:53
 msgid "Total Countries or Regions Represented"
-msgstr "Celkový počet zastoupených zemí nebo regionů"
+msgstr "Kabuuang mga Bansa o Rehiyon na Kinakatawan"
 
 #: analytics_dashboard/courses/templates/courses/enrollment_geography.html:54
 msgid "Countries or regions with at least one learner."
-msgstr "Země a regiony s alespoň jedním studentem"
+msgstr "Mga bansa o rehiyon na may kahit isang mag-aaral."
 
 #. Translators: This string represents the country or region with the greatest
 #. number of enrolled learners.
 #: analytics_dashboard/courses/templates/courses/enrollment_geography.html:62
 msgid "Top Country or Region by Enrollment"
-msgstr "Nejlepší země nebo region podle zápisu"
+msgstr "Nangungunang Bansa o Rehiyon ayon sa Pagpapatala"
 
 #: analytics_dashboard/courses/templates/courses/enrollment_geography.html:63
 msgid "Country or region with the largest number of learners."
-msgstr "Země nebo region s největším počtem studentů."
+msgstr "Bansa o rehiyon na may pinakamalaking bilang ng mga mag-aaral."
 
 #. Translators: This string represents the country or region with the second-
 #. greatest number of enrolled learners.
 #: analytics_dashboard/courses/templates/courses/enrollment_geography.html:66
 msgid "Second Country or Region by Enrollment"
-msgstr "Druhá země nebo region podle zápisu"
+msgstr "Pangalawang Bansa o Rehiyon sa pamamagitan ng Pagpapatala"
 
 #: analytics_dashboard/courses/templates/courses/enrollment_geography.html:67
 msgid "Country or region with the second largest number of learners."
-msgstr "Země nebo region s druhým největším počtem studentů."
+msgstr "Bansa o rehiyon na may pangalawang pinakamalaking bilang ng mga mag-aaral."
 
 #. Translators: This string represents the country or region with the third-
 #. greatest number of enrolled learners.
 #: analytics_dashboard/courses/templates/courses/enrollment_geography.html:70
 msgid "Third Country or Region by Enrollment"
-msgstr "Třetí země nebo region podle zápisu"
+msgstr "Ikatlong Bansa o Rehiyon sa pamamagitan ng Pagpapatala"
 
 #: analytics_dashboard/courses/templates/courses/enrollment_geography.html:71
 msgid "Country or region with the third largest number of learners."
-msgstr "Země nebo region s třetím největším počtem studentů."
+msgstr "Bansa o rehiyon na may ikatlong pinakamalaking bilang ng mga mag-aaral."
 
 #. Translators: This string represents the percentage of learners in a course.
 #. Move the % symbol, if necessary, but keep the percent variable/placeholder.
 #: analytics_dashboard/courses/templates/courses/enrollment_geography.html:77
 #, python-format
 msgid "%(percent)s%% of learners"
-msgstr "%(percent)s%% studentů"
+msgstr "%(percent)s%% ng mga nag-aaral"
 
 #: analytics_dashboard/courses/templates/courses/enrollment_geography.html:91
 #: analytics_dashboard/courses/templates/courses/enrollment_geography.html:98
 msgid "Geographic Breakdown"
-msgstr "Geografické členění"
+msgstr "Geographic Breakdown"
 
 #. Translators: Application here refers to the web site/application being used
 #. (e.g. the dashboard).
@@ -856,21 +849,21 @@ msgstr "Geografické členění"
 #: analytics_dashboard/templates/footer.html:5
 #: analytics_dashboard/templates/lens-navigation.html:9
 msgid "Application"
-msgstr "Aplikace"
+msgstr "Aplikasyon"
 
 #. Translators: This refers to the homepage of a course.
 #: analytics_dashboard/courses/templates/courses/home.html:15
 #: analytics_dashboard/courses/views/__init__.py:539
 #: analytics_dashboard/templates/lens-navigation.html:20
 msgid "Course Home"
-msgstr "Domovská stránka kurzu"
+msgstr "Course Home"
 
 #. Translators: This refers to the active tab/navigation item.
 #: analytics_dashboard/courses/templates/courses/home.html:16
 #: analytics_dashboard/templates/lens-navigation.html:31
 #: analytics_dashboard/templates/submenu_navigation.html:14
 msgid "Active"
-msgstr "Aktivní"
+msgstr "Aktibo"
 
 #. Translators: This indicates that the adjacent link will trigger a CSV
 #. download. '{{download_icon}}' will be replaced with an icon.
@@ -880,79 +873,79 @@ msgid ""
 "\n"
 "                    (%(download_icon)s CSV Download)\n"
 "                  "
-msgstr "\n                    (%(download_icon)s stáhnout CSV)\n                  "
+msgstr "\n(%(download_icon)s CSV Download)"
 
 #: analytics_dashboard/courses/templates/courses/home.html:93
 msgid "Basic Course Information"
-msgstr "Základní informace o kurzu"
+msgstr "Pangunahing Impormasyon sa Kurso"
 
 #. Translators: This title describes a list of links to outside tools for this
 #. course.
 #: analytics_dashboard/courses/templates/courses/home.html:106
 msgid "External Tools"
-msgstr "Externí nástroje"
+msgstr "Mga Panlabas na Tool"
 
 #: analytics_dashboard/courses/templates/courses/index.html:10
 #: analytics_dashboard/courses/views/course_summaries.py:31
 msgid "Courses"
-msgstr "Kurzy"
+msgstr "Kurso"
 
 #: analytics_dashboard/courses/templates/courses/index.html:17
 msgid "Across all your courses:"
-msgstr "Napříč všemi kurzy:"
+msgstr "Sa lahat ng iyong mga kurso:"
 
 #: analytics_dashboard/courses/templates/courses/index.html:27
 msgid "Total enrollments across all of your courses."
-msgstr "Celkový počet zápisů napříč všemi kurzy."
+msgstr "Kabuuang mga pagpapatala sa lahat ng iyong mga kurso."
 
 #: analytics_dashboard/courses/templates/courses/index.html:34
 msgid "Current enrollments across all of your courses."
-msgstr "Aktuální zápisy do všech vašich kurzů."
+msgstr "Mga kasalukuyang enrollment sa lahat ng iyong kurso."
 
 #: analytics_dashboard/courses/templates/courses/index.html:41
 msgid "Total change in enrollment last week across all of your courses."
-msgstr "Celková změna v zápisu za minulý týden ve všech vašich kurzech."
+msgstr "Kabuuang pagbabago sa pagpapatala noong nakaraang linggo sa lahat ng iyong mga kurso."
 
 #: analytics_dashboard/courses/templates/courses/index.html:48
 msgid "Verified enrollments across all of your courses."
-msgstr "Ověřené zápisy napříč všemi kurzy."
+msgstr "Mga na-verify na pagpapatala sa lahat ng iyong kurso."
 
 #: analytics_dashboard/courses/templates/courses/index.html:54
 msgid "Master's enrollments across all of your courses."
-msgstr "Magisterské zápisy do všech vašich kurzů."
+msgstr "Mga enrollment ng master sa lahat ng iyong kurso."
 
 #: analytics_dashboard/courses/templates/courses/performance_answer_distribution.html:7
 #: analytics_dashboard/courses/templates/courses/performance_learning_outcomes_answer_distribution.html:5
 #: analytics_dashboard/courses/templates/courses/performance_ungraded_answer_distribution.html:7
 msgid "How did learners answer this problem?"
-msgstr "Jak studenti odpověděli na tuto úlohu?"
+msgstr "Paano sinagot ng mga mag-aaral ang suliraning ito?"
 
 #: analytics_dashboard/courses/templates/courses/performance_assignment.html:10
 msgid "How are learners doing on this assignment?"
-msgstr "Jak se studentům daří u tohoto zadání?"
+msgstr "Kumusta ang mga mag-aaral sa takdang-aralin na ito?"
 
 #: analytics_dashboard/courses/templates/courses/performance_assignment.html:15
 #: analytics_dashboard/courses/templates/courses/performance_ungraded_by_subsection.html:15
 msgid ""
 "These bars show the correct and incorrect submission counts for each "
 "problem. Only the last submission from each learner is counted."
-msgstr "Tyto pruhy ukazují správný a nesprávný počet příspěvků pro každý problém. Počítá se pouze poslední příspěvek od každého studenta."
+msgstr "Ipinapakita ng mga bar na ito ang tama at maling mga bilang ng pagsusumite para sa bawat problema. Tanging ang huling pagsusumite mula sa bawat mag-aaral ang binibilang."
 
 #: analytics_dashboard/courses/templates/courses/performance_assignment.html:19
 #: analytics_dashboard/courses/templates/courses/performance_learning_outcomes_section.html:20
 #: analytics_dashboard/courses/templates/courses/performance_ungraded_by_subsection.html:19
 msgid "Problem Submissions"
-msgstr "Problémové příspěvky"
+msgstr "Mga Pagsusumite ng Problema"
 
 #: analytics_dashboard/courses/templates/courses/performance_graded_content.html:9
 msgid "Which assignment type do you want to investigate?"
-msgstr "Jaký typ úkolu chcete prozkoumat?"
+msgstr "Aling uri ng pagtatalaga ang gusto mong siyasatin?"
 
 #: analytics_dashboard/courses/templates/courses/performance_graded_content.html:13
 msgid ""
 "Click an assignment type to view more detail information about the "
 "assignments."
-msgstr "Kliknutím na typ úkolu zobrazíte podrobnější informace o úkolech."
+msgstr "Mag-click ng uri ng pagtatalaga upang tingnan ang higit pang detalye ng impormasyon tungkol sa mga takdang-aralin."
 
 #. Translators: This describes the percent an assignment contributes to that
 #. of a learner's grade (e.g. Exam: 60% of the grading policy.).
@@ -962,7 +955,7 @@ msgid ""
 "\n"
 "                %(assignment_type)s: %(policy_ratio)s%% of the grading policy\n"
 "              "
-msgstr "\n%(assignment_type)s: %(policy_ratio)s%% zásad hodnocení"
+msgstr "\n%(assignment_type)s: %(policy_ratio)s%% ng patakaran sa pagmamarka"
 
 #. Translators: This describes the percent of a learner's grade (e.g. 60%).
 #: analytics_dashboard/courses/templates/courses/performance_graded_content.html:34
@@ -976,95 +969,95 @@ msgid ""
 "\n"
 "      How are learners doing on the %(type)s?\n"
 "    "
-msgstr "\n      Jak se studentům daří v %(type)s?\n    "
+msgstr "\nKumusta ang mga mag-aaral sa %(type)s?"
 
 #: analytics_dashboard/courses/templates/courses/performance_graded_content_by_type.html:15
 msgid ""
 "Each bar shows the average number of correct and incorrect submissions for "
 "problems in the assignment. Only the last submission from each learner is "
 "counted."
-msgstr "Každý z pruhů zobrazuje pruměrnou hodnotu správných a nesprávných odevzdaných prací pro úlohy v zadání. Započítává se pouze poslední odevzdaná práce od každého studenta."
+msgstr "Ipinapakita ng bawat bar ang average na bilang ng tama at maling pagsusumite para sa mga problema sa takdang-aralin. Tanging ang huling pagsusumite mula sa bawat mag-aaral ang binibilang."
 
 #: analytics_dashboard/courses/templates/courses/performance_graded_content_by_type.html:19
 msgid "Assignment Submissions"
-msgstr "Odevzdání úkolu"
+msgstr "Mga Pagsusumite ng Takdang-aralin"
 
 #: analytics_dashboard/courses/templates/courses/performance_learning_outcomes_content.html:6
 #: analytics_dashboard/courses/templates/courses/performance_learning_outcomes_section.html:6
 msgid "Measured by learning outcome, how are learners performing?"
-msgstr "Jak si studenti vedou, měřeno podle výsledků učení?"
+msgstr "Sinusukat sa resulta ng pagkatuto, paano gumaganap ang mga mag-aaral?"
 
 #: analytics_dashboard/courses/templates/courses/performance_learning_outcomes_content.html:16
 msgid ""
 "Each bar shows the average number of correct and incorrect submissions for "
 "each outcome."
-msgstr "Každý sloupec zobrazuje průměrný počet správných a nesprávných příspěvků pro každý výsledek."
+msgstr "Ipinapakita ng bawat bar ang average na bilang ng tama at maling pagsusumite para sa bawat resulta."
 
 #: analytics_dashboard/courses/templates/courses/performance_learning_outcomes_content.html:20
 msgid "Outcome Submissions"
-msgstr "Výsledky odevzdaných úloh"
+msgstr "Mga Pagsusumite ng Resulta"
 
 #: analytics_dashboard/courses/templates/courses/performance_learning_outcomes_section.html:16
 msgid ""
 "Each bar shows the correct and incorrect number of submissions for each "
 "problem for the current outcome."
-msgstr "Každý pruh zobrazuje správný a nesprávný počet příspěvků u každého problému pro aktuální výsledek."
+msgstr "Ang bawat bar ay nagpapakita ng tama at maling bilang ng mga pagsusumite para sa bawat problema para sa kasalukuyang kinalabasan."
 
 #: analytics_dashboard/courses/templates/courses/performance_ungraded_by_section.html:5
 msgid "How are learners doing on this section?"
-msgstr "Jak jsou na tom studenti v této sekci?"
+msgstr "Kumusta ang mga mag-aaral sa seksyong ito?"
 
 #: analytics_dashboard/courses/templates/courses/performance_ungraded_by_section.html:10
 msgid ""
 "Each bar shows the average number of correct and incorrect submissions for "
 "each subsection. Only the last submission from each learner is counted."
-msgstr "Každý sloupec zobrazuje průměrný počet správných a nesprávných příspěvků pro každou podsekci. Počítá se pouze poslední příspěvek od každého studenta."
+msgstr "Ipinapakita ng bawat bar ang average na bilang ng tama at maling pagsusumite para sa bawat subsection. Tanging ang huling pagsusumite mula sa bawat mag-aaral ang binibilang."
 
 #: analytics_dashboard/courses/templates/courses/performance_ungraded_by_section.html:14
 msgid "Subsection Submissions"
-msgstr "Odevzdané úlohy podsekce"
+msgstr "Mga Pagsusumite ng Subsection"
 
 #: analytics_dashboard/courses/templates/courses/performance_ungraded_by_subsection.html:10
 msgid "How are learners doing on this subsection?"
-msgstr "Jak se studentům v této podsekci daří?"
+msgstr "Kumusta ang mga mag-aaral sa subsection na ito?"
 
 #: analytics_dashboard/courses/templates/courses/performance_ungraded_content.html:7
 #: analytics_dashboard/courses/views/__init__.py:650
 msgid "How are learners doing on ungraded exercises?"
-msgstr "Jak si studenti vedou na neklasifikovaných cvičeních?"
+msgstr "Kumusta ang mga mag-aaral sa mga walang markang pagsasanay?"
 
 #: analytics_dashboard/courses/templates/courses/performance_ungraded_content.html:12
 msgid ""
 "Each bar shows the average number of correct and incorrect submissions for "
 "each section. Only the last submission from each learner is counted."
-msgstr "Každý sloupec zobrazuje průměrný počet správných a nesprávných příspěvků pro každou sekci. Počítá se pouze poslední příspěvek od každého studenta."
+msgstr "Ipinapakita ng bawat bar ang average na bilang ng tama at maling pagsusumite para sa bawat seksyon. Tanging ang huling pagsusumite mula sa bawat mag-aaral ang binibilang."
 
 #: analytics_dashboard/courses/templates/courses/performance_ungraded_content.html:16
 msgid "Section Submissions"
-msgstr "Odevzdané úlohy sekce"
+msgstr "Mga Pagsusumite ng Seksyon"
 
 #. Translators: This message is displayed when the website is unable to get
 #. the credentials for the user
 #: analytics_dashboard/courses/templates/courses/permissions-retrieval-failed.html:5
 #: analytics_dashboard/courses/templates/courses/permissions-retrieval-failed.html:7
 msgid "Permissions Retrieval Failed"
-msgstr "Načtení oprávnění se nezdařilo"
+msgstr "Nabigo ang Pagkuha ng Mga Pahintulot"
 
 #: analytics_dashboard/courses/templates/courses/permissions-retrieval-failed.html:9
 msgid ""
 "There was a problem retrieving course permissions for your account. Please "
 "try again. If you continue to experience issues, please let us know."
-msgstr "Při načítání oprávnění ke kurzu pro váš účet došlo k problému. Prosím zkuste to znovu. Pokud problémy přetrvávají, dejte nám prosím vědět."
+msgstr "Nagkaroon ng problema sa pagkuha ng mga pahintulot sa kurso para sa iyong account. Pakisubukang muli. Kung patuloy kang nakakaranas ng mga isyu, mangyaring ipaalam sa amin."
 
 #: analytics_dashboard/courses/templates/courses/permissions-retrieval-failed.html:14
 msgid "Try Again"
-msgstr "Zkusit znovu"
+msgstr "Subukan Muli"
 
 #: analytics_dashboard/courses/tests/test_views/__init__.py:271
 #: analytics_dashboard/courses/views/__init__.py:548
 #: analytics_dashboard/courses/views/enrollment.py:42
 msgid "Activity"
-msgstr "Aktivita"
+msgstr "Aktibidad"
 
 #: analytics_dashboard/courses/tests/test_views/__init__.py:281
 #: analytics_dashboard/courses/tests/test_views/__init__.py:304
@@ -1074,156 +1067,156 @@ msgstr "Aktivita"
 #: analytics_dashboard/courses/views/enrollment.py:23
 #: analytics_dashboard/courses/views/enrollment.py:31
 msgid "Demographics"
-msgstr "Demografie"
+msgstr "Demograpiko"
 
 #: analytics_dashboard/courses/tests/test_views/__init__.py:291
 #: analytics_dashboard/courses/views/__init__.py:591
 #: analytics_dashboard/courses/views/enrollment.py:52
 msgid "Geography"
-msgstr "Zeměpis"
+msgstr "Heograpiya"
 
 #: analytics_dashboard/courses/tests/test_views/__init__.py:341
 #: analytics_dashboard/courses/views/__init__.py:560
 #: analytics_dashboard/courses/views/enrollment.py:77
 msgid "Age"
-msgstr "Věk"
+msgstr "Edad"
 
 #: analytics_dashboard/courses/tests/test_views/__init__.py:351
 #: analytics_dashboard/courses/views/__init__.py:571
 #: analytics_dashboard/courses/views/enrollment.py:88
 msgid "Education"
-msgstr "Vzdělání"
+msgstr "Edukasyon"
 
 #: analytics_dashboard/courses/tests/test_views/__init__.py:361
 #: analytics_dashboard/courses/views/__init__.py:581
 #: analytics_dashboard/courses/views/enrollment.py:97
 msgid "Gender"
-msgstr "Pohlaví"
+msgstr "Kasarian"
 
 #. Translators: Content as in course content (e.g. things, not the feeling)
 #: analytics_dashboard/courses/tests/test_views/test_engagement.py:58
 #: analytics_dashboard/courses/views/__init__.py:616
 #: analytics_dashboard/courses/views/engagement.py:33
 msgid "Content"
-msgstr "Obsah"
+msgstr "Nilalaman"
 
 #: analytics_dashboard/courses/tests/test_views/test_engagement.py:69
 #: analytics_dashboard/courses/views/__init__.py:629
 #: analytics_dashboard/courses/views/engagement.py:42
 msgid "Videos"
-msgstr "Videa"
+msgstr "Mga video"
 
 #: analytics_dashboard/courses/tests/test_views/test_performance.py:68
 #: analytics_dashboard/courses/views/__init__.py:643
 #: analytics_dashboard/courses/views/performance.py:43
 #: analytics_dashboard/courses/views/performance.py:106
 msgid "Graded Content"
-msgstr "KLasifikovaný obsah"
+msgstr "Namarkahan na Nilalaman"
 
 #: analytics_dashboard/courses/tests/test_views/test_performance.py:79
 #: analytics_dashboard/courses/views/__init__.py:652
 #: analytics_dashboard/courses/views/performance.py:52
 #: analytics_dashboard/courses/views/performance.py:91
 msgid "Ungraded Problems"
-msgstr "Neklasifikované problémy"
+msgstr "Mga Walang Markahang Problema"
 
 #: analytics_dashboard/courses/tests/test_views/test_performance.py:542
 #: analytics_dashboard/courses/views/__init__.py:664
 #: analytics_dashboard/courses/views/performance.py:70
 msgid "Learning Outcomes"
-msgstr "Výsledky učení"
+msgstr "Ang resulta sa pag-aaral"
 
 #: analytics_dashboard/courses/views/__init__.py:611
 msgid "What are learners doing in my course?"
-msgstr "Co studenti v mém kurzu dělají?"
+msgstr "Ano ang ginagawa ng mga mag-aaral sa aking kurso?"
 
 #: analytics_dashboard/courses/views/__init__.py:641
 msgid "How are learners doing on graded course assignments?"
-msgstr "Jak se studentům daří plnit klasifikovaná zadání?"
+msgstr "Kumusta ang mga mag-aaral sa mga takdang-aralin na may markang kurso?"
 
 #: analytics_dashboard/courses/views/__init__.py:662
 msgid "What is the breakdown for course learning outcomes?"
-msgstr "Jaké je rozdělení výsledků učení kurzu?"
+msgstr "Ano ang breakdown para sa mga resulta ng pag-aaral ng kurso?"
 
 #: analytics_dashboard/courses/views/__init__.py:682
 msgid "How are learners responding to questions?"
-msgstr "Jak studenti odpovídají na otázky?"
+msgstr "Paano tumutugon ang mga mag-aaral sa mga tanong?"
 
 #: analytics_dashboard/courses/views/__init__.py:684
 msgid "Problem Response Report"
-msgstr "Zpráva o odpovědi na problém"
+msgstr "Ulat sa Pagtugon sa Problema"
 
 #: analytics_dashboard/courses/views/__init__.py:691
 msgid "How are learners doing on course assignments?"
-msgstr "Jak se studentům daří plnit zadání?"
+msgstr "Kumusta ang mga mag-aaral sa mga takdang aralin?"
 
 #: analytics_dashboard/courses/views/__init__.py:699
 msgid "What are individual learners doing?"
-msgstr "Co dělají jednotliví studenti?"
+msgstr "Ano ang ginagawa ng mga indibidwal na mag-aaral?"
 
 #: analytics_dashboard/courses/views/__init__.py:702
 msgid "Who is engaged? Who isn't?"
-msgstr "Kdo je zapojený? Kdo ne?"
+msgstr "Sino ang engaged? sinong hindi?"
 
 #: analytics_dashboard/courses/views/__init__.py:704
 msgid "All Learners"
-msgstr "Všichni studenti"
+msgstr "Lahat ng Nag-aaral"
 
 #. Translators: 'Course ID' is 'Course Identifier', the unique code that
 #. identifies the course
 #: analytics_dashboard/courses/views/__init__.py:768
 msgid "Course ID"
-msgstr "ID kurzu"
+msgstr "Course ID"
 
 #: analytics_dashboard/courses/views/__init__.py:770
 msgid "Course Name"
-msgstr "Název kurzu"
+msgstr "Pangalan ng Kurso"
 
 #. Translators: 'In Progress' and 'Ended' refer to whether learners are
 #. actively using the course or it is over.
 #: analytics_dashboard/courses/views/__init__.py:787
 msgid "In Progress"
-msgstr "Ve zpracování"
+msgstr "Isinasagawa"
 
 #: analytics_dashboard/courses/views/__init__.py:787
 msgid "Ended"
-msgstr "Skončilo"
+msgstr "Natapos"
 
 #. Translators: This refers to a course that has not yet begun.
 #: analytics_dashboard/courses/views/__init__.py:790
 msgid "Not Started Yet"
-msgstr "Ještě nezahájeno"
+msgstr "Hindi pa Nagsisimula"
 
 #: analytics_dashboard/courses/views/__init__.py:792
 msgid "Start Date"
-msgstr "Počáteční datum"
+msgstr "Petsa ng Pagsisimula"
 
 #: analytics_dashboard/courses/views/__init__.py:793
 msgid "End Date"
-msgstr "Datum ukončení"
+msgstr "Petsa ng Pagtatapos"
 
 #: analytics_dashboard/courses/views/__init__.py:794
 msgid "Status"
-msgstr "Stav"
+msgstr "Katayuan"
 
 #: analytics_dashboard/courses/views/__init__.py:803
 msgid "Instructor Dashboard"
-msgstr "Nástěnka učitele"
+msgstr "Dashboard ng Instruktor"
 
 #: analytics_dashboard/courses/views/__init__.py:808
 msgid "Courseware"
-msgstr "Výukový software"
+msgstr "Courseware"
 
 #. Translators: Do not translate UTC.
 #: analytics_dashboard/courses/views/course_summaries.py:40
 #, python-format
 msgid ""
 "Course summary data was last updated %(update_date)s at %(update_time)s UTC."
-msgstr "Souhrnná data kurzu byla naposledy aktualizována %(update_date)s v %(update_time)s UTC."
+msgstr "Huling na-update ang data ng buod ng kurso sa %(update_date)s sa %(update_time)s UTC."
 
 #: analytics_dashboard/courses/views/engagement.py:58
 msgid "Engagement Content"
-msgstr "Obsah zapojení"
+msgstr "Nilalaman ng Pakikipag-ugnayan"
 
 #. Translators: Do not translate UTC.
 #: analytics_dashboard/courses/views/engagement.py:68
@@ -1231,35 +1224,35 @@ msgstr "Obsah zapojení"
 msgid ""
 "Course engagement data was last updated %(update_date)s at %(update_time)s "
 "UTC."
-msgstr "Data o zapojení kurzu byla naposledy aktualizována %(update_date)s v %(update_time)s UTC."
+msgstr "Huling na-update ang data ng pakikipag-ugnayan ng kurso sa %(update_date)s sa %(update_time)s UTC."
 
 #: analytics_dashboard/courses/views/engagement.py:95
 msgid "Engagement Videos"
-msgstr "Interaktivní videa"
+msgstr "Mga Video ng Pakikipag-ugnayan"
 
 #. Translators: Do not translate UTC.
 #: analytics_dashboard/courses/views/engagement.py:100
 #, python-format
 msgid "Video data was last updated %(update_date)s at %(update_time)s UTC."
-msgstr "Data videa byla naposledy aktualizována %(update_date)s v %(update_time)s UTC."
+msgstr "Huling na-update ang data ng video sa %(update_date)s sa %(update_time)s UTC."
 
 #: analytics_dashboard/courses/views/engagement.py:101
 msgid "Looks like no one has watched any videos in these sections."
-msgstr "Zdá se, že v těchto sekcích nikdo neviděl žádná videa."
+msgstr "Mukhang walang nakapanood ng anumang video sa mga seksyong ito."
 
 #: analytics_dashboard/courses/views/engagement.py:127
 #: analytics_dashboard/courses/views/performance.py:308
 msgid "Section Name"
-msgstr "Název sekce"
+msgstr "Pangalan ng Seksyon"
 
 #: analytics_dashboard/courses/views/engagement.py:147
 #: analytics_dashboard/courses/views/performance.py:330
 msgid "Subsection Name"
-msgstr "Název podsekce"
+msgstr "Pangalan ng Subsection"
 
 #: analytics_dashboard/courses/views/engagement.py:168
 msgid "Video Name"
-msgstr "Název videa"
+msgstr "Pangalan ng Video"
 
 #. Translators: Do not translate UTC.
 #: analytics_dashboard/courses/views/enrollment.py:118
@@ -1267,18 +1260,18 @@ msgstr "Název videa"
 msgid ""
 "Demographic learner data was last updated %(update_date)s at %(update_time)s"
 " UTC."
-msgstr "Demografická data o studentech byla naposledy aktualizována %(update_date)s v %(update_time)s UTC."
+msgstr "Huling na-update ang data ng demographic learner sa %(update_date)s sa %(update_time)s UTC."
 
 #. Translators: This sentence is displayed at the bottom of the page and
 #. describe the demographics data displayed.
 #: analytics_dashboard/courses/views/enrollment.py:122
 msgid ""
 "All above demographic data was self-reported at the time of registration."
-msgstr "Všechna výše uvedená demografická data byla vykázána v době registrace."
+msgstr "Ang lahat ng nasa itaas na data ng demograpiko ay naiulat sa sarili sa oras ng pagpaparehistro."
 
 #: analytics_dashboard/courses/views/enrollment.py:135
 msgid "Enrollment Activity"
-msgstr "Zápis aktivity"
+msgstr "Aktibidad sa Pagpapatala"
 
 #. Translators: Do not translate UTC.
 #: analytics_dashboard/courses/views/enrollment.py:145
@@ -1286,23 +1279,23 @@ msgstr "Zápis aktivity"
 msgid ""
 "Enrollment activity data was last updated %(update_date)s at %(update_time)s"
 " UTC."
-msgstr "Data o zápis aktivity byla naposledy aktualizována %(update_date)s v %(update_time)s UTC."
+msgstr "Huling na-update ang data ng aktibidad sa pag-enroll sa %(update_date)s sa %(update_time)s UTC."
 
 #: analytics_dashboard/courses/views/enrollment.py:176
 msgid "Enrollment Demographics by Age"
-msgstr "Demografické zápisy podle věku"
+msgstr "Mga Demograpiko ng Pagpapatala ayon sa Edad"
 
 #: analytics_dashboard/courses/views/enrollment.py:214
 msgid "Enrollment Demographics by Education"
-msgstr "Demografické zápisy podle vzdělání"
+msgstr "Enrollment Demographics ayon sa Edukasyon"
 
 #: analytics_dashboard/courses/views/enrollment.py:252
 msgid "Enrollment Demographics by Gender"
-msgstr "Demografické zápisy podle pohlaví"
+msgstr "Demograpiko ng Pagpapatala ayon sa Kasarian"
 
 #: analytics_dashboard/courses/views/enrollment.py:290
 msgid "Enrollment Geography"
-msgstr "Zápis geografie"
+msgstr "Enrolment Geography"
 
 #. Translators: Do not translate UTC.
 #: analytics_dashboard/courses/views/enrollment.py:300
@@ -1310,7 +1303,7 @@ msgstr "Zápis geografie"
 msgid ""
 "Geographic learner data was last updated %(update_date)s at %(update_time)s "
 "UTC."
-msgstr "Geografická data o studentech byla naposledy aktualizována %(update_date)s v %(update_time)s UTC."
+msgstr "Huling na-update ang data ng geographic learner sa %(update_date)s sa %(update_time)s UTC."
 
 #. Translators: Do not translate UTC.
 #: analytics_dashboard/courses/views/performance.py:38
@@ -1318,111 +1311,111 @@ msgstr "Geografická data o studentech byla naposledy aktualizována %(update_da
 msgid ""
 "Problem submission data was last updated %(update_date)s at %(update_time)s "
 "UTC."
-msgstr "Data o odeslání problému byla naposledy aktualizována %(update_date)s v %(update_time)s UTC."
+msgstr "Huling na-update ang data ng pagsusumite ng problema sa %(update_date)s sa %(update_time)s UTC."
 
 #: analytics_dashboard/courses/views/performance.py:84
 msgid "Assignment Name"
-msgstr "Název úkolu"
+msgstr "Pangalan ng Takdang-aralin"
 
 #: analytics_dashboard/courses/views/performance.py:95
 #: analytics_dashboard/courses/views/performance.py:378
 msgid "No submissions received for these exercises."
-msgstr "Nebyly odevzdány žádné práce s tímto cvičením."
+msgstr "Walang natanggap na pagsusumite para sa mga pagsasanay na ito."
 
 #: analytics_dashboard/courses/views/performance.py:111
 msgid "No submissions received for these assignments."
-msgstr "Nebyly odevzdány žádné práce s tímto zadáním."
+msgstr "Walang natanggap na pagsusumite para sa mga takdang-aralin na ito."
 
 #: analytics_dashboard/courses/views/performance.py:203
 #: analytics_dashboard/courses/views/performance.py:370
 #: analytics_dashboard/courses/views/performance.py:468
 msgid "Performance: Problem Submissions"
-msgstr "Výkon: Problémové příspěvky"
+msgstr "Pagganap: Mga Pagsusumite ng Problema"
 
 #: analytics_dashboard/courses/views/performance.py:265
 #, python-format
 msgid "Graded Content: %(assignment_type)s"
-msgstr "Klasifikovaný obsah: %(assignment_type)s"
+msgstr "Namarkahang Nilalaman: %(assignment_type)s"
 
 #: analytics_dashboard/courses/views/performance.py:284
 #: analytics_dashboard/courses/views/performance.py:352
 msgid "Problem Name"
-msgstr "Název problému"
+msgstr "Pangalan ng Problema"
 
 #: analytics_dashboard/courses/views/performance.py:377
 #, python-format
 msgid ""
 "Tags distribution data was last updated %(update_date)s at %(update_time)s "
 "UTC."
-msgstr "Data o štítcích distribuce byla naposledy aktualizována %(update_date)s v %(update_time)s UTC."
+msgstr "Huling na-update ang data ng pamamahagi ng mga tag sa %(update_date)s sa %(update_time)s UTC."
 
 #: analytics_dashboard/courses/views/performance.py:406
 #: analytics_dashboard/courses/views/performance.py:436
 msgid "Performance: Learning Outcomes"
-msgstr "Výkon: Výsledky učení"
+msgstr "Pagganap: Mga Resulta ng Pagkatuto"
 
 #: analytics_dashboard/settings/base.py:436
 msgid "Terms of Service"
-msgstr "Smluvní podmínky"
+msgstr "Mga Tuntunin ng Serbisyo"
 
 #: analytics_dashboard/settings/base.py:437
 msgid "Privacy Policy"
-msgstr "Pravidla ochrany osobních údajů"
+msgstr "Patakaran sa Privacy"
 
 #: analytics_dashboard/templates/403.html:5
 #: analytics_dashboard/templates/403.html:8
 msgid "Access Denied"
-msgstr "Přístup odepřen"
+msgstr "Walang pahintulot"
 
 #: analytics_dashboard/templates/403.html:10
 msgid ""
 "You do not have permission to view this page. If you believe you should have"
 " access to this page, try logging out and logging in again to refresh your "
 "permissions."
-msgstr "K zobrazení této stránky nemáte oprávnění. Pokud se domníváte, že byste měli mít přístup na tuto stránku, zkuste se odhlásit a znovu přihlásit, abyste obnovili svá oprávnění."
+msgstr "Wala kang pahintulot na tingnan ang pahinang ito. Kung naniniwala kang dapat kang magkaroon ng access sa pahinang ito, subukang mag-log out at mag-log in muli upang i-refresh ang iyong mga pahintulot."
 
 #: analytics_dashboard/templates/403.html:17
 msgid "Logout then Login"
-msgstr "Odhlaste se a poté se přihlaste"
+msgstr "Mag-logout pagkatapos Mag-login"
 
 #: analytics_dashboard/templates/404.html:5
 #: analytics_dashboard/templates/404.html:8
 msgid "Page Not Found"
-msgstr "Stránka nebyla nalezena"
+msgstr "Hindi Nahanap ang Pahina"
 
 #: analytics_dashboard/templates/404.html:10
 msgid ""
 "We can't find the page you're looking for. Please make sure the URL is "
 "correct and if not try again."
-msgstr "Nemůžeme najít stránku, kterou hledáte. Ujistěte se, že je adresa URL správná, a pokud ne, zkuste to znovu."
+msgstr "Hindi namin mahanap ang page na iyong hinahanap. Pakitiyak na tama ang URL at kung hindi subukang muli."
 
 #: analytics_dashboard/templates/500.html:5
 #: analytics_dashboard/templates/500.html:8
 msgid "An Error Occurred"
-msgstr "Vyskytla se chyba"
+msgstr "May pagkakamaling naganap"
 
 #: analytics_dashboard/templates/500.html:10
 msgid ""
 "Our servers weren't able to complete your request. Please try again by "
 "refreshing this page or retracing your steps."
-msgstr "Naše servery nemohly dokončit váš požadavek. Zkuste to prosím znovu obnovením této stránky nebo zopakováním svých kroků."
+msgstr "Hindi nakumpleto ng aming mga server ang iyong kahilingan. Pakisubukang muli sa pamamagitan ng pagre-refresh ng page na ito o muling pagsubaybay sa iyong mga hakbang."
 
 #: analytics_dashboard/templates/503.html:5
 #: analytics_dashboard/templates/503.html:7
 msgid "We're having trouble loading this page. Please try again in a minute."
-msgstr "Máme potíže s načítáním této stránky. Zkuste to prosím znovu za minutu."
+msgstr "Nahihirapan kaming i-load ang page na ito. Pakisubukang muli sa isang minuto."
 
 #: analytics_dashboard/templates/503.html:10
 msgid "(Technical details: 503 Service Unavailable.)"
-msgstr "(Technické podrobnosti: Služba 503 není k dispozici.)"
+msgstr "(Mga teknikal na detalye: 503 Service Unavailable.)"
 
 #: analytics_dashboard/templates/_announcement.html:28
 msgid "Close"
-msgstr "Zavřít"
+msgstr "Isara"
 
 #: analytics_dashboard/templates/base-error.html:42
 msgid "Use our support tool to ask questions or share feedback."
-msgstr "Pomocí našeho nástroje podpory můžete klást otázky nebo sdílet zpětnou vazbu."
+msgstr "Gamitin ang aming tool sa suporta upang magtanong o magbahagi ng feedback."
 
 #. Translators: This intention here is that a user clicks a button to contact
 #. a support group (e.g. edX Support, or MITx Support). Reorder the
@@ -1430,14 +1423,14 @@ msgstr "Pomocí našeho nástroje podpory můžete klást otázky nebo sdílet z
 #: analytics_dashboard/templates/base-error.html:47
 #, python-format
 msgid "Contact %(platform_name)s Support"
-msgstr "Kontaktujte podporu %(platform_name)s"
+msgstr "Makipag-ugnayan sa Suporta sa %(platform_name)s"
 
 #: analytics_dashboard/templates/footer.html:16
 #, python-format
 msgid ""
 "We want this dashboard to work for you! Need help? "
 "%(support_link_start)sContact course team support%(support_link_end)s."
-msgstr "Chceme, aby tento řídicí panel byl pro vás užitečný! Potřebujete pomoc? %(support_link_start)sKontaktujte podporu týmu kurzu%(support_link_end)s."
+msgstr "Gusto naming gumana ang dashboard na ito para sa iyo! Kailangan ng tulong? %(support_link_start)sMakipag-ugnayan sa course team support%(support_link_end)s."
 
 #. Translators: The © symbol appears directly before this line.
 #: analytics_dashboard/templates/footer.html:39
@@ -1445,40 +1438,40 @@ msgstr "Chceme, aby tento řídicí panel byl pro vás užitečný! Potřebujete
 msgid ""
 " %(current_year)s %(platform_name)s, except where noted, all rights\n"
 "            reserved. "
-msgstr "%(current_year)s %(platform_name)s, pokud není uvedeno jinak, všechna práva vyhrazena."
+msgstr "%(current_year)s %(platform_name)s, maliban kung saan nakasaad, nakalaan ang lahat ng karapatan."
 
 #: analytics_dashboard/templates/header.html:13
 msgid "Toggle navigation"
-msgstr "Přepnout navigaci"
+msgstr "I-toggle ang nabigasyon"
 
 #: analytics_dashboard/templates/header.html:40
 msgid "Help"
-msgstr "Nápověda"
+msgstr "Tulong"
 
 #: analytics_dashboard/templates/header.html:46
 msgid "Menu for"
-msgstr "Nabídka pro"
+msgstr "Menu para sa"
 
 #: analytics_dashboard/templates/header.html:60
 msgid "Logout"
-msgstr "Odhlásit"
+msgstr "Mag-logout"
 
 #: analytics_dashboard/templates/lens-navigation.html:27
 msgid "Navigation Menu."
-msgstr "Navigační nabídka."
+msgstr "Menu ng Nabigasyon."
 
 #: analytics_dashboard/templates/loading.html:7
 msgid "Loading"
-msgstr "Nahrávání"
+msgstr "Naglo-load"
 
 #: analytics_dashboard/templates/section_error.html:10
 msgid "We are unable to load this chart."
-msgstr "Tento graf nelze načíst."
+msgstr "Hindi namin ma-load ang chart na ito."
 
 #: analytics_dashboard/templates/section_error.html:12
 msgid "We are unable to load this table."
-msgstr "Tuto tabulku nelze načíst."
+msgstr "Hindi namin ma-load ang talahanayang ito."
 
 #: analytics_dashboard/templates/section_error.html:14
 msgid "We are unable to load these metrics."
-msgstr "Tyto metriky nelze načíst."
+msgstr "Hindi namin ma-load ang mga sukatang ito."
