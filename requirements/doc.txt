@@ -4,6 +4,8 @@
 #
 #    make upgrade
 #
+accessible-pygments==0.0.4
+    # via pydata-sphinx-theme
 alabaster==0.7.13
     # via sphinx
 asgiref==3.6.0
@@ -12,7 +14,11 @@ asgiref==3.6.0
     #   django
     #   django-countries
 babel==2.12.1
-    # via sphinx
+    # via
+    #   pydata-sphinx-theme
+    #   sphinx
+beautifulsoup4==4.12.2
+    # via pydata-sphinx-theme
 certifi==2022.12.7
     # via
     #   -r requirements/base.txt
@@ -105,7 +111,9 @@ djangorestframework==3.14.0
 djangorestframework-csv==2.1.1
     # via -r requirements/base.txt
 docutils==0.19
-    # via sphinx
+    # via
+    #   pydata-sphinx-theme
+    #   sphinx
 drf-jwt==1.19.2
     # via
     #   -r requirements/base.txt
@@ -135,8 +143,6 @@ edx-opaque-keys==2.3.0
     #   edx-drf-extensions
 edx-rest-api-client==5.5.0
     # via -r requirements/base.txt
-edx-sphinx-theme==3.1.0
-    # via -r requirements/doc.in
 edx-toggles==5.0.0
     # via -r requirements/base.txt
 future==0.18.3
@@ -174,7 +180,9 @@ oauthlib==3.2.2
     #   requests-oauthlib
     #   social-auth-core
 packaging==23.1
-    # via sphinx
+    # via
+    #   pydata-sphinx-theme
+    #   sphinx
 path==16.6.0
     # via
     #   -r requirements/base.txt
@@ -204,8 +212,13 @@ pycryptodomex==3.17
     # via
     #   -r requirements/base.txt
     #   pyjwkest
+pydata-sphinx-theme==0.13.3
+    # via sphinx-book-theme
 pygments==2.15.1
-    # via sphinx
+    # via
+    #   accessible-pygments
+    #   pydata-sphinx-theme
+    #   sphinx
 pyjwkest==1.4.2
     # via
     #   -r requirements/base.txt
@@ -277,7 +290,6 @@ six==1.16.0
     #   edx-ccx-keys
     #   edx-django-release-util
     #   edx-drf-extensions
-    #   edx-sphinx-theme
     #   pyjwkest
     #   python-dateutil
 slumber==0.7.1
@@ -295,11 +307,16 @@ social-auth-core==4.4.1
     #   -r requirements/base.txt
     #   edx-auth-backends
     #   social-auth-app-django
+soupsieve==2.4.1
+    # via beautifulsoup4
 sphinx==5.3.0
     # via
     #   -c requirements/common_constraints.txt
     #   -r requirements/doc.in
-    #   edx-sphinx-theme
+    #   pydata-sphinx-theme
+    #   sphinx-book-theme
+sphinx-book-theme==1.0.1
+    # via -r requirements/doc.in
 sphinxcontrib-applehelp==1.0.4
     # via sphinx
 sphinxcontrib-devhelp==1.0.2
@@ -330,6 +347,7 @@ typing-extensions==4.5.0
     # via
     #   -r requirements/base.txt
     #   django-countries
+    #   pydata-sphinx-theme
 unicodecsv==0.14.1
     # via
     #   -r requirements/base.txt
