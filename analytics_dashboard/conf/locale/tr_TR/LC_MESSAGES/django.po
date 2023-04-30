@@ -5,7 +5,7 @@
 # Translators:
 # Translators:
 # Adem Özgür <admozgur@gmail.com>, 2015
-# Ali Işıngör <ali@artistanbul.io>, 2017-2022
+# Ali Işıngör <ali@artistanbul.io>, 2017-2023
 # ali selek <aliselek01@gmail.com>, 2015
 # Azmi Ozgen <azmican73@gmail.com>, 2014
 # a59af3b7d13ce68bd7dd64459def85f4_04f03c9 <80fff17a8acd9f49775a27b10ab88266_312186>, 2015
@@ -29,7 +29,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-05-18 15:22+0000\n"
 "PO-Revision-Date: 2014-08-25 20:09+0000\n"
-"Last-Translator: Ali Işıngör <ali@artistanbul.io>, 2017-2022\n"
+"Last-Translator: Ali Işıngör <ali@artistanbul.io>, 2017-2023\n"
 "Language-Team: Turkish (Turkey) (http://app.transifex.com/open-edx/edx-platform/language/tr_TR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -123,7 +123,7 @@ msgstr "Araştırmaya dayalı ileri eğitim ve öğretimde kararlıyız. %(link_
 
 #: analytics_dashboard/core/templates/core/landing.html:87
 msgid "Need Help?"
-msgstr "Yardım ister misiniz?"
+msgstr "Yardım İster Misiniz?"
 
 #: analytics_dashboard/core/templates/core/landing.html:92
 #, python-format
@@ -136,7 +136,7 @@ msgstr "%(link_start)sDestek merkezimiz%(link_end)s çözüm bulmanıza yardımc
 #: analytics_dashboard/core/templatetags/dashboard_extras.py:27
 #, python-brace-format
 msgid "{statistic}%"
-msgstr "{statistic}%"
+msgstr "%{statistic}"
 
 #. Translators: '{percentage}' in as a placeholder for the percentage value.
 #: analytics_dashboard/courses/presenters/engagement.py:124
@@ -371,7 +371,7 @@ msgstr "Öğrenci Gönderimleri Sayısı"
 #. Translators: This describes the data displayed in the chart below.
 #: analytics_dashboard/courses/templates/courses/demographics_chart_info.html:4
 msgid "Learners (Self-Reported)"
-msgstr "Öğrenen (Bireysel Raporlama)"
+msgstr "Öğrenciler (Bireysel Raporlama)"
 
 #: analytics_dashboard/courses/templates/courses/engagement_content.html:23
 msgid "Weekly Learner Engagement"
@@ -402,7 +402,7 @@ msgstr "Öğrenci Etkinliği Metrikleri"
 
 #: analytics_dashboard/courses/templates/courses/engagement_content.html:54
 msgid "Active Learners Last Week"
-msgstr "Geçen hafta aktif olan öğrenciler"
+msgstr "Geçen Hafta Aktif Olan Öğrenciler"
 
 #: analytics_dashboard/courses/templates/courses/engagement_content.html:55
 msgid "Learners who visited at least one page in the course content."
@@ -412,7 +412,7 @@ msgstr "Ders içeriğinde en az bir sayfayı ziyaret eden öğrenciler."
 #. a video.
 #: analytics_dashboard/courses/templates/courses/engagement_content.html:61
 msgid "Watched a Video Last Week"
-msgstr "Geçen hafta bir video izlendi"
+msgstr "Geçen Hafta Bir Video İzledi"
 
 #: analytics_dashboard/courses/templates/courses/engagement_content.html:62
 msgid "Learners who played one or more videos."
@@ -422,13 +422,13 @@ msgstr "Bir ya da daha fazla video izleyen öğrenciler."
 #. problem.
 #: analytics_dashboard/courses/templates/courses/engagement_content.html:68
 msgid "Tried a Problem Last Week"
-msgstr "Geçen hafta bir sorun denedi"
+msgstr "Geçen Hafta Problem Çözmeyi Deneyenler"
 
 #: analytics_dashboard/courses/templates/courses/engagement_content.html:69
 msgid ""
 "Learners who submitted an answer for a standard problem. Not all problem "
 "types are included."
-msgstr "Standart problem için bir cevap teslim eden öğrenciler. Tüm sorun tipleri yer almamaktadır."
+msgstr "Standart bir problem için cevap gönderen öğrenciler. Tüm problem tipleri dahil edilmemiştir."
 
 #. Translators: This is a label indicating the number of learners who posted
 #. in a forum discussion.
@@ -493,7 +493,7 @@ msgstr "Toplam Video İzlenme Sayısı"
 
 #: analytics_dashboard/courses/templates/courses/engagement_video_timeline.html:26
 msgid "What were the viewing patterns for this video?"
-msgstr "Bu video için görüntüleme modelleri nelerdir?"
+msgstr "Bu video için izlenme şablonları nelerdi?"
 
 #: analytics_dashboard/courses/templates/courses/engagement_video_timeline.html:31
 msgid ""
@@ -858,7 +858,7 @@ msgstr "öğrencilerin %(percent)s%%"
 #: analytics_dashboard/courses/templates/courses/enrollment_geography.html:91
 #: analytics_dashboard/courses/templates/courses/enrollment_geography.html:98
 msgid "Geographic Breakdown"
-msgstr "Coğrafik Dağılım"
+msgstr "Coğrafi Dağılım"
 
 #. Translators: Application here refers to the web site/application being used
 #. (e.g. the dashboard).
@@ -901,7 +901,7 @@ msgstr "Temel Ders Bilgisi"
 #. course.
 #: analytics_dashboard/courses/templates/courses/home.html:106
 msgid "External Tools"
-msgstr "Dışsal Araç"
+msgstr "Harici Araçlar"
 
 #: analytics_dashboard/courses/templates/courses/index.html:10
 #: analytics_dashboard/courses/views/course_summaries.py:31
@@ -987,7 +987,7 @@ msgid ""
 "\n"
 "      How are learners doing on the %(type)s?\n"
 "    "
-msgstr "\n      Öğrenciler %(type)snasıl yapıyor?\n    "
+msgstr "\n      Öğrenciler %(type)s nasıl yapıyor?\n    "
 
 #: analytics_dashboard/courses/templates/courses/performance_graded_content_by_type.html:15
 msgid ""
@@ -1065,7 +1065,7 @@ msgstr "İzin Alma Başarısız"
 msgid ""
 "There was a problem retrieving course permissions for your account. Please "
 "try again. If you continue to experience issues, please let us know."
-msgstr "Hesabınız için kurs izinlerini alınırken bir sorun oluştu.Lütfen tekrar deneyiniz. Eğer sorunlar yaşamaya devam ederseniz, lütfen bize bildirin."
+msgstr "Hesabınız için ders izinlerini alınırken bir sorun oluştu. Lütfen tekrar deneyiniz. Eğer sorun yaşamaya devam ederseniz, lütfen bize bildirin."
 
 #: analytics_dashboard/courses/templates/courses/permissions-retrieval-failed.html:14
 msgid "Try Again"
@@ -1085,7 +1085,7 @@ msgstr "Faaliyet"
 #: analytics_dashboard/courses/views/enrollment.py:23
 #: analytics_dashboard/courses/views/enrollment.py:31
 msgid "Demographics"
-msgstr "Demografik "
+msgstr "Demografi"
 
 #: analytics_dashboard/courses/tests/test_views/__init__.py:291
 #: analytics_dashboard/courses/views/__init__.py:591
@@ -1480,7 +1480,7 @@ msgstr "Gezinme Menüsü."
 
 #: analytics_dashboard/templates/loading.html:7
 msgid "Loading"
-msgstr "Yükleniyor..."
+msgstr "Yükleniyor"
 
 #: analytics_dashboard/templates/section_error.html:10
 msgid "We are unable to load this chart."
