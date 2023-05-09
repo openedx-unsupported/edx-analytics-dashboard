@@ -19,7 +19,7 @@ babel==2.12.1
     #   sphinx
 beautifulsoup4==4.12.2
     # via pydata-sphinx-theme
-certifi==2022.12.7
+certifi==2023.5.7
     # via
     #   -r requirements/base.txt
     #   requests
@@ -51,7 +51,7 @@ defusedxml==0.7.1
     #   -r requirements/base.txt
     #   python3-openid
     #   social-auth-core
-django==3.2.18
+django==3.2.19
     # via
     #   -c requirements/common_constraints.txt
     #   -c requirements/constraints.txt
@@ -155,7 +155,7 @@ idna==3.4
     #   requests
 imagesize==1.4.1
     # via sphinx
-importlib-metadata==6.5.0
+importlib-metadata==6.6.0
     # via sphinx
 jinja2==3.1.2
     # via
@@ -263,7 +263,7 @@ pyyaml==6.0
     #   code-annotations
     #   edx-django-release-util
     #   edx-i18n-tools
-requests==2.28.2
+requests==2.30.0
     # via
     #   -r requirements/base.txt
     #   edx-analytics-data-api-client
@@ -302,7 +302,7 @@ social-auth-app-django==5.2.0
     # via
     #   -r requirements/base.txt
     #   edx-auth-backends
-social-auth-core==4.4.1
+social-auth-core==4.4.2
     # via
     #   -r requirements/base.txt
     #   edx-auth-backends
@@ -352,7 +352,7 @@ unicodecsv==0.14.1
     # via
     #   -r requirements/base.txt
     #   djangorestframework-csv
-urllib3==1.26.15
+urllib3==2.0.2
     # via
     #   -r requirements/base.txt
     #   requests
