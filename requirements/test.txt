@@ -9,7 +9,7 @@ asgiref==3.6.0
     #   -r requirements/base.txt
     #   django
     #   django-countries
-astroid==2.15.4
+astroid==2.15.5
     # via
     #   -r requirements/test.in
     #   pylint
@@ -150,7 +150,7 @@ edx-opaque-keys==2.3.0
     #   -r requirements/base.txt
     #   edx-ccx-keys
     #   edx-drf-extensions
-edx-rest-api-client==5.5.0
+edx-rest-api-client==5.5.1
     # via -r requirements/base.txt
 edx-toggles==5.0.0
     # via -r requirements/base.txt
@@ -212,7 +212,7 @@ pbr==5.11.1
     #   stevedore
 pinax-announcements==4.0.0
     # via -r requirements/base.txt
-platformdirs==3.5.0
+platformdirs==3.5.1
     # via pylint
 pluggy==1.0.0
     # via pytest
@@ -240,7 +240,7 @@ pyjwkest==1.4.2
     # via
     #   -r requirements/base.txt
     #   edx-drf-extensions
-pyjwt[crypto]==2.6.0
+pyjwt[crypto]==2.7.0
     # via
     #   -r requirements/base.txt
     #   drf-jwt
@@ -259,7 +259,7 @@ pylint-celery==0.3
     # via edx-lint
 pylint-django==2.5.3
     # via edx-lint
-pylint-plugin-utils==0.7
+pylint-plugin-utils==0.8.1
     # via
     #   pylint-celery
     #   pylint-django
@@ -356,7 +356,7 @@ sqlparse==0.4.4
     # via
     #   -r requirements/base.txt
     #   django
-stevedore==5.0.0
+stevedore==5.1.0
     # via
     #   -r requirements/base.txt
     #   code-annotations

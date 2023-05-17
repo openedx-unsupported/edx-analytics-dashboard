@@ -9,7 +9,7 @@ asgiref==3.6.0
     #   -r requirements/test.txt
     #   django
     #   django-countries
-astroid==2.15.4
+astroid==2.15.5
     # via
     #   -r requirements/test.txt
     #   pylint
@@ -111,7 +111,7 @@ django-crum==0.7.9
     #   -r requirements/test.txt
     #   edx-django-utils
     #   edx-toggles
-django-debug-toolbar==4.0.0
+django-debug-toolbar==4.1.0
     # via -r requirements/local.in
 django-dynamic-fixture==3.1.2
     # via -r requirements/test.txt
@@ -168,7 +168,7 @@ edx-opaque-keys==2.3.0
     #   -r requirements/test.txt
     #   edx-ccx-keys
     #   edx-drf-extensions
-edx-rest-api-client==5.5.0
+edx-rest-api-client==5.5.1
     # via -r requirements/test.txt
 edx-toggles==5.0.0
     # via -r requirements/test.txt
@@ -257,7 +257,7 @@ pinax-announcements==4.0.0
     # via -r requirements/test.txt
 pip-tools==6.13.0
     # via -r requirements/pip_tools.txt
-platformdirs==3.5.0
+platformdirs==3.5.1
     # via
     #   -r requirements/test.txt
     #   -r requirements/tox.txt
@@ -297,7 +297,7 @@ pyjwkest==1.4.2
     # via
     #   -r requirements/test.txt
     #   edx-drf-extensions
-pyjwt[crypto]==2.6.0
+pyjwt[crypto]==2.7.0
     # via
     #   -r requirements/test.txt
     #   drf-jwt
@@ -320,7 +320,7 @@ pylint-django==2.5.3
     # via
     #   -r requirements/test.txt
     #   edx-lint
-pylint-plugin-utils==0.7
+pylint-plugin-utils==0.8.1
     # via
     #   -r requirements/test.txt
     #   pylint-celery
@@ -427,7 +427,7 @@ sqlparse==0.4.4
     #   -r requirements/test.txt
     #   django
     #   django-debug-toolbar
-stevedore==5.0.0
+stevedore==5.1.0
     # via
     #   -r requirements/test.txt
     #   code-annotations
