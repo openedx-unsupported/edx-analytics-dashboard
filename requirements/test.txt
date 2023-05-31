@@ -4,7 +4,7 @@
 #
 #    make upgrade
 #
-asgiref==3.7.1
+asgiref==3.7.2
     # via
     #   -r requirements/base.txt
     #   django
@@ -43,7 +43,7 @@ code-annotations==1.3.0
     #   -r requirements/base.txt
     #   edx-lint
     #   edx-toggles
-coverage[toml]==7.2.6
+coverage[toml]==7.2.7
     # via
     #   -r requirements/test.in
     #   pytest-cov
@@ -264,7 +264,7 @@ pytest==7.3.1
     #   -r requirements/test.in
     #   pytest-cov
     #   pytest-django
-pytest-cov==4.0.0
+pytest-cov==4.1.0
     # via -r requirements/test.in
 pytest-django==4.5.2
     # via -r requirements/test.in
@@ -361,7 +361,7 @@ tomli==2.0.1
     #   pytest
 tomlkit==0.11.8
     # via pylint
-typing-extensions==4.6.1
+typing-extensions==4.6.2
     # via
     #   -r requirements/base.txt
     #   asgiref
