@@ -55,7 +55,7 @@ coverage[toml]==7.2.7
     # via
     #   -r requirements/test.txt
     #   pytest-cov
-cryptography==40.0.2
+cryptography==41.0.1
     # via
     #   -r requirements/test.txt
     #   pyjwt
@@ -151,7 +151,7 @@ edx-ccx-keys==1.2.1
     # via -r requirements/test.txt
 edx-django-release-util==1.2.0
     # via -r requirements/test.txt
-edx-django-utils==5.4.0
+edx-django-utils==5.5.0
     # via
     #   -r requirements/test.txt
     #   edx-drf-extensions
@@ -211,7 +211,7 @@ libsass==0.22.0
     # via -r requirements/test.txt
 logutils==0.3.5
     # via -r requirements/test.txt
-markupsafe==2.1.2
+markupsafe==2.1.3
     # via
     #   -r requirements/test.txt
     #   jinja2
@@ -447,7 +447,7 @@ tox==3.28.0
     #   tox-battery
 tox-battery==0.6.1
     # via -r requirements/tox.txt
-typing-extensions==4.6.2
+typing-extensions==4.6.3
     # via
     #   -r requirements/test.txt
     #   asgiref
