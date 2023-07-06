@@ -2,6 +2,10 @@ FROM ubuntu:focal as app
 
 ENV DEBIAN_FRONTEND noninteractive
 
+# Packages installed:
+
+# pkg-config; mysqlclient>=2.2.0 requires pkg-config (https://github.com/PyMySQL/mysqlclient/issues/620)
+
 RUN apt-get update && apt-get install --no-install-recommends -qy \
   language-pack-en \
   build-essential \
@@ -9,6 +13,7 @@ RUN apt-get update && apt-get install --no-install-recommends -qy \
   python3-virtualenv \
   python3.8-distutils \
   libmysqlclient-dev \
+  pkg-config \
   libssl-dev \
   # needed by phantomjs
   libfontconfig \
