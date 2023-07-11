@@ -9,7 +9,7 @@ asgiref==3.7.2
     #   -r requirements/base.txt
     #   django
     #   django-countries
-astroid==2.15.5
+astroid==2.15.6
     # via
     #   -r requirements/test.in
     #   pylint
@@ -25,7 +25,7 @@ cffi==1.15.1
     #   -r requirements/base.txt
     #   cryptography
     #   pynacl
-charset-normalizer==3.1.0
+charset-normalizer==3.2.0
     # via
     #   -r requirements/base.txt
     #   requests
@@ -47,7 +47,7 @@ coverage[toml]==7.2.7
     # via
     #   -r requirements/test.in
     #   pytest-cov
-cryptography==41.0.1
+cryptography==41.0.2
     # via
     #   -r requirements/base.txt
     #   pyjwt
