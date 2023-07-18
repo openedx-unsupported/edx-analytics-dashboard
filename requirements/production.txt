@@ -22,7 +22,7 @@ charset-normalizer==3.2.0
     # via
     #   -r requirements/base.txt
     #   requests
-click==8.1.4
+click==8.1.5
     # via
     #   -r requirements/base.txt
     #   code-annotations
@@ -131,7 +131,7 @@ edx-rest-api-client==5.5.2
     # via -r requirements/base.txt
 edx-toggles==5.0.0
     # via -r requirements/base.txt
-gunicorn==20.1.0
+gunicorn==21.1.0
     # via -r requirements/production.in
 idna==3.4
     # via
@@ -162,6 +162,8 @@ oauthlib==3.2.2
     #   -r requirements/base.txt
     #   requests-oauthlib
     #   social-auth-core
+packaging==23.1
+    # via gunicorn
 path==16.7.1
     # via
     #   -r requirements/base.txt
@@ -222,7 +224,7 @@ pytz==2023.3
     #   -r requirements/base.txt
     #   django
     #   djangorestframework
-pyyaml==6.0
+pyyaml==6.0.1
     # via
     #   -r requirements/base.txt
     #   -r requirements/production.in

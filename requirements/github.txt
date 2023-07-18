@@ -4,7 +4,7 @@
 #
 #    make upgrade
 #
-distlib==0.3.6
+distlib==0.3.7
     # via
     #   -r requirements/tox.txt
     #   virtualenv
@@ -17,7 +17,7 @@ packaging==23.1
     # via
     #   -r requirements/tox.txt
     #   tox
-platformdirs==3.8.1
+platformdirs==3.9.1
     # via
     #   -r requirements/tox.txt
     #   virtualenv
@@ -44,7 +44,7 @@ tox==3.28.0
     #   tox-battery
 tox-battery==0.6.1
     # via -r requirements/tox.txt
-virtualenv==20.23.1
+virtualenv==20.24.0
     # via
     #   -r requirements/tox.txt
     #   tox
