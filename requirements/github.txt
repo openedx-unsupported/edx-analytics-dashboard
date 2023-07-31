@@ -4,34 +4,24 @@
 #
 #    make upgrade
 #
-certifi==2022.12.7
-    # via requests
-charset-normalizer==3.1.0
-    # via requests
-codecov==2.1.12
-    # via -r requirements/github.in
-coverage==7.2.1
-    # via codecov
-distlib==0.3.6
+distlib==0.3.7
     # via
     #   -r requirements/tox.txt
     #   virtualenv
-filelock==3.9.0
+filelock==3.12.2
     # via
     #   -r requirements/tox.txt
     #   tox
     #   virtualenv
-idna==3.4
-    # via requests
-packaging==23.0
+packaging==23.1
     # via
     #   -r requirements/tox.txt
     #   tox
-platformdirs==3.1.0
+platformdirs==3.9.1
     # via
     #   -r requirements/tox.txt
     #   virtualenv
-pluggy==1.0.0
+pluggy==1.2.0
     # via
     #   -r requirements/tox.txt
     #   tox
@@ -39,8 +29,6 @@ py==1.11.0
     # via
     #   -r requirements/tox.txt
     #   tox
-requests==2.28.2
-    # via codecov
 six==1.16.0
     # via
     #   -r requirements/tox.txt
@@ -56,9 +44,7 @@ tox==3.28.0
     #   tox-battery
 tox-battery==0.6.1
     # via -r requirements/tox.txt
-urllib3==1.26.14
-    # via requests
-virtualenv==20.20.0
+virtualenv==20.24.2
     # via
     #   -r requirements/tox.txt
     #   tox
