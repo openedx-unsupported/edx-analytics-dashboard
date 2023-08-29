@@ -8,7 +8,7 @@ distlib==0.3.7
     # via
     #   -r requirements/tox.txt
     #   virtualenv
-filelock==3.12.2
+filelock==3.12.3
     # via
     #   -r requirements/tox.txt
     #   tox
@@ -21,7 +21,7 @@ platformdirs==3.10.0
     # via
     #   -r requirements/tox.txt
     #   virtualenv
-pluggy==1.2.0
+pluggy==1.3.0
     # via
     #   -r requirements/tox.txt
     #   tox
@@ -42,8 +42,12 @@ tox==3.28.0
     #   -c requirements/common_constraints.txt
     #   -r requirements/tox.txt
     #   tox-battery
-tox-battery==0.6.1
+tox-battery==0.6.2
     # via -r requirements/tox.txt
+typing-extensions==4.7.1
+    # via
+    #   -r requirements/tox.txt
+    #   filelock
 virtualenv==20.24.3
     # via
     #   -r requirements/tox.txt
