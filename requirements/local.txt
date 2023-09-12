@@ -16,7 +16,7 @@ astroid==2.15.6
     #   pylint-celery
 bok-choy==2.0.2
     # via -r requirements/test.txt
-build==1.0.0
+build==1.0.3
     # via
     #   -r requirements/pip_tools.txt
     #   pip-tools
@@ -51,7 +51,7 @@ code-annotations==1.5.0
     #   -r requirements/test.txt
     #   edx-lint
     #   edx-toggles
-coverage[toml]==7.3.0
+coverage[toml]==7.3.1
     # via
     #   -r requirements/test.txt
     #   pytest-cov
@@ -330,7 +330,7 @@ pyproject-hooks==1.0.0
     # via
     #   -r requirements/pip_tools.txt
     #   build
-pytest==7.4.1
+pytest==7.4.2
     # via
     #   -r requirements/test.txt
     #   pytest-cov
@@ -471,7 +471,7 @@ urllib3==2.0.4
     #   -r requirements/test.txt
     #   requests
     #   selenium
-virtualenv==20.24.4
+virtualenv==20.24.5
     # via
     #   -r requirements/tox.txt
     #   tox
