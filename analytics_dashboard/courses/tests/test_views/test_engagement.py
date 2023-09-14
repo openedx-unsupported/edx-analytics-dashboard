@@ -4,7 +4,7 @@ import httpretty
 from ddt import ddt, data
 from django.test import TestCase
 from django.urls import reverse
-from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import gettext_lazy as _
 from waffle.testutils import override_switch
 
 from analytics_dashboard.courses.tests import utils

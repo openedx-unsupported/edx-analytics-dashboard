@@ -6,7 +6,7 @@ from analyticsclient.constants import UNKNOWN_COUNTRY_CODE, demographics
 from analyticsclient.constants import education_levels as EDUCATION_LEVEL
 from analyticsclient.constants import enrollment_modes
 from analyticsclient.constants import genders as GENDER
-from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import gettext_lazy as _
 from django_countries import countries
 
 import analytics_dashboard.courses.utils as utils

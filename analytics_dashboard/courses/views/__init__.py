@@ -16,8 +16,8 @@ from django.http import Http404
 from django.urls import reverse
 from django.utils import dateformat
 from django.utils.functional import cached_property
-from django.utils.translation import ugettext_lazy as _
-from django.utils.translation import ugettext_noop
+from django.utils.translation import gettext_lazy as _
+from django.utils.translation import gettext_noop
 from django.views import View
 from django.views.generic import TemplateView
 from requests.exceptions import HTTPError
@@ -304,7 +304,7 @@ class CourseNavBarMixin:
         items = [
             {
                 'name': 'enrollment',
-                'text': ugettext_noop('Enrollment'),
+                'text': gettext_noop('Enrollment'),
                 'view': 'courses:enrollment:activity',
                 'icon': 'fa-child',
                 'fragment': '',
@@ -315,7 +315,7 @@ class CourseNavBarMixin:
             },
             {
                 'name': 'engagement',
-                'text': ugettext_noop('Engagement'),
+                'text': gettext_noop('Engagement'),
                 'view': 'courses:engagement:content',
                 'icon': 'fa-bar-chart',
                 'fragment': '',
@@ -326,7 +326,7 @@ class CourseNavBarMixin:
             },
             {
                 'name': 'performance',
-                'text': ugettext_noop('Performance'),
+                'text': gettext_noop('Performance'),
                 'view': 'courses:performance:graded_content',
                 'icon': 'fa-check-square-o',
                 'switch': 'enable_course_api',
@@ -529,7 +529,7 @@ class CourseHome(AnalyticsV0Mixin, CourseTemplateWithNavView):
 
         enrollment_subitems = [
             {
-                'title': ugettext_noop('How many learners are in my course?'),
+                'title': gettext_noop('How many learners are in my course?'),
                 'view': 'courses:enrollment:activity',
                 'breadcrumbs': [_('Activity')],
                 'fragment': '',
@@ -541,7 +541,7 @@ class CourseHome(AnalyticsV0Mixin, CourseTemplateWithNavView):
         if age_available():
             enrollment_subitems = enrollment_subitems + [
                 {
-                    'title': ugettext_noop('How old are my learners?'),
+                    'title': gettext_noop('How old are my learners?'),
                     'view': 'courses:enrollment:demographics_age',
                     'breadcrumbs': [_('Demographics'), _('Age')],
                     'fragment': '',
@@ -552,7 +552,7 @@ class CourseHome(AnalyticsV0Mixin, CourseTemplateWithNavView):
                 }]
         enrollment_subitems = enrollment_subitems + [
             {
-                'title': ugettext_noop('What level of education do my learners have?'),
+                'title': gettext_noop('What level of education do my learners have?'),
                 'view': 'courses:enrollment:demographics_education',
                 'breadcrumbs': [_('Demographics'), _('Education')],
                 'fragment': '',
@@ -562,7 +562,7 @@ class CourseHome(AnalyticsV0Mixin, CourseTemplateWithNavView):
                 'depth': 'education'
             },
             {
-                'title': ugettext_noop('What is the learner gender breakdown?'),
+                'title': gettext_noop('What is the learner gender breakdown?'),
                 'view': 'courses:enrollment:demographics_gender',
                 'breadcrumbs': [_('Demographics'), _('Gender')],
                 'fragment': '',
@@ -572,7 +572,7 @@ class CourseHome(AnalyticsV0Mixin, CourseTemplateWithNavView):
                 'depth': 'gender'
             },
             {
-                'title': ugettext_noop('Where are my learners?'),
+                'title': gettext_noop('Where are my learners?'),
                 'view': 'courses:enrollment:geography',
                 'breadcrumbs': [_('Geography')],
                 'fragment': '',
@@ -597,7 +597,7 @@ class CourseHome(AnalyticsV0Mixin, CourseTemplateWithNavView):
             'heading': _('What are learners doing in my course?'),
             'items': [
                 {
-                    'title': ugettext_noop('How many learners are interacting with my course?'),
+                    'title': gettext_noop('How many learners are interacting with my course?'),
                     'view': 'courses:engagement:content',
                     'breadcrumbs': [_('Content')],
                     'fragment': '',
@@ -610,7 +610,7 @@ class CourseHome(AnalyticsV0Mixin, CourseTemplateWithNavView):
         }
         if switch_is_active('enable_engagement_videos_pages'):
             engagement_items['items'].append({
-                'title': ugettext_noop('How did learners interact with course videos?'),
+                'title': gettext_noop('How did learners interact with course videos?'),
                 'view': 'courses:engagement:videos',
                 'breadcrumbs': [_('Videos')],
                 'fragment': '',
@@ -624,7 +624,7 @@ class CourseHome(AnalyticsV0Mixin, CourseTemplateWithNavView):
 
         if self.course_api_enabled:
             subitems = [{
-                'title': ugettext_noop('How are learners doing on graded course assignments?'),
+                'title': gettext_noop('How are learners doing on graded course assignments?'),
                 'view': 'courses:performance:graded_content',
                 'breadcrumbs': [_('Graded Content')],
                 'fragment': '',
@@ -633,7 +633,7 @@ class CourseHome(AnalyticsV0Mixin, CourseTemplateWithNavView):
                 'report': 'graded',
                 'depth': ''
             }, {
-                'title': ugettext_noop('How are learners doing on ungraded exercises?'),
+                'title': gettext_noop('How are learners doing on ungraded exercises?'),
                 'view': 'courses:performance:ungraded_content',
                 'breadcrumbs': [_('Ungraded Problems')],
                 'fragment': '',
@@ -645,7 +645,7 @@ class CourseHome(AnalyticsV0Mixin, CourseTemplateWithNavView):
 
             if switch_is_active('enable_performance_learning_outcome'):
                 subitems.append({
-                    'title': ugettext_noop('What is the breakdown for course learning outcomes?'),
+                    'title': gettext_noop('What is the breakdown for course learning outcomes?'),
                     'view': 'courses:performance:learning_outcomes',
                     'breadcrumbs': [_('Learning Outcomes')],
                     'fragment': '',
@@ -665,7 +665,7 @@ class CourseHome(AnalyticsV0Mixin, CourseTemplateWithNavView):
                 if 'download_url' in info:
                     # A problem response report CSV is available:
                     subitems.append({
-                        'title': ugettext_noop('How are learners responding to questions?'),
+                        'title': gettext_noop('How are learners responding to questions?'),
                         'view': 'courses:csv:performance_problem_responses',
                         'breadcrumbs': [_('Problem Response Report')],
                         'format': 'csv',
@@ -731,12 +731,12 @@ class CourseHome(AnalyticsV0Mixin, CourseTemplateWithNavView):
 
         if settings.LMS_COURSE_SHORTCUT_BASE_URL:
             external_tools.append({
-                'title': ugettext_noop('Instructor Dashboard'),
+                'title': gettext_noop('Instructor Dashboard'),
                 'url': f"{settings.LMS_COURSE_SHORTCUT_BASE_URL}/{self.course_id}/instructor",
                 'icon': 'fa-dashboard',
             })
             external_tools.append({
-                'title': ugettext_noop('Courseware'),
+                'title': gettext_noop('Courseware'),
                 'url': f"{settings.LMS_COURSE_SHORTCUT_BASE_URL}/{self.course_id}/courseware",
                 'icon': 'fa-pencil-square-o',
             })

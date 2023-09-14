@@ -6,7 +6,7 @@ from analyticsclient.exceptions import NotFoundError
 from django.conf import settings
 from django.core.cache import cache
 from django.urls import reverse
-from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import gettext_lazy as _
 from requests.exceptions import HTTPError
 from slugify import slugify
 
