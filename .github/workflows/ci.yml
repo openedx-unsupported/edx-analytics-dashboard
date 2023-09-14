@@ -12,7 +12,7 @@ jobs:
       matrix:
         python-version: ["3.8"]
         os: [ubuntu-20.04]
-        toxenv: [django32]
+        toxenv: [django32, django42]
         node: [16]
     env:
       DATA_API_VERSION: "latest"
