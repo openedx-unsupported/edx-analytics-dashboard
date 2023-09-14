@@ -10,7 +10,7 @@ from django.conf import settings
 from django.contrib.humanize.templatetags.humanize import intcomma
 from django.core.cache import cache
 from django.urls import reverse
-from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import gettext_lazy as _
 from waffle.testutils import override_switch
 
 from analytics_dashboard.core.tests.test_views import RedirectTestCaseMixin, UserTestCaseMixin

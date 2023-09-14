@@ -9,7 +9,7 @@ from django.db import DatabaseError
 from django.test import TestCase
 from django.test.utils import override_settings
 from django.urls import reverse, reverse_lazy
-from django.utils.http import urlquote
+from urllib.parse import quote
 from django_dynamic_fixture import G
 from testfixtures import LogCapture
 
@@ -55,7 +55,7 @@ class UserTestCaseMixin:
 class RedirectTestCaseMixin:
     def assertRedirectsNoFollow(self, response, expected_url, status_code=302, **querystringkwargs):
         if querystringkwargs:
-            expected_url += '?{}'.format('&'.join('{}={}'.format(key, urlquote(value))
+            expected_url += '?{}'.format('&'.join('{}={}'.format(key, quote(value))
                                                   for (key, value) in querystringkwargs.items()))
 
         self.assertEqual(response['Location'], f'{expected_url}')

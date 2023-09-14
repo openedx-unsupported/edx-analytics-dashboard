@@ -3,8 +3,8 @@ import logging
 from analyticsclient.exceptions import NotFoundError
 from django.conf import settings
 from django.http import Http404
-from django.utils.translation import ugettext_lazy as _
-from django.utils.translation import ugettext_noop
+from django.utils.translation import gettext_lazy as _
+from django.utils.translation import gettext_noop
 from waffle import switch_is_active
 
 from analytics_dashboard.core.utils import translate_dict_values
@@ -30,7 +30,7 @@ class EngagementTemplateView(CourseTemplateWithNavView):
         {
             'name': 'content',
             # Translators: Content as in course content (e.g. things, not the feeling)
-            'text': ugettext_noop('Content'),
+            'text': gettext_noop('Content'),
             'view': 'courses:engagement:content',
             'scope': 'course',
             'lens': 'engagement',
@@ -39,7 +39,7 @@ class EngagementTemplateView(CourseTemplateWithNavView):
         },
         {
             'name': 'videos',
-            'text': ugettext_noop('Videos'),
+            'text': gettext_noop('Videos'),
             'view': 'courses:engagement:videos',
             'switch': 'enable_engagement_videos_pages',
             'scope': 'course',
