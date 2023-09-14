@@ -12,17 +12,17 @@ jobs:
       matrix:
         python-version: ["3.8"]
         os: [ubuntu-20.04]
-        toxenv: [django32]
+        toxenv: [django42]
         node: [16]
     env:
       DATA_API_VERSION: "latest"
     steps:
       - name: setup python
-        uses: actions/setup-python@v2
+        uses: actions/setup-python@v3
         with:
           python-version: ${{ matrix.python-version }}
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
         with:
           fetch-depth: 0
       - name: start container
