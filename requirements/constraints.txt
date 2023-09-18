@@ -15,3 +15,6 @@ django-webpack-loader==0.7.0
 
 # Constraint Django to 3.2 LTS
 django<3.3
+
+# urllib3 > 2.0.2 introduces an error
+urllib3>=1.26.15, <2
