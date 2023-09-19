@@ -2,6 +2,7 @@ import json
 import logging
 
 import unittest.mock as mock
+from urllib.parse import quote
 from django.conf import settings
 from django.contrib.auth import get_user_model
 from django.core.cache import cache
@@ -9,7 +10,6 @@ from django.db import DatabaseError
 from django.test import TestCase
 from django.test.utils import override_settings
 from django.urls import reverse, reverse_lazy
-from urllib.parse import quote
 from django_dynamic_fixture import G
 from testfixtures import LogCapture
 

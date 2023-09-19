@@ -114,7 +114,7 @@ django-crum==0.7.9
     #   edx-toggles
 django-debug-toolbar==4.2.0
     # via -r requirements/local.in
-django-dynamic-fixture==4.0.0
+django-dynamic-fixture==4.0.1
     # via -r requirements/test.txt
 django-lang-pref-middleware==1.3.0
     # via -r requirements/test.txt
@@ -158,9 +158,9 @@ edx-django-utils==5.7.0
     #   edx-drf-extensions
     #   edx-rest-api-client
     #   edx-toggles
-edx-drf-extensions==8.9.2
+edx-drf-extensions==8.9.3
     # via -r requirements/test.txt
-edx-i18n-tools==1.1.0
+edx-i18n-tools==1.2.0
     # via -r requirements/test.txt
 edx-lint==5.3.4
     # via -r requirements/test.txt
@@ -177,7 +177,7 @@ exceptiongroup==1.1.3
     # via
     #   -r requirements/test.txt
     #   pytest
-filelock==3.12.3
+filelock==3.12.4
     # via
     #   -r requirements/tox.txt
     #   tox
@@ -204,7 +204,7 @@ jinja2==3.1.2
     # via
     #   -r requirements/test.txt
     #   code-annotations
-lazy==1.5
+lazy==1.6
     # via
     #   -r requirements/test.txt
     #   bok-choy
@@ -339,10 +339,6 @@ pytest-cov==4.1.0
     # via -r requirements/test.txt
 pytest-django==4.5.2
     # via -r requirements/test.txt
-python-dateutil==2.8.2
-    # via
-    #   -r requirements/test.txt
-    #   edx-drf-extensions
 python-slugify==8.0.1
     # via
     #   -r requirements/test.txt
@@ -391,9 +387,7 @@ six==1.16.0
     #   edx-auth-backends
     #   edx-ccx-keys
     #   edx-django-release-util
-    #   edx-drf-extensions
     #   edx-lint
-    #   python-dateutil
     #   tox
 slumber==0.7.1
     # via
@@ -423,7 +417,7 @@ stevedore==5.1.0
     #   code-annotations
     #   edx-django-utils
     #   edx-opaque-keys
-testfixtures==7.1.0
+testfixtures==7.2.0
     # via -r requirements/test.txt
 text-unidecode==1.3
     # via
@@ -452,22 +446,21 @@ tox==3.28.0
     #   tox-battery
 tox-battery==0.6.2
     # via -r requirements/tox.txt
-typing-extensions==4.7.1
+typing-extensions==4.8.0
     # via
     #   -r requirements/test.txt
-    #   -r requirements/tox.txt
     #   asgiref
     #   astroid
     #   django-countries
     #   edx-opaque-keys
-    #   filelock
     #   pylint
 unicodecsv==0.14.1
     # via
     #   -r requirements/test.txt
     #   djangorestframework-csv
-urllib3==2.0.4
+urllib3==1.26.16
     # via
+    #   -c requirements/constraints.txt
     #   -r requirements/test.txt
     #   requests
     #   selenium
@@ -483,7 +476,7 @@ wrapt==1.15.0
     # via
     #   -r requirements/test.txt
     #   astroid
-zipp==3.16.2
+zipp==3.17.0
     # via
     #   -r requirements/pip_tools.txt
     #   importlib-metadata

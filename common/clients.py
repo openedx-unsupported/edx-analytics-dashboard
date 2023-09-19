@@ -49,7 +49,7 @@ class CourseStructureApiClient(OAuthAPIClient):
 
         return courses
 
-    def request(self, method, url, **kwargs):
+    def request(self, method, url, **kwargs):  # pylint: disable=arguments-differ
         response = super().request(method, url, **kwargs)
         response.raise_for_status()
         return response
