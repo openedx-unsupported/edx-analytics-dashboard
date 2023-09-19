@@ -14,15 +14,8 @@ astroid==2.15.6
     #   -r requirements/test.in
     #   pylint
     #   pylint-celery
-<<<<<<< HEAD
 bok-choy==2.0.2
     # via -r requirements/test.in
-=======
-bok-choy==1.1.1
-    # via
-    #   -c requirements/constraints.txt
-    #   -r requirements/test.in
->>>>>>> d24960dd (fix: docs and testing failure)
 certifi==2023.7.22
     # via
     #   -r requirements/base.txt
@@ -319,7 +312,6 @@ semantic-version==2.10.0
 six==1.16.0
     # via
     #   -r requirements/base.txt
-    #   bok-choy
     #   djangorestframework-csv
     #   edx-auth-backends
     #   edx-ccx-keys
