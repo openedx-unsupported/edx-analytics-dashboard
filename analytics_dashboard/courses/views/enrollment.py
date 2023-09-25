@@ -2,8 +2,8 @@ import logging
 
 from analyticsclient.exceptions import NotFoundError
 from django.contrib.humanize.templatetags.humanize import intcomma
-from django.utils.translation import ugettext_lazy as _
-from django.utils.translation import ugettext_noop
+from django.utils.translation import gettext_lazy as _
+from django.utils.translation import gettext_noop
 
 from analytics_dashboard.core.utils import translate_dict_values
 from analytics_dashboard.courses.presenters.enrollment import (
@@ -20,7 +20,7 @@ logger = logging.getLogger(__name__)
 def _enrollment_secondary_nav():
     demographics_landing_view = {
         'name': 'demographics',
-        'text': ugettext_noop('Demographics'),
+        'text': gettext_noop('Demographics'),
         'view': 'courses:enrollment:demographics_age',
         'scope': 'course',
         'lens': 'enrollment',
@@ -28,7 +28,7 @@ def _enrollment_secondary_nav():
         'depth': 'age'
     } if age_available() else {
         'name': 'demographics',
-        'text': ugettext_noop('Demographics'),
+        'text': gettext_noop('Demographics'),
         'view': 'courses:enrollment:demographics_education',
         'scope': 'course',
         'lens': 'enrollment',
@@ -39,7 +39,7 @@ def _enrollment_secondary_nav():
     secondary_nav_items = [
         {
             'name': 'activity',
-            'text': ugettext_noop('Activity'),
+            'text': gettext_noop('Activity'),
             'view': 'courses:enrollment:activity',
             'scope': 'course',
             'lens': 'enrollment',
@@ -49,7 +49,7 @@ def _enrollment_secondary_nav():
         demographics_landing_view,
         {
             'name': 'geography',
-            'text': ugettext_noop('Geography'),
+            'text': gettext_noop('Geography'),
             'view': 'courses:enrollment:geography',
             'scope': 'course',
             'lens': 'enrollment',
@@ -74,7 +74,7 @@ def _enrollment_tertiary_nav():
     tertiary_age = [
         {
             'name': 'age',
-            'text': ugettext_noop('Age'),
+            'text': gettext_noop('Age'),
             'view': 'courses:enrollment:demographics_age',
             'scope': 'course',
             'lens': 'enrollment',
@@ -85,7 +85,7 @@ def _enrollment_tertiary_nav():
     tertiary_nav_items = tertiary_age + [
         {
             'name': 'education',
-            'text': ugettext_noop('Education'),
+            'text': gettext_noop('Education'),
             'view': 'courses:enrollment:demographics_education',
             'scope': 'course',
             'lens': 'enrollment',
@@ -94,7 +94,7 @@ def _enrollment_tertiary_nav():
         },
         {
             'name': 'gender',
-            'text': ugettext_noop('Gender'),
+            'text': gettext_noop('Gender'),
             'view': 'courses:enrollment:demographics_gender',
             'scope': 'course',
             'lens': 'enrollment',

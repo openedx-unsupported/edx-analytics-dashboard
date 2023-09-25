@@ -3,8 +3,8 @@ import logging
 
 from django.conf import settings
 from django.http import Http404
-from django.utils.translation import ugettext_lazy as _
-from django.utils.translation import ugettext_noop
+from django.utils.translation import gettext_lazy as _
+from django.utils.translation import gettext_noop
 from slugify import slugify
 from waffle import switch_is_active
 
@@ -40,7 +40,7 @@ class PerformanceTemplateView(AnalyticsV1Mixin, CourseStructureExceptionMixin, C
     secondary_nav_items_base = [
         {
             'name': 'graded_content',
-            'text': ugettext_noop('Graded Content'),
+            'text': gettext_noop('Graded Content'),
             'view': 'courses:performance:graded_content',
             'scope': 'course',
             'lens': 'performance',
@@ -49,7 +49,7 @@ class PerformanceTemplateView(AnalyticsV1Mixin, CourseStructureExceptionMixin, C
         },
         {
             'name': 'ungraded_content',
-            'text': ugettext_noop('Ungraded Problems'),
+            'text': gettext_noop('Ungraded Problems'),
             'view': 'courses:performance:ungraded_content',
             'scope': 'course',
             'lens': 'performance',
@@ -67,7 +67,7 @@ class PerformanceTemplateView(AnalyticsV1Mixin, CourseStructureExceptionMixin, C
             if not any(d['name'] == 'learning_outcomes' for d in self.secondary_nav_items):
                 self.secondary_nav_items.append({
                     'name': 'learning_outcomes',
-                    'text': ugettext_noop('Learning Outcomes'),
+                    'text': gettext_noop('Learning Outcomes'),
                     'view': 'courses:performance:learning_outcomes',
                     'scope': 'course',
                     'lens': 'performance',
