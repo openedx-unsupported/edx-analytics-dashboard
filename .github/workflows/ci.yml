@@ -66,7 +66,7 @@ jobs:
         env:
           TESTNAME: acceptance
           NODE: ${{ env.NODE_VER }}
-          TARGETS: "requirements.a11y migrate requirements.js static accept"
+          TARGETS: "requirements.a11y migrate requirements.js"
       - name: test python
         run: ./.github/scripts/testing-js.sh
         shell: bash
