@@ -13,7 +13,7 @@ jobs:
         python-version: ["3.8"]
         os: [ubuntu-20.04]
         toxenv: [django32]
-
+        node: [16]
     env:
       DATA_API_VERSION: "latest"
     steps:
@@ -22,15 +22,9 @@ jobs:
         with:
           python-version: ${{ matrix.python-version }}
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v2
         with:
           fetch-depth: 0
-      - name: Setup Nodejs Env
-        run: echo "NODE_VER=`cat .nvmrc`" >> $GITHUB_ENV
-      - name: Setup Nodejs
-        uses: actions/setup-node@v3
-        with:
-          node-version: ${{ env.NODE_VER }}
       - name: start container
         run: docker-compose -f .github/docker-compose-github.yml up -d
       - name: setup analytics-api
@@ -47,19 +41,12 @@ jobs:
         env:
           TESTNAME: quality
           TARGETS: "quality"
-      - name: test python
-        run: ./.github/scripts/testing-js.sh
-        shell: bash
-        env:
-          TESTNAME: test-python
-          NODE: ${{ env.NODE_VER }}
-          TARGETS: "requirements.js test_python"
       - name: test js
         run: ./.github/scripts/testing-js.sh
         shell: bash
         env:
           TESTNAME: js
-          NODE: ${{ env.NODE_VER }}
+          NODE: ${{ matrix.node }}
           TARGETS: "requirements.js validate_js"
       - name: test i18n
         run: ./.github/scripts/testing.sh
@@ -72,7 +59,14 @@ jobs:
         shell: bash
         env:
           TESTNAME: acceptance
-          NODE: ${{ env.NODE_VER }}
-          TARGETS: "requirements.a11y migrate requirements.js"
+          NODE: ${{ matrix.node }}
+          TARGETS: "requirements.a11y migrate requirements.js static accept"
+      - name: test python
+        run: ./.github/scripts/testing-js.sh
+        shell: bash
+        env:
+          TESTNAME: test-python
+          NODE: ${{ matrix.node }}
+          TARGETS: "requirements.js static test_python"
       - name: code cov
         uses: codecov/codecov-action@v3
