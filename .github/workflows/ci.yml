@@ -73,6 +73,6 @@ jobs:
         env:
           TESTNAME: test-python
           NODE: ${{ env.NODE_VER }}
-          TARGETS: "requirements.js static test_python"
+          TARGETS: "requirements.js test_python"
       - name: code cov
         uses: codecov/codecov-action@v3
