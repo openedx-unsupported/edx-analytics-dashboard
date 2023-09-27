@@ -47,6 +47,13 @@ jobs:
         env:
           TESTNAME: quality
           TARGETS: "quality"
+      - name: test python
+        run: ./.github/scripts/testing-js.sh
+        shell: bash
+        env:
+          TESTNAME: test-python
+          NODE: ${{ env.NODE_VER }}
+          TARGETS: "requirements.js test_python"
       - name: test js
         run: ./.github/scripts/testing-js.sh
         shell: bash
@@ -67,12 +74,5 @@ jobs:
           TESTNAME: acceptance
           NODE: ${{ env.NODE_VER }}
           TARGETS: "requirements.a11y migrate requirements.js"
-      - name: test python
-        run: ./.github/scripts/testing-js.sh
-        shell: bash
-        env:
-          TESTNAME: test-python
-          NODE: ${{ env.NODE_VER }}
-          TARGETS: "requirements.js test_python"
       - name: code cov
         uses: codecov/codecov-action@v3
