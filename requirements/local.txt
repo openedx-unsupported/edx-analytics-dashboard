@@ -9,7 +9,7 @@ asgiref==3.7.2
     #   -r requirements/test.txt
     #   django
     #   django-countries
-astroid==2.15.6
+astroid==2.15.8
     # via
     #   -r requirements/test.txt
     #   pylint
@@ -55,7 +55,7 @@ coverage[toml]==7.3.1
     # via
     #   -r requirements/test.txt
     #   pytest-cov
-cryptography==41.0.3
+cryptography==41.0.4
     # via
     #   -r requirements/test.txt
     #   pyjwt
@@ -164,7 +164,7 @@ edx-i18n-tools==1.2.0
     # via -r requirements/test.txt
 edx-lint==5.3.4
     # via -r requirements/test.txt
-edx-opaque-keys==2.5.0
+edx-opaque-keys==2.5.1
     # via
     #   -r requirements/test.txt
     #   edx-ccx-keys
@@ -226,7 +226,7 @@ mccabe==0.7.0
     #   pylint
 mysqlclient==2.2.0
     # via -r requirements/local.in
-newrelic==9.0.0
+newrelic==9.1.0
     # via
     #   -r requirements/test.txt
     #   edx-django-utils
@@ -298,7 +298,7 @@ pyjwt[crypto]==2.8.0
     #   edx-drf-extensions
     #   edx-rest-api-client
     #   social-auth-core
-pylint==2.17.5
+pylint==2.17.6
     # via
     #   -r requirements/test.txt
     #   edx-lint
