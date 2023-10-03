@@ -515,3 +515,6 @@ JWT_AUTH = {
 # See https://openedx.atlassian.net/wiki/spaces/AC/pages/3066626061/Django+3.2+Upgrade+Key+Changes
 DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'
 DEFAULT_HASHING_ALGORITHM = 'sha1'
+
+CSRF_TRUSTED_ORIGINS = []
+CSRF_TRUSTED_ORIGINS_WITH_SCHEME = []  # temporary setting for Django 4.2 support
