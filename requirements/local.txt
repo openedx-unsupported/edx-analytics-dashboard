@@ -16,6 +16,10 @@ astroid==2.15.8
     #   -r requirements/test.txt
     #   pylint
     #   pylint-celery
+backports-zoneinfo==0.2.1
+    # via
+    #   -r requirements/test.txt
+    #   django
 bok-choy==2.0.2
     # via -r requirements/test.txt
 build==1.0.3
@@ -77,9 +81,8 @@ distlib==0.3.7
     # via
     #   -r requirements/tox.txt
     #   virtualenv
-django==3.2.22
+django==4.2.6
     # via
-    #   -c requirements/common_constraints.txt
     #   -c requirements/constraints.txt
     #   -r requirements/test.txt
     #   django-appconf
@@ -354,7 +357,6 @@ python3-openid==3.2.0
 pytz==2023.3.post1
     # via
     #   -r requirements/test.txt
-    #   django
     #   djangorestframework
 pyyaml==6.0.1
     # via

@@ -84,6 +84,9 @@ USE_L10N = True
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#use-tz
 USE_TZ = True
 
+# Keep using deprecated pytz with Django>4.2
+USE_DEPRECATED_PYTZ = True
+
 FORMAT_MODULE_PATH = 'core.formats'
 ########## END GENERAL CONFIGURATION
 

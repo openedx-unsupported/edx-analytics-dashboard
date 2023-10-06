@@ -19,6 +19,10 @@ babel==2.13.0
     # via
     #   pydata-sphinx-theme
     #   sphinx
+backports-zoneinfo==0.2.1
+    # via
+    #   -r requirements/base.txt
+    #   django
 beautifulsoup4==4.12.2
     # via pydata-sphinx-theme
 certifi==2023.7.22
@@ -53,9 +57,8 @@ defusedxml==0.8.0rc2
     #   -r requirements/base.txt
     #   python3-openid
     #   social-auth-core
-django==3.2.22
+django==4.2.6
     # via
-    #   -c requirements/common_constraints.txt
     #   -c requirements/constraints.txt
     #   -r requirements/base.txt
     #   django-appconf
@@ -244,7 +247,6 @@ pytz==2023.3.post1
     # via
     #   -r requirements/base.txt
     #   babel
-    #   django
     #   djangorestframework
 pyyaml==6.0.1
     # via

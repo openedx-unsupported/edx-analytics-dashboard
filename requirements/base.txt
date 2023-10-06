@@ -10,6 +10,8 @@ asgiref==3.7.2
     # via
     #   django
     #   django-countries
+backports-zoneinfo==0.2.1
+    # via django
 certifi==2023.7.22
     # via requests
 cffi==1.16.0
@@ -32,9 +34,8 @@ defusedxml==0.8.0rc2
     # via
     #   python3-openid
     #   social-auth-core
-django==3.2.22
+django==4.2.6
     # via
-    #   -c requirements/common_constraints.txt
     #   -c requirements/constraints.txt
     #   -r requirements/base.in
     #   django-appconf
@@ -170,9 +171,7 @@ python-slugify==8.0.1
 python3-openid==3.2.0
     # via social-auth-core
 pytz==2023.3.post1
-    # via
-    #   django
-    #   djangorestframework
+    # via djangorestframework
 pyyaml==6.0.1
     # via
     #   code-annotations
