@@ -19,7 +19,7 @@ DOC_ENROLLMENT_ACTIVITY = build_doc_url('enrollment/Enrollment_Activity.html')
 
 class HelpURLMiddlewareTests(TestCase):
     def setUp(self):
-        self.middleware = HelpURLMiddleware()
+        self.middleware = HelpURLMiddleware(get_response=lambda request: None)
 
     def assertHelpURLEqual(self, page_token, expected_url):
         request = http.HttpRequest()
