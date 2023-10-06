@@ -4,6 +4,8 @@
 #
 #    make upgrade
 #
+-e git+https://github.com/openedx/pinax-announcements.git@60a3fdf171b520d8593a9b2190d1c01a6614ab59#egg=pinax-announcements
+    # via -r requirements/base.txt
 asgiref==3.7.2
     # via
     #   -r requirements/base.txt
@@ -13,12 +15,12 @@ certifi==2023.7.22
     # via
     #   -r requirements/base.txt
     #   requests
-cffi==1.15.1
+cffi==1.16.0
     # via
     #   -r requirements/base.txt
     #   cryptography
     #   pynacl
-charset-normalizer==3.2.0
+charset-normalizer==3.3.0
     # via
     #   -r requirements/base.txt
     #   requests
@@ -36,12 +38,12 @@ cryptography==41.0.4
     #   -r requirements/base.txt
     #   pyjwt
     #   social-auth-core
-defusedxml==0.7.1
+defusedxml==0.8.0rc2
     # via
     #   -r requirements/base.txt
     #   python3-openid
     #   social-auth-core
-django==3.2.21
+django==3.2.22
     # via
     #   -c requirements/common_constraints.txt
     #   -c requirements/constraints.txt
@@ -121,7 +123,7 @@ edx-django-utils==5.7.0
     #   edx-toggles
 edx-drf-extensions==8.10.0
     # via -r requirements/base.txt
-edx-i18n-tools==1.2.0
+edx-i18n-tools==1.3.0
     # via -r requirements/base.txt
 edx-opaque-keys==2.5.1
     # via
@@ -146,6 +148,10 @@ libsass==0.22.0
     # via -r requirements/base.txt
 logutils==0.3.5
     # via -r requirements/base.txt
+lxml==4.9.3
+    # via
+    #   -r requirements/base.txt
+    #   edx-i18n-tools
 markupsafe==2.1.3
     # via
     #   -r requirements/base.txt
@@ -163,7 +169,7 @@ oauthlib==3.2.2
     #   -r requirements/base.txt
     #   requests-oauthlib
     #   social-auth-core
-packaging==23.1
+packaging==23.2
     # via gunicorn
 path==16.7.1
     # via
@@ -176,8 +182,6 @@ pbr==5.11.1
     # via
     #   -r requirements/base.txt
     #   stevedore
-pinax-announcements==4.0.0
-    # via -r requirements/base.txt
 polib==1.2.0
     # via
     #   -r requirements/base.txt
@@ -292,7 +296,7 @@ unicodecsv==0.14.1
     # via
     #   -r requirements/base.txt
     #   djangorestframework-csv
-urllib3==1.26.16
+urllib3==1.26.17
     # via
     #   -c requirements/constraints.txt
     #   -r requirements/base.txt

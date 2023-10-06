@@ -14,7 +14,6 @@ django-crispy-forms     				# MIT
 django-lang-pref-middleware
 django-waffle       					# BSD
 django-soapbox							# BSD
-pinax-announcements     				# MIT
 edx-auth-backends
 edx-ccx-keys
 edx-opaque-keys
@@ -32,3 +31,6 @@ stevedore
 path.py
 python-slugify
 social-auth-app-django
+
+# Using github hash temporarily until new version of pinax-announcements gets released
+-e git+https://github.com/openedx/pinax-announcements.git@60a3fdf171b520d8593a9b2190d1c01a6614ab59#egg=pinax-announcements

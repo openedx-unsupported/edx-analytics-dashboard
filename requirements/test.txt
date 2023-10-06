@@ -4,6 +4,8 @@
 #
 #    make upgrade
 #
+-e git+https://github.com/openedx/pinax-announcements.git@60a3fdf171b520d8593a9b2190d1c01a6614ab59#egg=pinax-announcements
+    # via -r requirements/base.txt
 asgiref==3.7.2
     # via
     #   -r requirements/base.txt
@@ -20,12 +22,12 @@ certifi==2023.7.22
     # via
     #   -r requirements/base.txt
     #   requests
-cffi==1.15.1
+cffi==1.16.0
     # via
     #   -r requirements/base.txt
     #   cryptography
     #   pynacl
-charset-normalizer==3.2.0
+charset-normalizer==3.3.0
     # via
     #   -r requirements/base.txt
     #   requests
@@ -43,7 +45,7 @@ code-annotations==1.5.0
     #   -r requirements/base.txt
     #   edx-lint
     #   edx-toggles
-coverage[toml]==7.3.1
+coverage[toml]==7.3.2
     # via
     #   -r requirements/test.in
     #   pytest-cov
@@ -54,7 +56,7 @@ cryptography==41.0.4
     #   social-auth-core
 ddt==1.6.0
     # via -r requirements/test.in
-defusedxml==0.7.1
+defusedxml==0.8.0rc2
     # via
     #   -r requirements/base.txt
     #   python3-openid
@@ -142,7 +144,7 @@ edx-django-utils==5.7.0
     #   edx-toggles
 edx-drf-extensions==8.10.0
     # via -r requirements/base.txt
-edx-i18n-tools==1.2.0
+edx-i18n-tools==1.3.0
     # via -r requirements/base.txt
 edx-lint==5.3.4
     # via -r requirements/test.in
@@ -179,6 +181,10 @@ libsass==0.22.0
     # via -r requirements/base.txt
 logutils==0.3.5
     # via -r requirements/base.txt
+lxml==4.9.3
+    # via
+    #   -r requirements/base.txt
+    #   edx-i18n-tools
 markupsafe==2.1.3
     # via
     #   -r requirements/base.txt
@@ -194,7 +200,7 @@ oauthlib==3.2.2
     #   -r requirements/base.txt
     #   requests-oauthlib
     #   social-auth-core
-packaging==23.1
+packaging==23.2
     # via pytest
 path==16.7.1
     # via
@@ -207,9 +213,7 @@ pbr==5.11.1
     # via
     #   -r requirements/base.txt
     #   stevedore
-pinax-announcements==4.0.0
-    # via -r requirements/base.txt
-platformdirs==3.10.0
+platformdirs==3.11.0
     # via pylint
 pluggy==1.3.0
     # via pytest
@@ -237,7 +241,7 @@ pyjwt[crypto]==2.8.0
     #   edx-drf-extensions
     #   edx-rest-api-client
     #   social-auth-core
-pylint==2.17.6
+pylint==2.17.7
     # via
     #   -r requirements/test.in
     #   edx-lint
@@ -367,7 +371,7 @@ unicodecsv==0.14.1
     # via
     #   -r requirements/base.txt
     #   djangorestframework-csv
-urllib3==1.26.16
+urllib3==1.26.17
     # via
     #   -c requirements/constraints.txt
     #   -r requirements/base.txt
