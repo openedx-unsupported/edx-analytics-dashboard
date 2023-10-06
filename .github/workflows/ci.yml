@@ -12,7 +12,7 @@ jobs:
       matrix:
         python-version: ["3.8"]
         os: [ubuntu-20.04]
-        toxenv: [django32]
+        toxenv: [django32, django42]
         node: [16]
     env:
       DATA_API_VERSION: "latest"
@@ -31,7 +31,7 @@ jobs:
         run: |
           docker exec analytics_api bash -c "
           source /edx/app/analytics_api/venvs/analytics_api/bin/activate &&
-          pip install setuptools==49.6.0 &&
+          pip install setuptools==68.2.2 &&
           make -C /edx/app/analytics_api/analytics_api github_ci"
       - name: install dependencies
         run: pip install -r requirements/github.txt
@@ -41,18 +41,21 @@ jobs:
         env:
           TESTNAME: quality
           TARGETS: "quality"
+          TOXENV: ${{ matrix.toxenv }}
       - name: test js
         run: ./.github/scripts/testing-js.sh
         shell: bash
         env:
           TESTNAME: js
           NODE: ${{ matrix.node }}
+          TOXENV: ${{ matrix.toxenv }}
           TARGETS: "requirements.js validate_js"
       - name: test i18n
         run: ./.github/scripts/testing.sh
         shell: bash
         env:
           TESTNAME: test-i18n
+          TOXENV: ${{ matrix.toxenv }}
           TARGETS: "generate_fake_translations"
       - name: test acceptance
         run: ./.github/scripts/testing-js.sh
@@ -60,6 +63,7 @@ jobs:
         env:
           TESTNAME: acceptance
           NODE: ${{ matrix.node }}
+          TOXENV: ${{ matrix.toxenv }}
           TARGETS: "requirements.a11y migrate requirements.js static accept"
       - name: test python
         run: ./.github/scripts/testing-js.sh
@@ -67,6 +71,7 @@ jobs:
         env:
           TESTNAME: test-python
           NODE: ${{ matrix.node }}
+          TOXENV: ${{ matrix.toxenv }}
           TARGETS: "requirements.js static test_python"
       - name: code cov
         uses: codecov/codecov-action@v3
