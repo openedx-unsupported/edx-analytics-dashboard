@@ -1,5 +1,7 @@
 """Production settings and globals."""
 
+import django
+
 from analytics_dashboard.settings.base import *
 from analytics_dashboard.settings.logger import get_logger_config
 from analytics_dashboard.settings.yaml_config import *
@@ -36,3 +38,6 @@ DOCUMENTATION_LOAD_ERROR_MESSAGE = 'This data may not be available for your cour
 # Use Cloudfront CDN for assets
 if CDN_DOMAIN:
     STATIC_URL = 'https://' + CDN_DOMAIN + '/static/'
+
+if django.VERSION[0] >= 4:  # for greater than django 3.2 use schemes.
+    CSRF_TRUSTED_ORIGINS = CSRF_TRUSTED_ORIGINS_WITH_SCHEME

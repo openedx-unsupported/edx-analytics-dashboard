@@ -4,16 +4,22 @@
 #
 #    make upgrade
 #
+-e git+https://github.com/openedx/pinax-announcements.git@60a3fdf171b520d8593a9b2190d1c01a6614ab59#egg=pinax-announcements
+    # via -r requirements/test.txt
 asgiref==3.7.2
     # via
     #   -r requirements/test.txt
     #   django
     #   django-countries
-astroid==2.15.6
+astroid==2.15.8
     # via
     #   -r requirements/test.txt
     #   pylint
     #   pylint-celery
+backports-zoneinfo==0.2.1
+    # via
+    #   -r requirements/test.txt
+    #   django
 bok-choy==2.0.2
     # via -r requirements/test.txt
 build==1.0.3
@@ -24,12 +30,12 @@ certifi==2023.7.22
     # via
     #   -r requirements/test.txt
     #   requests
-cffi==1.15.1
+cffi==1.16.0
     # via
     #   -r requirements/test.txt
     #   cryptography
     #   pynacl
-charset-normalizer==3.2.0
+charset-normalizer==3.3.0
     # via
     #   -r requirements/test.txt
     #   requests
@@ -51,18 +57,18 @@ code-annotations==1.5.0
     #   -r requirements/test.txt
     #   edx-lint
     #   edx-toggles
-coverage[toml]==7.3.1
+coverage[toml]==7.3.2
     # via
     #   -r requirements/test.txt
     #   pytest-cov
-cryptography==41.0.3
+cryptography==41.0.4
     # via
     #   -r requirements/test.txt
     #   pyjwt
     #   social-auth-core
 ddt==1.6.0
     # via -r requirements/test.txt
-defusedxml==0.7.1
+defusedxml==0.8.0rc2
     # via
     #   -r requirements/test.txt
     #   python3-openid
@@ -75,9 +81,8 @@ distlib==0.3.7
     # via
     #   -r requirements/tox.txt
     #   virtualenv
-django==3.2.21
+django==4.2.6
     # via
-    #   -c requirements/common_constraints.txt
     #   -c requirements/constraints.txt
     #   -r requirements/test.txt
     #   django-appconf
@@ -160,11 +165,11 @@ edx-django-utils==5.7.0
     #   edx-toggles
 edx-drf-extensions==8.10.0
     # via -r requirements/test.txt
-edx-i18n-tools==1.2.0
+edx-i18n-tools==1.3.0
     # via -r requirements/test.txt
 edx-lint==5.3.4
     # via -r requirements/test.txt
-edx-opaque-keys==2.5.0
+edx-opaque-keys==2.5.1
     # via
     #   -r requirements/test.txt
     #   edx-ccx-keys
@@ -216,6 +221,10 @@ libsass==0.22.0
     # via -r requirements/test.txt
 logutils==0.3.5
     # via -r requirements/test.txt
+lxml==4.9.3
+    # via
+    #   -r requirements/test.txt
+    #   edx-i18n-tools
 markupsafe==2.1.3
     # via
     #   -r requirements/test.txt
@@ -226,7 +235,7 @@ mccabe==0.7.0
     #   pylint
 mysqlclient==2.2.0
     # via -r requirements/local.in
-newrelic==9.0.0
+newrelic==9.1.0
     # via
     #   -r requirements/test.txt
     #   edx-django-utils
@@ -235,7 +244,7 @@ oauthlib==3.2.2
     #   -r requirements/test.txt
     #   requests-oauthlib
     #   social-auth-core
-packaging==23.1
+packaging==23.2
     # via
     #   -r requirements/pip_tools.txt
     #   -r requirements/test.txt
@@ -254,11 +263,9 @@ pbr==5.11.1
     # via
     #   -r requirements/test.txt
     #   stevedore
-pinax-announcements==4.0.0
-    # via -r requirements/test.txt
 pip-tools==7.3.0
     # via -r requirements/pip_tools.txt
-platformdirs==3.10.0
+platformdirs==3.11.0
     # via
     #   -r requirements/test.txt
     #   -r requirements/tox.txt
@@ -298,7 +305,7 @@ pyjwt[crypto]==2.8.0
     #   edx-drf-extensions
     #   edx-rest-api-client
     #   social-auth-core
-pylint==2.17.5
+pylint==2.17.7
     # via
     #   -r requirements/test.txt
     #   edx-lint
@@ -350,7 +357,6 @@ python3-openid==3.2.0
 pytz==2023.3.post1
     # via
     #   -r requirements/test.txt
-    #   django
     #   djangorestframework
 pyyaml==6.0.1
     # via
@@ -458,7 +464,7 @@ unicodecsv==0.14.1
     # via
     #   -r requirements/test.txt
     #   djangorestframework-csv
-urllib3==1.26.16
+urllib3==1.26.17
     # via
     #   -c requirements/constraints.txt
     #   -r requirements/test.txt

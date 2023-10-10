@@ -20,7 +20,9 @@ RUN apt-get update && apt-get install --no-install-recommends -qy \
   # needed by i18n tests in CI
   gettext \
   # needed by a11y tests script
-  curl && \
+  curl \
+  # needed to install github based dependency
+  git && \
   rm -rf /var/lib/apt/lists/*
 
 RUN locale-gen en_US.UTF-8

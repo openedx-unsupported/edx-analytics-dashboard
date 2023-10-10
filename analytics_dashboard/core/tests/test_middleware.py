@@ -20,7 +20,7 @@ class MiddlewareTestCase(TestCase):
     def setUp(self):
         super().setUp()
         self.factory = RequestFactory()
-        self.middleware = self.middleware_class()   # pylint: disable=not-callable
+        self.middleware = self.middleware_class(get_response=lambda request: None)  # pylint: disable=not-callable
 
 
 class MiddlewareAssertionMixin:

@@ -84,6 +84,9 @@ USE_L10N = True
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#use-tz
 USE_TZ = True
 
+# Keep using deprecated pytz with Django>4.2
+USE_DEPRECATED_PYTZ = True
+
 FORMAT_MODULE_PATH = 'core.formats'
 ########## END GENERAL CONFIGURATION
 
@@ -515,3 +518,6 @@ JWT_AUTH = {
 # See https://openedx.atlassian.net/wiki/spaces/AC/pages/3066626061/Django+3.2+Upgrade+Key+Changes
 DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'
 DEFAULT_HASHING_ALGORITHM = 'sha1'
+
+CSRF_TRUSTED_ORIGINS = []
+CSRF_TRUSTED_ORIGINS_WITH_SCHEME = []  # temporary setting for Django 4.2 support
