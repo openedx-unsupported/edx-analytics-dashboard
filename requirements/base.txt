@@ -18,7 +18,7 @@ cffi==1.16.0
     # via
     #   cryptography
     #   pynacl
-charset-normalizer==3.3.0
+charset-normalizer==3.3.1
     # via requests
 click==8.1.7
     # via
@@ -26,7 +26,7 @@ click==8.1.7
     #   edx-django-utils
 code-annotations==1.5.0
     # via edx-toggles
-cryptography==41.0.4
+cryptography==41.0.5
     # via
     #   pyjwt
     #   social-auth-core
@@ -90,7 +90,7 @@ djangorestframework==3.14.0
     #   djangorestframework-csv
     #   drf-jwt
     #   edx-drf-extensions
-djangorestframework-csv==2.1.1
+djangorestframework-csv==3.0.1
     # via -r requirements/base.in
 drf-jwt==1.19.2
     # via edx-drf-extensions
@@ -133,7 +133,7 @@ lxml==4.9.3
     # via edx-i18n-tools
 markupsafe==2.1.3
     # via jinja2
-newrelic==9.1.0
+newrelic==9.1.1
     # via edx-django-utils
 oauthlib==3.2.2
     # via
@@ -193,7 +193,6 @@ semantic-version==2.10.0
     # via edx-drf-extensions
 six==1.16.0
     # via
-    #   djangorestframework-csv
     #   edx-auth-backends
     #   edx-ccx-keys
     #   edx-django-release-util
@@ -222,9 +221,7 @@ typing-extensions==4.8.0
     #   asgiref
     #   django-countries
     #   edx-opaque-keys
-unicodecsv==0.14.1
-    # via djangorestframework-csv
-urllib3==1.26.17
+urllib3==1.26.18
     # via
     #   -c requirements/constraints.txt
     #   requests
