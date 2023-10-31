@@ -11,7 +11,7 @@ asgiref==3.7.2
     #   -r requirements/test.txt
     #   django
     #   django-countries
-astroid==2.15.8
+astroid==3.0.1
     # via
     #   -r requirements/test.txt
     #   pylint
@@ -35,7 +35,7 @@ cffi==1.16.0
     #   -r requirements/test.txt
     #   cryptography
     #   pynacl
-charset-normalizer==3.3.0
+charset-normalizer==3.3.1
     # via
     #   -r requirements/test.txt
     #   requests
@@ -62,7 +62,7 @@ coverage[toml]==7.3.2
     #   -r requirements/test.txt
     #   coverage
     #   pytest-cov
-cryptography==41.0.4
+cryptography==41.0.5
     # via
     #   -r requirements/test.txt
     #   pyjwt
@@ -144,7 +144,7 @@ djangorestframework==3.14.0
     #   djangorestframework-csv
     #   drf-jwt
     #   edx-drf-extensions
-djangorestframework-csv==2.1.1
+djangorestframework-csv==3.0.1
     # via -r requirements/test.txt
 drf-jwt==1.19.2
     # via
@@ -168,7 +168,7 @@ edx-drf-extensions==8.12.0
     # via -r requirements/test.txt
 edx-i18n-tools==1.3.0
     # via -r requirements/test.txt
-edx-lint==5.3.4
+edx-lint==5.3.6
     # via -r requirements/test.txt
 edx-opaque-keys==2.5.1
     # via
@@ -183,7 +183,7 @@ exceptiongroup==1.1.3
     # via
     #   -r requirements/test.txt
     #   pytest
-filelock==3.12.4
+filelock==3.13.0
     # via
     #   -r requirements/tox.txt
     #   tox
@@ -214,10 +214,6 @@ lazy==1.6
     # via
     #   -r requirements/test.txt
     #   bok-choy
-lazy-object-proxy==1.9.0
-    # via
-    #   -r requirements/test.txt
-    #   astroid
 libsass==0.22.0
     # via -r requirements/test.txt
 logutils==0.3.5
@@ -236,7 +232,7 @@ mccabe==0.7.0
     #   pylint
 mysqlclient==2.2.0
     # via -r requirements/local.in
-newrelic==9.1.0
+newrelic==9.1.1
     # via
     #   -r requirements/test.txt
     #   edx-django-utils
@@ -307,7 +303,7 @@ pyjwt[crypto]==2.8.0
     #   edx-rest-api-client
     #   pyjwt
     #   social-auth-core
-pylint==2.17.7
+pylint==3.0.2
     # via
     #   -r requirements/test.txt
     #   edx-lint
@@ -318,7 +314,7 @@ pylint-celery==0.3
     # via
     #   -r requirements/test.txt
     #   edx-lint
-pylint-django==2.5.3
+pylint-django==2.5.5
     # via
     #   -r requirements/test.txt
     #   edx-lint
@@ -339,7 +335,7 @@ pyproject-hooks==1.0.0
     # via
     #   -r requirements/pip_tools.txt
     #   build
-pytest==7.4.2
+pytest==7.4.3
     # via
     #   -r requirements/test.txt
     #   pytest-cov
@@ -391,7 +387,6 @@ six==1.16.0
     # via
     #   -r requirements/test.txt
     #   -r requirements/tox.txt
-    #   djangorestframework-csv
     #   edx-auth-backends
     #   edx-ccx-keys
     #   edx-django-release-util
@@ -425,7 +420,7 @@ stevedore==5.1.0
     #   code-annotations
     #   edx-django-utils
     #   edx-opaque-keys
-testfixtures==7.2.0
+testfixtures==7.2.2
     # via -r requirements/test.txt
 text-unidecode==1.3
     # via
@@ -462,17 +457,13 @@ typing-extensions==4.8.0
     #   django-countries
     #   edx-opaque-keys
     #   pylint
-unicodecsv==0.14.1
-    # via
-    #   -r requirements/test.txt
-    #   djangorestframework-csv
-urllib3==1.26.17
+urllib3==1.26.18
     # via
     #   -c requirements/constraints.txt
     #   -r requirements/test.txt
     #   requests
     #   selenium
-virtualenv==20.24.5
+virtualenv==20.24.6
     # via
     #   -r requirements/tox.txt
     #   tox
@@ -480,10 +471,6 @@ wheel==0.41.2
     # via
     #   -r requirements/pip_tools.txt
     #   pip-tools
-wrapt==1.15.0
-    # via
-    #   -r requirements/test.txt
-    #   astroid
 zipp==3.17.0
     # via
     #   -r requirements/pip_tools.txt
