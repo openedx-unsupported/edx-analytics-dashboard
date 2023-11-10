@@ -3,7 +3,6 @@ import locale
 from unittest import skip
 
 from analyticsclient.client import Client
-from bok_choy.promise import EmptyPromise
 from selenium.webdriver.common.keys import Keys
 
 from acceptance_tests import (
@@ -88,19 +87,6 @@ class AssertMixin:
         # check that we have an email
         element = self.page.q(css=selector)
         self.assertEqual(element.text[0], DASHBOARD_FEEDBACK_EMAIL)
-
-    def fulfill_loading_promise(self, css_selector):
-        """
-        Ensure the info contained by `css_selector` is loaded via AJAX.
-
-        Arguments
-            css_selector (string)   --  CSS selector of the parent element that will contain the loading message.
-        """
-
-        EmptyPromise(
-            lambda: 'Loading...' not in self.page.q(css=css_selector + ' .loading-container').text,
-            "Loading finished."
-        ).fulfill()
 
     def assertTable(self, table_selector, columns, download_selector=None):
         # Ensure the table is loaded via AJAX
