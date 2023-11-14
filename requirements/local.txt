@@ -67,7 +67,7 @@ cryptography==41.0.5
     #   -r requirements/test.txt
     #   pyjwt
     #   social-auth-core
-ddt==1.6.0
+ddt==1.7.0
     # via -r requirements/test.txt
 defusedxml==0.8.0rc2
     # via
@@ -232,7 +232,7 @@ mccabe==0.7.0
     #   pylint
 mysqlclient==2.2.0
     # via -r requirements/local.in
-newrelic==9.1.1
+newrelic==9.1.2
     # via
     #   -r requirements/test.txt
     #   edx-django-utils
@@ -256,7 +256,7 @@ path==16.7.1
     #   path-py
 path-py==12.5.0
     # via -r requirements/test.txt
-pbr==5.11.1
+pbr==6.0.0
     # via
     #   -r requirements/test.txt
     #   stevedore
@@ -264,6 +264,7 @@ pip-tools==7.3.0
     # via -r requirements/pip_tools.txt
 platformdirs==3.11.0
     # via
+    #   -c requirements/common_constraints.txt
     #   -r requirements/test.txt
     #   -r requirements/tox.txt
     #   pylint
@@ -342,7 +343,7 @@ pytest==7.4.3
     #   pytest-django
 pytest-cov==4.1.0
     # via -r requirements/test.txt
-pytest-django==4.6.0
+pytest-django==4.7.0
     # via -r requirements/test.txt
 python-slugify==8.0.1
     # via
@@ -444,7 +445,6 @@ tomlkit==0.12.2
     #   pylint
 tox==3.28.0
     # via
-    #   -c requirements/common_constraints.txt
     #   -r requirements/tox.txt
     #   tox-battery
 tox-battery==0.6.2

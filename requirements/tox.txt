@@ -11,9 +11,14 @@ filelock==3.13.1
     #   tox
     #   virtualenv
 packaging==23.2
-    # via tox
+    # via
+    #   pyproject-api
+    #   tox
 platformdirs==3.11.0
-    # via virtualenv
+    # via
+    #   -c requirements/common_constraints.txt
+    #   tox
+    #   virtualenv
 pluggy==1.3.0
     # via tox
 py==1.11.0
@@ -21,10 +26,11 @@ py==1.11.0
 six==1.16.0
     # via tox
 tomli==2.0.1
-    # via tox
+    # via
+    #   pyproject-api
+    #   tox
 tox==3.28.0
     # via
-    #   -c requirements/common_constraints.txt
     #   -r requirements/tox.in
     #   tox-battery
 tox-battery==0.6.2

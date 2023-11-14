@@ -58,7 +58,7 @@ cryptography==41.0.5
     #   -r requirements/base.txt
     #   pyjwt
     #   social-auth-core
-ddt==1.6.0
+ddt==1.7.0
     # via -r requirements/test.in
 defusedxml==0.8.0rc2
     # via
@@ -192,7 +192,7 @@ markupsafe==2.1.3
     #   jinja2
 mccabe==0.7.0
     # via pylint
-newrelic==9.1.1
+newrelic==9.1.2
     # via
     #   -r requirements/base.txt
     #   edx-django-utils
@@ -210,12 +210,14 @@ path==16.7.1
     #   path-py
 path-py==12.5.0
     # via -r requirements/base.txt
-pbr==5.11.1
+pbr==6.0.0
     # via
     #   -r requirements/base.txt
     #   stevedore
 platformdirs==3.11.0
-    # via pylint
+    # via
+    #   -c requirements/common_constraints.txt
+    #   pylint
 pluggy==1.3.0
     # via pytest
 polib==1.2.0
@@ -273,7 +275,7 @@ pytest==7.4.3
     #   pytest-django
 pytest-cov==4.1.0
     # via -r requirements/test.in
-pytest-django==4.6.0
+pytest-django==4.7.0
     # via -r requirements/test.in
 python-slugify==8.0.1
     # via
