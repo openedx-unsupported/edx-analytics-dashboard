@@ -16,10 +16,6 @@ astroid==3.0.1
     #   -r requirements/test.in
     #   pylint
     #   pylint-celery
-attrs==23.1.0
-    # via
-    #   outcome
-    #   trio
 backports-zoneinfo==0.2.1
     # via
     #   -r requirements/base.txt
@@ -28,7 +24,6 @@ certifi==2023.7.22
     # via
     #   -r requirements/base.txt
     #   requests
-    #   selenium
 cffi==1.16.0
     # via
     #   -r requirements/base.txt
@@ -165,19 +160,13 @@ edx-rest-api-client==5.6.1
 edx-toggles==5.1.0
     # via -r requirements/base.txt
 exceptiongroup==1.1.3
-    # via
-    #   pytest
-    #   trio
-    #   trio-websocket
-h11==0.14.0
-    # via wsproto
+    # via pytest
 httpretty==1.1.4
     # via -r requirements/test.in
 idna==3.4
     # via
     #   -r requirements/base.txt
     #   requests
-    #   trio
 iniconfig==2.0.0
     # via pytest
 isort==5.12.0
@@ -200,7 +189,7 @@ markupsafe==2.1.3
     #   jinja2
 mccabe==0.7.0
     # via pylint
-newrelic==9.1.1
+newrelic==9.1.2
     # via
     #   -r requirements/base.txt
     #   edx-django-utils
@@ -209,8 +198,6 @@ oauthlib==3.2.2
     #   -r requirements/base.txt
     #   requests-oauthlib
     #   social-auth-core
-outcome==1.3.0.post0
-    # via trio
 packaging==23.2
     # via pytest
 path==16.7.1
@@ -225,7 +212,9 @@ pbr==6.0.0
     #   -r requirements/base.txt
     #   stevedore
 platformdirs==3.11.0
-    # via pylint
+    # via
+    #   -c requirements/common_constraints.txt
+    #   pylint
 pluggy==1.3.0
     # via pytest
 polib==1.2.0
@@ -276,8 +265,6 @@ pynacl==1.5.0
     # via
     #   -r requirements/base.txt
     #   edx-django-utils
-pysocks==1.7.1
-    # via urllib3
 pytest==7.4.3
     # via
     #   -r requirements/test.in
@@ -318,8 +305,6 @@ requests-oauthlib==1.3.1
     # via
     #   -r requirements/base.txt
     #   social-auth-core
-selenium==4.15.2
-    # via -r requirements/test.in
 semantic-version==2.10.0
     # via
     #   -r requirements/base.txt
@@ -335,8 +320,6 @@ slumber==0.7.1
     # via
     #   -r requirements/base.txt
     #   edx-rest-api-client
-sniffio==1.3.0
-    # via trio
 snowballstemmer==2.2.0
     # via pydocstyle
 social-auth-app-django==5.4.0
@@ -348,8 +331,6 @@ social-auth-core==4.5.0
     #   -r requirements/base.txt
     #   edx-auth-backends
     #   social-auth-app-django
-sortedcontainers==2.4.0
-    # via trio
 sqlparse==0.4.4
     # via
     #   -r requirements/base.txt
@@ -371,14 +352,8 @@ tomli==2.0.1
     #   coverage
     #   pylint
     #   pytest
-tomlkit==0.12.2
+tomlkit==0.12.3
     # via pylint
-trio==0.23.1
-    # via
-    #   selenium
-    #   trio-websocket
-trio-websocket==0.11.1
-    # via selenium
 typing-extensions==4.8.0
     # via
     #   -r requirements/base.txt
@@ -387,11 +362,8 @@ typing-extensions==4.8.0
     #   django-countries
     #   edx-opaque-keys
     #   pylint
-urllib3[socks]==1.26.18
+urllib3==1.26.18
     # via
     #   -c requirements/constraints.txt
     #   -r requirements/base.txt
     #   requests
-    #   selenium
-wsproto==1.2.0
-    # via trio-websocket
