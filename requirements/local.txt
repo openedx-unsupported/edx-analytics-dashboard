@@ -20,8 +20,6 @@ backports-zoneinfo==0.2.1
     # via
     #   -r requirements/test.txt
     #   django
-bok-choy==2.0.2
-    # via -r requirements/test.txt
 build==1.0.3
     # via
     #   -r requirements/pip_tools.txt
@@ -210,10 +208,6 @@ jinja2==3.1.2
     # via
     #   -r requirements/test.txt
     #   code-annotations
-lazy==1.6
-    # via
-    #   -r requirements/test.txt
-    #   bok-choy
 libsass==0.22.0
     # via -r requirements/test.txt
 logutils==0.3.5
@@ -375,10 +369,6 @@ requests-oauthlib==1.3.1
     # via
     #   -r requirements/test.txt
     #   social-auth-core
-selenium==3.141.0
-    # via
-    #   -r requirements/test.txt
-    #   bok-choy
 semantic-version==2.10.0
     # via
     #   -r requirements/test.txt
