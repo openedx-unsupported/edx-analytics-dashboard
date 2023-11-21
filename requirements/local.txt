@@ -24,7 +24,7 @@ build==1.0.3
     # via
     #   -r requirements/pip_tools.txt
     #   pip-tools
-certifi==2023.7.22
+certifi==2023.11.17
     # via
     #   -r requirements/test.txt
     #   requests
@@ -65,7 +65,7 @@ cryptography==41.0.5
     #   -r requirements/test.txt
     #   pyjwt
     #   social-auth-core
-ddt==1.6.0
+ddt==1.7.0
     # via -r requirements/test.txt
 defusedxml==0.8.0rc2
     # via
@@ -103,7 +103,7 @@ django==4.2.7
     #   edx-toggles
     #   pinax-announcements
     #   social-auth-app-django
-django-appconf==1.0.5
+django-appconf==1.0.6
     # via -r requirements/test.txt
 django-braces==1.15.0
     # via -r requirements/test.txt
@@ -162,7 +162,7 @@ edx-django-utils==5.8.0
     #   edx-drf-extensions
     #   edx-rest-api-client
     #   edx-toggles
-edx-drf-extensions==8.13.0
+edx-drf-extensions==8.13.1
     # via -r requirements/test.txt
 edx-i18n-tools==1.3.0
     # via -r requirements/test.txt
@@ -177,7 +177,7 @@ edx-rest-api-client==5.6.1
     # via -r requirements/test.txt
 edx-toggles==5.1.0
     # via -r requirements/test.txt
-exceptiongroup==1.1.3
+exceptiongroup==1.2.0
     # via
     #   -r requirements/test.txt
     #   pytest
@@ -226,7 +226,7 @@ mccabe==0.7.0
     #   pylint
 mysqlclient==2.2.0
     # via -r requirements/local.in
-newrelic==9.1.1
+newrelic==9.2.0
     # via
     #   -r requirements/test.txt
     #   edx-django-utils
@@ -250,7 +250,7 @@ path==16.7.1
     #   path-py
 path-py==12.5.0
     # via -r requirements/test.txt
-pbr==5.11.1
+pbr==6.0.0
     # via
     #   -r requirements/test.txt
     #   stevedore
@@ -258,6 +258,7 @@ pip-tools==7.3.0
     # via -r requirements/pip_tools.txt
 platformdirs==3.11.0
     # via
+    #   -c requirements/common_constraints.txt
     #   -r requirements/test.txt
     #   -r requirements/tox.txt
     #   pylint
@@ -336,7 +337,7 @@ pytest==7.4.3
     #   pytest-django
 pytest-cov==4.1.0
     # via -r requirements/test.txt
-pytest-django==4.6.0
+pytest-django==4.7.0
     # via -r requirements/test.txt
 python-slugify==8.0.1
     # via
@@ -428,13 +429,12 @@ tomli==2.0.1
     #   pyproject-hooks
     #   pytest
     #   tox
-tomlkit==0.12.2
+tomlkit==0.12.3
     # via
     #   -r requirements/test.txt
     #   pylint
 tox==3.28.0
     # via
-    #   -c requirements/common_constraints.txt
     #   -r requirements/tox.txt
     #   tox-battery
 tox-battery==0.6.2
@@ -452,7 +452,6 @@ urllib3==1.26.18
     #   -c requirements/constraints.txt
     #   -r requirements/test.txt
     #   requests
-    #   selenium
 virtualenv==20.24.6
     # via
     #   -r requirements/tox.txt
