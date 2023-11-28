@@ -47,7 +47,7 @@ code-annotations==1.5.0
     # via
     #   -r requirements/base.txt
     #   edx-toggles
-cryptography==41.0.5
+cryptography==41.0.7
     # via
     #   -r requirements/base.txt
     #   pyjwt
@@ -132,13 +132,13 @@ edx-ccx-keys==1.2.1
     # via -r requirements/base.txt
 edx-django-release-util==1.3.0
     # via -r requirements/base.txt
-edx-django-utils==5.8.0
+edx-django-utils==5.9.0
     # via
     #   -r requirements/base.txt
     #   edx-drf-extensions
     #   edx-rest-api-client
     #   edx-toggles
-edx-drf-extensions==8.13.1
+edx-drf-extensions==9.0.0
     # via -r requirements/base.txt
 edx-i18n-tools==1.3.0
     # via -r requirements/base.txt
@@ -151,7 +151,7 @@ edx-rest-api-client==5.6.1
     # via -r requirements/base.txt
 edx-toggles==5.1.0
     # via -r requirements/base.txt
-idna==3.4
+idna==3.6
     # via
     #   -r requirements/base.txt
     #   requests
@@ -212,9 +212,9 @@ pycparser==2.21
     # via
     #   -r requirements/base.txt
     #   cffi
-pydata-sphinx-theme==0.14.3
+pydata-sphinx-theme==0.14.4
     # via sphinx-book-theme
-pygments==2.17.1
+pygments==2.17.2
     # via
     #   accessible-pygments
     #   pydata-sphinx-theme
