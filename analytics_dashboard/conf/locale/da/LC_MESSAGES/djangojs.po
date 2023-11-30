@@ -5,13 +5,14 @@
 # Translators:
 # Translators:
 # Anders Haugaard Iversen <anha@seges.dk>, 2016
+# Pia Jensen, 2023
 msgid ""
 msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-05-18 15:22+0000\n"
 "PO-Revision-Date: 2014-08-26 21:24+0000\n"
-"Last-Translator: Anders Haugaard Iversen <anha@seges.dk>, 2016\n"
+"Last-Translator: Pia Jensen, 2023\n"
 "Language-Team: Danish (http://app.transifex.com/open-edx/edx-platform/language/da/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -36,13 +37,13 @@ msgstr "Alle"
 #. refers to the number of items belonging to that filter.
 #: analytics_dashboard/static/apps/components/filter/views/filter.js:90
 msgid "<%= name %> (<%= count %>)"
-msgstr "&lt;%= navn %&gt; (&lt;%= antal %&gt;)"
+msgstr "<%= name %> (<%= count %>)"
 
 #. Translators: this is a label describing a filter selection that the user
 #. initiated.
 #: analytics_dashboard/static/apps/components/generic-list/list/views/active-filters.js:62
 msgid "<%= filterDisplayName %>: <%= filterVal %>"
-msgstr "&lt;%= filterDisplayName %&gt;: &lt;%= filterVal %&gt;"
+msgstr "<%= filterDisplayName %>: <%= filterVal %>"
 
 #: analytics_dashboard/static/apps/components/generic-list/list/views/active-filters.js:87
 msgid "Filters In Use:"
@@ -86,7 +87,7 @@ msgstr "Resultater"
 #. table.
 #: analytics_dashboard/static/apps/components/generic-list/list/views/num-results.js:30
 msgid "Number of results: <%= count %>"
-msgstr "Antal resultater: &lt;%= count %&gt;"
+msgstr "Antal resultater: <%= count %>"
 
 #: analytics_dashboard/static/apps/components/generic-list/list/views/paging-footer.js:70
 msgid "first page"
@@ -294,7 +295,7 @@ msgstr "Spring til resultater"
 
 #: analytics_dashboard/static/apps/course-list/list/views/controls.js:58
 msgid "Find a course"
-msgstr "Find en Course"
+msgstr "Find et kursus"
 
 #: analytics_dashboard/static/apps/course-list/list/views/course-list.js:66
 msgid "Download full course list to CSV"
@@ -479,13 +480,13 @@ msgstr "Vend tilbage til eleverne"
 #. initiated.
 #: analytics_dashboard/static/apps/learners/roster/views/active-filters.js:23
 msgid "Cohort: <%= filterVal %>"
-msgstr "Kohorte: &lt;%= filterVal %&gt;"
+msgstr "Gruppe: <%= filterVal %>"
 
 #. Translators: this is a label describing a selection that the user
 #. initiated.
 #: analytics_dashboard/static/apps/learners/roster/views/active-filters.js:27
 msgid "Enrollment Track: <%= filterVal %>"
-msgstr "Tilmeldingsspor: &lt;%= filterVal %&gt;"
+msgstr "Tilmeldingsspor: <%= filterVal %>"
 
 #: analytics_dashboard/static/apps/learners/roster/views/active-filters.js:32
 #: analytics_dashboard/static/js/engagement-content-main.js:20
@@ -494,7 +495,7 @@ msgstr "Aktive elever"
 
 #: analytics_dashboard/static/apps/learners/roster/views/activity-date-range.js:11
 msgid "Activity between <%- startDate %> - <%- endDate %>"
-msgstr "Aktivitet mellem &lt;%- startDate %&gt; - &lt;%- endDate %&gt;"
+msgstr "Aktivitet mellem <%- startDate %> - <%- endDate %>"
 
 #: analytics_dashboard/static/apps/learners/roster/views/base-header-cell.js:10
 msgid "The name and username of this learner. Click to sort by username."
@@ -595,7 +596,7 @@ msgstr "Procent af nuværende elever"
 #. Translators: <%=value%> will be replaced with a date.
 #: analytics_dashboard/static/js/engagement-content-main.js:85
 msgid "Week Ending <%=value%>"
-msgstr "Ugeafslutning &lt;%=value%&gt;"
+msgstr "Ugeafslutning <%=value%>"
 
 #: analytics_dashboard/static/js/engagement-video-content-main.js:14
 msgid "Average Complete Views"
@@ -672,7 +673,7 @@ msgstr "Antal elever"
 #. Translators: <%=value%> will be replaced with an age.
 #: analytics_dashboard/static/js/enrollment-demographics-age-main.js:26
 msgid "Age: <%=value%>"
-msgstr "Alder: &lt;%=værdi%&gt;"
+msgstr "Alder: <%=value%>"
 
 #: analytics_dashboard/static/js/enrollment-demographics-age-main.js:33
 msgid "Age"
@@ -691,7 +692,7 @@ msgstr "Procent"
 #. Doctorate).
 #: analytics_dashboard/static/js/enrollment-demographics-education-main.js:24
 msgid "Education: <%=value%>"
-msgstr "Uddannelse: &lt;%=værdi%&gt;"
+msgstr "Uddannelse: <%=value%>"
 
 #: analytics_dashboard/static/js/enrollment-demographics-education-main.js:31
 msgid "Educational Background"
@@ -701,7 +702,7 @@ msgstr "Uddannelsesmæssig baggrund"
 #. Female).
 #: analytics_dashboard/static/js/enrollment-demographics-gender-main.js:23
 msgid "Gender: <%=value%>"
-msgstr "Køn: &lt;%=værdi%&gt;"
+msgstr "Køn: <%=value%>"
 
 #: analytics_dashboard/static/js/enrollment-demographics-gender-main.js:33
 msgid "Female"
@@ -766,7 +767,7 @@ msgstr "Ukorrekt"
 #. question asked in a course.
 #: analytics_dashboard/static/js/performance-answer-distribution-main.js:60
 msgid "Answer: <%=value%>"
-msgstr "Svar: &lt;%=værdi%&gt;"
+msgstr "Svar: <%=værdi%&gt;"
 
 #: analytics_dashboard/static/js/performance-content-main.js:11
 #: analytics_dashboard/static/js/performance-learning-outcomes-content-main.js:11
@@ -824,7 +825,7 @@ msgstr "(tom)"
 #. For example, "400 (29%)"
 #: analytics_dashboard/static/js/views/stacked-bar-view.js:13
 msgid "<%=value%> (<%=percent%>)"
-msgstr "&lt;%=værdi%&gt; (&lt;%=procent%&gt;)"
+msgstr "<%=value%> (<%=percent%>)"
 
 #~ msgid ", "
 #~ msgstr "."
