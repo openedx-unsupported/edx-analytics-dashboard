@@ -199,7 +199,7 @@ oauthlib==3.2.2
     #   social-auth-core
 packaging==23.2
     # via pytest
-path==16.7.1
+path==16.9.0
     # via
     #   -r requirements/base.txt
     #   edx-i18n-tools
@@ -210,10 +210,8 @@ pbr==6.0.0
     # via
     #   -r requirements/base.txt
     #   stevedore
-platformdirs==3.11.0
-    # via
-    #   -c requirements/common_constraints.txt
-    #   pylint
+platformdirs==4.1.0
+    # via pylint
 pluggy==1.3.0
     # via pytest
 polib==1.2.0
@@ -325,7 +323,7 @@ social-auth-app-django==5.4.0
     # via
     #   -r requirements/base.txt
     #   edx-auth-backends
-social-auth-core==4.5.0
+social-auth-core==4.5.1
     # via
     #   -r requirements/base.txt
     #   edx-auth-backends

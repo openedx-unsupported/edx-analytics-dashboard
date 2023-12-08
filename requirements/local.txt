@@ -80,7 +80,7 @@ distlib==0.3.7
     # via
     #   -r requirements/tox.txt
     #   virtualenv
-django==4.2.7
+django==4.2.8
     # via
     #   -c requirements/constraints.txt
     #   -r requirements/test.txt
@@ -192,7 +192,7 @@ idna==3.6
     # via
     #   -r requirements/test.txt
     #   requests
-importlib-metadata==6.8.0
+importlib-metadata==7.0.0
     # via
     #   -r requirements/pip_tools.txt
     #   build
@@ -243,7 +243,7 @@ packaging==23.2
     #   build
     #   pytest
     #   tox
-path==16.7.1
+path==16.9.0
     # via
     #   -r requirements/test.txt
     #   edx-i18n-tools
@@ -256,9 +256,8 @@ pbr==6.0.0
     #   stevedore
 pip-tools==7.3.0
     # via -r requirements/pip_tools.txt
-platformdirs==3.11.0
+platformdirs==4.1.0
     # via
-    #   -c requirements/common_constraints.txt
     #   -r requirements/test.txt
     #   -r requirements/tox.txt
     #   pylint
@@ -395,7 +394,7 @@ social-auth-app-django==5.4.0
     # via
     #   -r requirements/test.txt
     #   edx-auth-backends
-social-auth-core==4.5.0
+social-auth-core==4.5.1
     # via
     #   -r requirements/test.txt
     #   edx-auth-backends
@@ -452,7 +451,7 @@ urllib3==1.26.18
     #   -c requirements/constraints.txt
     #   -r requirements/test.txt
     #   requests
-virtualenv==20.24.7
+virtualenv==20.25.0
     # via
     #   -r requirements/tox.txt
     #   tox
