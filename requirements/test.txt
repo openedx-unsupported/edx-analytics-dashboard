@@ -11,7 +11,7 @@ asgiref==3.7.2
     #   -r requirements/base.txt
     #   django
     #   django-countries
-astroid==3.0.1
+astroid==3.0.2
     # via
     #   -r requirements/test.in
     #   pylint
@@ -107,7 +107,7 @@ django-model-utils==4.3.1
     # via -r requirements/base.txt
 django-soapbox==1.6.1
     # via -r requirements/base.txt
-django-waffle==4.0.0
+django-waffle==4.1.0
     # via
     #   -r requirements/base.txt
     #   edx-django-utils
@@ -123,7 +123,7 @@ djangorestframework==3.14.0
     #   djangorestframework-csv
     #   drf-jwt
     #   edx-drf-extensions
-djangorestframework-csv==3.0.1
+djangorestframework-csv==3.0.2
     # via -r requirements/base.txt
 drf-jwt==1.19.2
     # via
@@ -168,7 +168,7 @@ idna==3.6
     #   requests
 iniconfig==2.0.0
     # via pytest
-isort==5.12.0
+isort==5.13.1
     # via pylint
 jinja2==3.1.2
     # via
@@ -239,7 +239,7 @@ pyjwt[crypto]==2.8.0
     #   edx-rest-api-client
     #   pyjwt
     #   social-auth-core
-pylint==3.0.2
+pylint==3.0.3
     # via
     #   -r requirements/test.in
     #   edx-lint
@@ -351,7 +351,7 @@ tomli==2.0.1
     #   pytest
 tomlkit==0.12.3
     # via pylint
-typing-extensions==4.8.0
+typing-extensions==4.9.0
     # via
     #   -r requirements/base.txt
     #   asgiref
