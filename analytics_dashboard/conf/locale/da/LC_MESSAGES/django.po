@@ -7,13 +7,14 @@
 # Alison Langston, 2023
 # Anders Haugaard Iversen <anha@seges.dk>, 2016
 # Niels Nielsen Horn <Niels@codingpirates.dk>, 2015
+# Pia Jensen, 2023
 msgid ""
 msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-05-18 15:22+0000\n"
 "PO-Revision-Date: 2014-08-25 20:09+0000\n"
-"Last-Translator: Alison Langston, 2023\n"
+"Last-Translator: Pia Jensen, 2023\n"
 "Language-Team: Danish (http://app.transifex.com/open-edx/edx-platform/language/da/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -37,11 +38,11 @@ msgstr "Indblik til at hjælpe kursus hold forbedre kurser."
 #: analytics_dashboard/core/templates/core/landing.html:42
 #: analytics_dashboard/courses/views/__init__.py:603
 msgid "Who are my learners?"
-msgstr "Hvem er mine elever?"
+msgstr "Hvem er mine kursister?"
 
 #: analytics_dashboard/core/templates/core/landing.html:43
 msgid "Target your course to fit the backgrounds of your learners."
-msgstr "Målret dit kursus, så det passer til dine elevers baggrund."
+msgstr "Målret dit kursus, så det passer til dine kursisters baggrund."
 
 #: analytics_dashboard/core/templates/core/landing.html:44
 #: analytics_dashboard/courses/templates/courses/enrollment_geography.html:28
@@ -53,13 +54,13 @@ msgstr "Tilmelding"
 
 #: analytics_dashboard/core/templates/core/landing.html:47
 msgid "What are learners engaging with in my course?"
-msgstr "Hvad beskæftiger elever sig med i mit kursus?"
+msgstr "Hvad beskæftiger kursister sig med i mit kursus?"
 
 #: analytics_dashboard/core/templates/core/landing.html:48
 msgid ""
 "Improve frequently accessed content, or point learners at underused "
 "resources."
-msgstr "Forbedre ofte adgang til indhold, eller peg eleverne på underudnyttede ressourcer."
+msgstr "Forbedre ofte adgang til indhold, eller peg kursisterne på underudnyttede ressourcer."
 
 #: analytics_dashboard/core/templates/core/landing.html:49
 #: analytics_dashboard/courses/tests/test_views/test_engagement.py:40
@@ -70,11 +71,11 @@ msgstr "Beskæftigelse"
 
 #: analytics_dashboard/core/templates/core/landing.html:52
 msgid "How well is my content supporting learners?"
-msgstr "Hvor godt støtter mit indhold eleverne?"
+msgstr "Hvor godt støtter mit indhold kursisterne?"
 
 #: analytics_dashboard/core/templates/core/landing.html:53
 msgid "Adjust your course based on where learners are struggling."
-msgstr "Juster dit kursus baseret på, hvor eleverne kæmper."
+msgstr "Juster dit kursus baseret på, hvor kursisterne kæmper."
 
 #: analytics_dashboard/core/templates/core/landing.html:54
 #: analytics_dashboard/courses/tests/test_views/test_performance.py:51
@@ -126,7 +127,7 @@ msgstr "{statistic} %"
 #: analytics_dashboard/courses/presenters/engagement.py:124
 #, python-brace-format
 msgid "{percentage} of current learners"
-msgstr "{percentage} af nuværende elever"
+msgstr "{percentage} af nuværende kursister"
 
 #: analytics_dashboard/courses/presenters/enrollment.py:23
 msgid "Female"
@@ -316,7 +317,7 @@ msgstr "Næste video"
 msgid ""
 "This chart shows the most common answers submitted by learners, ordered by "
 "frequency."
-msgstr "Dette diagram viser de mest almindelige svar indsendt af elever, sorteret efter frekvens."
+msgstr "Dette diagram viser de mest almindelige svar indsendt af kursister, sorteret efter frekvens."
 
 #. Translators: Variants refers to versions of a problem/assignment.
 #: analytics_dashboard/courses/templates/courses/base_performance_answer_distribution.html:82
@@ -364,7 +365,7 @@ msgstr "Ugentlig elevengagement"
 #: analytics_dashboard/courses/templates/courses/engagement_content.html:24
 #: analytics_dashboard/courses/views/__init__.py:614
 msgid "How many learners are interacting with my course?"
-msgstr "Hvor mange elever interagerer med mit kursus?"
+msgstr "Hvor mange kursister interagerer med mit kursus?"
 
 #: analytics_dashboard/courses/templates/courses/engagement_content.html:31
 #: analytics_dashboard/courses/views/__init__.py:343
@@ -386,7 +387,7 @@ msgstr "Mål for elevaktivitet"
 
 #: analytics_dashboard/courses/templates/courses/engagement_content.html:54
 msgid "Active Learners Last Week"
-msgstr "Aktive elever i sidste uge"
+msgstr "Aktive kursister i sidste uge"
 
 #: analytics_dashboard/courses/templates/courses/engagement_content.html:55
 msgid "Learners who visited at least one page in the course content."
@@ -439,7 +440,7 @@ msgstr "Videovisninger"
 
 #: analytics_dashboard/courses/templates/courses/engagement_video_by_section.html:5
 msgid "How did learners interact with videos in this section?"
-msgstr "Hvordan interagerede eleverne med videoer i dette afsnit?"
+msgstr "Hvordan interagerede kursisterne med videoer i dette afsnit?"
 
 #: analytics_dashboard/courses/templates/courses/engagement_video_by_section.html:10
 msgid ""
@@ -450,18 +451,18 @@ msgstr "Hver bjælke viser det gennemsnitlige antal komplette og ufuldstændige 
 
 #: analytics_dashboard/courses/templates/courses/engagement_video_by_subsection.html:10
 msgid "How did learners interact with videos in this subsection?"
-msgstr "Hvordan interagerede eleverne med videoer i dette underafsnit?"
+msgstr "Hvordan interagerede kursisterne med videoer i dette underafsnit?"
 
 #: analytics_dashboard/courses/templates/courses/engagement_video_by_subsection.html:15
 msgid ""
 "Each bar shows the counts of complete and incomplete views for that video. "
 "Click to understand where learners drop off and which parts they replay."
-msgstr "Hver bjælke viser antallet af komplette og ufuldstændige visninger for den pågældende video. Klik for at forstå, hvor eleverne falder fra, og hvilke dele de afspiller igen."
+msgstr "Hver bjælke viser antallet af komplette og ufuldstændige visninger for den pågældende video. Klik for at forstå, hvor kursisterne falder fra, og hvilke dele de afspiller igen."
 
 #: analytics_dashboard/courses/templates/courses/engagement_video_course.html:5
 #: analytics_dashboard/courses/views/__init__.py:627
 msgid "How did learners interact with course videos?"
-msgstr "Hvordan interagerede eleverne med kursusvideoer?"
+msgstr "Hvordan interagerede kursisterne med kursusvideoer?"
 
 #: analytics_dashboard/courses/templates/courses/engagement_video_course.html:10
 msgid ""
@@ -483,7 +484,7 @@ msgstr "Hvad var visningsmønstrene for denne video?"
 msgid ""
 "The number of learners who watched each segment of the video, and the number"
 " of replays for each segment."
-msgstr "Antallet af elever, der så hvert segment af videoen, og antallet af gentagelser for hvert segment."
+msgstr "Antallet af kursister, der så hvert segment af videoen, og antallet af gentagelser for hvert segment."
 
 #: analytics_dashboard/courses/templates/courses/engagement_video_timeline.html:37
 msgid "Collapse Preview"
@@ -503,7 +504,7 @@ msgstr "Gennemførelsesrate"
 
 #: analytics_dashboard/courses/templates/courses/engagement_video_timeline.html:62
 msgid "Estimated percentage of learners who watched the entire video."
-msgstr "Anslået procentdel af elever, der så hele videoen."
+msgstr "Anslået procentdel af kursister, der så hele videoen."
 
 #: analytics_dashboard/courses/templates/courses/engagement_video_timeline.html:66
 msgid "Started Video"
@@ -532,7 +533,7 @@ msgstr "Daglig elevtilmelding"
 #: analytics_dashboard/courses/templates/courses/enrollment_activity.html:25
 #: analytics_dashboard/courses/views/__init__.py:546
 msgid "How many learners are in my course?"
-msgstr "Hvor mange elever er der på mit kursus?"
+msgstr "Hvor mange kursister er der på mit kursus?"
 
 #: analytics_dashboard/courses/templates/courses/enrollment_activity.html:32
 msgid "Enrollments"
@@ -604,7 +605,7 @@ msgstr "Bekræftet tilmelding"
 msgid ""
 "Number of currently enrolled learners pursuing a verified certificate of "
 "achievement."
-msgstr "Antal aktuelt tilmeldte elever, der forfølger et verificeret præstationsbevis."
+msgstr "Antal aktuelt tilmeldte kursister, der forfølger et verificeret præstationsbevis."
 
 #. Translators: This is a label to identify enrollment of learners on the
 #. masters track.
@@ -619,7 +620,7 @@ msgstr "Magisterindskrivning"
 #. a course on the masters track.
 #: analytics_dashboard/courses/templates/courses/enrollment_activity.html:95
 msgid "Number of currently enrolled learners pursuing a Master's degree."
-msgstr "Antal aktuelt tilmeldte elever, der forfølger en kandidatgrad."
+msgstr "Antal aktuelt tilmeldte kursister, der forfølger en kandidatgrad."
 
 #: analytics_dashboard/courses/templates/courses/enrollment_activity.html:109
 #: analytics_dashboard/courses/templates/courses/enrollment_activity.html:117
@@ -632,7 +633,7 @@ msgstr "Tilmelding over tid"
 #: analytics_dashboard/courses/templates/courses/enrollment_demographics_age.html:26
 #: analytics_dashboard/courses/views/__init__.py:558
 msgid "How old are my learners?"
-msgstr "Hvor gamle er mine elever?"
+msgstr "Hvor gamle er mine kursister?"
 
 #. Translators: Maintain the double percentage symbols (%%) but move them to
 #. the appropriate location (before/after the value placeholder) for your
@@ -642,7 +643,7 @@ msgstr "Hvor gamle er mine elever?"
 msgid ""
 "This age histogram presents data computed for the %(value)s%% of enrolled "
 "learners who provided a year of birth."
-msgstr "Dette aldershistogram præsenterer data beregnet for %(value)s %% for tilmeldte elever, der har angivet et fødselsår."
+msgstr "Dette aldershistogram præsenterer data beregnet for %(value)s %% for tilmeldte kursister, der har angivet et fødselsår."
 
 #: analytics_dashboard/courses/templates/courses/enrollment_demographics_age.html:56
 msgid "Age Metrics"
@@ -669,7 +670,7 @@ msgstr "Elever 25 og under"
 msgid ""
 "The percentage of learners aged 25 years or younger (of those who provided a"
 " year of birth)."
-msgstr "Procentdelen af elever i alderen 25 år eller yngre (af dem, der har givet et fødselsår)."
+msgstr "Procentdelen af kursister i alderen 25 år eller yngre (af dem, der har givet et fødselsår)."
 
 #. Translators: This is a label to identify the number of learners in the age
 #. range.
@@ -681,7 +682,7 @@ msgstr "Elever 26 til 40"
 msgid ""
 "The percentage of learners aged from 26 to 40 years (of those who provided a"
 " year of birth)."
-msgstr "Procentdelen af elever i alderen fra 26 til 40 år (af dem, der har givet et fødselsår)."
+msgstr "Procentdelen af kursister i alderen fra 26 til 40 år (af dem, der har givet et fødselsår)."
 
 #. Translators: This is a label to identify the number of learners in the age
 #. range.
@@ -693,7 +694,7 @@ msgstr "Elever 41 og derover"
 msgid ""
 "The percentage of learners aged 41 years or older (of those who provided a "
 "year of birth)."
-msgstr "Procentdelen af elever på 41 år eller ældre (af dem, der har givet et fødselsår)."
+msgstr "Procentdelen af kursister på 41 år eller ældre (af dem, der har givet et fødselsår)."
 
 #: analytics_dashboard/courses/templates/courses/enrollment_demographics_age.html:101
 msgid "Age Breakdown"
@@ -702,7 +703,7 @@ msgstr "Aldersfordeling"
 #: analytics_dashboard/courses/templates/courses/enrollment_demographics_education.html:25
 #: analytics_dashboard/courses/views/__init__.py:569
 msgid "What level of education do my learners have?"
-msgstr "Hvilket uddannelsesniveau har mine elever?"
+msgstr "Hvilket uddannelsesniveau har mine kursister?"
 
 #. Translators: Maintain the double percentage symbols (%%) but move them to
 #. the appropriate location (before/after the value placeholder) for your
@@ -712,7 +713,7 @@ msgstr "Hvilket uddannelsesniveau har mine elever?"
 msgid ""
 "This graph presents data for the %(value)s%% of enrolled learners who "
 "provided a highest level of education completed."
-msgstr "Denne graf præsenterer data for %(value)s %% af tilskrevne elever, som leverede det højeste niveau af fuldført uddannelse."
+msgstr "Denne graf præsenterer data for %(value)s %% af tilskrevne kursister, som leverede det højeste niveau af fuldført uddannelse."
 
 #: analytics_dashboard/courses/templates/courses/enrollment_demographics_education.html:56
 msgid "Education Metrics"
@@ -728,7 +729,7 @@ msgid ""
 "The percentage of learners who selected Secondary/high school, Junior "
 "secondary/junior high/middle school, or Elementary/primary school as their "
 "highest level of education completed."
-msgstr "Procentdelen af elever, der valgte Secondary/gymnasium, Junior secondary/junior high/middle school eller grundskole/primary school som deres højeste fuldførte uddannelsesniveau."
+msgstr "Procentdelen af kursister, der valgte Secondary/gymnasium, Junior secondary/junior high/middle school eller grundskole/primary school som deres højeste fuldførte uddannelsesniveau."
 
 #. Translators: This is a label to identify learner educational background.
 #: analytics_dashboard/courses/templates/courses/enrollment_demographics_education.html:71
@@ -739,7 +740,7 @@ msgstr "College grad"
 msgid ""
 "The percentage of learners who selected Bachelor's degree or Associate "
 "degree as their highest level of education completed."
-msgstr "Procentdelen af elever, der valgte bachelorgrad eller associeret grad som deres højeste fuldførte uddannelsesniveau."
+msgstr "Procentdelen af kursister, der valgte bachelorgrad eller associeret grad som deres højeste fuldførte uddannelsesniveau."
 
 #. Translators: This is a label to identify learner educational background.
 #: analytics_dashboard/courses/templates/courses/enrollment_demographics_education.html:78
@@ -750,7 +751,7 @@ msgstr "Avanceret grad"
 msgid ""
 "The percentage of learners who selected Doctorate or Master's or "
 "professional degree as their highest level of education completed."
-msgstr "Procentdelen af elever, der valgte doktorgrad eller kandidatgrad eller professionel grad som deres højeste uddannelsesniveau."
+msgstr "Procentdelen af kursister, der valgte doktorgrad eller kandidatgrad eller professionel grad som deres højeste uddannelsesniveau."
 
 #: analytics_dashboard/courses/templates/courses/enrollment_demographics_education.html:91
 msgid "Educational Breakdown"
@@ -769,7 +770,7 @@ msgstr "Hvad er elevens kønsfordeling?"
 msgid ""
 "This graph presents data for the %(value)s%% of enrolled learners who "
 "specified their gender."
-msgstr "Denne graf præsenterer data for %(value)s %% for tilmeldte elever, der specificerede deres køn."
+msgstr "Denne graf præsenterer data for %(value)s %% for tilmeldte kursister, der specificerede deres køn."
 
 #: analytics_dashboard/courses/templates/courses/enrollment_demographics_gender.html:56
 msgid "Gender Breakdown Over Time"
@@ -782,7 +783,7 @@ msgstr "Geografisk fordeling"
 #: analytics_dashboard/courses/templates/courses/enrollment_geography.html:22
 #: analytics_dashboard/courses/views/__init__.py:589
 msgid "Where are my learners?"
-msgstr "Hvor er mine elever?"
+msgstr "Hvor er mine kursister?"
 
 #: analytics_dashboard/courses/templates/courses/enrollment_geography.html:27
 msgid "Enrollment by Country"
@@ -810,7 +811,7 @@ msgstr "Topland eller region efter tilmelding"
 
 #: analytics_dashboard/courses/templates/courses/enrollment_geography.html:63
 msgid "Country or region with the largest number of learners."
-msgstr "Land eller region med det største antal elever."
+msgstr "Land eller region med det største antal kursister."
 
 #. Translators: This string represents the country or region with the second-
 #. greatest number of enrolled learners.
@@ -820,7 +821,7 @@ msgstr "Andet land eller region efter tilmelding"
 
 #: analytics_dashboard/courses/templates/courses/enrollment_geography.html:67
 msgid "Country or region with the second largest number of learners."
-msgstr "Land eller region med det næststørste antal elever."
+msgstr "Land eller region med det næststørste antal kursister."
 
 #. Translators: This string represents the country or region with the third-
 #. greatest number of enrolled learners.
@@ -830,14 +831,14 @@ msgstr "Tredjeland eller region efter tilmelding"
 
 #: analytics_dashboard/courses/templates/courses/enrollment_geography.html:71
 msgid "Country or region with the third largest number of learners."
-msgstr "Land eller region med det tredjestørste antal elever."
+msgstr "Land eller region med det tredjestørste antal kursister."
 
 #. Translators: This string represents the percentage of learners in a course.
 #. Move the % symbol, if necessary, but keep the percent variable/placeholder.
 #: analytics_dashboard/courses/templates/courses/enrollment_geography.html:77
 #, python-format
 msgid "%(percent)s%% of learners"
-msgstr "%(percent)s %% af elever"
+msgstr "%(percent)s %% af kursister"
 
 #: analytics_dashboard/courses/templates/courses/enrollment_geography.html:91
 #: analytics_dashboard/courses/templates/courses/enrollment_geography.html:98
@@ -920,11 +921,11 @@ msgstr "Master tilmeldinger på tværs af alle dine kurser."
 #: analytics_dashboard/courses/templates/courses/performance_learning_outcomes_answer_distribution.html:5
 #: analytics_dashboard/courses/templates/courses/performance_ungraded_answer_distribution.html:7
 msgid "How did learners answer this problem?"
-msgstr "Hvordan besvarede eleverne dette problem?"
+msgstr "Hvordan besvarede kursisterne dette problem?"
 
 #: analytics_dashboard/courses/templates/courses/performance_assignment.html:10
 msgid "How are learners doing on this assignment?"
-msgstr "Hvordan klarer eleverne sig i denne opgave?"
+msgstr "Hvordan klarer kursisterne sig i denne opgave?"
 
 #: analytics_dashboard/courses/templates/courses/performance_assignment.html:15
 #: analytics_dashboard/courses/templates/courses/performance_ungraded_by_subsection.html:15
@@ -971,7 +972,7 @@ msgid ""
 "\n"
 "      How are learners doing on the %(type)s?\n"
 "    "
-msgstr "\n      Hvordan klarer eleverne sig på %(type)s?\n    "
+msgstr "\n      Hvordan klarer kursisterne sig på %(type)s?\n    "
 
 #: analytics_dashboard/courses/templates/courses/performance_graded_content_by_type.html:15
 msgid ""
@@ -987,7 +988,7 @@ msgstr "Opgaveafleveringer"
 #: analytics_dashboard/courses/templates/courses/performance_learning_outcomes_content.html:6
 #: analytics_dashboard/courses/templates/courses/performance_learning_outcomes_section.html:6
 msgid "Measured by learning outcome, how are learners performing?"
-msgstr "Hvordan præsterer eleverne målt på læringsudbytte?"
+msgstr "Hvordan præsterer kursisterne målt på læringsudbytte?"
 
 #: analytics_dashboard/courses/templates/courses/performance_learning_outcomes_content.html:16
 msgid ""
@@ -1007,7 +1008,7 @@ msgstr "Hver søjle viser det korrekte og forkerte antal afsendelser for hvert p
 
 #: analytics_dashboard/courses/templates/courses/performance_ungraded_by_section.html:5
 msgid "How are learners doing on this section?"
-msgstr "Hvordan klarer eleverne sig på dette afsnit?"
+msgstr "Hvordan klarer kursisterne sig på dette afsnit?"
 
 #: analytics_dashboard/courses/templates/courses/performance_ungraded_by_section.html:10
 msgid ""
@@ -1021,12 +1022,12 @@ msgstr "Underafsnit Indsendelser"
 
 #: analytics_dashboard/courses/templates/courses/performance_ungraded_by_subsection.html:10
 msgid "How are learners doing on this subsection?"
-msgstr "Hvordan klarer eleverne sig i dette underafsnit?"
+msgstr "Hvordan klarer kursisterne sig i dette underafsnit?"
 
 #: analytics_dashboard/courses/templates/courses/performance_ungraded_content.html:7
 #: analytics_dashboard/courses/views/__init__.py:650
 msgid "How are learners doing on ungraded exercises?"
-msgstr "Hvordan klarer eleverne sig på øvelser uden karakter?"
+msgstr "Hvordan klarer kursisterne sig på øvelser uden karakter?"
 
 #: analytics_dashboard/courses/templates/courses/performance_ungraded_content.html:12
 msgid ""
@@ -1130,11 +1131,11 @@ msgstr "Læringsresultater"
 
 #: analytics_dashboard/courses/views/__init__.py:611
 msgid "What are learners doing in my course?"
-msgstr "Hvad laver eleverne på mit kursus?"
+msgstr "Hvad laver kursisterne på mit kursus?"
 
 #: analytics_dashboard/courses/views/__init__.py:641
 msgid "How are learners doing on graded course assignments?"
-msgstr "Hvordan klarer eleverne sig på bedømte kursusopgaver?"
+msgstr "Hvordan klarer kursisterne sig på bedømte kursusopgaver?"
 
 #: analytics_dashboard/courses/views/__init__.py:662
 msgid "What is the breakdown for course learning outcomes?"
@@ -1142,7 +1143,7 @@ msgstr "Hvad er opdelingen for kursets læringsudbytte?"
 
 #: analytics_dashboard/courses/views/__init__.py:682
 msgid "How are learners responding to questions?"
-msgstr "Hvordan reagerer eleverne på spørgsmål?"
+msgstr "Hvordan reagerer kursisterne på spørgsmål?"
 
 #: analytics_dashboard/courses/views/__init__.py:684
 msgid "Problem Response Report"
@@ -1150,19 +1151,19 @@ msgstr "Rapport om problemrespons"
 
 #: analytics_dashboard/courses/views/__init__.py:691
 msgid "How are learners doing on course assignments?"
-msgstr "Hvordan klarer eleverne sig på kursusopgaver?"
+msgstr "Hvordan klarer kursisterne sig på kursusopgaver?"
 
 #: analytics_dashboard/courses/views/__init__.py:699
 msgid "What are individual learners doing?"
-msgstr "Hvad laver de enkelte elever?"
+msgstr "Hvad laver de enkelte kursister?"
 
 #: analytics_dashboard/courses/views/__init__.py:702
 msgid "Who is engaged? Who isn't?"
-msgstr "Hvem er forlovet? Hvem er ikke det?"
+msgstr "Hvem er engageret? Hvem er ikke?"
 
 #: analytics_dashboard/courses/views/__init__.py:704
 msgid "All Learners"
-msgstr "Alle elever"
+msgstr "Alle kursister"
 
 #. Translators: 'Course ID' is 'Course Identifier', the unique code that
 #. identifies the course
@@ -1203,7 +1204,7 @@ msgstr "Status"
 
 #: analytics_dashboard/courses/views/__init__.py:803
 msgid "Instructor Dashboard"
-msgstr "Instruktør Betjeningspanel"
+msgstr "Instruktør betjeningspanel"
 
 #: analytics_dashboard/courses/views/__init__.py:808
 msgid "Courseware"
