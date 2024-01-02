@@ -67,7 +67,7 @@ colorama==0.4.6
     # via
     #   -r requirements/tox.txt
     #   tox
-coverage[toml]==7.3.2
+coverage[toml]==7.4.0
     # via
     #   -r requirements/test.txt
     #   coverage
@@ -92,7 +92,7 @@ distlib==0.3.8
     # via
     #   -r requirements/tox.txt
     #   virtualenv
-django==4.2.8
+django==4.2.9
     # via
     #   -c requirements/constraints.txt
     #   -r requirements/test.txt
@@ -204,7 +204,7 @@ idna==3.6
     # via
     #   -r requirements/test.txt
     #   requests
-importlib-metadata==7.0.0
+importlib-metadata==7.0.1
     # via
     #   -r requirements/pip_tools.txt
     #   build
@@ -212,7 +212,7 @@ iniconfig==2.0.0
     # via
     #   -r requirements/test.txt
     #   pytest
-isort==5.13.1
+isort==5.13.2
     # via
     #   -r requirements/test.txt
     #   pylint
@@ -224,7 +224,7 @@ libsass==0.22.0
     # via -r requirements/test.txt
 logutils==0.3.5
     # via -r requirements/test.txt
-lxml==4.9.3
+lxml==5.0.0
     # via
     #   -r requirements/test.txt
     #   edx-i18n-tools
@@ -236,7 +236,7 @@ mccabe==0.7.0
     # via
     #   -r requirements/test.txt
     #   pylint
-mysqlclient==2.2.0
+mysqlclient==2.2.1
     # via -r requirements/local.in
 newrelic==9.3.0
     # via
@@ -286,7 +286,7 @@ polib==1.2.0
     # via
     #   -r requirements/test.txt
     #   edx-i18n-tools
-psutil==5.9.6
+psutil==5.9.7
     # via
     #   -r requirements/test.txt
     #   edx-django-utils
@@ -343,7 +343,7 @@ pyproject-hooks==1.0.0
     # via
     #   -r requirements/pip_tools.txt
     #   build
-pytest==7.4.3
+pytest==7.4.4
     # via
     #   -r requirements/test.txt
     #   pytest-cov
