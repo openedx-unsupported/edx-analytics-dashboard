@@ -108,7 +108,7 @@ edx-django-utils==5.9.0
     #   edx-drf-extensions
     #   edx-rest-api-client
     #   edx-toggles
-edx-drf-extensions==9.0.1
+edx-drf-extensions==9.1.2
     # via -r requirements/base.in
 edx-i18n-tools==1.3.0
     # via -r requirements/base.in
@@ -125,15 +125,15 @@ idna==3.6
     # via requests
 jinja2==3.1.2
     # via code-annotations
-libsass==0.22.0
+libsass==0.23.0
     # via -r requirements/base.in
 logutils==0.3.5
     # via -r requirements/base.in
-lxml==5.0.0
+lxml==5.1.0
     # via edx-i18n-tools
 markupsafe==2.1.3
     # via jinja2
-newrelic==9.3.0
+newrelic==9.4.0
     # via edx-django-utils
 oauthlib==3.2.2
     # via
