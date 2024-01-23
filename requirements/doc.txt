@@ -23,7 +23,7 @@ backports-zoneinfo==0.2.1
     # via
     #   -r requirements/base.txt
     #   django
-beautifulsoup4==4.12.2
+beautifulsoup4==4.12.3
     # via pydata-sphinx-theme
 certifi==2023.11.17
     # via
@@ -47,7 +47,7 @@ code-annotations==1.5.0
     # via
     #   -r requirements/base.txt
     #   edx-toggles
-cryptography==41.0.7
+cryptography==42.0.0
     # via
     #   -r requirements/base.txt
     #   pyjwt
@@ -132,7 +132,7 @@ edx-ccx-keys==1.2.1
     # via -r requirements/base.txt
 edx-django-release-util==1.3.0
     # via -r requirements/base.txt
-edx-django-utils==5.9.0
+edx-django-utils==5.10.1
     # via
     #   -r requirements/base.txt
     #   edx-drf-extensions
@@ -159,7 +159,7 @@ imagesize==1.4.1
     # via sphinx
 importlib-metadata==7.0.1
     # via sphinx
-jinja2==3.1.2
+jinja2==3.1.3
     # via
     #   -r requirements/base.txt
     #   code-annotations
@@ -172,11 +172,11 @@ lxml==5.1.0
     # via
     #   -r requirements/base.txt
     #   edx-i18n-tools
-markupsafe==2.1.3
+markupsafe==2.1.4
     # via
     #   -r requirements/base.txt
     #   jinja2
-newrelic==9.4.0
+newrelic==9.5.0
     # via
     #   -r requirements/base.txt
     #   edx-django-utils
@@ -204,7 +204,7 @@ polib==1.2.0
     # via
     #   -r requirements/base.txt
     #   edx-i18n-tools
-psutil==5.9.7
+psutil==5.9.8
     # via
     #   -r requirements/base.txt
     #   edx-django-utils
