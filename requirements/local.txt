@@ -67,12 +67,12 @@ colorama==0.4.6
     # via
     #   -r requirements/tox.txt
     #   tox
-coverage[toml]==7.4.0
+coverage[toml]==7.4.1
     # via
     #   -r requirements/test.txt
     #   coverage
     #   pytest-cov
-cryptography==42.0.0
+cryptography==42.0.1
     # via
     #   -r requirements/test.txt
     #   pyjwt
@@ -84,7 +84,7 @@ defusedxml==0.8.0rc2
     #   -r requirements/test.txt
     #   python3-openid
     #   social-auth-core
-dill==0.3.7
+dill==0.3.8
     # via
     #   -r requirements/test.txt
     #   pylint
@@ -174,7 +174,7 @@ edx-django-utils==5.10.1
     #   edx-drf-extensions
     #   edx-rest-api-client
     #   edx-toggles
-edx-drf-extensions==9.1.2
+edx-drf-extensions==10.1.0
     # via -r requirements/test.txt
 edx-i18n-tools==1.3.0
     # via -r requirements/test.txt
@@ -238,7 +238,7 @@ mccabe==0.7.0
     #   pylint
 mysqlclient==2.2.1
     # via -r requirements/local.in
-newrelic==9.5.0
+newrelic==9.6.0
     # via
     #   -r requirements/test.txt
     #   edx-django-utils
@@ -276,7 +276,7 @@ platformdirs==4.1.0
     #   pylint
     #   tox
     #   virtualenv
-pluggy==1.3.0
+pluggy==1.4.0
     # via
     #   -r requirements/test.txt
     #   -r requirements/tox.txt
@@ -343,16 +343,16 @@ pyproject-hooks==1.0.0
     # via
     #   -r requirements/pip_tools.txt
     #   build
-pytest==7.4.4
+pytest==8.0.0
     # via
     #   -r requirements/test.txt
     #   pytest-cov
     #   pytest-django
 pytest-cov==4.1.0
     # via -r requirements/test.txt
-pytest-django==4.7.0
+pytest-django==4.8.0
     # via -r requirements/test.txt
-python-slugify==8.0.1
+python-slugify==8.0.2
     # via
     #   -r requirements/test.txt
     #   code-annotations
@@ -360,7 +360,7 @@ python3-openid==3.2.0
     # via
     #   -r requirements/test.txt
     #   social-auth-core
-pytz==2023.3.post1
+pytz==2023.4
     # via
     #   -r requirements/test.txt
     #   djangorestframework
@@ -406,7 +406,7 @@ social-auth-app-django==5.4.0
     # via
     #   -r requirements/test.txt
     #   edx-auth-backends
-social-auth-core==4.5.1
+social-auth-core==4.5.2
     # via
     #   -r requirements/test.txt
     #   edx-auth-backends
