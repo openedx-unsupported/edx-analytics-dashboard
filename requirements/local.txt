@@ -70,9 +70,8 @@ colorama==0.4.6
 coverage[toml]==7.4.1
     # via
     #   -r requirements/test.txt
-    #   coverage
     #   pytest-cov
-cryptography==42.0.2
+cryptography==42.0.3
     # via
     #   -r requirements/test.txt
     #   pyjwt
@@ -134,7 +133,7 @@ django-dynamic-fixture==4.0.1
     # via -r requirements/test.txt
 django-lang-pref-middleware==1.3.0
     # via -r requirements/test.txt
-django-model-utils==4.3.1
+django-model-utils==4.4.0
     # via -r requirements/test.txt
 django-soapbox==1.6.1
     # via -r requirements/test.txt
@@ -236,7 +235,7 @@ mccabe==0.7.0
     # via
     #   -r requirements/test.txt
     #   pylint
-mysqlclient==2.2.3
+mysqlclient==2.2.4
     # via -r requirements/local.in
 newrelic==9.6.0
     # via
@@ -267,7 +266,7 @@ pbr==6.0.0
     # via
     #   -r requirements/test.txt
     #   stevedore
-pip-tools==7.3.0
+pip-tools==7.4.0
     # via -r requirements/pip_tools.txt
 platformdirs==4.2.0
     # via
@@ -305,7 +304,6 @@ pyjwt[crypto]==2.8.0
     #   edx-auth-backends
     #   edx-drf-extensions
     #   edx-rest-api-client
-    #   pyjwt
     #   social-auth-core
 pylint==3.0.3
     # via
@@ -343,7 +341,8 @@ pyproject-hooks==1.0.0
     # via
     #   -r requirements/pip_tools.txt
     #   build
-pytest==8.0.0
+    #   pip-tools
+pytest==8.0.1
     # via
     #   -r requirements/test.txt
     #   pytest-cov
@@ -352,7 +351,7 @@ pytest-cov==4.1.0
     # via -r requirements/test.txt
 pytest-django==4.8.0
     # via -r requirements/test.txt
-python-slugify==8.0.3
+python-slugify==8.0.4
     # via
     #   -r requirements/test.txt
     #   code-annotations
@@ -406,7 +405,7 @@ social-auth-app-django==5.4.0
     # via
     #   -r requirements/test.txt
     #   edx-auth-backends
-social-auth-core==4.5.2
+social-auth-core==4.5.3
     # via
     #   -r requirements/test.txt
     #   edx-auth-backends
@@ -422,7 +421,7 @@ stevedore==5.1.0
     #   code-annotations
     #   edx-django-utils
     #   edx-opaque-keys
-testfixtures==7.2.2
+testfixtures==8.0.0
     # via -r requirements/test.txt
 text-unidecode==1.3
     # via
@@ -445,7 +444,7 @@ tomlkit==0.12.3
     # via
     #   -r requirements/test.txt
     #   pylint
-tox==4.12.1
+tox==4.13.0
     # via -r requirements/tox.txt
 typing-extensions==4.9.0
     # via
