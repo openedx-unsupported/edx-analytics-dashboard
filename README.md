@@ -319,7 +319,7 @@ HTTP status codes. Use the command below to execute this script.
 
 Reporting Security Issues
 -------------------------
-Please do not report security issues in public. Please email security@edx.org.
+Please do not report security issues in public. Please email security@openedx.org.
 
 
 Mailing List and IRC Channel

@@ -21,6 +21,13 @@ html_theme_options = {
  "use_repository_button": True,
  "use_issues_button": True,
  "use_edit_page_button": True,
+ # False was the default value for navigation_with_keys. However, in version 0.14.2 of pydata-sphinx-theme, this default
+ # was removed and a warning was added that would be emitted whenever navigation_with_keys was not set. Because of the
+ # "SPHINXOPTS = -W" configuration in tox.ini, all warnings are promoted to an error. Therefore, it's necesary to set
+ # this value. I have set it to the default value explicitly. Please see the following GitHub comments for context.
+ # https://github.com/pydata/pydata-sphinx-theme/issues/1539
+ # https://github.com/pydata/pydata-sphinx-theme/issues/987#issuecomment-1277214209
+ "navigation_with_keys": False,
  # Please don't change unless you know what you're doing.
  "extra_footer": """
         <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">

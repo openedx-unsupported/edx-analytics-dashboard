@@ -5,13 +5,14 @@
 # Translators:
 # Translators:
 # Anders Haugaard Iversen <anha@seges.dk>, 2016
+# Pia Jensen, 2023
 msgid ""
 msgstr ""
 "Project-Id-Version: edx-platform\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-05-18 15:22+0000\n"
 "PO-Revision-Date: 2014-08-26 21:24+0000\n"
-"Last-Translator: Anders Haugaard Iversen <anha@seges.dk>, 2016\n"
+"Last-Translator: Pia Jensen, 2023\n"
 "Language-Team: Danish (http://app.transifex.com/open-edx/edx-platform/language/da/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -21,36 +22,36 @@ msgstr ""
 
 #: analytics_dashboard/static/apps/components/download/views/download-data.js:25
 msgid "Download CSV"
-msgstr ""
+msgstr "Download CSV"
 
 #: analytics_dashboard/static/apps/components/download/views/download-data.js:26
 msgid "Download search results to CSV"
-msgstr ""
+msgstr "Download søgeresultater til CSV"
 
 #. Translators: "All" refers to viewing all items (e.g. all courses).
 #: analytics_dashboard/static/apps/components/filter/views/drop-down-filter.js:31
 msgid "All"
-msgstr ""
+msgstr "Alle"
 
 #. Translators: 'name' here refers to the name of the filter, while 'count'
 #. refers to the number of items belonging to that filter.
 #: analytics_dashboard/static/apps/components/filter/views/filter.js:90
 msgid "<%= name %> (<%= count %>)"
-msgstr ""
+msgstr "<%= name %> (<%= count %>)"
 
 #. Translators: this is a label describing a filter selection that the user
 #. initiated.
 #: analytics_dashboard/static/apps/components/generic-list/list/views/active-filters.js:62
 msgid "<%= filterDisplayName %>: <%= filterVal %>"
-msgstr ""
+msgstr "<%= filterDisplayName %>: <%= filterVal %>"
 
 #: analytics_dashboard/static/apps/components/generic-list/list/views/active-filters.js:87
 msgid "Filters In Use:"
-msgstr ""
+msgstr "Filtre i brug:"
 
 #: analytics_dashboard/static/apps/components/generic-list/list/views/active-filters.js:88
 msgid "Click to remove this filter"
-msgstr ""
+msgstr "Klik for at fjerne dette filter"
 
 #. Translators: "Clear" in this context means "remove all of the filters"
 #: analytics_dashboard/static/apps/components/generic-list/list/views/active-filters.js:90
@@ -59,38 +60,38 @@ msgstr "Klar"
 
 #: analytics_dashboard/static/apps/components/generic-list/list/views/active-filters.js:91
 msgid "Click to remove all filters"
-msgstr ""
+msgstr "Klik for at fjerne alle filtre"
 
 #. Translators: "sort ascending" describes the current sort state to the user.
 #: analytics_dashboard/static/apps/components/generic-list/list/views/base-header-cell.js:71
 msgid "sort ascending"
-msgstr ""
+msgstr "sortere stigende"
 
 #. Translators: "sort descending" describes the current sort state to the
 #. user.
 #: analytics_dashboard/static/apps/components/generic-list/list/views/base-header-cell.js:73
 msgid "sort descending"
-msgstr ""
+msgstr "sortere faldende"
 
 #. Translators: "click to sort" tells the user that they can click this link
 #. to sort by the current field.
 #: analytics_dashboard/static/apps/components/generic-list/list/views/base-header-cell.js:76
 msgid "click to sort"
-msgstr ""
+msgstr "klik for at sortere"
 
 #: analytics_dashboard/static/apps/components/generic-list/list/views/list.js:51
 msgid "Results"
-msgstr ""
+msgstr "Resultater"
 
 #. Translators: 'count' refers to the number of results contained in the
 #. table.
 #: analytics_dashboard/static/apps/components/generic-list/list/views/num-results.js:30
 msgid "Number of results: <%= count %>"
-msgstr ""
+msgstr "Antal resultater: <%= count %>"
 
 #: analytics_dashboard/static/apps/components/generic-list/list/views/paging-footer.js:70
 msgid "first page"
-msgstr ""
+msgstr "første side"
 
 #: analytics_dashboard/static/apps/components/generic-list/list/views/paging-footer.js:72
 msgid "previous page"
@@ -102,25 +103,25 @@ msgstr "næste side"
 
 #: analytics_dashboard/static/apps/components/generic-list/list/views/paging-footer.js:76
 msgid "last page"
-msgstr ""
+msgstr "sidste side"
 
 #: analytics_dashboard/static/apps/components/generic-list/list/views/paging-footer.js:78
 msgid "page"
-msgstr ""
+msgstr "side"
 
 #. Translators: describes the state of a pagination button as not clickable
 #: analytics_dashboard/static/apps/components/generic-list/list/views/paging-footer.js:88
 msgid "disabled"
-msgstr ""
+msgstr "handicappet"
 
 #. Translators: describes a pagination button as representing the current page
 #: analytics_dashboard/static/apps/components/generic-list/list/views/paging-footer.js:91
 msgid "active"
-msgstr ""
+msgstr "aktiv"
 
 #: analytics_dashboard/static/apps/components/generic-list/list/views/table.js:27
 msgid "Generic List"
-msgstr ""
+msgstr "Generisk liste"
 
 #. Translators: This message indicates content is loading in the page.
 #: analytics_dashboard/static/apps/components/loading/views/loading-view.js:20
@@ -131,74 +132,74 @@ msgstr "Indlæser..."
 #. it as "504".
 #: analytics_dashboard/static/apps/components/utils/utils.js:62
 msgid "504: Server error"
-msgstr ""
+msgstr "504: Serverfejl"
 
 #: analytics_dashboard/static/apps/components/utils/utils.js:64
 msgid ""
 "Processing your request took too long to complete. Reload the page to try "
 "again."
-msgstr ""
+msgstr "Det tog for lang tid at behandle din anmodning. Genindlæs siden for at prøve igen."
 
 #: analytics_dashboard/static/apps/components/utils/utils.js:68
 msgid "Server error"
-msgstr ""
+msgstr "Server Fejl"
 
 #: analytics_dashboard/static/apps/components/utils/utils.js:69
 #: analytics_dashboard/static/apps/components/utils/utils.js:81
 msgid "Your request could not be processed. Reload the page to try again."
-msgstr ""
+msgstr "Din anmodning kunne ikke behandles. Genindlæs siden for at prøve igen."
 
 #: analytics_dashboard/static/apps/components/utils/utils.js:80
 msgid "Network error"
-msgstr ""
+msgstr "Netværksfejl"
 
 #: analytics_dashboard/static/apps/course-list/app/app.js:38
 msgid "Instructor-Paced"
-msgstr ""
+msgstr "Instruktør-tempo"
 
 #: analytics_dashboard/static/apps/course-list/app/app.js:39
 msgid "Self-Paced"
-msgstr ""
+msgstr "I eget tempo"
 
 #: analytics_dashboard/static/apps/course-list/app/app.js:42
 msgid "Upcoming"
-msgstr ""
+msgstr "Kommende"
 
 #: analytics_dashboard/static/apps/course-list/app/app.js:43
 msgid "Current"
-msgstr ""
+msgstr "Nuværende"
 
 #: analytics_dashboard/static/apps/course-list/app/app.js:44
 msgid "Archived"
-msgstr ""
+msgstr "Arkiveret"
 
 #: analytics_dashboard/static/apps/course-list/app/app.js:45
 #: analytics_dashboard/static/js/enrollment-demographics-age-main.js:17
 msgid "Unknown"
-msgstr ""
+msgstr "Ukendt"
 
 #: analytics_dashboard/static/apps/course-list/app/controller.js:44
 #: analytics_dashboard/static/apps/course-list/app/controller.js:106
 msgid "Course List"
-msgstr ""
+msgstr "Kursusliste"
 
 #: analytics_dashboard/static/apps/course-list/app/controller.js:95
 #: analytics_dashboard/static/apps/learners/app/controller.js:94
 msgid "Invalid Parameters"
-msgstr ""
+msgstr "Ugyldige parametre"
 
 #: analytics_dashboard/static/apps/course-list/app/controller.js:96
 msgid "Sorry, we couldn't find any courses that matched that query."
-msgstr ""
+msgstr "Beklager, vi kunne ikke finde nogen kurser, der matchede denne forespørgsel."
 
 #: analytics_dashboard/static/apps/course-list/app/controller.js:97
 msgid "Return to the Course List page."
-msgstr ""
+msgstr "Vend tilbage til siden Kursusliste."
 
 #: analytics_dashboard/static/apps/course-list/app/controller.js:123
 #: analytics_dashboard/static/apps/learners/app/controller.js:177
 msgid "Sorry, we couldn't find the page you're looking for."
-msgstr ""
+msgstr "Beklager, vi kunne ikke finde den side, du leder efter."
 
 #: analytics_dashboard/static/apps/course-list/app/controller.js:125
 #: analytics_dashboard/static/apps/learners/app/controller.js:180
@@ -207,19 +208,19 @@ msgstr "Side ikke fundet"
 
 #: analytics_dashboard/static/apps/course-list/common/collections/course-list.js:77
 msgid "Course Name"
-msgstr ""
+msgstr "Kursusnavn"
 
 #: analytics_dashboard/static/apps/course-list/common/collections/course-list.js:78
 msgid "Start Date"
-msgstr ""
+msgstr "Start dato"
 
 #: analytics_dashboard/static/apps/course-list/common/collections/course-list.js:79
 msgid "End Date"
-msgstr ""
+msgstr "Slutdato"
 
 #: analytics_dashboard/static/apps/course-list/common/collections/course-list.js:80
 msgid "Total Enrollment"
-msgstr ""
+msgstr "Samlet tilmelding"
 
 #. Translators: The noun count (e.g. number of learners)
 #: analytics_dashboard/static/apps/course-list/common/collections/course-list.js:81
@@ -227,27 +228,27 @@ msgstr ""
 #: analytics_dashboard/static/js/enrollment-demographics-gender-main.js:32
 #: analytics_dashboard/static/js/enrollment-geography-main.js:29
 msgid "Current Enrollment"
-msgstr ""
+msgstr "Nuværende tilmelding"
 
 #: analytics_dashboard/static/apps/course-list/common/collections/course-list.js:82
 msgid "Change Last Week"
-msgstr ""
+msgstr "Skift i sidste uge"
 
 #: analytics_dashboard/static/apps/course-list/common/collections/course-list.js:83
 msgid "Verified Enrollment"
-msgstr ""
+msgstr "Verificeret tilmelding"
 
 #: analytics_dashboard/static/apps/course-list/common/collections/course-list.js:86
 msgid "Passing Learners"
-msgstr ""
+msgstr "Beståede elever"
 
 #: analytics_dashboard/static/apps/course-list/common/collections/course-list.js:89
 msgid "Availability"
-msgstr ""
+msgstr "Tilgængelighed"
 
 #: analytics_dashboard/static/apps/course-list/common/collections/course-list.js:90
 msgid "Pacing Type"
-msgstr ""
+msgstr "Pacing Type"
 
 #: analytics_dashboard/static/apps/course-list/common/collections/course-list.js:91
 msgid "Programs"
@@ -255,82 +256,82 @@ msgstr "Programmer"
 
 #: analytics_dashboard/static/apps/course-list/list/views/base-header-cell.js:11
 msgid "Course name advertised on edX site."
-msgstr ""
+msgstr "Kursusnavn annonceret på edX-webstedet."
 
 #: analytics_dashboard/static/apps/course-list/list/views/base-header-cell.js:12
 msgid "Start date advertised on edX site."
-msgstr ""
+msgstr "Startdato annonceret på edX-webstedet."
 
 #: analytics_dashboard/static/apps/course-list/list/views/base-header-cell.js:13
 msgid "End date set in edX Studio."
-msgstr ""
+msgstr "Slutdato angivet i edX Studio."
 
 #: analytics_dashboard/static/apps/course-list/list/views/base-header-cell.js:14
 msgid "Learners who ever enrolled in the course."
-msgstr ""
+msgstr "Elever, der nogensinde har tilmeldt sig kurset."
 
 #: analytics_dashboard/static/apps/course-list/list/views/base-header-cell.js:15
 msgid "Learners currently enrolled in the course."
-msgstr ""
+msgstr "Elever, der i øjeblikket er tilmeldt kurset."
 
 #: analytics_dashboard/static/apps/course-list/list/views/base-header-cell.js:16
 msgid "Net difference in current enrollment in the last week."
-msgstr ""
+msgstr "Nettoforskel i nuværende tilmelding i den seneste uge."
 
 #: analytics_dashboard/static/apps/course-list/list/views/base-header-cell.js:18
 msgid ""
 "Number of currently enrolled learners pursuing a verified certificate of "
 "achievement."
-msgstr ""
+msgstr "Antal aktuelt tilmeldte elever, der forfølger et verificeret præstationsbevis."
 
 #: analytics_dashboard/static/apps/course-list/list/views/base-header-cell.js:19
 msgid "Learners who have earned a passing grade."
-msgstr ""
+msgstr "Elever, der har opnået en bestået karakter."
 
 #: analytics_dashboard/static/apps/course-list/list/views/controls.js:38
 #: analytics_dashboard/static/apps/learners/roster/views/controls.js:39
 msgid "Skip to results"
-msgstr ""
+msgstr "Spring til resultater"
 
 #: analytics_dashboard/static/apps/course-list/list/views/controls.js:58
 msgid "Find a course"
-msgstr ""
+msgstr "Find et kursus"
 
 #: analytics_dashboard/static/apps/course-list/list/views/course-list.js:66
 msgid "Download full course list to CSV"
-msgstr ""
+msgstr "Download den fulde kursusliste til CSV"
 
 #: analytics_dashboard/static/apps/course-list/list/views/course-list.js:91
 msgid "Course list controls"
-msgstr ""
+msgstr "Kursusliste kontroller"
 
 #: analytics_dashboard/static/apps/course-list/list/views/results.js:47
 msgid "No courses matched your criteria."
-msgstr ""
+msgstr "Ingen kurser matchede dine kriterier."
 
 #: analytics_dashboard/static/apps/course-list/list/views/results.js:49
 #: analytics_dashboard/static/apps/learners/roster/views/results.js:49
 msgid "Try a different search."
-msgstr ""
+msgstr "Prøv en anden søgning."
 
 #: analytics_dashboard/static/apps/course-list/list/views/results.js:52
 #: analytics_dashboard/static/apps/learners/roster/views/results.js:52
 msgid "Try clearing the filters."
-msgstr ""
+msgstr "Prøv at rydde filtrene."
 
 #: analytics_dashboard/static/apps/course-list/list/views/results.js:55
 msgid "No course data is currently available for your course."
-msgstr ""
+msgstr "Der er i øjeblikket ingen kursusdata tilgængelige for dit kursus."
 
 #: analytics_dashboard/static/apps/course-list/list/views/results.js:57
 msgid ""
 "No courses are enrolled, or course activity data has not yet been processed."
 " Data is updated every day, so check back regularly for up-to-date metrics."
-msgstr ""
+msgstr "Ingen kurser er tilmeldt, eller kursusaktivitetsdata er endnu ikke blevet behandlet. Data opdateres hver dag, så tjek tilbage regelmæssigt for at få opdaterede metrics."
 
 #: analytics_dashboard/static/apps/course-list/list/views/search.js:71
 msgid "Search courses"
-msgstr ""
+msgstr "Søg efter kurser"
 
 #: analytics_dashboard/static/apps/course-list/list/views/search.js:72
 #: analytics_dashboard/static/apps/learners/roster/views/search.js:56
@@ -340,66 +341,66 @@ msgstr "søg"
 #: analytics_dashboard/static/apps/course-list/list/views/search.js:73
 #: analytics_dashboard/static/apps/learners/roster/views/search.js:57
 msgid "clear search"
-msgstr ""
+msgstr "klar søgning"
 
 #: analytics_dashboard/static/apps/course-list/list/views/table.js:48
 msgid "Date not available"
-msgstr ""
+msgstr "Dato ikke tilgængelig"
 
 #: analytics_dashboard/static/apps/learners/app/controller.js:59
 msgid "Learner Roster"
-msgstr ""
+msgstr "Elevliste"
 
 #: analytics_dashboard/static/apps/learners/app/controller.js:95
 msgid "Sorry, we couldn't find any learners who matched that query."
-msgstr ""
+msgstr "Beklager, vi kunne ikke finde nogen elever, der matchede denne forespørgsel."
 
 #: analytics_dashboard/static/apps/learners/app/controller.js:96
 msgid "Return to the Learners page."
-msgstr ""
+msgstr "Vend tilbage til siden for elever."
 
 #: analytics_dashboard/static/apps/learners/app/controller.js:104
 msgid "Learners"
-msgstr ""
+msgstr "Elever"
 
 #: analytics_dashboard/static/apps/learners/app/controller.js:137
 msgid "Learner Details"
-msgstr ""
+msgstr "Lærerdetaljer"
 
 #: analytics_dashboard/static/apps/learners/common/collections/learners.js:17
 msgid "Name (Username)"
-msgstr ""
+msgstr "Navn (brugernavn)"
 
 #: analytics_dashboard/static/apps/learners/common/collections/learners.js:18
 msgid "Problems Tried"
-msgstr ""
+msgstr "Problemer prøvet"
 
 #: analytics_dashboard/static/apps/learners/common/collections/learners.js:19
 #: analytics_dashboard/static/apps/learners/detail/views/engagement-table.js:33
 #: analytics_dashboard/static/apps/learners/detail/views/engagement-timeline.js:35
 msgid "Problems Correct"
-msgstr ""
+msgstr "Problemer korrekt"
 
 #: analytics_dashboard/static/apps/learners/common/collections/learners.js:20
 msgid "Attempts per Problem Correct"
-msgstr ""
+msgstr "Forsøg pr. problem Korrekt"
 
 #: analytics_dashboard/static/apps/learners/common/collections/learners.js:21
 #: analytics_dashboard/static/js/engagement-video-content-main.js:33
 msgid "Videos"
-msgstr ""
+msgstr "Videoer"
 
 #: analytics_dashboard/static/apps/learners/common/collections/learners.js:22
 msgid "Discussions"
-msgstr ""
+msgstr "Diskussioner"
 
 #: analytics_dashboard/static/apps/learners/common/collections/learners.js:24
 msgid "Segments"
-msgstr ""
+msgstr "Segmenter"
 
 #: analytics_dashboard/static/apps/learners/common/collections/learners.js:25
 msgid "Segments to Ignore"
-msgstr ""
+msgstr "Segmenter, der skal ignoreres"
 
 #: analytics_dashboard/static/apps/learners/common/collections/learners.js:26
 #: analytics_dashboard/static/apps/learners/detail/views/learner-detail.js:101
@@ -408,7 +409,7 @@ msgstr "Gruppe"
 
 #: analytics_dashboard/static/apps/learners/common/collections/learners.js:27
 msgid "Enrollment Mode"
-msgstr ""
+msgstr "Tilmeldingstilstand"
 
 #: analytics_dashboard/static/apps/learners/detail/views/engagement-table.js:22
 #: analytics_dashboard/static/apps/learners/detail/views/engagement-timeline.js:43
@@ -420,12 +421,12 @@ msgstr "Dato"
 #: analytics_dashboard/static/apps/learners/detail/views/engagement-table.js:27
 #: analytics_dashboard/static/apps/learners/detail/views/engagement-timeline.js:31
 msgid "Discussion Contributions"
-msgstr ""
+msgstr "Diskussionsbidrag"
 
 #: analytics_dashboard/static/apps/learners/detail/views/engagement-table.js:39
 #: analytics_dashboard/static/apps/learners/detail/views/engagement-timeline.js:39
 msgid "Videos Viewed"
-msgstr ""
+msgstr "Videoer set"
 
 #: analytics_dashboard/static/apps/learners/detail/views/engagement-timeline.js:47
 msgid "Value"
@@ -434,15 +435,15 @@ msgstr "Værdi"
 #. Translators: e.g. Learner engagement activity
 #: analytics_dashboard/static/apps/learners/detail/views/learner-detail.js:28
 msgid "Engagement Activity"
-msgstr ""
+msgstr "Engagement aktivitet"
 
 #: analytics_dashboard/static/apps/learners/detail/views/learner-detail.js:29
 msgid "Daily Activity"
-msgstr ""
+msgstr "Daglig aktivitet"
 
 #: analytics_dashboard/static/apps/learners/detail/views/learner-detail.js:30
 msgid "Activity Over Time"
-msgstr ""
+msgstr "Aktivitet over tid"
 
 #: analytics_dashboard/static/apps/learners/detail/views/learner-detail.js:95
 msgid "Enrollment"
@@ -450,160 +451,160 @@ msgstr "Tilmelding"
 
 #: analytics_dashboard/static/apps/learners/detail/views/learner-detail.js:106
 msgid "Last Accessed"
-msgstr ""
+msgstr "Sidst tilgået"
 
 #. Translators: 'n/a' means 'not available'
 #: analytics_dashboard/static/apps/learners/detail/views/learner-detail.js:109
 #: analytics_dashboard/static/apps/learners/detail/views/learner-summary-field.js:44
 #: analytics_dashboard/static/apps/learners/roster/views/activity-date-range.js:16
 msgid "n/a"
-msgstr ""
+msgstr "n/a"
 
 #: analytics_dashboard/static/apps/learners/detail/views/learner-detail.js:139
 msgid "Check back daily for up-to-date data."
-msgstr ""
+msgstr "Kom tilbage dagligt for at få opdaterede data."
 
 #: analytics_dashboard/static/apps/learners/detail/views/learner-detail.js:149
 msgid "No course activity data is available for this learner."
-msgstr ""
+msgstr "Ingen kursusaktivitetsdata er tilgængelige for denne elev."
 
 #: analytics_dashboard/static/apps/learners/detail/views/learner-detail.js:156
 msgid "No learner data is available."
-msgstr ""
+msgstr "Ingen elevdata er tilgængelig."
 
 #: analytics_dashboard/static/apps/learners/detail/views/learner-return.js:12
 msgid "Return to Learners"
-msgstr ""
+msgstr "Vend tilbage til eleverne"
 
 #. Translators: this is a label describing a selection that the user
 #. initiated.
 #: analytics_dashboard/static/apps/learners/roster/views/active-filters.js:23
 msgid "Cohort: <%= filterVal %>"
-msgstr ""
+msgstr "Gruppe: <%= filterVal %>"
 
 #. Translators: this is a label describing a selection that the user
 #. initiated.
 #: analytics_dashboard/static/apps/learners/roster/views/active-filters.js:27
 msgid "Enrollment Track: <%= filterVal %>"
-msgstr ""
+msgstr "Tilmeldingsspor: <%= filterVal %>"
 
 #: analytics_dashboard/static/apps/learners/roster/views/active-filters.js:32
 #: analytics_dashboard/static/js/engagement-content-main.js:20
 msgid "Active Learners"
-msgstr ""
+msgstr "Aktive elever"
 
 #: analytics_dashboard/static/apps/learners/roster/views/activity-date-range.js:11
 msgid "Activity between <%- startDate %> - <%- endDate %>"
-msgstr ""
+msgstr "Aktivitet mellem <%- startDate %> - <%- endDate %>"
 
 #: analytics_dashboard/static/apps/learners/roster/views/base-header-cell.js:10
 msgid "The name and username of this learner. Click to sort by username."
-msgstr ""
+msgstr "Navnet og brugernavnet på denne elev. Klik for at sortere efter brugernavn."
 
 #: analytics_dashboard/static/apps/learners/roster/views/base-header-cell.js:11
 msgid "Number of unique problems this learner attempted."
-msgstr ""
+msgstr "Antal unikke problemer, som denne elev forsøgte."
 
 #: analytics_dashboard/static/apps/learners/roster/views/base-header-cell.js:12
 msgid "Number of unique problems the learner answered correctly."
-msgstr ""
+msgstr "Antal unikke problemer, eleven besvarede korrekt."
 
 #: analytics_dashboard/static/apps/learners/roster/views/base-header-cell.js:13
 msgid "Number of unique videos this learner played."
-msgstr ""
+msgstr "Antal unikke videoer, som denne elev har spillet."
 
 #: analytics_dashboard/static/apps/learners/roster/views/base-header-cell.js:15
 msgid ""
 "Average number of attempts per correct problem. Learners with a relatively "
 "high value compared to their peers may be struggling."
-msgstr ""
+msgstr "Gennemsnitligt antal forsøg pr. korrekt problem. Elever med en relativt høj værdi sammenlignet med deres jævnaldrende kan have det svært."
 
 #: analytics_dashboard/static/apps/learners/roster/views/base-header-cell.js:17
 msgid ""
 "Number of contributions by this learner, including posts, responses, and "
 "comments."
-msgstr ""
+msgstr "Antal bidrag fra denne elev, inklusive indlæg, svar og kommentarer."
 
 #: analytics_dashboard/static/apps/learners/roster/views/controls.js:62
 msgid "Find a learner"
-msgstr ""
+msgstr "Find en elev"
 
 #: analytics_dashboard/static/apps/learners/roster/views/controls.js:75
 msgid "Cohort Groups"
-msgstr ""
+msgstr "Kohortegrupper"
 
 #: analytics_dashboard/static/apps/learners/roster/views/controls.js:87
 msgid "Enrollment Tracks"
-msgstr ""
+msgstr "Tilmeldingsspor"
 
 #. Translators: inactive meaning that these learners have not interacted with
 #. the
 #. course recently.
 #: analytics_dashboard/static/apps/learners/roster/views/controls.js:103
 msgid "Hide Inactive Learners"
-msgstr ""
+msgstr "Skjul inaktive elever"
 
 #: analytics_dashboard/static/apps/learners/roster/views/results.js:47
 msgid "No learners matched your criteria."
-msgstr ""
+msgstr "Ingen elever matchede dine kriterier."
 
 #: analytics_dashboard/static/apps/learners/roster/views/results.js:55
 msgid "No learner data is currently available for your course."
-msgstr ""
+msgstr "Der er i øjeblikket ingen elevdata tilgængelige for dit kursus."
 
 #: analytics_dashboard/static/apps/learners/roster/views/results.js:57
 msgid ""
 "No learners are enrolled, or course activity data has not yet been "
 "processed. Data is updated every day, so check back regularly for up-to-date"
 " metrics."
-msgstr ""
+msgstr "Ingen elever er tilmeldt, eller kursusaktivitetsdata er endnu ikke blevet behandlet. Data opdateres hver dag, så tjek tilbage regelmæssigt for at få opdaterede metrics."
 
 #: analytics_dashboard/static/apps/learners/roster/views/roster.js:110
 msgid "Learner roster controls"
-msgstr ""
+msgstr "Styring af elevliste"
 
 #: analytics_dashboard/static/apps/learners/roster/views/search.js:55
 msgid "Search learners"
-msgstr ""
+msgstr "Søg elever"
 
 #. Translators: 'N/A' is an abbreviation of "Not Applicable". Please translate
 #. accordingly.
 #: analytics_dashboard/static/apps/learners/roster/views/table.js:40
 msgid "N/A"
-msgstr ""
+msgstr "N/A"
 
 #: analytics_dashboard/static/js/engagement-content-main.js:15
 msgid "Week Ending"
-msgstr ""
+msgstr "Ugeafslutning"
 
 #: analytics_dashboard/static/js/engagement-content-main.js:27
 msgid "Watched a Video"
-msgstr ""
+msgstr "Så en video"
 
 #: analytics_dashboard/static/js/engagement-content-main.js:34
 msgid "Tried a Problem"
-msgstr ""
+msgstr "Prøvede et problem"
 
 #: analytics_dashboard/static/js/engagement-content-main.js:41
 msgid "Participated in Discussions"
-msgstr ""
+msgstr "Deltog i diskussioner"
 
 #: analytics_dashboard/static/js/engagement-content-main.js:48
 msgid "Percent of Current Learners"
-msgstr ""
+msgstr "Procent af nuværende elever"
 
 #. Translators: <%=value%> will be replaced with a date.
 #: analytics_dashboard/static/js/engagement-content-main.js:85
 msgid "Week Ending <%=value%>"
-msgstr ""
+msgstr "Ugeafslutning <%=value%>"
 
 #: analytics_dashboard/static/js/engagement-video-content-main.js:14
 msgid "Average Complete Views"
-msgstr ""
+msgstr "Gennemsnitlige komplette visninger"
 
 #: analytics_dashboard/static/js/engagement-video-content-main.js:23
 msgid "Average Incomplete Views"
-msgstr ""
+msgstr "Gennemsnitlige ufuldstændige visninger"
 
 #: analytics_dashboard/static/js/engagement-video-content-main.js:31
 #: analytics_dashboard/static/js/engagement-videos-main.js:29
@@ -617,27 +618,27 @@ msgstr "Ordre"
 #: analytics_dashboard/static/js/engagement-video-content-main.js:41
 #: analytics_dashboard/static/js/engagement-videos-main.js:38
 msgid "Completion Percentage"
-msgstr ""
+msgstr "Fuldførelsesprocent"
 
 #: analytics_dashboard/static/js/engagement-video-timeline-main.js:25
 msgid "Unique Viewers"
-msgstr ""
+msgstr "Unikke seere"
 
 #: analytics_dashboard/static/js/engagement-video-timeline-main.js:32
 msgid "Replays"
-msgstr ""
+msgstr "Gentagelser"
 
 #: analytics_dashboard/static/js/engagement-video-timeline-main.js:39
 msgid "Time"
-msgstr ""
+msgstr "Tid"
 
 #: analytics_dashboard/static/js/engagement-videos-main.js:14
 msgid "Complete Views"
-msgstr ""
+msgstr "Komplet visninger"
 
 #: analytics_dashboard/static/js/engagement-videos-main.js:22
 msgid "Incomplete Views"
-msgstr ""
+msgstr "Ufuldstændige visninger"
 
 #. Translators: this describe the learner's enrollment track (e.g. Honor
 #. certificate)
@@ -661,47 +662,47 @@ msgstr "Professionel"
 #. credit
 #: analytics_dashboard/static/js/enrollment-activity-main.js:54
 msgid "Verified with Credit"
-msgstr ""
+msgstr "Verificeret med kredit"
 
 #: analytics_dashboard/static/js/enrollment-demographics-age-main.js:19
 #: analytics_dashboard/static/js/enrollment-demographics-age-main.js:34
 #: analytics_dashboard/static/js/enrollment-demographics-education-main.js:32
 msgid "Number of Learners"
-msgstr ""
+msgstr "Antal elever"
 
 #. Translators: <%=value%> will be replaced with an age.
 #: analytics_dashboard/static/js/enrollment-demographics-age-main.js:26
 msgid "Age: <%=value%>"
-msgstr ""
+msgstr "Alder: <%=value%>"
 
 #: analytics_dashboard/static/js/enrollment-demographics-age-main.js:33
 msgid "Age"
-msgstr ""
+msgstr "Alder"
 
 #: analytics_dashboard/static/js/enrollment-demographics-age-main.js:35
 msgid "Percent of Total"
-msgstr ""
+msgstr "Procent af i alt"
 
 #: analytics_dashboard/static/js/enrollment-demographics-education-main.js:18
 #: analytics_dashboard/static/js/enrollment-demographics-gender-main.js:17
 msgid "Percentage"
-msgstr ""
+msgstr "Procent"
 
 #. Translators: <%=value%> will be replaced with a level of education (e.g.
 #. Doctorate).
 #: analytics_dashboard/static/js/enrollment-demographics-education-main.js:24
 msgid "Education: <%=value%>"
-msgstr ""
+msgstr "Uddannelse: <%=value%>"
 
 #: analytics_dashboard/static/js/enrollment-demographics-education-main.js:31
 msgid "Educational Background"
-msgstr ""
+msgstr "Uddannelsesmæssig baggrund"
 
 #. Translators: <%=value%> will be replaced with a level of gender (e.g.
 #. Female).
 #: analytics_dashboard/static/js/enrollment-demographics-gender-main.js:23
 msgid "Gender: <%=value%>"
-msgstr ""
+msgstr "Køn: <%=value%>"
 
 #: analytics_dashboard/static/js/enrollment-demographics-gender-main.js:33
 msgid "Female"
@@ -717,13 +718,13 @@ msgstr "Andet"
 
 #: analytics_dashboard/static/js/enrollment-demographics-gender-main.js:36
 msgid "Not Reported"
-msgstr ""
+msgstr "Ikke rapporteret"
 
 #: analytics_dashboard/static/js/enrollment-geography-main.js:18
 msgid ""
 "Learner location is determined from IP address. This map shows where "
 "learners most recently connected."
-msgstr ""
+msgstr "Elevens placering bestemmes ud fra IP-adressen. Dette kort viser, hvor eleverne senest er tilsluttet."
 
 #: analytics_dashboard/static/js/enrollment-geography-main.js:26
 msgid "Country or Region"
@@ -749,11 +750,11 @@ msgstr "Korrekt"
 
 #: analytics_dashboard/static/js/performance-answer-distribution-main.js:16
 msgid "Submission Count"
-msgstr ""
+msgstr "Indsendelsestælling"
 
 #: analytics_dashboard/static/js/performance-answer-distribution-main.js:30
 msgid "Variant"
-msgstr ""
+msgstr "Variant"
 
 #: analytics_dashboard/static/js/performance-answer-distribution-main.js:45
 #: analytics_dashboard/static/js/performance-learning-outcomes-section-main.js:20
@@ -766,40 +767,40 @@ msgstr "Ukorrekt"
 #. question asked in a course.
 #: analytics_dashboard/static/js/performance-answer-distribution-main.js:60
 msgid "Answer: <%=value%>"
-msgstr ""
+msgstr "Svar: <%=værdi%&gt;"
 
 #: analytics_dashboard/static/js/performance-content-main.js:11
 #: analytics_dashboard/static/js/performance-learning-outcomes-content-main.js:11
 msgid "Average Correct"
-msgstr ""
+msgstr "Gennemsnit korrekt"
 
 #: analytics_dashboard/static/js/performance-content-main.js:20
 #: analytics_dashboard/static/js/performance-learning-outcomes-content-main.js:20
 msgid "Average Incorrect"
-msgstr ""
+msgstr "Gennemsnit forkert"
 
 #: analytics_dashboard/static/js/performance-content-main.js:30
 msgid "Problems"
-msgstr ""
+msgstr "Problemer"
 
 #: analytics_dashboard/static/js/performance-content-main.js:39
 msgid "Average Submissions Per Problem"
-msgstr ""
+msgstr "Gennemsnitlige afleveringer pr. problem"
 
 #: analytics_dashboard/static/js/performance-content-main.js:48
 #: analytics_dashboard/static/js/performance-learning-outcomes-content-main.js:46
 #: analytics_dashboard/static/js/performance-learning-outcomes-section-main.js:61
 #: analytics_dashboard/static/js/performance-problems-main.js:43
 msgid "Percentage Correct"
-msgstr ""
+msgstr "Procent korrekt"
 
 #: analytics_dashboard/static/js/performance-learning-outcomes-content-main.js:38
 msgid "Average Submissions per Problem"
-msgstr ""
+msgstr "Gennemsnitlige afleveringer pr. problem"
 
 #: analytics_dashboard/static/js/performance-learning-outcomes-section-main.js:30
 msgid "Difficulty"
-msgstr ""
+msgstr "Vanskelighed"
 
 #: analytics_dashboard/static/js/performance-learning-outcomes-section-main.js:53
 #: analytics_dashboard/static/js/performance-problems-main.js:35
@@ -817,14 +818,14 @@ msgstr "..."
 #: analytics_dashboard/static/js/views/data-table-view.js:199
 #: analytics_dashboard/static/js/views/discrete-bar-view.js:21
 msgid "(empty)"
-msgstr ""
+msgstr "(tom)"
 
 #. Translators: <%=value%> will be replaced by a number followed by a
 #. percentage.
 #. For example, "400 (29%)"
 #: analytics_dashboard/static/js/views/stacked-bar-view.js:13
 msgid "<%=value%> (<%=percent%>)"
-msgstr ""
+msgstr "<%=value%> (<%=percent%>)"
 
 #~ msgid ", "
 #~ msgstr "."

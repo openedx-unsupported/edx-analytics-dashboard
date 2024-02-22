@@ -12,6 +12,8 @@
 # Piyush Shrivastava <piyush.shrivastava.037@gmail.com>, 2016
 # plankton rules <planktonrules0@gmail.com>, 2016
 # Viona Quadros, 2016
+# Yagnesh nayi, 2023
+# Yagnesh nayi, 2023
 # आकाश कुमार शर्मा <panchtatvam@gmail.com>, 2014
 msgid ""
 msgstr ""
@@ -19,7 +21,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-05-18 15:22+0000\n"
 "PO-Revision-Date: 2014-08-26 21:24+0000\n"
-"Last-Translator: Manish Manish <manish@manprax.com>, 2020\n"
+"Last-Translator: Yagnesh nayi, 2023\n"
 "Language-Team: Hindi (http://app.transifex.com/open-edx/edx-platform/language/hi/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -29,11 +31,11 @@ msgstr ""
 
 #: analytics_dashboard/static/apps/components/download/views/download-data.js:25
 msgid "Download CSV"
-msgstr "सी.एस.वी डाउनलोड करें"
+msgstr "CSV डाउनलोड करें"
 
 #: analytics_dashboard/static/apps/components/download/views/download-data.js:26
 msgid "Download search results to CSV"
-msgstr "सीएसवी के लिए खोज परिणाम डाउनलोड करें"
+msgstr "CSV के लिए खोज परिणाम डाउनलोड करें"
 
 #. Translators: "All" refers to viewing all items (e.g. all courses).
 #: analytics_dashboard/static/apps/components/filter/views/drop-down-filter.js:31
@@ -44,13 +46,13 @@ msgstr "सब"
 #. refers to the number of items belonging to that filter.
 #: analytics_dashboard/static/apps/components/filter/views/filter.js:90
 msgid "<%= name %> (<%= count %>)"
-msgstr "<% = नाम%> (<% = गिनती%>)"
+msgstr "<%= name %> (<%= count %>)"
 
 #. Translators: this is a label describing a filter selection that the user
 #. initiated.
 #: analytics_dashboard/static/apps/components/generic-list/list/views/active-filters.js:62
 msgid "<%= filterDisplayName %>: <%= filterVal %>"
-msgstr "<%=फ़िल्टरडिस्प्लेनेम %>:<%=फ़िल्टरवाल %>"
+msgstr "<%= filterDisplayName %>: <%= filterVal %>"
 
 #: analytics_dashboard/static/apps/components/generic-list/list/views/active-filters.js:87
 msgid "Filters In Use:"
@@ -58,7 +60,7 @@ msgstr "फिल्टर में उपयोग:"
 
 #: analytics_dashboard/static/apps/components/generic-list/list/views/active-filters.js:88
 msgid "Click to remove this filter"
-msgstr "इस फिल्टर को हटाने के लिए कि्लक करें"
+msgstr "इस फिल्टर को हटाने के लिए क्लिक करें"
 
 #. Translators: "Clear" in this context means "remove all of the filters"
 #: analytics_dashboard/static/apps/components/generic-list/list/views/active-filters.js:90
@@ -67,18 +69,18 @@ msgstr "साफ"
 
 #: analytics_dashboard/static/apps/components/generic-list/list/views/active-filters.js:91
 msgid "Click to remove all filters"
-msgstr "सभी फिल्टरों को हटाने के लिए कि्लक करें"
+msgstr "सभी फ़िल्टर को हटाने के लिए क्लिक करें"
 
 #. Translators: "sort ascending" describes the current sort state to the user.
 #: analytics_dashboard/static/apps/components/generic-list/list/views/base-header-cell.js:71
 msgid "sort ascending"
-msgstr " आरोही वर्गीकरण"
+msgstr "आरोही वर्गीकरण"
 
 #. Translators: "sort descending" describes the current sort state to the
 #. user.
 #: analytics_dashboard/static/apps/components/generic-list/list/views/base-header-cell.js:73
 msgid "sort descending"
-msgstr " अवरोही वर्गीकरण"
+msgstr "अवरोही वर्गीकरण"
 
 #. Translators: "click to sort" tells the user that they can click this link
 #. to sort by the current field.
@@ -94,7 +96,7 @@ msgstr "परिणाम"
 #. table.
 #: analytics_dashboard/static/apps/components/generic-list/list/views/num-results.js:30
 msgid "Number of results: <%= count %>"
-msgstr "परिणामों की संख्या: <% = गिनती%>"
+msgstr "परिणामों की संख्या: <%= count %>"
 
 #: analytics_dashboard/static/apps/components/generic-list/list/views/paging-footer.js:70
 msgid "first page"
@@ -145,7 +147,7 @@ msgstr "504: सरवर की गलती"
 msgid ""
 "Processing your request took too long to complete. Reload the page to try "
 "again."
-msgstr " आपके अनुरोध के प्रसंस्करण को पूरा करने में काफ़ी समय लगा। पृष्ठ को फिर से लोड करने की कोशिश करें।"
+msgstr "आपके अनुरोध के प्रसंस्करण को पूरा करने में काफ़ी समय लगा। पृष्ठ को फिर से लोड करने की कोशिश करें।"
 
 #: analytics_dashboard/static/apps/components/utils/utils.js:68
 msgid "Server error"
@@ -162,7 +164,7 @@ msgstr "नेटवर्क गलती"
 
 #: analytics_dashboard/static/apps/course-list/app/app.js:38
 msgid "Instructor-Paced"
-msgstr "प्रशिक्षक-पुस्तक"
+msgstr "प्रशिक्षक-गति"
 
 #: analytics_dashboard/static/apps/course-list/app/app.js:39
 msgid "Self-Paced"
@@ -183,17 +185,17 @@ msgstr "संग्रहीत"
 #: analytics_dashboard/static/apps/course-list/app/app.js:45
 #: analytics_dashboard/static/js/enrollment-demographics-age-main.js:17
 msgid "Unknown"
-msgstr "अनजान"
+msgstr "अज्ञात"
 
 #: analytics_dashboard/static/apps/course-list/app/controller.js:44
 #: analytics_dashboard/static/apps/course-list/app/controller.js:106
 msgid "Course List"
-msgstr "कार्यप्रणाली सूची"
+msgstr "पाठ्यक्रम सूची"
 
 #: analytics_dashboard/static/apps/course-list/app/controller.js:95
 #: analytics_dashboard/static/apps/learners/app/controller.js:94
 msgid "Invalid Parameters"
-msgstr "अमान्य मापदण्ड"
+msgstr "अमान्य मापदंड"
 
 #: analytics_dashboard/static/apps/course-list/app/controller.js:96
 msgid "Sorry, we couldn't find any courses that matched that query."
@@ -206,7 +208,7 @@ msgstr "पाठ्यक्रम सूची पृष्ठ पर वा�
 #: analytics_dashboard/static/apps/course-list/app/controller.js:123
 #: analytics_dashboard/static/apps/learners/app/controller.js:177
 msgid "Sorry, we couldn't find the page you're looking for."
-msgstr "क्षमा करें, जो पृष्ठ आप तलाश रहे हैं हम नहीं ढूंढ पाऐ।"
+msgstr "क्षमा करें, जो पृष्ठ आप तलाश रहे हैं हम नहीं ढूंढ पाए।"
 
 #: analytics_dashboard/static/apps/course-list/app/controller.js:125
 #: analytics_dashboard/static/apps/learners/app/controller.js:180
@@ -215,7 +217,7 @@ msgstr "यह पेज मौजूद नहीं है"
 
 #: analytics_dashboard/static/apps/course-list/common/collections/course-list.js:77
 msgid "Course Name"
-msgstr "कार्यप्रणाली का नाम"
+msgstr "पाठ्यक्रम का नाम"
 
 #: analytics_dashboard/static/apps/course-list/common/collections/course-list.js:78
 msgid "Start Date"
@@ -223,7 +225,7 @@ msgstr "आरंभ करने की तिथि"
 
 #: analytics_dashboard/static/apps/course-list/common/collections/course-list.js:79
 msgid "End Date"
-msgstr "अंतिम तिथि "
+msgstr "अंतिम तिथि"
 
 #: analytics_dashboard/static/apps/course-list/common/collections/course-list.js:80
 msgid "Total Enrollment"
@@ -247,7 +249,7 @@ msgstr "सत्यापित नामांकन"
 
 #: analytics_dashboard/static/apps/course-list/common/collections/course-list.js:86
 msgid "Passing Learners"
-msgstr "सीखने वाले"
+msgstr "उत्तीर्ण शिक्षार्थियों"
 
 #: analytics_dashboard/static/apps/course-list/common/collections/course-list.js:89
 msgid "Availability"
@@ -255,7 +257,7 @@ msgstr "उपलब्धता"
 
 #: analytics_dashboard/static/apps/course-list/common/collections/course-list.js:90
 msgid "Pacing Type"
-msgstr "पेसिंग प्रकार"
+msgstr "गति प्रकार"
 
 #: analytics_dashboard/static/apps/course-list/common/collections/course-list.js:91
 msgid "Programs"
@@ -263,23 +265,23 @@ msgstr "कार्यक्रम"
 
 #: analytics_dashboard/static/apps/course-list/list/views/base-header-cell.js:11
 msgid "Course name advertised on edX site."
-msgstr "पाठ्यक्रम का नाम इघएक्स साइट पर विज्ञापित है।"
+msgstr "पाठ्यक्रम का नाम एडएक्स साइट पर विज्ञापित है।"
 
 #: analytics_dashboard/static/apps/course-list/list/views/base-header-cell.js:12
 msgid "Start date advertised on edX site."
-msgstr "इघएक्स स्थल पर विज्ञापित प्रारंभ तिथि।"
+msgstr "एडएक्स स्थल पर विज्ञापित प्रारंभ तिथि।"
 
 #: analytics_dashboard/static/apps/course-list/list/views/base-header-cell.js:13
 msgid "End date set in edX Studio."
-msgstr "इघएक्स स्टूडियो में अंतिम तिथि सेट।"
+msgstr "एडएक्स स्टूडियो में अंतिम तिथि सेट।"
 
 #: analytics_dashboard/static/apps/course-list/list/views/base-header-cell.js:14
 msgid "Learners who ever enrolled in the course."
-msgstr "इन छात्रों ने कभी पाठ्यक्रम में दाखिला लिया।"
+msgstr "इन शिक्षार्थियों ने कभी पाठ्यक्रम में दाखिला लिया।"
 
 #: analytics_dashboard/static/apps/course-list/list/views/base-header-cell.js:15
 msgid "Learners currently enrolled in the course."
-msgstr "वर्तमान में पाठ्यक्रम में नामांकित छात्र।"
+msgstr "वर्तमान में पाठ्यक्रम में नामांकित शिक्षार्थियों।"
 
 #: analytics_dashboard/static/apps/course-list/list/views/base-header-cell.js:16
 msgid "Net difference in current enrollment in the last week."
@@ -302,11 +304,11 @@ msgstr "परिणामों पर जाएं"
 
 #: analytics_dashboard/static/apps/course-list/list/views/controls.js:58
 msgid "Find a course"
-msgstr "एक कोर्स खोजें"
+msgstr "एक पाठ्यक्रम खोजें"
 
 #: analytics_dashboard/static/apps/course-list/list/views/course-list.js:66
 msgid "Download full course list to CSV"
-msgstr "सीएसवी में पूर्ण पाठ्यक्रम सूची डाउनलोड करें"
+msgstr "CSV में पूर्ण पाठ्यक्रम सूची डाउनलोड करें"
 
 #: analytics_dashboard/static/apps/course-list/list/views/course-list.js:91
 msgid "Course list controls"
@@ -334,21 +336,21 @@ msgstr "वर्तमान में आपके पाठ्यक्रम
 msgid ""
 "No courses are enrolled, or course activity data has not yet been processed."
 " Data is updated every day, so check back regularly for up-to-date metrics."
-msgstr "कोई भी पाठ्यक्रम नामांकित नहीं है, या पाठ्यक्रम गतिविधि डेटा अभी तक संसाधित नहीं हुआ है। डेटा हर दिन अपडेट किया जाता है, इसलिए अप-टू-डेट मैट्रिक्स के लिए नियमित रूप से वापस जांचें।"
+msgstr "कोई पाठ्यक्रम नामांकित नहीं है, या पाठ्यक्रम गतिविधि डेटा अभी तक संसाधित नहीं किया गया है। डेटा हर दिन अपडेट किया जाता है, इसलिए नवीनतम मेट्रिक्स के लिए नियमित रूप से जांच करते रहें।"
 
 #: analytics_dashboard/static/apps/course-list/list/views/search.js:71
 msgid "Search courses"
-msgstr "कोर्स खोजें"
+msgstr "पाठ्यक्रम खोजें"
 
 #: analytics_dashboard/static/apps/course-list/list/views/search.js:72
 #: analytics_dashboard/static/apps/learners/roster/views/search.js:56
 msgid "search"
-msgstr "ढूँढे"
+msgstr "खोजें"
 
 #: analytics_dashboard/static/apps/course-list/list/views/search.js:73
 #: analytics_dashboard/static/apps/learners/roster/views/search.js:57
 msgid "clear search"
-msgstr "तलाश हटाएं"
+msgstr "स्पष्ट खोज"
 
 #: analytics_dashboard/static/apps/course-list/list/views/table.js:48
 msgid "Date not available"
@@ -380,7 +382,7 @@ msgstr "नाम (उपयोक्तानाम)"
 
 #: analytics_dashboard/static/apps/learners/common/collections/learners.js:18
 msgid "Problems Tried"
-msgstr "प्रश्न आज़माऐ"
+msgstr "प्रश्न आज़माएं"
 
 #: analytics_dashboard/static/apps/learners/common/collections/learners.js:19
 #: analytics_dashboard/static/apps/learners/detail/views/engagement-table.js:33
@@ -395,7 +397,7 @@ msgstr "सही कोशिशें प्रति सवाल"
 #: analytics_dashboard/static/apps/learners/common/collections/learners.js:21
 #: analytics_dashboard/static/js/engagement-video-content-main.js:33
 msgid "Videos"
-msgstr "वीडियोस "
+msgstr "वीडियो"
 
 #: analytics_dashboard/static/apps/learners/common/collections/learners.js:22
 msgid "Discussions"
@@ -407,7 +409,7 @@ msgstr "भाग"
 
 #: analytics_dashboard/static/apps/learners/common/collections/learners.js:25
 msgid "Segments to Ignore"
-msgstr "इन भागों को नज़रअन्दाज़ करें"
+msgstr "इन भागों को नज़रअंदाज़ करें"
 
 #: analytics_dashboard/static/apps/learners/common/collections/learners.js:26
 #: analytics_dashboard/static/apps/learners/detail/views/learner-detail.js:101
@@ -416,7 +418,7 @@ msgstr "सहयोग"
 
 #: analytics_dashboard/static/apps/learners/common/collections/learners.js:27
 msgid "Enrollment Mode"
-msgstr "नामाकंन प्रणाली"
+msgstr "नामांकन प्रणाली"
 
 #: analytics_dashboard/static/apps/learners/detail/views/engagement-table.js:22
 #: analytics_dashboard/static/apps/learners/detail/views/engagement-timeline.js:43
@@ -487,13 +489,13 @@ msgstr "वापिस छात्रों के पास"
 #. initiated.
 #: analytics_dashboard/static/apps/learners/roster/views/active-filters.js:23
 msgid "Cohort: <%= filterVal %>"
-msgstr "सहयोग: <%= filterVal %> "
+msgstr "सहयोग: <%= filterVal %>"
 
 #. Translators: this is a label describing a selection that the user
 #. initiated.
 #: analytics_dashboard/static/apps/learners/roster/views/active-filters.js:27
 msgid "Enrollment Track: <%= filterVal %>"
-msgstr "नामाकंन ट्रैक्स : <%= filterVal %>"
+msgstr "नामांकन ट्रैक्स: <%= filterVal %>"
 
 #: analytics_dashboard/static/apps/learners/roster/views/active-filters.js:32
 #: analytics_dashboard/static/js/engagement-content-main.js:20
@@ -502,11 +504,11 @@ msgstr "सक्रिय शिक्षार्थी"
 
 #: analytics_dashboard/static/apps/learners/roster/views/activity-date-range.js:11
 msgid "Activity between <%- startDate %> - <%- endDate %>"
-msgstr "गतिविधि   <%- startDate %> से  <%- endDate %> तक "
+msgstr "के बीच गतिविधि <%- startDate %> - <%- endDate %> "
 
 #: analytics_dashboard/static/apps/learners/roster/views/base-header-cell.js:10
 msgid "The name and username of this learner. Click to sort by username."
-msgstr "छात्र का नाम और प्रयोक्ता नाम। प्रयोक्ता नाम से वर्गीकृत करने के लिए कि्लक करें।"
+msgstr "छात्र का नाम और प्रयोक्ता नाम। प्रयोक्ता नाम से वर्गीकृत करने के लिए क्लिक करें।"
 
 #: analytics_dashboard/static/apps/learners/roster/views/base-header-cell.js:11
 msgid "Number of unique problems this learner attempted."
@@ -534,22 +536,22 @@ msgstr "लेखों, प्रतिक्रियाओं, और टि�
 
 #: analytics_dashboard/static/apps/learners/roster/views/controls.js:62
 msgid "Find a learner"
-msgstr "छात्र तलाशें"
+msgstr "एक शिक्षार्थी खोजें"
 
 #: analytics_dashboard/static/apps/learners/roster/views/controls.js:75
 msgid "Cohort Groups"
-msgstr "सहयोगी समुह"
+msgstr "सहयोगी समूह"
 
 #: analytics_dashboard/static/apps/learners/roster/views/controls.js:87
 msgid "Enrollment Tracks"
-msgstr "नामाकंन ट्रैक्स"
+msgstr "नामांकन ट्रैक्स"
 
 #. Translators: inactive meaning that these learners have not interacted with
 #. the
 #. course recently.
 #: analytics_dashboard/static/apps/learners/roster/views/controls.js:103
 msgid "Hide Inactive Learners"
-msgstr "निष्क्रिय शिक्षार्थियों को छिपाएं"
+msgstr "निष्क्रिय शिक्षार्थियों को छिपाएँ"
 
 #: analytics_dashboard/static/apps/learners/roster/views/results.js:47
 msgid "No learners matched your criteria."
@@ -564,25 +566,25 @@ msgid ""
 "No learners are enrolled, or course activity data has not yet been "
 "processed. Data is updated every day, so check back regularly for up-to-date"
 " metrics."
-msgstr "छात्रों का नामाकंन नही हुआ है, या पाठ्यक्रम गतिविधि आँकड़े अभी तक क्रियान्वित नहीं किए गए है।आँकड़ों में प्रतिदिन सुधार किया जाता है, इसलिए नवीनतम मेट्रिक के लिए नियमित रूप से जांच करेंं।"
+msgstr "छात्रों का नामांकन नही हुआ है, या पाठ्यक्रम गतिविधि आँकड़े अभी तक क्रियान्वित नहीं किए गए है।आँकड़ों में प्रतिदिन सुधार किया जाता है, इसलिए नवीनतम मेट्रिक के लिए नियमित रूप से जांच करेंं।"
 
 #: analytics_dashboard/static/apps/learners/roster/views/roster.js:110
 msgid "Learner roster controls"
-msgstr "छात्र तालिका कन्ट्रोल्स"
+msgstr "शिक्षार्थी तालिका कंट्रोल"
 
 #: analytics_dashboard/static/apps/learners/roster/views/search.js:55
 msgid "Search learners"
-msgstr "छात्र तलाशें"
+msgstr "शिक्षार्थियों तलाशें"
 
 #. Translators: 'N/A' is an abbreviation of "Not Applicable". Please translate
 #. accordingly.
 #: analytics_dashboard/static/apps/learners/roster/views/table.js:40
 msgid "N/A"
-msgstr "निरंक"
+msgstr "एन / ए"
 
 #: analytics_dashboard/static/js/engagement-content-main.js:15
 msgid "Week Ending"
-msgstr "सप्ताहांत"
+msgstr "सप्ताह का अंत"
 
 #: analytics_dashboard/static/js/engagement-content-main.js:27
 msgid "Watched a Video"
@@ -603,7 +605,7 @@ msgstr "वर्तमान शिक्षार्थियों का प
 #. Translators: <%=value%> will be replaced with a date.
 #: analytics_dashboard/static/js/engagement-content-main.js:85
 msgid "Week Ending <%=value%>"
-msgstr "सप्ताहांत <%=value%>"
+msgstr "सप्ताह का अंत <%=value%>"
 
 #: analytics_dashboard/static/js/engagement-video-content-main.js:14
 msgid "Average Complete Views"
@@ -659,7 +661,7 @@ msgstr "परीक्षण"
 
 #: analytics_dashboard/static/js/enrollment-activity-main.js:43
 msgid "Verified"
-msgstr "सत्‍यापित"
+msgstr "सत्यापित"
 
 #: analytics_dashboard/static/js/enrollment-activity-main.js:48
 msgid "Professional"
@@ -669,7 +671,7 @@ msgstr "व्यावसायिक"
 #. credit
 #: analytics_dashboard/static/js/enrollment-activity-main.js:54
 msgid "Verified with Credit"
-msgstr "श्रेय द्वारा सत्यापित"
+msgstr "क्रेडिट के साथ सत्यापित"
 
 #: analytics_dashboard/static/js/enrollment-demographics-age-main.js:19
 #: analytics_dashboard/static/js/enrollment-demographics-age-main.js:34
@@ -688,7 +690,7 @@ msgstr "आयु"
 
 #: analytics_dashboard/static/js/enrollment-demographics-age-main.js:35
 msgid "Percent of Total"
-msgstr "कुल का प्रतिशत"
+msgstr "कुल प्रतिशत"
 
 #: analytics_dashboard/static/js/enrollment-demographics-education-main.js:18
 #: analytics_dashboard/static/js/enrollment-demographics-gender-main.js:17
@@ -699,17 +701,17 @@ msgstr "प्रतिशत"
 #. Doctorate).
 #: analytics_dashboard/static/js/enrollment-demographics-education-main.js:24
 msgid "Education: <%=value%>"
-msgstr "शिक्षा: <% = मूल्य%>"
+msgstr "शिक्षा: <%=value%>"
 
 #: analytics_dashboard/static/js/enrollment-demographics-education-main.js:31
 msgid "Educational Background"
-msgstr "शैक्षिक पृष्ठभूमि"
+msgstr "शैक्षणिक पृष्ठभूमि"
 
 #. Translators: <%=value%> will be replaced with a level of gender (e.g.
 #. Female).
 #: analytics_dashboard/static/js/enrollment-demographics-gender-main.js:23
 msgid "Gender: <%=value%>"
-msgstr "लिंग: <% = मान%>"
+msgstr "लिंग: <%=value%>"
 
 #: analytics_dashboard/static/js/enrollment-demographics-gender-main.js:33
 msgid "Female"
@@ -731,7 +733,7 @@ msgstr "सूचित नहीं किया गया"
 msgid ""
 "Learner location is determined from IP address. This map shows where "
 "learners most recently connected."
-msgstr "आईपी ​​पते से शिक्षार्थी का स्थान निर्धारित किया जाता है। यह मानचित्र दिखाता है कि शिक्षार्थी सबसे हाल ही में कहां जुड़े हैं।"
+msgstr "शिक्षार्थी का स्थान आईपी पते से निर्धारित होता है। यह मानचित्र दिखाता है कि शिक्षार्थी सबसे हाल ही में कहां जुड़े हैं।"
 
 #: analytics_dashboard/static/js/enrollment-geography-main.js:26
 msgid "Country or Region"
@@ -739,7 +741,7 @@ msgstr "देश या क्षेत्र"
 
 #: analytics_dashboard/static/js/enrollment-geography-main.js:27
 msgid "Percent"
-msgstr "प्रतिशत"
+msgstr "फ़ीसदी"
 
 #: analytics_dashboard/static/js/performance-answer-distribution-main.js:12
 msgid "Answer"
@@ -757,11 +759,11 @@ msgstr "सही"
 
 #: analytics_dashboard/static/js/performance-answer-distribution-main.js:16
 msgid "Submission Count"
-msgstr "निवेदन सम्मिलित"
+msgstr "सबमिशन गिनती"
 
 #: analytics_dashboard/static/js/performance-answer-distribution-main.js:30
 msgid "Variant"
-msgstr "भेद"
+msgstr "प्रकार"
 
 #: analytics_dashboard/static/js/performance-answer-distribution-main.js:45
 #: analytics_dashboard/static/js/performance-learning-outcomes-section-main.js:20
@@ -774,7 +776,7 @@ msgstr "ग़लत"
 #. question asked in a course.
 #: analytics_dashboard/static/js/performance-answer-distribution-main.js:60
 msgid "Answer: <%=value%>"
-msgstr "उत्तर: <% = मूल्य%>"
+msgstr "उत्तर: <%=value%>"
 
 #: analytics_dashboard/static/js/performance-content-main.js:11
 #: analytics_dashboard/static/js/performance-learning-outcomes-content-main.js:11
@@ -792,7 +794,7 @@ msgstr "समस्याएं"
 
 #: analytics_dashboard/static/js/performance-content-main.js:39
 msgid "Average Submissions Per Problem"
-msgstr "प्रति समस्या औसत निवेदन"
+msgstr "प्रति समस्या औसत सबमिशन"
 
 #: analytics_dashboard/static/js/performance-content-main.js:48
 #: analytics_dashboard/static/js/performance-learning-outcomes-content-main.js:46
@@ -803,7 +805,7 @@ msgstr "प्रतिशत सही"
 
 #: analytics_dashboard/static/js/performance-learning-outcomes-content-main.js:38
 msgid "Average Submissions per Problem"
-msgstr "समस्या के अनुसार औसत प्रस्तुतियाँ"
+msgstr "समस्या के अनुसार औसत सबमिशन"
 
 #: analytics_dashboard/static/js/performance-learning-outcomes-section-main.js:30
 msgid "Difficulty"
@@ -832,7 +834,7 @@ msgstr "(खाली)"
 #. For example, "400 (29%)"
 #: analytics_dashboard/static/js/views/stacked-bar-view.js:13
 msgid "<%=value%> (<%=percent%>)"
-msgstr "<% = मान%> (<% = प्रतिशत%>)"
+msgstr "<%=value%> (<%=percent%>)"
 
 #~ msgid ", "
 #~ msgstr "."
