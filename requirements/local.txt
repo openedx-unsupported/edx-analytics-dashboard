@@ -168,7 +168,7 @@ edx-ccx-keys==1.2.1
     # via -r requirements/test.txt
 edx-django-release-util==1.3.0
     # via -r requirements/test.txt
-edx-django-utils==5.10.1
+edx-django-utils==5.11.0
     # via
     #   -r requirements/test.txt
     #   edx-drf-extensions
@@ -204,7 +204,7 @@ idna==3.6
     # via
     #   -r requirements/test.txt
     #   requests
-importlib-metadata==7.0.1
+importlib-metadata==7.0.2
     # via
     #   -r requirements/pip_tools.txt
     #   build
@@ -238,7 +238,7 @@ mccabe==0.7.0
     #   pylint
 mysqlclient==2.2.4
     # via -r requirements/local.in
-newrelic==9.7.0
+newrelic==9.7.1
     # via
     #   -r requirements/test.txt
     #   edx-django-utils
@@ -247,7 +247,7 @@ oauthlib==3.2.2
     #   -r requirements/test.txt
     #   requests-oauthlib
     #   social-auth-core
-packaging==23.2
+packaging==24.0
     # via
     #   -r requirements/pip_tools.txt
     #   -r requirements/test.txt
@@ -267,7 +267,7 @@ pbr==6.0.0
     # via
     #   -r requirements/test.txt
     #   stevedore
-pip-tools==7.4.0
+pip-tools==7.4.1
     # via -r requirements/pip_tools.txt
 platformdirs==4.2.0
     # via
@@ -343,7 +343,7 @@ pyproject-hooks==1.0.0
     #   -r requirements/pip_tools.txt
     #   build
     #   pip-tools
-pytest==8.0.2
+pytest==8.1.1
     # via
     #   -r requirements/test.txt
     #   pytest-cov
@@ -379,7 +379,7 @@ requests==2.31.0
     #   requests-oauthlib
     #   slumber
     #   social-auth-core
-requests-oauthlib==1.3.1
+requests-oauthlib==1.4.0
     # via
     #   -r requirements/test.txt
     #   social-auth-core
@@ -445,7 +445,7 @@ tomlkit==0.12.4
     # via
     #   -r requirements/test.txt
     #   pylint
-tox==4.13.0
+tox==4.14.1
     # via -r requirements/tox.txt
 typing-extensions==4.10.0
     # via
@@ -464,7 +464,7 @@ virtualenv==20.25.1
     # via
     #   -r requirements/tox.txt
     #   tox
-wheel==0.42.0
+wheel==0.43.0
     # via
     #   -r requirements/pip_tools.txt
     #   pip-tools
