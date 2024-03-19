@@ -11,7 +11,9 @@ asgiref==3.7.2
     #   django
     #   django-countries
 backports-zoneinfo==0.2.1
-    # via django
+    # via
+    #   django
+    #   djangorestframework
 certifi==2024.2.2
     # via requests
 cffi==1.16.0
@@ -24,7 +26,7 @@ click==8.1.7
     # via
     #   code-annotations
     #   edx-django-utils
-code-annotations==1.6.0
+code-annotations==1.7.0
     # via edx-toggles
 cryptography==42.0.5
     # via
@@ -85,7 +87,7 @@ django-webpack-loader==0.7.0
     # via
     #   -c requirements/constraints.txt
     #   -r requirements/base.in
-djangorestframework==3.14.0
+djangorestframework==3.15.0
     # via
     #   -r requirements/base.in
     #   djangorestframework-csv
@@ -171,8 +173,6 @@ python-slugify==8.0.4
     #   code-annotations
 python3-openid==3.2.0
     # via social-auth-core
-pytz==2024.1
-    # via djangorestframework
 pyyaml==6.0.1
     # via
     #   code-annotations

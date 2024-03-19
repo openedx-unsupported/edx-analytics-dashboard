@@ -15,6 +15,7 @@ backports-zoneinfo==0.2.1
     # via
     #   -r requirements/base.txt
     #   django
+    #   djangorestframework
 certifi==2024.2.2
     # via
     #   -r requirements/base.txt
@@ -33,7 +34,7 @@ click==8.1.7
     #   -r requirements/base.txt
     #   code-annotations
     #   edx-django-utils
-code-annotations==1.6.0
+code-annotations==1.7.0
     # via
     #   -r requirements/base.txt
     #   edx-toggles
@@ -99,7 +100,7 @@ django-webpack-loader==0.7.0
     # via
     #   -c requirements/constraints.txt
     #   -r requirements/base.txt
-djangorestframework==3.14.0
+djangorestframework==3.15.0
     # via
     #   -r requirements/base.txt
     #   djangorestframework-csv
@@ -226,10 +227,6 @@ python3-openid==3.2.0
     # via
     #   -r requirements/base.txt
     #   social-auth-core
-pytz==2024.1
-    # via
-    #   -r requirements/base.txt
-    #   djangorestframework
 pyyaml==6.0.1
     # via
     #   -r requirements/base.txt
