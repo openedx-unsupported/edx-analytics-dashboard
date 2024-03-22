@@ -20,6 +20,7 @@ backports-zoneinfo==0.2.1
     # via
     #   -r requirements/test.txt
     #   django
+    #   djangorestframework
 build==1.1.1
     # via
     #   -r requirements/pip_tools.txt
@@ -58,7 +59,7 @@ click-log==0.4.0
     # via
     #   -r requirements/test.txt
     #   edx-lint
-code-annotations==1.6.0
+code-annotations==1.7.0
     # via
     #   -r requirements/test.txt
     #   edx-lint
@@ -67,7 +68,7 @@ colorama==0.4.6
     # via
     #   -r requirements/tox.txt
     #   tox
-coverage[toml]==7.4.3
+coverage[toml]==7.4.4
     # via
     #   -r requirements/test.txt
     #   pytest-cov
@@ -148,7 +149,7 @@ django-webpack-loader==0.7.0
     # via
     #   -c requirements/constraints.txt
     #   -r requirements/test.txt
-djangorestframework==3.14.0
+djangorestframework==3.15.0
     # via
     #   -r requirements/test.txt
     #   djangorestframework-csv
@@ -204,8 +205,9 @@ idna==3.6
     # via
     #   -r requirements/test.txt
     #   requests
-importlib-metadata==7.0.2
+importlib-metadata==6.11.0
     # via
+    #   -c requirements/common_constraints.txt
     #   -r requirements/pip_tools.txt
     #   build
 iniconfig==2.0.0
@@ -360,10 +362,6 @@ python3-openid==3.2.0
     # via
     #   -r requirements/test.txt
     #   social-auth-core
-pytz==2024.1
-    # via
-    #   -r requirements/test.txt
-    #   djangorestframework
 pyyaml==6.0.1
     # via
     #   -r requirements/test.txt
@@ -468,7 +466,7 @@ wheel==0.43.0
     # via
     #   -r requirements/pip_tools.txt
     #   pip-tools
-zipp==3.17.0
+zipp==3.18.1
     # via
     #   -r requirements/pip_tools.txt
     #   importlib-metadata
