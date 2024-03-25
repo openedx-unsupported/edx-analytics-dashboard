@@ -4,7 +4,7 @@
 #
 #    make upgrade
 #
-cachetools==5.3.2
+cachetools==5.3.3
     # via tox
 chardet==5.2.0
     # via tox
@@ -16,7 +16,7 @@ filelock==3.13.1
     # via
     #   tox
     #   virtualenv
-packaging==23.2
+packaging==24.0
     # via
     #   pyproject-api
     #   tox
@@ -32,7 +32,7 @@ tomli==2.0.1
     # via
     #   pyproject-api
     #   tox
-tox==4.13.0
+tox==4.14.1
     # via -r requirements/tox.in
-virtualenv==20.25.0
+virtualenv==20.25.1
     # via tox

@@ -23,6 +23,7 @@ backports-zoneinfo==0.2.1
     # via
     #   -r requirements/base.txt
     #   django
+    #   djangorestframework
 beautifulsoup4==4.12.3
     # via pydata-sphinx-theme
 certifi==2024.2.2
@@ -43,11 +44,11 @@ click==8.1.7
     #   -r requirements/base.txt
     #   code-annotations
     #   edx-django-utils
-code-annotations==1.6.0
+code-annotations==1.7.0
     # via
     #   -r requirements/base.txt
     #   edx-toggles
-cryptography==42.0.3
+cryptography==42.0.5
     # via
     #   -r requirements/base.txt
     #   pyjwt
@@ -57,8 +58,9 @@ defusedxml==0.8.0rc2
     #   -r requirements/base.txt
     #   python3-openid
     #   social-auth-core
-django==4.2.10
+django==4.2.11
     # via
+    #   -c requirements/common_constraints.txt
     #   -c requirements/constraints.txt
     #   -r requirements/base.txt
     #   django-appconf
@@ -108,7 +110,7 @@ django-webpack-loader==0.7.0
     # via
     #   -c requirements/constraints.txt
     #   -r requirements/base.txt
-djangorestframework==3.14.0
+djangorestframework==3.15.0
     # via
     #   -r requirements/base.txt
     #   djangorestframework-csv
@@ -124,7 +126,7 @@ drf-jwt==1.19.2
     # via
     #   -r requirements/base.txt
     #   edx-drf-extensions
-edx-analytics-data-api-client==0.18.2
+edx-analytics-data-api-client==0.18.3
     # via -r requirements/base.txt
 edx-auth-backends==4.2.0
     # via -r requirements/base.txt
@@ -132,7 +134,7 @@ edx-ccx-keys==1.2.1
     # via -r requirements/base.txt
 edx-django-release-util==1.3.0
     # via -r requirements/base.txt
-edx-django-utils==5.10.1
+edx-django-utils==5.11.0
     # via
     #   -r requirements/base.txt
     #   edx-drf-extensions
@@ -157,8 +159,10 @@ idna==3.6
     #   requests
 imagesize==1.4.1
     # via sphinx
-importlib-metadata==7.0.1
-    # via sphinx
+importlib-metadata==6.11.0
+    # via
+    #   -c requirements/common_constraints.txt
+    #   sphinx
 jinja2==3.1.3
     # via
     #   -r requirements/base.txt
@@ -176,7 +180,7 @@ markupsafe==2.1.5
     # via
     #   -r requirements/base.txt
     #   jinja2
-newrelic==9.6.0
+newrelic==9.7.1
     # via
     #   -r requirements/base.txt
     #   edx-django-utils
@@ -185,7 +189,7 @@ oauthlib==3.2.2
     #   -r requirements/base.txt
     #   requests-oauthlib
     #   social-auth-core
-packaging==23.2
+packaging==24.0
     # via
     #   pydata-sphinx-theme
     #   sphinx
@@ -244,10 +248,7 @@ python3-openid==3.2.0
     #   -r requirements/base.txt
     #   social-auth-core
 pytz==2024.1
-    # via
-    #   -r requirements/base.txt
-    #   babel
-    #   djangorestframework
+    # via babel
 pyyaml==6.0.1
     # via
     #   -r requirements/base.txt
@@ -264,7 +265,7 @@ requests==2.31.0
     #   slumber
     #   social-auth-core
     #   sphinx
-requests-oauthlib==1.3.1
+requests-oauthlib==1.4.0
     # via
     #   -r requirements/base.txt
     #   social-auth-core
@@ -318,7 +319,7 @@ sqlparse==0.4.4
     # via
     #   -r requirements/base.txt
     #   django
-stevedore==5.1.0
+stevedore==5.2.0
     # via
     #   -r requirements/base.txt
     #   code-annotations
@@ -328,7 +329,7 @@ text-unidecode==1.3
     # via
     #   -r requirements/base.txt
     #   python-slugify
-typing-extensions==4.9.0
+typing-extensions==4.10.0
     # via
     #   -r requirements/base.txt
     #   asgiref
@@ -340,5 +341,8 @@ urllib3==1.26.18
     #   -c requirements/constraints.txt
     #   -r requirements/base.txt
     #   requests
-zipp==3.17.0
+zipp==3.18.1
     # via importlib-metadata
+
+# The following packages are considered to be unsafe in a requirements file:
+# setuptools
