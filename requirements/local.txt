@@ -6,7 +6,7 @@
 #
 -e git+https://github.com/openedx/pinax-announcements.git@60a3fdf171b520d8593a9b2190d1c01a6614ab59#egg=pinax-announcements
     # via -r requirements/test.txt
-asgiref==3.7.2
+asgiref==3.8.1
     # via
     #   -r requirements/test.txt
     #   django
@@ -149,7 +149,7 @@ django-webpack-loader==0.7.0
     # via
     #   -c requirements/constraints.txt
     #   -r requirements/test.txt
-djangorestframework==3.15.0
+djangorestframework==3.15.1
     # via
     #   -r requirements/test.txt
     #   djangorestframework-csv
@@ -194,7 +194,7 @@ exceptiongroup==1.2.0
     # via
     #   -r requirements/test.txt
     #   pytest
-filelock==3.13.1
+filelock==3.13.3
     # via
     #   -r requirements/tox.txt
     #   tox
@@ -350,7 +350,7 @@ pytest==8.1.1
     #   -r requirements/test.txt
     #   pytest-cov
     #   pytest-django
-pytest-cov==4.1.0
+pytest-cov==5.0.0
     # via -r requirements/test.txt
 pytest-django==4.8.0
     # via -r requirements/test.txt
@@ -377,7 +377,7 @@ requests==2.31.0
     #   requests-oauthlib
     #   slumber
     #   social-auth-core
-requests-oauthlib==1.4.0
+requests-oauthlib==2.0.0
     # via
     #   -r requirements/test.txt
     #   social-auth-core
@@ -443,7 +443,7 @@ tomlkit==0.12.4
     # via
     #   -r requirements/test.txt
     #   pylint
-tox==4.14.1
+tox==4.14.2
     # via -r requirements/tox.txt
 typing-extensions==4.10.0
     # via
