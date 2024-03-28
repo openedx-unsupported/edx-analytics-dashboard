@@ -10,7 +10,7 @@ accessible-pygments==0.0.4
     # via pydata-sphinx-theme
 alabaster==0.7.13
     # via sphinx
-asgiref==3.7.2
+asgiref==3.8.1
     # via
     #   -r requirements/base.txt
     #   django
@@ -85,7 +85,7 @@ django-appconf==1.0.6
     # via -r requirements/base.txt
 django-braces==1.15.0
     # via -r requirements/base.txt
-django-countries==7.5.1
+django-countries==7.6
     # via -r requirements/base.txt
 django-crispy-forms==2.1
     # via -r requirements/base.txt
@@ -110,7 +110,7 @@ django-webpack-loader==0.7.0
     # via
     #   -c requirements/constraints.txt
     #   -r requirements/base.txt
-djangorestframework==3.15.0
+djangorestframework==3.15.1
     # via
     #   -r requirements/base.txt
     #   djangorestframework-csv
@@ -180,7 +180,7 @@ markupsafe==2.1.5
     # via
     #   -r requirements/base.txt
     #   jinja2
-newrelic==9.7.1
+newrelic==9.8.0
     # via
     #   -r requirements/base.txt
     #   edx-django-utils
@@ -248,7 +248,9 @@ python3-openid==3.2.0
     #   -r requirements/base.txt
     #   social-auth-core
 pytz==2024.1
-    # via babel
+    # via
+    #   -r requirements/base.txt
+    #   babel
 pyyaml==6.0.1
     # via
     #   -r requirements/base.txt
@@ -265,7 +267,7 @@ requests==2.31.0
     #   slumber
     #   social-auth-core
     #   sphinx
-requests-oauthlib==1.4.0
+requests-oauthlib==2.0.0
     # via
     #   -r requirements/base.txt
     #   social-auth-core

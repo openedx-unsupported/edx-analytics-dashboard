@@ -6,7 +6,7 @@
 #
 -e git+https://github.com/openedx/pinax-announcements.git@60a3fdf171b520d8593a9b2190d1c01a6614ab59#egg=pinax-announcements
     # via -r requirements/test.txt
-asgiref==3.7.2
+asgiref==3.8.1
     # via
     #   -r requirements/test.txt
     #   django
@@ -21,7 +21,7 @@ backports-zoneinfo==0.2.1
     #   -r requirements/test.txt
     #   django
     #   djangorestframework
-build==1.1.1
+build==1.2.1
     # via
     #   -r requirements/pip_tools.txt
     #   pip-tools
@@ -120,7 +120,7 @@ django-appconf==1.0.6
     # via -r requirements/test.txt
 django-braces==1.15.0
     # via -r requirements/test.txt
-django-countries==7.5.1
+django-countries==7.6
     # via -r requirements/test.txt
 django-crispy-forms==2.1
     # via -r requirements/test.txt
@@ -149,7 +149,7 @@ django-webpack-loader==0.7.0
     # via
     #   -c requirements/constraints.txt
     #   -r requirements/test.txt
-djangorestframework==3.15.0
+djangorestframework==3.15.1
     # via
     #   -r requirements/test.txt
     #   djangorestframework-csv
@@ -194,7 +194,7 @@ exceptiongroup==1.2.0
     # via
     #   -r requirements/test.txt
     #   pytest
-filelock==3.13.1
+filelock==3.13.3
     # via
     #   -r requirements/tox.txt
     #   tox
@@ -240,7 +240,7 @@ mccabe==0.7.0
     #   pylint
 mysqlclient==2.2.4
     # via -r requirements/local.in
-newrelic==9.7.1
+newrelic==9.8.0
     # via
     #   -r requirements/test.txt
     #   edx-django-utils
@@ -350,7 +350,7 @@ pytest==8.1.1
     #   -r requirements/test.txt
     #   pytest-cov
     #   pytest-django
-pytest-cov==4.1.0
+pytest-cov==5.0.0
     # via -r requirements/test.txt
 pytest-django==4.8.0
     # via -r requirements/test.txt
@@ -362,6 +362,8 @@ python3-openid==3.2.0
     # via
     #   -r requirements/test.txt
     #   social-auth-core
+pytz==2024.1
+    # via -r requirements/test.txt
 pyyaml==6.0.1
     # via
     #   -r requirements/test.txt
@@ -377,7 +379,7 @@ requests==2.31.0
     #   requests-oauthlib
     #   slumber
     #   social-auth-core
-requests-oauthlib==1.4.0
+requests-oauthlib==2.0.0
     # via
     #   -r requirements/test.txt
     #   social-auth-core
@@ -443,7 +445,7 @@ tomlkit==0.12.4
     # via
     #   -r requirements/test.txt
     #   pylint
-tox==4.14.1
+tox==4.14.2
     # via -r requirements/tox.txt
 typing-extensions==4.10.0
     # via

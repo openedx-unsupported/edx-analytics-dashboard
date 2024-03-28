@@ -6,7 +6,7 @@
 #
 -e git+https://github.com/openedx/pinax-announcements.git@60a3fdf171b520d8593a9b2190d1c01a6614ab59#egg=pinax-announcements
     # via -r requirements/base.in
-asgiref==3.7.2
+asgiref==3.8.1
     # via
     #   django
     #   django-countries
@@ -63,7 +63,7 @@ django-appconf==1.0.6
     # via -r requirements/base.in
 django-braces==1.15.0
     # via -r requirements/base.in
-django-countries==7.5.1
+django-countries==7.6
     # via -r requirements/base.in
 django-crispy-forms==2.1
     # via -r requirements/base.in
@@ -87,7 +87,7 @@ django-webpack-loader==0.7.0
     # via
     #   -c requirements/constraints.txt
     #   -r requirements/base.in
-djangorestframework==3.15.0
+djangorestframework==3.15.1
     # via
     #   -r requirements/base.in
     #   djangorestframework-csv
@@ -136,7 +136,7 @@ lxml==5.1.0
     # via edx-i18n-tools
 markupsafe==2.1.5
     # via jinja2
-newrelic==9.7.1
+newrelic==9.8.0
     # via edx-django-utils
 oauthlib==3.2.2
     # via
@@ -173,6 +173,8 @@ python-slugify==8.0.4
     #   code-annotations
 python3-openid==3.2.0
     # via social-auth-core
+pytz==2024.1
+    # via -r requirements/base.in
 pyyaml==6.0.1
     # via
     #   code-annotations
@@ -187,7 +189,7 @@ requests==2.31.0
     #   requests-oauthlib
     #   slumber
     #   social-auth-core
-requests-oauthlib==1.4.0
+requests-oauthlib==2.0.0
     # via social-auth-core
 semantic-version==2.10.0
     # via edx-drf-extensions
