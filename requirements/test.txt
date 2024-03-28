@@ -92,7 +92,7 @@ django-appconf==1.0.6
     # via -r requirements/base.txt
 django-braces==1.15.0
     # via -r requirements/base.txt
-django-countries==7.5.1
+django-countries==7.6
     # via -r requirements/base.txt
 django-crispy-forms==2.1
     # via -r requirements/base.txt
@@ -190,7 +190,7 @@ markupsafe==2.1.5
     #   jinja2
 mccabe==0.7.0
     # via pylint
-newrelic==9.7.1
+newrelic==9.8.0
     # via
     #   -r requirements/base.txt
     #   edx-django-utils
@@ -280,6 +280,8 @@ python3-openid==3.2.0
     # via
     #   -r requirements/base.txt
     #   social-auth-core
+pytz==2024.1
+    # via -r requirements/base.txt
 pyyaml==6.0.1
     # via
     #   -r requirements/base.txt

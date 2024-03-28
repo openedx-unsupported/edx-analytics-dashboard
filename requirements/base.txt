@@ -63,7 +63,7 @@ django-appconf==1.0.6
     # via -r requirements/base.in
 django-braces==1.15.0
     # via -r requirements/base.in
-django-countries==7.5.1
+django-countries==7.6
     # via -r requirements/base.in
 django-crispy-forms==2.1
     # via -r requirements/base.in
@@ -136,7 +136,7 @@ lxml==5.1.0
     # via edx-i18n-tools
 markupsafe==2.1.5
     # via jinja2
-newrelic==9.7.1
+newrelic==9.8.0
     # via edx-django-utils
 oauthlib==3.2.2
     # via
@@ -173,6 +173,8 @@ python-slugify==8.0.4
     #   code-annotations
 python3-openid==3.2.0
     # via social-auth-core
+pytz==2024.1
+    # via -r requirements/base.in
 pyyaml==6.0.1
     # via
     #   code-annotations

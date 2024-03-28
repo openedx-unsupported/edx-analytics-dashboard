@@ -21,7 +21,7 @@ backports-zoneinfo==0.2.1
     #   -r requirements/test.txt
     #   django
     #   djangorestframework
-build==1.1.1
+build==1.2.1
     # via
     #   -r requirements/pip_tools.txt
     #   pip-tools
@@ -120,7 +120,7 @@ django-appconf==1.0.6
     # via -r requirements/test.txt
 django-braces==1.15.0
     # via -r requirements/test.txt
-django-countries==7.5.1
+django-countries==7.6
     # via -r requirements/test.txt
 django-crispy-forms==2.1
     # via -r requirements/test.txt
@@ -240,7 +240,7 @@ mccabe==0.7.0
     #   pylint
 mysqlclient==2.2.4
     # via -r requirements/local.in
-newrelic==9.7.1
+newrelic==9.8.0
     # via
     #   -r requirements/test.txt
     #   edx-django-utils
@@ -362,6 +362,8 @@ python3-openid==3.2.0
     # via
     #   -r requirements/test.txt
     #   social-auth-core
+pytz==2024.1
+    # via -r requirements/test.txt
 pyyaml==6.0.1
     # via
     #   -r requirements/test.txt
