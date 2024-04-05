@@ -92,7 +92,7 @@ django-appconf==1.0.6
     # via -r requirements/base.txt
 django-braces==1.15.0
     # via -r requirements/base.txt
-django-countries==7.6
+django-countries==7.6.1
     # via -r requirements/base.txt
 django-crispy-forms==2.1
     # via -r requirements/base.txt
@@ -105,7 +105,7 @@ django-dynamic-fixture==4.0.1
     # via -r requirements/test.in
 django-lang-pref-middleware==1.3.0
     # via -r requirements/base.txt
-django-model-utils==4.4.0
+django-model-utils==4.5.0
     # via -r requirements/base.txt
 django-soapbox==1.6.1
     # via -r requirements/base.txt
@@ -133,19 +133,19 @@ drf-jwt==1.19.2
     #   edx-drf-extensions
 edx-analytics-data-api-client==0.18.3
     # via -r requirements/base.txt
-edx-auth-backends==4.2.0
+edx-auth-backends==4.3.0
     # via -r requirements/base.txt
 edx-ccx-keys==1.2.1
     # via -r requirements/base.txt
-edx-django-release-util==1.3.0
+edx-django-release-util==1.4.0
     # via -r requirements/base.txt
-edx-django-utils==5.11.0
+edx-django-utils==5.12.0
     # via
     #   -r requirements/base.txt
     #   edx-drf-extensions
     #   edx-rest-api-client
     #   edx-toggles
-edx-drf-extensions==10.2.0
+edx-drf-extensions==10.3.0
     # via -r requirements/base.txt
 edx-i18n-tools==1.3.0
     # via -r requirements/base.txt
@@ -180,7 +180,7 @@ libsass==0.23.0
     # via -r requirements/base.txt
 logutils==0.3.5
     # via -r requirements/base.txt
-lxml==5.1.0
+lxml==5.2.0
     # via
     #   -r requirements/base.txt
     #   edx-i18n-tools
@@ -226,7 +226,7 @@ psutil==5.9.8
     #   edx-django-utils
 pycodestyle==2.11.1
     # via -r requirements/test.in
-pycparser==2.21
+pycparser==2.22
     # via
     #   -r requirements/base.txt
     #   cffi
