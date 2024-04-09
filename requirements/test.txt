@@ -43,7 +43,7 @@ click==8.1.7
     #   edx-lint
 click-log==0.4.0
     # via edx-lint
-code-annotations==1.7.0
+code-annotations==1.8.0
     # via
     #   -r requirements/base.txt
     #   edx-lint
@@ -156,9 +156,9 @@ edx-opaque-keys==2.5.1
     #   -r requirements/base.txt
     #   edx-ccx-keys
     #   edx-drf-extensions
-edx-rest-api-client==5.6.1
+edx-rest-api-client==5.7.0
     # via -r requirements/base.txt
-edx-toggles==5.1.1
+edx-toggles==5.2.0
     # via -r requirements/base.txt
 exceptiongroup==1.2.0
     # via pytest
@@ -180,7 +180,7 @@ libsass==0.23.0
     # via -r requirements/base.txt
 logutils==0.3.5
     # via -r requirements/base.txt
-lxml==5.2.0
+lxml==5.2.1
     # via
     #   -r requirements/base.txt
     #   edx-i18n-tools
@@ -201,7 +201,7 @@ oauthlib==3.2.2
     #   social-auth-core
 packaging==24.0
     # via pytest
-path==16.10.0
+path==16.14.0
     # via
     #   -r requirements/base.txt
     #   edx-i18n-tools
@@ -350,7 +350,7 @@ tomli==2.0.1
     #   pytest
 tomlkit==0.12.4
     # via pylint
-typing-extensions==4.10.0
+typing-extensions==4.11.0
     # via
     #   -r requirements/base.txt
     #   asgiref

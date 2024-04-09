@@ -59,7 +59,7 @@ click-log==0.4.0
     # via
     #   -r requirements/test.txt
     #   edx-lint
-code-annotations==1.7.0
+code-annotations==1.8.0
     # via
     #   -r requirements/test.txt
     #   edx-lint
@@ -186,9 +186,9 @@ edx-opaque-keys==2.5.1
     #   -r requirements/test.txt
     #   edx-ccx-keys
     #   edx-drf-extensions
-edx-rest-api-client==5.6.1
+edx-rest-api-client==5.7.0
     # via -r requirements/test.txt
-edx-toggles==5.1.1
+edx-toggles==5.2.0
     # via -r requirements/test.txt
 exceptiongroup==1.2.0
     # via
@@ -226,7 +226,7 @@ libsass==0.23.0
     # via -r requirements/test.txt
 logutils==0.3.5
     # via -r requirements/test.txt
-lxml==5.2.0
+lxml==5.2.1
     # via
     #   -r requirements/test.txt
     #   edx-i18n-tools
@@ -258,7 +258,7 @@ packaging==24.0
     #   pyproject-api
     #   pytest
     #   tox
-path==16.10.0
+path==16.14.0
     # via
     #   -r requirements/test.txt
     #   edx-i18n-tools
@@ -447,7 +447,7 @@ tomlkit==0.12.4
     #   pylint
 tox==4.14.2
     # via -r requirements/tox.txt
-typing-extensions==4.10.0
+typing-extensions==4.11.0
     # via
     #   -r requirements/test.txt
     #   asgiref
