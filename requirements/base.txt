@@ -113,7 +113,7 @@ edx-django-utils==5.12.0
     #   edx-toggles
 edx-drf-extensions==10.3.0
     # via -r requirements/base.in
-edx-i18n-tools==1.3.0
+edx-i18n-tools==1.5.0
     # via -r requirements/base.in
 edx-opaque-keys==2.5.1
     # via
@@ -124,7 +124,7 @@ edx-rest-api-client==5.7.0
     # via -r requirements/base.in
 edx-toggles==5.2.0
     # via -r requirements/base.in
-idna==3.6
+idna==3.7
     # via requests
 jinja2==3.1.3
     # via code-annotations
@@ -208,7 +208,7 @@ social-auth-core==4.5.3
     # via
     #   edx-auth-backends
     #   social-auth-app-django
-sqlparse==0.4.4
+sqlparse==0.5.0
     # via django
 stevedore==5.2.0
     # via
