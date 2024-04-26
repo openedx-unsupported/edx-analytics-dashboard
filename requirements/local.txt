@@ -165,7 +165,7 @@ edx-analytics-data-api-client==0.18.3
     # via -r requirements/test.txt
 edx-auth-backends==4.3.0
     # via -r requirements/test.txt
-edx-ccx-keys==1.2.1
+edx-ccx-keys==1.3.0
     # via -r requirements/test.txt
 edx-django-release-util==1.4.0
     # via -r requirements/test.txt
@@ -181,7 +181,7 @@ edx-i18n-tools==1.5.0
     # via -r requirements/test.txt
 edx-lint==5.3.6
     # via -r requirements/test.txt
-edx-opaque-keys==2.5.1
+edx-opaque-keys==2.8.0
     # via
     #   -r requirements/test.txt
     #   edx-ccx-keys
@@ -190,7 +190,7 @@ edx-rest-api-client==5.7.0
     # via -r requirements/test.txt
 edx-toggles==5.2.0
     # via -r requirements/test.txt
-exceptiongroup==1.2.0
+exceptiongroup==1.2.1
     # via
     #   -r requirements/test.txt
     #   pytest
@@ -240,7 +240,7 @@ mccabe==0.7.0
     #   pylint
 mysqlclient==2.2.4
     # via -r requirements/local.in
-newrelic==9.8.0
+newrelic==9.9.0
     # via
     #   -r requirements/test.txt
     #   edx-django-utils
@@ -278,7 +278,7 @@ platformdirs==4.2.0
     #   pylint
     #   tox
     #   virtualenv
-pluggy==1.4.0
+pluggy==1.5.0
     # via
     #   -r requirements/test.txt
     #   -r requirements/tox.txt
@@ -460,7 +460,7 @@ urllib3==1.26.18
     #   -c requirements/constraints.txt
     #   -r requirements/test.txt
     #   requests
-virtualenv==20.25.1
+virtualenv==20.25.3
     # via
     #   -r requirements/tox.txt
     #   tox
