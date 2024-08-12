@@ -14,6 +14,7 @@ html_logo = "https://logos.openedx.org/open-edx-logo-color.png"
 html_favicon = "https://logos.openedx.org/open-edx-favicon.ico"
 
 html_theme_options = {
+ "announcement": "edX Insights is no longer supported by the Open edX community.<br><br>See <a href='https://docs.openedx.org/projects/openedx-aspects/en/latest/index.html'>Aspects</a> for the community-supported Open edX Analytics solution.",
  "repository_url": "https://github.com/openedx/edx-analytics-dashboard",
  "repository_branch": "master",
  "path_to_docs": "docs/en_us/dashboard/source",
