@@ -2,7 +2,7 @@ name: Default CI
 on:
   push:
     branches:
-      - master
+    - master
   pull_request:
 
 jobs:
@@ -10,68 +10,70 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        python-version: ["3.8"]
+        python-version:
+        - "3.8"
+        - '3.12'
         os: [ubuntu-20.04]
         toxenv: [django42]
         node: [16]
     env:
       DATA_API_VERSION: "latest"
     steps:
-      - name: setup python
-        uses: actions/setup-python@v2
-        with:
-          python-version: ${{ matrix.python-version }}
-      - name: Checkout
-        uses: actions/checkout@v2
-        with:
-          fetch-depth: 0
-      - name: start container
-        run: docker-compose -f .github/docker-compose-github.yml up -d
-      - name: setup analytics-api
-        run: |
-          docker exec analytics_api bash -c "
-          source /edx/app/analytics_api/venvs/analytics_api/bin/activate &&
-          pip install setuptools==68.2.2 &&
-          make -C /edx/app/analytics_api/analytics_api github_ci"
-      - name: install dependencies
-        run: pip install -r requirements/github.txt
-      - name: test quality
-        run: ./.github/scripts/testing.sh
-        shell: bash
-        env:
-          TESTNAME: quality
-          TARGETS: "quality"
-          TOXENV: ${{ matrix.toxenv }}
-      - name: test js
-        run: ./.github/scripts/testing-js.sh
-        shell: bash
-        env:
-          TESTNAME: js
-          NODE: ${{ matrix.node }}
-          TOXENV: ${{ matrix.toxenv }}
-          TARGETS: "requirements.js validate_js"
-      - name: test i18n
-        run: ./.github/scripts/testing.sh
-        shell: bash
-        env:
-          TESTNAME: test-i18n
-          TOXENV: ${{ matrix.toxenv }}
-          TARGETS: "generate_fake_translations"
-      - name: test acceptance
-        run: ./.github/scripts/testing-js.sh
-        shell: bash
-        env:
-          TESTNAME: acceptance
-          NODE: ${{ matrix.node }}
-          TOXENV: ${{ matrix.toxenv }}
-          TARGETS: "requirements.a11y migrate requirements.js static accept"
-      - name: test python
-        run: ./.github/scripts/testing-js.sh
-        shell: bash
-        env:
-          TESTNAME: test-python
-          NODE: ${{ matrix.node }}
-          TOXENV: ${{ matrix.toxenv }}
-          TARGETS: "requirements.js static test_python"
-      - name: code cov
-        uses: codecov/codecov-action@v3
+    - name: setup python
+      uses: actions/setup-python@v2
+      with:
+        python-version: ${{ matrix.python-version }}
+    - name: Checkout
+      uses: actions/checkout@v2
+      with:
+        fetch-depth: 0
+    - name: start container
+      run: docker-compose -f .github/docker-compose-github.yml up -d
+    - name: setup analytics-api
+      run: |
+        docker exec analytics_api bash -c "
+        source /edx/app/analytics_api/venvs/analytics_api/bin/activate &&
+        pip install setuptools==68.2.2 &&
+        make -C /edx/app/analytics_api/analytics_api github_ci"
+    - name: install dependencies
+      run: pip install -r requirements/github.txt
+    - name: test quality
+      run: ./.github/scripts/testing.sh
+      shell: bash
+      env:
+        TESTNAME: quality
+        TARGETS: "quality"
+        TOXENV: ${{ matrix.toxenv }}
+    - name: test js
+      run: ./.github/scripts/testing-js.sh
+      shell: bash
+      env:
+        TESTNAME: js
+        NODE: ${{ matrix.node }}
+        TOXENV: ${{ matrix.toxenv }}
+        TARGETS: "requirements.js validate_js"
+    - name: test i18n
+      run: ./.github/scripts/testing.sh
+      shell: bash
+      env:
+        TESTNAME: test-i18n
+        TOXENV: ${{ matrix.toxenv }}
+        TARGETS: "generate_fake_translations"
+    - name: test acceptance
+      run: ./.github/scripts/testing-js.sh
+      shell: bash
+      env:
+        TESTNAME: acceptance
+        NODE: ${{ matrix.node }}
+        TOXENV: ${{ matrix.toxenv }}
+        TARGETS: "requirements.a11y migrate requirements.js static accept"
+    - name: test python
+      run: ./.github/scripts/testing-js.sh
+      shell: bash
+      env:
+        TESTNAME: test-python
+        NODE: ${{ matrix.node }}
+        TOXENV: ${{ matrix.toxenv }}
+        TARGETS: "requirements.js static test_python"
+    - name: code cov
+      uses: codecov/codecov-action@v3
