@@ -13,7 +13,6 @@ jobs:
         python-version: ["3.8"]
         os: [ubuntu-20.04]
         toxenv: [django42]
-        node: [16]
     env:
       DATA_API_VERSION: "latest"
     steps:
@@ -42,12 +41,17 @@ jobs:
           TESTNAME: quality
           TARGETS: "quality"
           TOXENV: ${{ matrix.toxenv }}
+
+      - name: Setup Nodejs
+        uses: actions/setup-node@v3
+        with:
+          node-version-file: '.nvmrc'
+
       - name: test js
         run: ./.github/scripts/testing-js.sh
         shell: bash
         env:
           TESTNAME: js
-          NODE: ${{ matrix.node }}
           TOXENV: ${{ matrix.toxenv }}
           TARGETS: "requirements.js validate_js"
       - name: test i18n
@@ -62,7 +66,6 @@ jobs:
         shell: bash
         env:
           TESTNAME: acceptance
-          NODE: ${{ matrix.node }}
           TOXENV: ${{ matrix.toxenv }}
           TARGETS: "requirements.a11y migrate requirements.js static accept"
       - name: test python
@@ -70,7 +73,6 @@ jobs:
         shell: bash
         env:
           TESTNAME: test-python
-          NODE: ${{ matrix.node }}
           TOXENV: ${{ matrix.toxenv }}
           TARGETS: "requirements.js static test_python"
       - name: code cov
